@@ -134,15 +134,18 @@
       <p>2. Tap the link below to open the app manually:</p>
       <a href="#" id="app-link" class="link">Tap to Open ForFuture App</a>
       <p style="margin-top: 20px; font-size: 14px; color: rgba(255, 255, 255, 0.6);">
-        Or copy this URL and paste it in Safari to open the app:
+        <strong>For iOS Safari:</strong> Copy the URL below and paste it in Safari's address bar:
       </p>
-      <div style="position: relative; margin: 15px 0;">
-        <code id="app-url" style="margin-bottom: 10px; padding-right: 60px;"></code>
+      <div style="position: relative; margin: 15px 0; background: rgba(0, 0, 0, 0.2); padding: 10px; border-radius: 8px;">
+        <code id="app-url" style="margin-bottom: 10px; padding-right: 70px; display: block; word-break: break-all;"></code>
         <button id="copy-button" class="copy-btn" onclick="copyToClipboard()" title="Copy link">
           <span id="copy-icon">📋</span>
           <span id="copy-text">Copy</span>
         </button>
       </div>
+      <p style="margin-top: 10px; font-size: 12px; color: rgba(255, 255, 255, 0.5);">
+        After copying, open Safari → Tap address bar → Paste → Press Go
+      </p>
     </div>
     
     <div id="error" class="error">
