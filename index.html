@@ -37,17 +37,23 @@
     .link {
       display: inline-block;
       margin: 20px 0;
-      padding: 12px 24px;
+      padding: 16px 32px;
       background: rgba(0, 242, 254, 0.3);
-      border: 1px solid #00F2FE;
-      border-radius: 8px;
+      border: 2px solid #00F2FE;
+      border-radius: 12px;
       color: #00F2FE;
       text-decoration: none;
       font-weight: bold;
+      font-size: 18px;
       word-break: break-all;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      -webkit-tap-highlight-color: rgba(0, 242, 254, 0.5);
     }
-    .link:hover {
+    .link:hover,
+    .link:active {
       background: rgba(0, 242, 254, 0.5);
+      transform: scale(1.05);
     }
     .error {
       color: #ff6b6b;
@@ -83,6 +89,37 @@
       word-break: break-all;
       color: #00F2FE;
     }
+    .copy-btn {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 8px 16px;
+      background: rgba(0, 242, 254, 0.3);
+      border: 1px solid #00F2FE;
+      border-radius: 8px;
+      color: #00F2FE;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.3s ease;
+      -webkit-tap-highlight-color: rgba(0, 242, 254, 0.5);
+    }
+    .copy-btn:hover,
+    .copy-btn:active {
+      background: rgba(0, 242, 254, 0.5);
+      transform: scale(1.05);
+    }
+    .copy-btn.copied {
+      background: rgba(76, 175, 80, 0.3);
+      border-color: #4CAF50;
+      color: #4CAF50;
+    }
+    #copy-icon {
+      font-size: 16px;
+    }
   </style>
 </head>
 <body>
@@ -97,9 +134,15 @@
       <p>2. Tap the link below to open the app manually:</p>
       <a href="#" id="app-link" class="link">Tap to Open ForFuture App</a>
       <p style="margin-top: 20px; font-size: 14px; color: rgba(255, 255, 255, 0.6);">
-        Or copy this URL and open it in the app:
+        Or copy this URL and paste it in Safari to open the app:
       </p>
-      <code id="app-url"></code>
+      <div style="position: relative; margin: 15px 0;">
+        <code id="app-url" style="margin-bottom: 10px; padding-right: 60px;"></code>
+        <button id="copy-button" class="copy-btn" onclick="copyToClipboard()" title="Copy link">
+          <span id="copy-icon">📋</span>
+          <span id="copy-text">Copy</span>
+        </button>
+      </div>
     </div>
     
     <div id="error" class="error">
@@ -153,18 +196,40 @@
       
       if (appUrl) {
         // Set the link for manual tap
-        document.getElementById('app-link').href = appUrl;
-        document.getElementById('app-url').textContent = appUrl;
+        const linkEl = document.getElementById('app-link');
+        const urlEl = document.getElementById('app-url');
+        if (linkEl) linkEl.href = appUrl;
+        if (urlEl) urlEl.textContent = appUrl;
         
-        // Try to open app immediately
-        window.location.href = appUrl;
+        // Show instructions immediately (Safari blocks automatic redirects)
+        document.getElementById('instructions').classList.add('show');
+        document.querySelector('.spinner').style.display = 'none';
+        document.querySelector('p').textContent = 'Tap the link below to open the app:';
         
-        // If app doesn't open in 2 seconds, show instructions
+        // Try automatic redirect on iOS Safari (may not work due to security restrictions)
+        // Use window.location.replace for better compatibility
+        try {
+          // For iOS Safari, we need user interaction, but try anyway
+          window.location.replace(appUrl);
+        } catch (e) {
+          // Fallback if replace fails
+          console.log('Automatic redirect failed, showing manual link');
+        }
+        
+        // Also try opening via iframe trick (iOS Safari workaround)
         setTimeout(() => {
-          document.getElementById('instructions').classList.add('show');
-          document.querySelector('.spinner').style.display = 'none';
-          document.querySelector('p').textContent = 'Tap the link below to open the app:';
-        }, 2000);
+          try {
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            iframe.src = appUrl;
+            document.body.appendChild(iframe);
+            setTimeout(() => {
+              document.body.removeChild(iframe);
+            }, 1000);
+          } catch (e) {
+            // Ignore errors
+          }
+        }, 500);
       } else {
         // No valid token found
         document.getElementById('error').style.display = 'block';
@@ -172,13 +237,88 @@
         document.querySelector('p').style.display = 'none';
       }
       
-      // Also try to open app on click anywhere (fallback)
+      // Make entire page clickable as fallback
       document.addEventListener('click', function(e) {
-        if (appUrl && !e.target.closest('#app-link')) {
-          window.location.href = appUrl;
+        if (appUrl) {
+          // Only redirect if clicking on page itself (not on the link button or copy button)
+          if (e.target === document.body || e.target.closest('.container')) {
+            window.location.href = appUrl;
+          }
         }
       }, { once: true });
     })();
+
+    // Copy to clipboard function
+    function copyToClipboard() {
+      const appUrl = document.getElementById('app-url').textContent;
+      const copyButton = document.getElementById('copy-button');
+      const copyText = document.getElementById('copy-text');
+      const copyIcon = document.getElementById('copy-icon');
+      
+      if (!appUrl) {
+        alert('No URL to copy. Please wait for the page to load.');
+        return;
+      }
+      
+      // Try modern clipboard API first
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(appUrl).then(function() {
+          // Success
+          copyButton.classList.add('copied');
+          copyIcon.textContent = '✅';
+          copyText.textContent = 'Copied!';
+          
+          setTimeout(function() {
+            copyButton.classList.remove('copied');
+            copyIcon.textContent = '📋';
+            copyText.textContent = 'Copy';
+          }, 2000);
+        }).catch(function(err) {
+          // Fallback to manual copy
+          fallbackCopyToClipboard(appUrl);
+        });
+      } else {
+        // Fallback for older browsers
+        fallbackCopyToClipboard(appUrl);
+      }
+    }
+    
+    // Fallback copy method for older browsers
+    function fallbackCopyToClipboard(text) {
+      const textArea = document.createElement('textarea');
+      textArea.value = text;
+      textArea.style.position = 'fixed';
+      textArea.style.top = '-9999px';
+      textArea.style.left = '-9999px';
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      
+      try {
+        const successful = document.execCommand('copy');
+        if (successful) {
+          const copyButton = document.getElementById('copy-button');
+          const copyText = document.getElementById('copy-text');
+          const copyIcon = document.getElementById('copy-icon');
+          
+          copyButton.classList.add('copied');
+          copyIcon.textContent = '✅';
+          copyText.textContent = 'Copied!';
+          
+          setTimeout(function() {
+            copyButton.classList.remove('copied');
+            copyIcon.textContent = '📋';
+            copyText.textContent = 'Copy';
+          }, 2000);
+        } else {
+          alert('Failed to copy. Please manually select and copy the URL.');
+        }
+      } catch (err) {
+        alert('Failed to copy. Please manually select and copy the URL.');
+      } finally {
+        document.body.removeChild(textArea);
+      }
+    }
   </script>
 </body>
 </html>
