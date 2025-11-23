@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ForFuture Privacy Policy - Financial Planning and Budgeting App">
+    <title>Privacy Policy - ForFuture</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #0A0B1F;
+            margin-bottom: 10px;
+            font-size: 2em;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 0.9em;
+        }
+        
+        .language-selector {
+            margin-bottom: 30px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 6px;
+        }
+        
+        .language-selector button {
+            background: #0A0B1F;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            margin: 5px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+        
+        .language-selector button:hover {
+            background: #1a1b2f;
+        }
+        
+        .language-selector button.active {
+            background: #4a90e2;
+        }
+        
+        .policy-content {
+            display: none;
+        }
+        
+        .policy-content.active {
+            display: block;
+        }
+        
+        .policy-content h2 {
+            color: #0A0B1F;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+        }
+        
+        .policy-content h3 {
+            color: #333;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        .policy-content p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .policy-content ul, .policy-content ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .policy-content li {
+            margin-bottom: 8px;
+        }
+        
+        .contact-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 6px;
+            margin-top: 30px;
+            border-left: 4px solid #4a90e2;
+        }
+        
+        .contact-info strong {
+            color: #0A0B1F;
+        }
+        
+        .last-updated {
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 1.5em;
+            }
+            
+            .policy-content h2 {
+                font-size: 1.3em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ForFuture Privacy Policy</h1>
+        <p class="subtitle">Financial Planning and Budgeting App</p>
+        
+        <div class="language-selector">
+            <button onclick="showLanguage('en')" class="active" id="btn-en">English</button>
+            <button onclick="showLanguage('de')" id="btn-de">Deutsch</button>
+            <button onclick="showLanguage('uk')" id="btn-uk">Українська</button>
+        </div>
+        
+        <!-- English Version -->
+        <div id="policy-en" class="policy-content active">
+            <h2>1. Controller & Contact</h2>
+            <p><strong>ForFuture</strong> (Mobile App and Landing Page)</p>
+            <p><strong>Responsible person:</strong> Diana Barkova, Kastanienstraße 18, 40699 Erkrath, Germany</p>
+            <p><strong>E-mail:</strong> diana.barkova@gmail.com</p>
+            <p>(No data-protection officer appointed. For any privacy-related inquiries, please contact us by e-mail.)</p>
+            
+            <h2>2. Overview of Data Processing</h2>
+            <p>We process personal data only to provide and improve the ForFuture App, fulfil contractual obligations, offer requested services such as budgeting, missions and support, and comply with legal requirements. Data is disclosed to third parties only on a lawful basis (e.g. data-processing agreements).</p>
+            
+            <h2>3. Categories of Personal Data</h2>
+            <p><strong>Account Data:</strong> E-mail, password hash, language, optional profile settings (via Supabase Auth).</p>
+            <p><strong>Financial Data:</strong> Income and expense categories, budgets, variable expenses, savings history, completed months, receipt drafts, investments, portfolio entries, categories (including user-defined).</p>
+            <p><strong>Tasks & Progress:</strong> Missions, levels / XP, Lumars, questionnaire progress and answers, task history, rewards.</p>
+            <p><strong>Feedback & Support:</strong> Free-text feedback, metadata (timestamp, pseudonymised user ID).</p>
+            <p><strong>Device & App Settings (local):</strong> Language, design mode, notification toggles (stored locally in AsyncStorage / SecureStore).</p>
+            <p><strong>Usage Logs (technical):</strong> Limited Supabase logs for debugging; optional anonymous crash data via Firebase Crashlytics (if activated).</p>
+            <p><strong>Receipt OCR:</strong> Uploaded images / PDFs are temporarily processed by an Edge Function and transmitted to OCR.space for text recognition.</p>
+            <p>We do not process special categories of personal data within the meaning of Art. 9 GDPR.</p>
+            
+            <h2>4. Purposes & Legal Bases (Art. 6 GDPR)</h2>
+            <p><strong>Contract performance / pre-contractual steps (Art. 6 (1)(b)):</strong> Account management, budgeting, expense tracking, missions / gamification, OCR receipt processing, portfolio functions.</p>
+            <p><strong>Consent (Art. 6 (1)(a)):</strong> Push notifications, optional questionnaires or beta features, optional analytics. Consent may be withdrawn at any time with future effect.</p>
+            <p><strong>Legitimate interests (Art. 6 (1)(f)):</strong> Security, fraud prevention, service improvement, aggregated analytics, crash diagnostics — processed with strict data minimisation.</p>
+            <p><strong>Legal obligations (Art. 6 (1)(c)):</strong> Compliance with legal record-keeping and official requests.</p>
+            <p>No automated decision-making within the meaning of Art. 22 GDPR takes place. Gamification / Lumars levels have no legal or similar significant effect.</p>
+            
+            <h2>5. Recipients / Processors / International Transfers</h2>
+            <p>We use carefully selected processors under Art. 28 GDPR:</p>
+            <ul>
+                <li><strong>Supabase Inc. (EU / USA):</strong> Database, authentication, storage, Edge Functions — operated in the EU region (Frankfurt), encrypted in transit and at rest.</li>
+                <li><strong>OCR.space (Netherlands):</strong> Receipt text recognition via Edge Function; images transmitted in Base64 and deleted immediately after processing. Privacy: <a href="https://ocr.space/privacy" target="_blank">ocr.space/privacy</a></li>
+                <li><strong>Resend (USA / EU):</strong> Used to forward feedback e-mails to our support ("send-feedback-email" function).</li>
+                <li><strong>Push Services:</strong> Expo Notifications / Apple Push Notification Service / Firebase Cloud Messaging (processing device tokens & message metadata).</li>
+                <li><strong>Firebase Crashlytics (Google Ireland Ltd.):</strong> Anonymous or pseudonymised crash data (if enabled).</li>
+            </ul>
+            <p>Transfers to third countries (esp. USA) rely on Standard Contractual Clauses under Art. 46 GDPR and supplier DPAs. Copies of key safeguards are available upon request.</p>
+            
+            <h2>6. Storage Period & Erasure</h2>
+            <p><strong>Account, financial, mission, questionnaire data:</strong> kept until you delete your account or request deletion.</p>
+            <p><strong>Receipt images / PDFs:</strong> used only for temporary OCR processing, then immediately deleted.</p>
+            <p><strong>Notification tokens & local settings:</strong> retained until logout, token revocation or reinstallation.</p>
+            <p><strong>Logs / backups:</strong> per Supabase default (approx. 30–90 days).</p>
+            <p><strong>Support e-mails:</strong> deleted after issue resolution, usually within 12 months unless legal retention duties apply.</p>
+            
+            <h2>7. App Permissions</h2>
+            <p>The app may request Internet access, local storage, media / file access (uploads), document picker (PDF), camera (for receipt scanning/OCR) and push notifications. Permissions can be revoked in your device settings; some features may then be unavailable.</p>
+            
+            <h2>8. Your Rights (Art. 15–21 GDPR)</h2>
+            <p>You have the right to access, rectification, erasure, restriction, data portability, and objection to processing based on Art. 6 (1)(f) GDPR.</p>
+            <p>You may withdraw consent at any time.</p>
+            <p>To exercise your rights, contact diana.barkova@gmail.com.</p>
+            <p>You may lodge a complaint with a supervisory authority, e.g. the State Commissioner for Data Protection and Freedom of Information of North Rhine-Westphalia (LDI NRW) (Art. 77 GDPR).</p>
+            
+            <h2>9. Security</h2>
+            <p>We employ TLS encryption, Row-Level Security (RLS), least-privilege access, secure password hashing, API-key restrictions, Edge-Function monitoring, and role-based access control. Only authorised development staff can access user data. Measures are regularly reviewed and updated.</p>
+            
+            <h2>10. Minors</h2>
+            <p>The app is intended for adults. Use is permitted from age 16 and above (or higher per national law). We do not knowingly collect data from children under 16.</p>
+            
+            <h2>11. Cookies & Similar Technologies (Landing Page)</h2>
+            <p>Our website uses essential cookies (e.g. session, security). Optional cookies / tools (e.g. analytics) are used only with consent (Art. 6 (1)(a) GDPR). Details and storage times are listed in the cookie banner. Consent can be changed or withdrawn at any time.</p>
+            
+            <h2>12. Changes</h2>
+            <p>We may update this Privacy Policy to reflect feature or legal changes. The current version is always available within the app and on our website.</p>
+            
+            <div class="contact-info">
+                <p><strong>Contact:</strong> diana.barkova@gmail.com</p>
+            </div>
+        </div>
+        
+        <!-- German Version -->
+        <div id="policy-de" class="policy-content">
+            <h2>1. Verantwortliche Stelle & Kontakt</h2>
+            <p><strong>ForFuture</strong> (Mobile-App & Landingpage)</p>
+            <p><strong>Verantwortlich:</strong> Diana Barkova, Kastanienstraße 18, 40699 Erkrath, Deutschland</p>
+            <p><strong>E-Mail:</strong> diana.barkova@gmail.com</p>
+            <p>(Kein betrieblicher Datenschutzbeauftragter bestellt. Bei datenschutzbezogenen Anfragen kontaktieren Sie uns bitte per E-Mail.)</p>
+            
+            <h2>2. Überblick über die Datenverarbeitung</h2>
+            <p>Wir verarbeiten personenbezogene Daten, um die ForFuture-App bereitzustellen, zu verbessern, vertragliche Leistungen (z. B. Budget- & Missionsfunktionen) zu erbringen, Support anzubieten sowie gesetzlichen Pflichten nachzukommen. Eine Weitergabe an Dritte erfolgt ausschließlich auf Basis eines Rechtsgrundes (z. B. Auftragsverarbeitung).</p>
+            
+            <h2>3. Kategorien personenbezogener Daten</h2>
+            <p><strong>Kontodaten:</strong> E-Mail, Passwort-Hash, Sprache, optionale Profileinstellungen (über Supabase Auth).</p>
+            <p><strong>Finanzdaten:</strong> Einnahmen/Ausgaben-Kategorien, Budgets, variable Ausgaben, Sparhistorie, abgeschlossene Monate, Beleg-Entwürfe, Investitionen, Portfolio-Einträge, Kategorien (inkl. eigener Kategorien).</p>
+            <p><strong>Aufgaben & Fortschritt:</strong> Missionen, Level/XP, Lumars, Fragebogen-Fortschritt und Antworten, Aufgabenhistorie, Belohnungen.</p>
+            <p><strong>Feedback & Support:</strong> Freitexte, Metadaten (Zeitpunkt, pseudonymisierte Nutzer-ID).</p>
+            <p><strong>Geräte- & App-Einstellungen (lokal):</strong> Sprache, Designmodus, Benachrichtigungsschalter (lokal in AsyncStorage/SecureStore).</p>
+            <p><strong>Nutzungsprotokolle (technisch):</strong> begrenzte Supabase-Logs zur Fehlersuche; optionale Crash-/Fehlerdaten durch Firebase Crashlytics (falls aktiviert).</p>
+            <p><strong>Beleg-OCR:</strong> Bilder/PDFs werden temporär in einer Edge Function verarbeitet und an OCR.space zur Texterkennung übermittelt.</p>
+            <p>Wir verarbeiten keine besonderen Kategorien personenbezogener Daten i. S. d. Art. 9 DSGVO.</p>
+            
+            <h2>4. Zwecke & Rechtsgrundlagen (Art. 6 DSGVO)</h2>
+            <p><strong>Vertragserfüllung, vorvertragliche Maßnahmen (Art. 6 Abs. 1 b):</strong> Kontoverwaltung, Kernfunktionen (Budgetierung, Ausgaben, Missionen/Gamification), Beleg-/OCR-Verarbeitung, Portfolios.</p>
+            <p><strong>Einwilligung (Art. 6 Abs. 1 a):</strong> Push-Benachrichtigungen, optionale Fragebögen/Beta-Features, ggf. optionale Analysen. Einwilligungen sind jederzeit mit Wirkung für die Zukunft widerrufbar.</p>
+            <p><strong>Berechtigtes Interesse (Art. 6 Abs. 1 f):</strong> Sicherheit, Betrugs-/Missbrauchsprävention, Service-Verbesserung, aggregierte/nicht-personenbezogene Auswertungen, Stabilität (Crash-Daten). Interessenabwägung erfolgt zugunsten hoher Datensparsamkeit.</p>
+            <p><strong>Rechtspflichten (Art. 6 Abs. 1 c):</strong> Erfüllung gesetzlicher Auskunfts-/Aufbewahrungspflichten, behördliche Anfragen.</p>
+            <p>Keine automatisierten Entscheidungen i. S. v. Art. 22 DSGVO. Gamification/Level/Lumars haben keine rechtliche/ähnlich erhebliche Wirkung.</p>
+            
+            <h2>5. Empfänger, Auftragsverarbeiter & Drittlandübermittlungen</h2>
+            <p>Wir setzen sorgfältig ausgewählte Dienstleister (Auftragsverarbeiter, Art. 28 DSGVO) ein:</p>
+            <ul>
+                <li><strong>Supabase (Supabase Inc., EU/USA):</strong> Datenbank, Auth, Storage, Edge Functions. Betrieb im EU-Cluster (derzeit Frankfurt); Verschlüsselung in Transit/Ruhe.</li>
+                <li><strong>OCR.space (Niederlande):</strong> Texterkennung für Belege via Edge Function; Bilder werden als Base64 übertragen und nach Verarbeitung gelöscht. Datenschutz: <a href="https://ocr.space/privacy" target="_blank">ocr.space/privacy</a>.</li>
+                <li><strong>Resend (USA/EU):</strong> Versand von Feedback-E-Mails an den Support („send-feedback-email").</li>
+                <li><strong>Push-Dienste:</strong> Expo Notifications / Apple Push Notification Service / Firebase Cloud Messaging (Verarbeitung von Gerätetokens/Nachrichtenmetadaten).</li>
+                <li><strong>Firebase Crashlytics (Google Ireland Ltd.):</strong> anonyme/ pseudonymisierte Crash-Daten (falls aktiviert).</li>
+            </ul>
+            <p>Drittlandübermittlungen (insb. USA) erfolgen auf Grundlage geeigneter Garantien nach Art. 46 DSGVO (Standardvertragsklauseln) und vertraglicher Zusicherungen (DPA/ SCC). Kopien der wesentlichen Garantien können auf Anfrage bereitgestellt werden.</p>
+            
+            <h2>6. Speicherdauer & Löschung</h2>
+            <p><strong>Konto-, Finanz-, Missions-, Fragebogen-Daten:</strong> bis zur Kontolöschung oder bis Sie Löschung verlangen.</p>
+            <p><strong>Belegbilder/PDFs (OCR):</strong> nur für die temporäre Verarbeitung, anschließend unverzüglich gelöscht.</p>
+            <p><strong>Benachrichtigungstokens & lokale App-Einstellungen:</strong> bis Abmeldung, Token-Widerruf oder App-Neuinstallation.</p>
+            <p><strong>Protokolle/Backups:</strong> gemäß Supabase-Standardeinstellungen, i. d. R. 30–90 Tage; danach Löschung/Überschreibung.</p>
+            <p><strong>Support-/Feedback-E-Mails:</strong> nach Abschluss des Vorgangs, sofern keine gesetzlichen Pflichten entgegenstehen (i. d. R. bis zu 12 Monate).</p>
+            
+            <h2>7. App-Berechtigungen</h2>
+            <p>Die App kann Internet, lokalen Speicher, Medien-/Dateizugriff (Uploads), Dokumentenauswahl (PDF), Kamera (für Beleg-Scanning/OCR) sowie Push-Benachrichtigungen anfordern. Berechtigungen können Sie jederzeit in den Geräteeinstellungen widerrufen. Ohne bestimmte Berechtigungen stehen ggf. einzelne Funktionen nicht zur Verfügung.</p>
+            
+            <h2>8. Ihre Rechte (Art. 15–21 DSGVO)</h2>
+            <p>Sie haben Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit sowie Widerspruch gegen Verarbeitungen auf Basis von Art. 6 Abs. 1 f DSGVO.</p>
+            <p>Erteilte Einwilligungen können Sie jederzeit mit Wirkung für die Zukunft widerrufen.</p>
+            <p>Zur Ausübung Ihrer Rechte genügt eine Nachricht an diana.barkova@gmail.com.</p>
+            <p>Sie haben zudem das Recht auf Beschwerde bei einer Datenschutz-Aufsichtsbehörde, z. B. Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen (LDI NRW) (Art. 77 DSGVO).</p>
+            
+            <h2>9. Sicherheit</h2>
+            <p>Wir setzen TLS-Verschlüsselung, Row-Level Security (RLS), Least-Privilege-Zugriffe, sichere Passwort-Hashes, API-Key-Restriktionen, Monitoring von Edge Functions und rollenbasierte Zugriffskontrollen ein. Zugriffe sind auf das Entwicklungsteam beschränkt. Maßnahmen werden regelmäßig überprüft und verbessert.</p>
+            
+            <h2>10. Minderjährige</h2>
+            <p>Die App richtet sich an Volljährige. Eine Nutzung ist ab 16 Jahren (oder höher je nach nationalem Recht) vorgesehen. Wir erheben wissentlich keine Daten von Kindern unter 16 Jahren.</p>
+            
+            <h2>11. Cookies & ähnliche Technologien (Landingpage)</h2>
+            <p>Unsere Website verwendet essenzielle Cookies (z. B. Session, Sicherheit). Optionale Cookies/Tools (z. B. Reichweitenmessung) werden nur mit Einwilligung gesetzt (Art. 6 Abs. 1 a DSGVO). Details inkl. Anbieter, Zweck und Speicherdauer entnehmen Sie bitte dem Cookie-Banner bzw. der Cookie-Übersicht auf der Website. Einwilligungen können Sie dort jederzeit ändern/widerrufen.</p>
+            
+            <h2>12. Änderungen dieser Erklärung</h2>
+            <p>Bei Funktions-, Rechts- oder Anbieteränderungen passen wir diese Erklärung an. Die aktuelle Version ist jederzeit in der App und auf der Website verfügbar.</p>
+            
+            <div class="contact-info">
+                <p><strong>Kontakt:</strong> diana.barkova@gmail.com</p>
+            </div>
+        </div>
+        
+        <!-- Ukrainian Version -->
+        <div id="policy-uk" class="policy-content">
+            <h2>1. Відповідальна особа та контакт</h2>
+            <p><strong>ForFuture</strong> (мобільний додаток та лендінг-сторінка)</p>
+            <p><strong>Відповідальна особа:</strong> Діана Баркова, Kastanienstraße 18, 40699 Еркрах, Німеччина</p>
+            <p><strong>Е-mail:</strong> diana.barkova@gmail.com</p>
+            <p>(Окремий уповноважений із захисту даних не призначений. Для запитів щодо захисту даних пишіть на вказану адресу.)</p>
+            
+            <h2>2. Загальна інформація про обробку даних</h2>
+            <p>Ми обробляємо персональні дані лише для надання та покращення додатка ForFuture, виконання договорів, надання замовлених послуг (бюджетування, місії, підтримка) та виконання законодавчих вимог. Передача третім особам здійснюється лише на законних підставах (наприклад, договір обробки даних).</p>
+            
+            <h2>3. Категорії персональних даних</h2>
+            <p><strong>Дані облікового запису:</strong> електронна адреса, хеш пароля, мова, додаткові налаштування профілю (Supabase Auth).</p>
+            <p><strong>Фінансові дані:</strong> категорії доходів і витрат, бюджети, змінні витрати, історія заощаджень, закриті місяці, чернетки квитанцій, інвестиції, портфельні позиції, власні категорії.</p>
+            <p><strong>Завдання та прогрес:</strong> місії, рівні / досвід (XP), Lumars, опитування та відповіді, історія завдань, нагороди.</p>
+            <p><strong>Зворотний зв'язок і підтримка:</strong> текст повідомлення, метадані (час, псевдонімізований ID користувача).</p>
+            <p><strong>Налаштування пристрою та додатка (локально):</strong> мова, режим дизайну, сповіщення (AsyncStorage / SecureStore).</p>
+            <p><strong>Технічні журнали:</strong> обмежені логи Supabase для діагностики; за потреби анонімізовані дані про збої Firebase Crashlytics.</p>
+            <p><strong>Розпізнавання квитанцій (OCR):</strong> зображення / PDF тимчасово обробляються через Edge Function та передаються в OCR.space для розпізнавання тексту.</p>
+            <p>Ми не обробляємо особливі категорії даних за ст. 9 GDPR.</p>
+            
+            <h2>4. Цілі та правові підстави (ст. 6 GDPR)</h2>
+            <p><strong>Виконання договору (ст. 6 (1)(b)):</strong> керування акаунтом, бюджетування, місії, ігрові механіки (Lumars), обробка квитанцій, портфелі.</p>
+            <p><strong>Згода (ст. 6 (1)(a)):</strong> push-сповіщення, опитування, бета-функції, аналітика — з можливістю відкликання у будь-який час.</p>
+            <p><strong>Законний інтерес (ст. 6 (1)(f)):</strong> безпека, запобігання шахрайству, покращення сервісу, агрегований аналіз, стабільність.</p>
+            <p><strong>Юридичні зобов'язання (ст. 6 (1)(c)):</strong> виконання вимог законодавства та запитів органів влади.</p>
+            <p>Автоматизоване прийняття рішень (ст. 22 GDPR) не застосовується; ігрові елементи не мають правових наслідків.</p>
+            
+            <h2>5. Отримувачі та передача даних за кордон</h2>
+            <p>Ми залучаємо відповідальних постачальників (обробників даних) з відповідними договорами:</p>
+            <ul>
+                <li><strong>Supabase (EU / США)</strong> — база даних, аутентифікація, зберігання, Edge Functions (кластер Франкфурт, шифрування TLS).</li>
+                <li><strong>OCR.space (Нідерланди)</strong> — розпізнавання тексту; зображення передаються в Base64 і видаляються після обробки.</li>
+                <li><strong>Resend (США / ЄС)</strong> — надсилання листів із зворотним зв'язком до служби підтримки.</li>
+                <li><strong>Push-служби:</strong> Expo Notifications, Apple Push Notification Service, Firebase Cloud Messaging.</li>
+                <li><strong>Firebase Crashlytics (Google Ireland)</strong> — анонімізовані дані про збої.</li>
+            </ul>
+            <p>Передача до третіх країн (особливо США) базується на Стандартних договорах ЄС (ст. 46 GDPR) та угодах про обробку даних. Копії гарантій надаються за запитом.</p>
+            
+            <h2>6. Період зберігання та видалення</h2>
+            <p><strong>Дані облікового запису, фінансів, місій:</strong> зберігаються до видалення акаунта або запиту на видалення.</p>
+            <p><strong>Зображення / PDF квитанцій:</strong> використовуються лише для тимчасової обробки та негайно видаляються.</p>
+            <p><strong>Токени push-сповіщень і локальні налаштування:</strong> до виходу з акаунта або перевстановлення.</p>
+            <p><strong>Логи / резервні копії:</strong> 30–90 днів (за налаштуваннями Supabase).</p>
+            <p><strong>Листи служби підтримки:</strong> до 12 місяців після завершення звернення.</p>
+            
+            <h2>7. Дозволи додатка</h2>
+            <p>Додаток може запитувати доступ до Інтернету, локального сховища, медіафайлів (завантаження), вибору документів (PDF), камери (для сканування квитанцій/OCR) та push-сповіщень. Дозволи можна відкликати в налаштуваннях пристрою.</p>
+            
+            <h2>8. Ваші права (ст. 15–21 GDPR)</h2>
+            <p>Ви маєте права на: доступ, виправлення, видалення, обмеження обробки, перенесення даних та заперечення проти обробки (ст. 6 (1)(f)).</p>
+            <p>Згоду можна відкликати у будь-який час.</p>
+            <p>Звертайтесь: diana.barkova@gmail.com.</p>
+            <p>Скарги — до контролюючого органу, наприклад, Landesbeauftragte für Datenschutz NRW (Німеччина).</p>
+            
+            <h2>9. Безпека</h2>
+            <p>Застосовується TLS-шифрування, Row-Level Security, принцип мінімальних доступів, хешування паролів, обмеження API-ключів, моніторинг Edge Functions, рольовий контроль доступу. Доступ мають лише авторизовані розробники.</p>
+            
+            <h2>10. Неповнолітні</h2>
+            <p>Додаток призначений для повнолітніх. Використання дозволене з 16 років (або згідно національного права). Ми не збираємо дані дітей молодше 16 років.</p>
+            
+            <h2>11. Файли cookie та аналогічні технології (лендінг-сторінка)</h2>
+            <p>Вебсайт використовує необхідні cookie (сесія, безпека). Додаткові cookie / аналітика використовуються лише за згодою (ст. 6 (1)(a) GDPR). Згоду можна змінити або відкликати через банер cookie.</p>
+            
+            <h2>12. Зміни до політики</h2>
+            <p>Політика може оновлюватися при змінах функцій або законодавства.</p>
+            
+            <div class="contact-info">
+                <p><strong>Контакт:</strong> diana.barkova@gmail.com</p>
+            </div>
+        </div>
+        
+        <div class="last-updated">
+            <p><strong>Last Updated:</strong> November 10, 2025</p>
+        </div>
+    </div>
+    
+    <script>
+        function showLanguage(lang) {
+            // Hide all policy contents
+            document.querySelectorAll('.policy-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all buttons
+            document.querySelectorAll('.language-selector button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected language
+            document.getElementById('policy-' + lang).classList.add('active');
+            document.getElementById('btn-' + lang).classList.add('active');
+        }
+    </script>
+</body>
+</html>
