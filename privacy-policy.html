@@ -15,28 +15,40 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: #f5f5f5;
+            color: #FFFFFF;
+            background: #0A0B1F;
             padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .logo-container {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-top: 20px;
+        }
+        
+        .logo-container img {
+            max-width: 240px;
+            height: auto;
         }
         
         .container {
             max-width: 900px;
             margin: 0 auto;
-            background: white;
+            background: #181A20;
             padding: 40px;
             border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
         
         h1 {
-            color: #0A0B1F;
+            color: #FFFFFF;
             margin-bottom: 10px;
             font-size: 2em;
         }
         
         .subtitle {
-            color: #666;
+            color: #999;
             margin-bottom: 30px;
             font-size: 0.9em;
         }
@@ -44,27 +56,32 @@
         .language-selector {
             margin-bottom: 30px;
             padding: 15px;
-            background: #f8f9fa;
+            background: #1E1F26;
             border-radius: 6px;
+            border: 1px solid #333;
         }
         
         .language-selector button {
-            background: #0A0B1F;
+            background: #2A2B35;
             color: white;
-            border: none;
+            border: 1px solid #444;
             padding: 8px 16px;
             margin: 5px;
             border-radius: 4px;
             cursor: pointer;
             font-size: 0.9em;
+            transition: all 0.3s;
         }
         
         .language-selector button:hover {
-            background: #1a1b2f;
+            background: #3A3B45;
+            border-color: #555;
         }
         
         .language-selector button.active {
-            background: #4a90e2;
+            background: #000;
+            border-color: #000;
+            font-weight: bold;
         }
         
         .policy-content {
@@ -76,16 +93,16 @@
         }
         
         .policy-content h2 {
-            color: #0A0B1F;
+            color: #FFFFFF;
             margin-top: 30px;
             margin-bottom: 15px;
             font-size: 1.5em;
-            border-bottom: 2px solid #e0e0e0;
+            border-bottom: 2px solid #000;
             padding-bottom: 10px;
         }
         
         .policy-content h3 {
-            color: #333;
+            color: #FFFFFF;
             margin-top: 20px;
             margin-bottom: 10px;
             font-size: 1.2em;
@@ -94,6 +111,7 @@
         .policy-content p {
             margin-bottom: 15px;
             text-align: justify;
+            color: #DDD;
         }
         
         .policy-content ul, .policy-content ol {
@@ -103,26 +121,45 @@
         
         .policy-content li {
             margin-bottom: 8px;
+            color: #DDD;
+        }
+        
+        .policy-content a {
+            color: #FFFFFF;
+            text-decoration: underline;
+        }
+        
+        .policy-content a:hover {
+            color: #CCC;
+        }
+        
+        .policy-content strong {
+            color: #FFFFFF;
         }
         
         .contact-info {
-            background: #f8f9fa;
+            background: #1E1F26;
             padding: 20px;
             border-radius: 6px;
             margin-top: 30px;
-            border-left: 4px solid #4a90e2;
+            border-left: 4px solid #000;
+            border: 1px solid #333;
         }
         
         .contact-info strong {
-            color: #0A0B1F;
+            color: #FFFFFF;
+        }
+        
+        .contact-info p {
+            color: #DDD;
         }
         
         .last-updated {
-            color: #666;
+            color: #999;
             font-size: 0.9em;
             margin-top: 30px;
             padding-top: 20px;
-            border-top: 1px solid #e0e0e0;
+            border-top: 1px solid #333;
         }
         
         @media (max-width: 768px) {
@@ -141,6 +178,9 @@
     </style>
 </head>
 <body>
+    <div class="logo-container">
+        <img src="https://raw.githubusercontent.com/sanyagerua/ForFuture/main/assets/images/logo_bg.png" alt="ForFuture Logo" onerror="this.style.display='none'">
+    </div>
     <div class="container">
         <h1>ForFuture Privacy Policy</h1>
         <p class="subtitle">Financial Planning and Budgeting App</p>
@@ -203,14 +243,14 @@
             <h2>8. Your Rights (Art. 15–21 GDPR)</h2>
             <p>You have the right to access, rectification, erasure, restriction, data portability, and objection to processing based on Art. 6 (1)(f) GDPR.</p>
             <p>You may withdraw consent at any time.</p>
-            <p>To exercise your rights, contact diana.@gmail.com.</p>
+            <p>To exercise your rights, contact diana.iglizn@gmail.com.</p>
             <p>You may lodge a complaint with a supervisory authority, e.g. the State Commissioner for Data Protection and Freedom of Information of North Rhine-Westphalia (LDI NRW) (Art. 77 GDPR).</p>
             
             <h2>9. Security</h2>
             <p>We employ TLS encryption, Row-Level Security (RLS), least-privilege access, secure password hashing, API-key restrictions, Edge-Function monitoring, and role-based access control. Only authorised development staff can access user data. Measures are regularly reviewed and updated.</p>
             
             <h2>10. Minors</h2>
-            <p>The app is intended for adults. Use is permitted from age 16 and above (or higher per national law). We do not knowingly collect data from children under 16.</p>
+            <p>The app is intended for adults and is not directed to children under the age of 16. Use is permitted from age 16 and above (or higher per national law). We do not knowingly collect data from children under 16. If you are under 16 years of age, you may not use this app. By using the app, you confirm that you are at least 16 years old.</p>
             
             <h2>11. Cookies & Similar Technologies (Landing Page)</h2>
             <p>Our website uses essential cookies (e.g. session, security). Optional cookies / tools (e.g. analytics) are used only with consent (Art. 6 (1)(a) GDPR). Details and storage times are listed in the cookie banner. Consent can be changed or withdrawn at any time.</p>
@@ -219,7 +259,7 @@
             <p>We may update this Privacy Policy to reflect feature or legal changes. The current version is always available within the app and on our website.</p>
             
             <div class="contact-info">
-                <p><strong>Contact:</strong> diana.@gmail.com</p>
+                <p><strong>Contact:</strong> diana.iglizn@gmail.com</p>
             </div>
         </div>
         
@@ -228,7 +268,7 @@
             <h2>1. Verantwortliche Stelle & Kontakt</h2>
             <p><strong>ForFuture</strong> (Mobile-App & Landingpage)</p>
             <p><strong>Verantwortlich:</strong> Diana Barkova, Kastanienstraße 18, 40699 Erkrath, Deutschland</p>
-            <p><strong>E-Mail:</strong> diana.@gmail.com</p>
+            <p><strong>E-Mail:</strong> diana.iglizn@gmail.com</p>
             <p>(Kein betrieblicher Datenschutzbeauftragter bestellt. Bei datenschutzbezogenen Anfragen kontaktieren Sie uns bitte per E-Mail.)</p>
             
             <h2>2. Überblick über die Datenverarbeitung</h2>
@@ -275,14 +315,14 @@
             <h2>8. Ihre Rechte (Art. 15–21 DSGVO)</h2>
             <p>Sie haben Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit sowie Widerspruch gegen Verarbeitungen auf Basis von Art. 6 Abs. 1 f DSGVO.</p>
             <p>Erteilte Einwilligungen können Sie jederzeit mit Wirkung für die Zukunft widerrufen.</p>
-            <p>Zur Ausübung Ihrer Rechte genügt eine Nachricht an diana.Iglizn@gmail.com.</p>
+            <p>Zur Ausübung Ihrer Rechte genügt eine Nachricht an diana.iglizn@gmail.com.</p>
             <p>Sie haben zudem das Recht auf Beschwerde bei einer Datenschutz-Aufsichtsbehörde, z. B. Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen (LDI NRW) (Art. 77 DSGVO).</p>
             
             <h2>9. Sicherheit</h2>
             <p>Wir setzen TLS-Verschlüsselung, Row-Level Security (RLS), Least-Privilege-Zugriffe, sichere Passwort-Hashes, API-Key-Restriktionen, Monitoring von Edge Functions und rollenbasierte Zugriffskontrollen ein. Zugriffe sind auf das Entwicklungsteam beschränkt. Maßnahmen werden regelmäßig überprüft und verbessert.</p>
             
             <h2>10. Minderjährige</h2>
-            <p>Die App richtet sich an Volljährige. Eine Nutzung ist ab 16 Jahren (oder höher je nach nationalem Recht) vorgesehen. Wir erheben wissentlich keine Daten von Kindern unter 16 Jahren.</p>
+            <p>Die App richtet sich an Volljährige und ist nicht für Kinder unter 16 Jahren bestimmt. Eine Nutzung ist ab 16 Jahren (oder höher je nach nationalem Recht) vorgesehen. Wir erheben wissentlich keine Daten von Kindern unter 16 Jahren. Wenn Sie unter 16 Jahre alt sind, dürfen Sie diese App nicht nutzen. Durch die Nutzung der App bestätigen Sie, dass Sie mindestens 16 Jahre alt sind.</p>
             
             <h2>11. Cookies & ähnliche Technologien (Landingpage)</h2>
             <p>Unsere Website verwendet essenzielle Cookies (z. B. Session, Sicherheit). Optionale Cookies/Tools (z. B. Reichweitenmessung) werden nur mit Einwilligung gesetzt (Art. 6 Abs. 1 a DSGVO). Details inkl. Anbieter, Zweck und Speicherdauer entnehmen Sie bitte dem Cookie-Banner bzw. der Cookie-Übersicht auf der Website. Einwilligungen können Sie dort jederzeit ändern/widerrufen.</p>
@@ -291,7 +331,7 @@
             <p>Bei Funktions-, Rechts- oder Anbieteränderungen passen wir diese Erklärung an. Die aktuelle Version ist jederzeit in der App und auf der Website verfügbar.</p>
             
             <div class="contact-info">
-                <p><strong>Kontakt:</strong> diana.Iglizn@gmail.com</p>
+                <p><strong>Kontakt:</strong> diana.iglizn@gmail.com</p>
             </div>
         </div>
         
@@ -300,7 +340,7 @@
             <h2>1. Відповідальна особа та контакт</h2>
             <p><strong>ForFuture</strong> (мобільний додаток та лендінг-сторінка)</p>
             <p><strong>Відповідальна особа:</strong> Діана Баркова, Kastanienstraße 18, 40699 Еркрах, Німеччина</p>
-            <p><strong>Е-mail:</strong> diana.Iglizn@gmail.com</p>
+            <p><strong>Е-mail:</strong> diana.iglizn@gmail.com</p>
             <p>(Окремий уповноважений із захисту даних не призначений. Для запитів щодо захисту даних пишіть на вказану адресу.)</p>
             
             <h2>2. Загальна інформація про обробку даних</h2>
@@ -347,14 +387,14 @@
             <h2>8. Ваші права (ст. 15–21 GDPR)</h2>
             <p>Ви маєте права на: доступ, виправлення, видалення, обмеження обробки, перенесення даних та заперечення проти обробки (ст. 6 (1)(f)).</p>
             <p>Згоду можна відкликати у будь-який час.</p>
-            <p>Звертайтесь: diana.Iglizn@gmail.com.</p>
+            <p>Звертайтесь: diana.iglizn@gmail.com.</p>
             <p>Скарги — до контролюючого органу, наприклад, Landesbeauftragte für Datenschutz NRW (Німеччина).</p>
             
             <h2>9. Безпека</h2>
             <p>Застосовується TLS-шифрування, Row-Level Security, принцип мінімальних доступів, хешування паролів, обмеження API-ключів, моніторинг Edge Functions, рольовий контроль доступу. Доступ мають лише авторизовані розробники.</p>
             
             <h2>10. Неповнолітні</h2>
-            <p>Додаток призначений для повнолітніх. Використання дозволене з 16 років (або згідно національного права). Ми не збираємо дані дітей молодше 16 років.</p>
+            <p>Додаток призначений для повнолітніх і не призначений для дітей віком до 16 років. Використання дозволене з 16 років (або згідно національного права). Ми не збираємо дані дітей молодше 16 років. Якщо вам менше 16 років, ви не можете використовувати цей додаток. Використовуючи додаток, ви підтверджуєте, що вам виповнилося принаймні 16 років.</p>
             
             <h2>11. Файли cookie та аналогічні технології (лендінг-сторінка)</h2>
             <p>Вебсайт використовує необхідні cookie (сесія, безпека). Додаткові cookie / аналітика використовуються лише за згодою (ст. 6 (1)(a) GDPR). Згоду можна змінити або відкликати через банер cookie.</p>
@@ -363,7 +403,7 @@
             <p>Політика може оновлюватися при змінах функцій або законодавства.</p>
             
             <div class="contact-info">
-                <p><strong>Контакт:</strong> diana.Iglizn@gmail.com</p>
+                <p><strong>Контакт:</strong> diana.iglizn@gmail.com</p>
             </div>
         </div>
         
