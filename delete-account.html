@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ForFuture - Request Account and Data Deletion">
+    <title>Delete Account - ForFuture</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #0A0B1F;
+            margin-bottom: 10px;
+            font-size: 2em;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 0.9em;
+        }
+        
+        .language-selector {
+            margin-bottom: 30px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 6px;
+        }
+        
+        .language-selector button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            margin: 0 5px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .language-selector button:hover {
+            background: #0056b3;
+        }
+        
+        .language-selector button.active {
+            background: #0056b3;
+            font-weight: bold;
+        }
+        
+        .content {
+            display: none;
+        }
+        
+        .content.active {
+            display: block;
+        }
+        
+        h2 {
+            color: #0A0B1F;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+            border-bottom: 2px solid #00F2FE;
+            padding-bottom: 10px;
+        }
+        
+        h3 {
+            color: #0A0B1F;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .info-box {
+            background: #d1ecf1;
+            border-left: 4px solid #00F2FE;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .step-box {
+            background: #f8f9fa;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        
+        .step-number {
+            display: inline-block;
+            background: #28a745;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+        
+        .contact-info {
+            background: #e9ecef;
+            padding: 20px;
+            border-radius: 6px;
+            margin-top: 30px;
+        }
+        
+        .contact-info a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        
+        .app-name {
+            color: #00F2FE;
+            font-weight: bold;
+        }
+        
+        .developer-name {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Account & Data Deletion Request</h1>
+        <p class="subtitle">ForFuture - Financial Planning and Budgeting App</p>
+        
+        <div class="language-selector">
+            <button onclick="showLanguage('en')" class="active" id="btn-en">English</button>
+            <button onclick="showLanguage('de')" id="btn-de">Deutsch</button>
+            <button onclick="showLanguage('uk')" id="btn-uk">Українська</button>
+        </div>
+        
+        <!-- English Content -->
+        <div id="content-en" class="content active">
+            <div class="info-box">
+                <p><strong>Developer:</strong> <span class="developer-name">Diana Barkova</span></p>
+                <p><strong>App Name:</strong> <span class="app-name">ForFuture</span></p>
+                <p><strong>Contact:</strong> <a href="mailto:diana.iglizn@gmail.com">diana.iglizn@gmail.com</a></p>
+            </div>
+            
+            <h2>How to Request Account and Data Deletion</h2>
+            
+            <p>You can request the deletion of your <span class="app-name">ForFuture</span> account and all associated data at any time. This process is permanent and cannot be undone.</p>
+            
+            <div class="step-box">
+                <h3><span class="step-number">1</span>Delete Account via App (Recommended)</h3>
+                <ol>
+                    <li>Open the <span class="app-name">ForFuture</span> app on your device</li>
+                    <li>Navigate to: <strong>Profile</strong> → <strong>Personal Information</strong> → <strong>Delete Account</strong></li>
+                    <li>Confirm that you want to delete your account</li>
+                    <li>Your account and all data will be deleted immediately</li>
+                </ol>
+            </div>
+            
+            <div class="step-box">
+                <h3><span class="step-number">2</span>Request Deletion via Email</h3>
+                <p>If you cannot access the app, you can request account deletion by email:</p>
+                <ol>
+                    <li>Send an email to: <a href="mailto:diana.iglizn@gmail.com">diana.iglizn@gmail.com</a></li>
+                    <li>Subject: "Account Deletion Request - ForFuture"</li>
+                    <li>Include your registered email address</li>
+                    <li>We will process your request within 30 days</li>
+                </ol>
+            </div>
+            
+            <h2>What Data Will Be Deleted?</h2>
+            
+            <p>When you delete your account, <strong>all</strong> of the following data will be permanently deleted:</p>
+            
+            <ul>
+                <li><strong>Account Data:</strong> Email address, password hash, language preferences, profile settings</li>
+                <li><strong>Financial Data:</strong> All income sources, expenses, budgets, savings history, closed months, financial goals</li>
+                <li><strong>Progress Data:</strong> Missions, levels, XP, Lumars, task progress, questionnaire responses and history</li>
+                <li><strong>User Content:</strong> Custom categories, receipt drafts, feedback, notes</li>
+                <li><strong>Portfolio Data:</strong> Investment entries, portfolio transactions</li>
+                <li><strong>All Related Data:</strong> Any other data associated with your account</li>
+            </ul>
+            
+            <div class="warning-box">
+                <p><strong>⚠️ Important:</strong> This action is permanent and cannot be undone. All your financial data, progress, and account information will be permanently deleted.</p>
+            </div>
+            
+            <h2>What Data Will Be Retained?</h2>
+            
+            <p>We do <strong>not</strong> retain any personal data after account deletion. However, the following may be retained for legal or technical reasons:</p>
+            
+            <ul>
+                <li><strong>Backup Data:</strong> May be retained for up to 90 days in encrypted backups (Supabase standard retention period)</li>
+                <li><strong>Anonymized Logs:</strong> Technical logs that cannot be linked to your identity may be retained for system maintenance</li>
+            </ul>
+            
+            <h2>GDPR Rights</h2>
+            
+            <p>Under GDPR Article 17 (Right to Erasure), you have the right to request deletion of your personal data. We comply with all GDPR requirements and will process your deletion request promptly.</p>
+            
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <p><strong>Developer:</strong> Diana Barkova</p>
+                <p><strong>Email:</strong> <a href="mailto:diana.iglizn@gmail.com">diana.iglizn@gmail.com</a></p>
+                <p><strong>Address:</strong> Kastanienstraße 18, 40699 Erkrath, Germany</p>
+                <p><strong>Privacy Policy:</strong> <a href="https://sanyagerua.github.io/forfuture-redirect/privacy-policy.html">View Privacy Policy</a></p>
+            </div>
+        </div>
+        
+        <!-- German Content -->
+        <div id="content-de" class="content">
+            <div class="info-box">
+                <p><strong>Entwickler:</strong> <span class="developer-name">Diana Barkova</span></p>
+                <p><strong>App-Name:</strong> <span class="app-name">ForFuture</span></p>
+                <p><strong>Kontakt:</strong> <a href="mailto:diana.iglizn@gmail.com">diana.iglizn@gmail.com</a></p>
+            </div>
+            
+            <h2>So fordern Sie die Löschung von Konto und Daten an</h2>
+            
+            <p>Sie können jederzeit die Löschung Ihres <span class="app-name">ForFuture</span>-Kontos und aller zugehörigen Daten anfordern. Dieser Vorgang ist dauerhaft und kann nicht rückgängig gemacht werden.</p>
+            
+            <div class="step-box">
+                <h3><span class="step-number">1</span>Konto über die App löschen (Empfohlen)</h3>
+                <ol>
+                    <li>Öffnen Sie die <span class="app-name">ForFuture</span>-App auf Ihrem Gerät</li>
+                    <li>Navigieren Sie zu: <strong>Profil</strong> → <strong>Persönliche Informationen</strong> → <strong>Konto löschen</strong></li>
+                    <li>Bestätigen Sie, dass Sie Ihr Konto löschen möchten</li>
+                    <li>Ihr Konto und alle Daten werden sofort gelöscht</li>
+                </ol>
+            </div>
+            
+            <div class="step-box">
+                <h3><span class="step-number">2</span>Löschung per E-Mail anfordern</h3>
+                <p>Wenn Sie nicht auf die App zugreifen können, können Sie die Kontolöschung per E-Mail anfordern:</p>
+                <ol>
+                    <li>Senden Sie eine E-Mail an: <a href="mailto:diana.iglizn@gmail.com">diana.iglizn@gmail.com</a></li>
+                    <li>Betreff: "Kontolöschung - ForFuture"</li>
+                    <li>Geben Sie Ihre registrierte E-Mail-Adresse an</li>
+                    <li>Wir bearbeiten Ihre Anfrage innerhalb von 30 Tagen</li>
+                </ol>
+            </div>
+            
+            <h2>Welche Daten werden gelöscht?</h2>
+            
+            <p>Wenn Sie Ihr Konto löschen, werden <strong>alle</strong> folgenden Daten dauerhaft gelöscht:</p>
+            
+            <ul>
+                <li><strong>Kontodaten:</strong> E-Mail-Adresse, Passwort-Hash, Spracheinstellungen, Profileinstellungen</li>
+                <li><strong>Finanzdaten:</strong> Alle Einkommensquellen, Ausgaben, Budgets, Sparhistorie, abgeschlossene Monate, finanzielle Ziele</li>
+                <li><strong>Fortschrittsdaten:</strong> Missionen, Level, XP, Lumars, Aufgabenfortschritt, Fragebogen-Antworten und -Historie</li>
+                <li><strong>Nutzerinhalte:</strong> Eigene Kategorien, Beleg-Entwürfe, Feedback, Notizen</li>
+                <li><strong>Portfolio-Daten:</strong> Investitionseinträge, Portfolio-Transaktionen</li>
+                <li><strong>Alle zugehörigen Daten:</strong> Alle anderen mit Ihrem Konto verbundenen Daten</li>
+            </ul>
+            
+            <div class="warning-box">
+                <p><strong>⚠️ Wichtig:</strong> Diese Aktion ist dauerhaft und kann nicht rückgängig gemacht werden. Alle Ihre Finanzdaten, Fortschritte und Kontoinformationen werden dauerhaft gelöscht.</p>
+            </div>
+            
+            <h2>Welche Daten werden aufbewahrt?</h2>
+            
+            <p>Wir bewahren <strong>keine</strong> personenbezogenen Daten nach der Kontolöschung auf. Folgendes kann jedoch aus rechtlichen oder technischen Gründen aufbewahrt werden:</p>
+            
+            <ul>
+                <li><strong>Backup-Daten:</strong> Können bis zu 90 Tage in verschlüsselten Backups aufbewahrt werden (Supabase Standard-Aufbewahrungsfrist)</li>
+                <li><strong>Anonymisierte Logs:</strong> Technische Logs, die nicht mit Ihrer Identität verknüpft werden können, können für die Systemwartung aufbewahrt werden</li>
+            </ul>
+            
+            <h2>DSGVO-Rechte</h2>
+            
+            <p>Gemäß DSGVO Artikel 17 (Recht auf Löschung) haben Sie das Recht, die Löschung Ihrer personenbezogenen Daten zu verlangen. Wir erfüllen alle DSGVO-Anforderungen und bearbeiten Ihre Löschungsanfrage umgehend.</p>
+            
+            <div class="contact-info">
+                <h3>Kontaktinformationen</h3>
+                <p><strong>Entwickler:</strong> Diana Barkova</p>
+                <p><strong>E-Mail:</strong> <a href="mailto:diana.iglizn@gmail.com">diana.iglizn@gmail.com</a></p>
+                <p><strong>Adresse:</strong> Kastanienstraße 18, 40699 Erkrath, Deutschland</p>
+                <p><strong>Datenschutzerklärung:</strong> <a href="https://sanyagerua.github.io/forfuture-redirect/privacy-policy.html">Datenschutzerklärung anzeigen</a></p>
+            </div>
+        </div>
+        
+        <!-- Ukrainian Content -->
+        <div id="content-uk" class="content">
+            <div class="info-box">
+                <p><strong>Розробник:</strong> <span class="developer-name">Діана Баркова</span></p>
+                <p><strong>Назва додатку:</strong> <span class="app-name">ForFuture</span></p>
+                <p><strong>Контакт:</strong> <a href="mailto:diana.iglizn@gmail.com">diana.iglizn@gmail.com</a></p>
+            </div>
+            
+            <h2>Як запитати видалення облікового запису та даних</h2>
+            
+            <p>Ви можете в будь-який час запитати видалення вашого облікового запису <span class="app-name">ForFuture</span> та всіх пов'язаних даних. Цей процес є постійним і не може бути скасований.</p>
+            
+            <div class="step-box">
+                <h3><span class="step-number">1</span>Видалити обліковий запис через додаток (Рекомендовано)</h3>
+                <ol>
+                    <li>Відкрийте додаток <span class="app-name">ForFuture</span> на вашому пристрої</li>
+                    <li>Перейдіть до: <strong>Профіль</strong> → <strong>Особиста інформація</strong> → <strong>Видалити обліковий запис</strong></li>
+                    <li>Підтвердіть, що ви хочете видалити свій обліковий запис</li>
+                    <li>Ваш обліковий запис та всі дані будуть видалені негайно</li>
+                </ol>
+            </div>
+            
+            <div class="step-box">
+                <h3><span class="step-number">2</span>Запитати видалення електронною поштою</h3>
+                <p>Якщо ви не можете отримати доступ до додатку, ви можете запитати видалення облікового запису електронною поштою:</p>
+                <ol>
+                    <li>Надішліть електронний лист на: <a href="mailto:diana.iglizn@gmail.com">diana.iglizn@gmail.com</a></li>
+                    <li>Тема: "Запит на видалення облікового запису - ForFuture"</li>
+                    <li>Вкажіть вашу зареєстровану електронну адресу</li>
+                    <li>Ми обробимо ваш запит протягом 30 днів</li>
+                </ol>
+            </div>
+            
+            <h2>Які дані будуть видалені?</h2>
+            
+            <p>Коли ви видаляєте свій обліковий запис, <strong>всі</strong> наступні дані будуть постійно видалені:</p>
+            
+            <ul>
+                <li><strong>Дані облікового запису:</strong> Електронна адреса, хеш пароля, мовні налаштування, налаштування профілю</li>
+                <li><strong>Фінансові дані:</strong> Всі джерела доходу, витрати, бюджети, історія заощаджень, закриті місяці, фінансові цілі</li>
+                <li><strong>Дані про прогрес:</strong> Місії, рівні, XP, Lumars, прогрес завдань, відповіді та історія анкет</li>
+                <li><strong>Контент користувача:</strong> Власні категорії, чернетки чеків, відгуки, нотатки</li>
+                <li><strong>Дані портфеля:</strong> Записи інвестицій, транзакції портфеля</li>
+                <li><strong>Всі пов'язані дані:</strong> Будь-які інші дані, пов'язані з вашим обліковим записом</li>
+            </ul>
+            
+            <div class="warning-box">
+                <p><strong>⚠️ Важливо:</strong> Ця дія є постійною і не може бути скасована. Всі ваші фінансові дані, прогрес та інформація про обліковий запис будуть постійно видалені.</p>
+            </div>
+            
+            <h2>Які дані будуть збережені?</h2>
+            
+            <p>Ми <strong>не</strong> зберігаємо жодних особистих даних після видалення облікового запису. Однак наступне може бути збережено з юридичних або технічних причин:</p>
+            
+            <ul>
+                <li><strong>Дані резервного копіювання:</strong> Можуть зберігатися до 90 днів у зашифрованих резервних копіях (стандартний термін зберігання Supabase)</li>
+                <li><strong>Анонімізовані логи:</strong> Технічні логи, які не можуть бути пов'язані з вашою особою, можуть зберігатися для обслуговування системи</li>
+            </ul>
+            
+            <h2>Права GDPR</h2>
+            
+            <p>Згідно зі статтею 17 GDPR (Право на видалення), ви маєте право запитати видалення ваших особистих даних. Ми дотримуємося всіх вимог GDPR і обробимо ваш запит на видалення негайно.</p>
+            
+            <div class="contact-info">
+                <h3>Контактна інформація</h3>
+                <p><strong>Розробник:</strong> Діана Баркова</p>
+                <p><strong>Електронна пошта:</strong> <a href="mailto:diana.iglizn@gmail.com">diana.iglizn@gmail.com</a></p>
+                <p><strong>Адреса:</strong> Kastanienstraße 18, 40699 Еркрах, Німеччина</p>
+                <p><strong>Політика конфіденційності:</strong> <a href="https://sanyagerua.github.io/forfuture-redirect/privacy-policy.html">Переглянути політику конфіденційності</a></p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function showLanguage(lang) {
+            // Hide all content
+            document.querySelectorAll('.content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all buttons
+            document.querySelectorAll('.language-selector button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected language
+            document.getElementById(`content-${lang}`).classList.add('active');
+            document.getElementById(`btn-${lang}`).classList.add('active');
+        }
+    </script>
+</body>
+</html>
+
