@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ForFuture Terms of Service - Financial Planning and Budgeting App">
+    <title>Terms of Service - ForFuture</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #FFFFFF;
+            background: #0A0B1F;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .logo-container {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-top: 20px;
+        }
+        
+        .logo-container img {
+            max-width: 240px;
+            height: auto;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #181A20;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            color: #FFFFFF;
+            margin-bottom: 10px;
+            font-size: 2em;
+        }
+        
+        .subtitle {
+            color: #999;
+            margin-bottom: 30px;
+            font-size: 0.9em;
+        }
+        
+        .language-selector {
+            margin-bottom: 30px;
+            padding: 15px;
+            background: #1E1F26;
+            border-radius: 6px;
+            border: 1px solid #333;
+        }
+        
+        .language-selector button {
+            background: #2A2B35;
+            color: white;
+            border: 1px solid #444;
+            padding: 8px 16px;
+            margin: 5px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.3s;
+        }
+        
+        .language-selector button:hover {
+            background: #3A3B45;
+            border-color: #555;
+        }
+        
+        .language-selector button.active {
+            background: #000;
+            border-color: #000;
+            font-weight: bold;
+        }
+        
+        .tos-content {
+            display: none;
+        }
+        
+        .tos-content.active {
+            display: block;
+        }
+        
+        .tos-content h2 {
+            color: #FFFFFF;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+        }
+        
+        .tos-content h3 {
+            color: #FFFFFF;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        .tos-content p {
+            margin-bottom: 15px;
+            text-align: justify;
+            color: #DDD;
+        }
+        
+        .tos-content ul, .tos-content ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .tos-content li {
+            margin-bottom: 8px;
+            color: #DDD;
+        }
+        
+        .tos-content a {
+            color: #FFFFFF;
+            text-decoration: underline;
+        }
+        
+        .tos-content a:hover {
+            color: #CCC;
+        }
+        
+        .tos-content strong {
+            color: #FFFFFF;
+        }
+        
+        .contact-info {
+            background: #1E1F26;
+            padding: 20px;
+            border-radius: 6px;
+            margin-top: 30px;
+            border-left: 4px solid #000;
+            border: 1px solid #333;
+        }
+        
+        .contact-info strong {
+            color: #FFFFFF;
+        }
+        
+        .contact-info p {
+            color: #DDD;
+        }
+        
+        .last-updated {
+            color: #999;
+            font-size: 0.9em;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+        }
+        
+        .highlight-box {
+            background: #1E1F26;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+            border-left: 4px solid #FF6B6B;
+        }
+        
+        .highlight-box strong {
+            color: #FFFFFF;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 1.5em;
+            }
+            
+            .tos-content h2 {
+                font-size: 1.3em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="logo-container">
+        <img src="https://raw.githubusercontent.com/sanyagerua/ForFuture/main/assets/images/logo_bg.png" alt="ForFuture Logo" onerror="this.style.display='none'">
+    </div>
+    <div class="container">
+        <h1>ForFuture Terms of Service</h1>
+        <p class="subtitle">Financial Planning and Budgeting App</p>
+        
+        <div class="language-selector">
+            <button onclick="showLanguage('en')" class="active" id="btn-en">English</button>
+            <button onclick="showLanguage('de')" id="btn-de">Deutsch</button>
+            <button onclick="showLanguage('uk')" id="btn-uk">Українська</button>
+        </div>
+        
+        <!-- English Version -->
+        <div id="tos-en" class="tos-content active">
+            <p class="subtitle">Last updated: January 2025</p>
+            
+            <div class="highlight-box">
+                <p><strong>IMPORTANT:</strong> By using the ForFuture app, you agree to these Terms of Service. Please read them carefully.</p>
+            </div>
+            
+            <h2>1. Acceptance of Terms</h2>
+            <p>By downloading, installing, accessing, or using the ForFuture mobile application ("App"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, you may not use the App.</p>
+            <p>These Terms constitute a legally binding agreement between you and the App provider ("we", "us", "our").</p>
+            
+            <h2>2. Description of Service</h2>
+            <p><strong>ForFuture</strong> is a financial planning and budgeting tool designed to help users track expenses, manage budgets, set financial goals, and plan their finances.</p>
+            <div class="highlight-box">
+                <p><strong>EDUCATIONAL PURPOSE:</strong> ForFuture is for educational and informational purposes only. This app does NOT provide financial advice, investment recommendations, or professional financial planning services.</p>
+            </div>
+            <div class="highlight-box">
+                <p><strong>NO BANK INTEGRATION:</strong> ForFuture does NOT connect to real bank accounts or financial institutions. All financial data is manually entered by you. This app is NOT a bank, payment processor, or financial institution.</p>
+            </div>
+            
+            <h2>3. User Responsibilities</h2>
+            <p>As a user of ForFuture, you agree to:</p>
+            <ul>
+                <li>Provide accurate and truthful information when creating your account</li>
+                <li>Enter financial data accurately and keep it updated</li>
+                <li>Maintain the security of your account credentials</li>
+                <li>Be at least 16 years of age (or the age of majority in your jurisdiction)</li>
+                <li>Use the App only for lawful purposes</li>
+                <li>Not attempt to reverse engineer, modify, or distribute the App</li>
+                <li>Not use the App to violate any laws or regulations</li>
+                <li>Take full responsibility for your financial decisions based on App information</li>
+            </ul>
+            
+            <h2>4. Limitation of Liability</h2>
+            <p><strong>No Financial Advice:</strong> ForFuture does not provide financial, investment, tax, or legal advice. Any information, calculations, or suggestions provided by the App are for informational purposes only and should not be considered as professional financial advice.</p>
+            <p><strong>Your Financial Decisions:</strong> You are solely responsible for your financial decisions and actions. ForFuture shall not be liable for any losses, damages, or adverse consequences resulting from your use of the App or reliance on any information provided by the App.</p>
+            <p><strong>Data Accuracy:</strong> While we strive to provide accurate calculations and features, we do not guarantee the accuracy, completeness, or reliability of any data, calculations, or information displayed in the App.</p>
+            <p><strong>Service Availability:</strong> We do not guarantee that the App will be available at all times, error-free, or without interruptions. We reserve the right to modify, suspend, or discontinue the App at any time.</p>
+            <p><strong>Maximum Liability:</strong> To the fullest extent permitted by law, our total liability for any claims arising from your use of the App shall not exceed the amount you paid to use the App (currently $0, as the App is free).</p>
+            
+            <h2>5. Data Processing and Privacy</h2>
+            <p>Your use of ForFuture is also governed by our <a href="privacy-policy.html">Privacy Policy</a>, which explains how we collect, use, and protect your personal data.</p>
+            <p>By using the App, you consent to the collection and processing of your data as described in our Privacy Policy. Key points:</p>
+            <ul>
+                <li>We use encryption and security measures to protect your data</li>
+                <li>You have the right to access, modify, export, and delete your data</li>
+                <li>You can delete your account at any time</li>
+                <li>Your data is processed in accordance with GDPR (for EU users) and applicable privacy laws</li>
+            </ul>
+            
+            <h2>6. Intellectual Property</h2>
+            <p><strong>App Ownership:</strong> The ForFuture App, including its design, features, code, and content, is owned by us and protected by copyright, trademark, and other intellectual property laws.</p>
+            <p><strong>Your Data:</strong> You retain ownership of all data you enter into the App. By using the App, you grant us a license to process, store, and use your data solely for the purpose of providing the App's services.</p>
+            <p><strong>License to Use:</strong> We grant you a limited, non-exclusive, non-transferable license to use the App for your personal, non-commercial use, subject to these Terms.</p>
+            
+            <h2>7. Account Termination</h2>
+            <p><strong>By You:</strong> You may delete your account at any time through the App settings. Upon account deletion, your data will be permanently deleted in accordance with our Privacy Policy.</p>
+            <p><strong>By Us:</strong> We reserve the right to suspend or terminate your account if you violate these Terms, engage in fraudulent activity, or for any other reason we deem necessary to protect the App or other users.</p>
+            <p><strong>Effect of Termination:</strong> Upon termination, your right to use the App will immediately cease. Provisions of these Terms that by their nature should survive termination will remain in effect.</p>
+            
+            <h2>8. Changes to Terms</h2>
+            <p>We reserve the right to modify these Terms at any time. If we make significant changes, we will notify you through the App or by email (if you have provided an email address).</p>
+            <p>Your continued use of the App after changes become effective constitutes your acceptance of the modified Terms. If you do not agree to the changes, you should stop using the App and delete your account.</p>
+            
+            <h2>9. Governing Law and Dispute Resolution</h2>
+            <p>These Terms are governed by the laws of Germany, without regard to its conflict of law principles.</p>
+            <p>Any disputes arising from or relating to these Terms or your use of the App shall be resolved through good faith negotiation. If a resolution cannot be reached, disputes shall be subject to the exclusive jurisdiction of the courts of Germany.</p>
+            
+            <h2>10. Contact Information</h2>
+            <div class="contact-info">
+                <p><strong>For questions, concerns, or support regarding these Terms:</strong></p>
+                <p><strong>Email:</strong> diana.iglizn@gmail.com</p>
+                <p><strong>Address:</strong> Kastanienstraße 18, 40699 Erkrath, Germany</p>
+            </div>
+            
+            <h2>11. Severability</h2>
+            <p>If any provision of these Terms is found to be invalid, illegal, or unenforceable, the remaining provisions shall remain in full force and effect.</p>
+            
+            <h2>12. Entire Agreement</h2>
+            <p>These Terms, together with our Privacy Policy, constitute the entire agreement between you and us regarding your use of the ForFuture App.</p>
+            
+            <div class="last-updated">
+                <p>Last updated: January 2025</p>
+            </div>
+        </div>
+        
+        <!-- German Version -->
+        <div id="tos-de" class="tos-content">
+            <p class="subtitle">Zuletzt aktualisiert: Januar 2025</p>
+            
+            <div class="highlight-box">
+                <p><strong>WICHTIG:</strong> Durch die Nutzung der ForFuture-App stimmen Sie diesen Nutzungsbedingungen zu. Bitte lesen Sie sie sorgfältig.</p>
+            </div>
+            
+            <h2>1. Annahme der Bedingungen</h2>
+            <p>Durch das Herunterladen, Installieren, Zugreifen auf oder Verwenden der ForFuture-Mobil-App ("App") stimmen Sie zu, an diese Nutzungsbedingungen ("Bedingungen") gebunden zu sein. Wenn Sie diesen Bedingungen nicht zustimmen, dürfen Sie die App nicht verwenden.</p>
+            <p>Diese Bedingungen stellen eine rechtlich bindende Vereinbarung zwischen Ihnen und dem App-Anbieter ("wir", "uns", "unser") dar.</p>
+            
+            <h2>2. Beschreibung des Dienstes</h2>
+            <p><strong>ForFuture</strong> ist ein Finanzplanungs- und Budgetierungstool, das Benutzern helfen soll, Ausgaben zu verfolgen, Budgets zu verwalten, finanzielle Ziele zu setzen und ihre Finanzen zu planen.</p>
+            <div class="highlight-box">
+                <p><strong>BILDUNGSZWECK:</strong> ForFuture dient ausschließlich zu Bildungs- und Informationszwecken. Diese App bietet KEINE Finanzberatung, Anlageempfehlungen oder professionelle Finanzplanungsdienstleistungen.</p>
+            </div>
+            <div class="highlight-box">
+                <p><strong>KEINE BANK-INTEGRATION:</strong> ForFuture verbindet sich NICHT mit echten Bankkonten oder Finanzinstituten. Alle Finanzdaten werden von Ihnen manuell eingegeben. Diese App ist KEINE Bank, kein Zahlungsdienstleister oder Finanzinstitut.</p>
+            </div>
+            
+            <h2>3. Benutzerverantwortlichkeiten</h2>
+            <p>Als Benutzer von ForFuture stimmen Sie zu:</p>
+            <ul>
+                <li>Genau und wahrheitsgemäße Informationen bereitzustellen, wenn Sie Ihr Konto erstellen</li>
+                <li>Finanzdaten genau einzugeben und aktuell zu halten</li>
+                <li>Die Sicherheit Ihrer Kontodaten aufrechtzuerhalten</li>
+                <li>Mindestens 16 Jahre alt zu sein (oder das gesetzliche Mindestalter in Ihrem Land)</li>
+                <li>Die App nur für rechtmäßige Zwecke zu verwenden</li>
+                <li>Nicht zu versuchen, die App zu reverse-engineern, zu modifizieren oder zu verteilen</li>
+                <li>Die App nicht zu verwenden, um Gesetze oder Vorschriften zu verletzen</li>
+                <li>Die volle Verantwortung für Ihre finanziellen Entscheidungen auf der Grundlage von App-Informationen zu übernehmen</li>
+            </ul>
+            
+            <h2>4. Haftungsbeschränkung</h2>
+            <p><strong>Keine Finanzberatung:</strong> ForFuture bietet keine Finanz-, Anlage-, Steuer- oder Rechtsberatung. Alle von der App bereitgestellten Informationen, Berechnungen oder Vorschläge dienen nur zu Informationszwecken und sollten nicht als professionelle Finanzberatung angesehen werden.</p>
+            <p><strong>Ihre finanziellen Entscheidungen:</strong> Sie sind allein für Ihre finanziellen Entscheidungen und Handlungen verantwortlich. ForFuture haftet nicht für Verluste, Schäden oder nachteilige Folgen, die sich aus Ihrer Nutzung der App oder dem Vertrauen auf von der App bereitgestellte Informationen ergeben.</p>
+            <p><strong>Datengenauigkeit:</strong> Obwohl wir uns bemühen, genaue Berechnungen und Funktionen bereitzustellen, garantieren wir nicht die Genauigkeit, Vollständigkeit oder Zuverlässigkeit von Daten, Berechnungen oder Informationen, die in der App angezeigt werden.</p>
+            <p><strong>Verfügbarkeit des Dienstes:</strong> Wir garantieren nicht, dass die App jederzeit verfügbar, fehlerfrei oder ohne Unterbrechungen ist. Wir behalten uns das Recht vor, die App jederzeit zu ändern, auszusetzen oder einzustellen.</p>
+            <p><strong>Maximale Haftung:</strong> Im gesetzlich zulässigen Umfang darf unsere Gesamthaftung für Ansprüche aus Ihrer Nutzung der App den Betrag, den Sie für die Nutzung der App gezahlt haben (derzeit 0 €, da die App kostenlos ist), nicht überschreiten.</p>
+            
+            <h2>5. Datenverarbeitung und Datenschutz</h2>
+            <p>Ihre Nutzung von ForFuture unterliegt auch unserer <a href="privacy-policy.html">Datenschutzerklärung</a>, die erklärt, wie wir Ihre personenbezogenen Daten sammeln, verwenden und schützen.</p>
+            <p>Durch die Nutzung der App stimmen Sie der Sammlung und Verarbeitung Ihrer Daten wie in unserer Datenschutzerklärung beschrieben zu. Wichtige Punkte:</p>
+            <ul>
+                <li>Wir verwenden Verschlüsselung und Sicherheitsmaßnahmen zum Schutz Ihrer Daten</li>
+                <li>Sie haben das Recht, auf Ihre Daten zuzugreifen, sie zu ändern, zu exportieren und zu löschen</li>
+                <li>Sie können Ihr Konto jederzeit löschen</li>
+                <li>Ihre Daten werden gemäß DSGVO (für EU-Benutzer) und geltenden Datenschutzgesetzen verarbeitet</li>
+            </ul>
+            
+            <h2>6. Geistiges Eigentum</h2>
+            <p><strong>App-Eigentum:</strong> Die ForFuture-App, einschließlich ihres Designs, ihrer Funktionen, ihres Codes und Inhalts, gehört uns und ist durch Urheberrechts-, Marken- und andere Gesetze zum Schutz des geistigen Eigentums geschützt.</p>
+            <p><strong>Ihre Daten:</strong> Sie behalten das Eigentum an allen Daten, die Sie in die App eingeben. Durch die Nutzung der App gewähren Sie uns eine Lizenz, Ihre Daten ausschließlich zum Zweck der Bereitstellung der App-Dienste zu verarbeiten, zu speichern und zu verwenden.</p>
+            <p><strong>Lizenz zur Nutzung:</strong> Wir gewähren Ihnen eine begrenzte, nicht-exklusive, nicht übertragbare Lizenz zur Nutzung der App für Ihren persönlichen, nicht-kommerziellen Gebrauch, vorbehaltlich dieser Bedingungen.</p>
+            
+            <h2>7. Kontokündigung</h2>
+            <p><strong>Von Ihnen:</strong> Sie können Ihr Konto jederzeit über die App-Einstellungen löschen. Bei Kontolöschung werden Ihre Daten gemäß unserer Datenschutzerklärung dauerhaft gelöscht.</p>
+            <p><strong>Von uns:</strong> Wir behalten uns das Recht vor, Ihr Konto zu sperren oder zu kündigen, wenn Sie diese Bedingungen verletzen, betrügerische Aktivitäten durchführen oder aus anderen Gründen, die wir zum Schutz der App oder anderer Benutzer für notwendig erachten.</p>
+            <p><strong>Auswirkungen der Kündigung:</strong> Bei Kündigung erlischt Ihr Recht zur Nutzung der App sofort. Bestimmungen dieser Bedingungen, die ihrer Natur nach die Kündigung überdauern sollten, bleiben in Kraft.</p>
+            
+            <h2>8. Änderungen der Bedingungen</h2>
+            <p>Wir behalten uns das Recht vor, diese Bedingungen jederzeit zu ändern. Wenn wir erhebliche Änderungen vornehmen, werden wir Sie über die App oder per E-Mail (wenn Sie eine E-Mail-Adresse angegeben haben) benachrichtigen.</p>
+            <p>Ihre fortgesetzte Nutzung der App nach Inkrafttreten von Änderungen stellt Ihre Annahme der geänderten Bedingungen dar. Wenn Sie den Änderungen nicht zustimmen, sollten Sie die Nutzung der App einstellen und Ihr Konto löschen.</p>
+            
+            <h2>9. Geltendes Recht und Streitbeilegung</h2>
+            <p>Diese Bedingungen unterliegen deutschem Recht, ohne Rücksicht auf seine Kollisionsnormen.</p>
+            <p>Alle Streitigkeiten, die sich aus diesen Bedingungen oder Ihrer Nutzung der App ergeben oder damit zusammenhängen, sollen durch Verhandlungen in gutem Glauben beigelegt werden. Wenn keine Einigung erzielt werden kann, unterliegen Streitigkeiten der ausschließlichen Gerichtsbarkeit der Gerichte in Deutschland.</p>
+            
+            <h2>10. Kontaktinformationen</h2>
+            <div class="contact-info">
+                <p><strong>Für Fragen, Anliegen oder Support zu diesen Bedingungen:</strong></p>
+                <p><strong>E-Mail:</strong> diana.iglizn@gmail.com</p>
+                <p><strong>Adresse:</strong> Kastanienstraße 18, 40699 Erkrath, Deutschland</p>
+            </div>
+            
+            <h2>11. Teilnichtigkeit</h2>
+            <p>Wenn eine Bestimmung dieser Bedingungen als ungültig, rechtswidrig oder nicht durchsetzbar befunden wird, bleiben die übrigen Bestimmungen in vollem Umfang in Kraft.</p>
+            
+            <h2>12. Vollständige Vereinbarung</h2>
+            <p>Diese Bedingungen bilden zusammen mit unserer Datenschutzerklärung die vollständige Vereinbarung zwischen Ihnen und uns bezüglich Ihrer Nutzung der ForFuture-App.</p>
+            
+            <div class="last-updated">
+                <p>Zuletzt aktualisiert: Januar 2025</p>
+            </div>
+        </div>
+        
+        <!-- Ukrainian Version -->
+        <div id="tos-uk" class="tos-content">
+            <p class="subtitle">Останнє оновлення: Січень 2025</p>
+            
+            <div class="highlight-box">
+                <p><strong>ВАЖЛИВО:</strong> Використовуючи додаток ForFuture, ви погоджуєтеся з цими Умовами використання. Будь ласка, уважно прочитайте їх.</p>
+            </div>
+            
+            <h2>1. Прийняття умов</h2>
+            <p>Завантажуючи, встановлюючи, отримуючи доступ або використовуючи мобільний додаток ForFuture ("Додаток"), ви погоджуєтеся дотримуватися цих Умов використання ("Умови"). Якщо ви не погоджуєтеся з цими Умовами, ви не можете використовувати Додаток.</p>
+            <p>Ці Умови становлять юридично обов'язкову угоду між вами та постачальником додатку ("ми", "нас", "наш").</p>
+            
+            <h2>2. Опис сервісу</h2>
+            <p><strong>ForFuture</strong> — це інструмент для фінансового планування та бюджетування, призначений для допомоги користувачам відстежувати витрати, керувати бюджетами, встановлювати фінансові цілі та планувати свої фінанси.</p>
+            <div class="highlight-box">
+                <p><strong>ОСВІТНЯ МЕТА:</strong> ForFuture призначений виключно для освітніх та інформаційних цілей. Цей додаток НЕ надає фінансових консультацій, інвестиційних рекомендацій або професійних послуг фінансового планування.</p>
+            </div>
+            <div class="highlight-box">
+                <p><strong>БЕЗ ІНТЕГРАЦІЇ З БАНКОМ:</strong> ForFuture НЕ підключається до реальних банківських рахунків або фінансових установ. Всі фінансові дані вводяться вами вручну. Цей додаток НЕ є банком, платіжним процесором або фінансовою установою.</p>
+            </div>
+            
+            <h2>3. Відповідальність користувача</h2>
+            <p>Як користувач ForFuture, ви погоджуєтеся:</p>
+            <ul>
+                <li>Надавати точну та правдиву інформацію при створенні облікового запису</li>
+                <li>Вводити фінансові дані точно та підтримувати їх у актуальному стані</li>
+                <li>Підтримувати безпеку даних вашого облікового запису</li>
+                <li>Бути принаймні 16 років (або досягти повноліття у вашій юрисдикції)</li>
+                <li>Використовувати Додаток лише для законних цілей</li>
+                <li>Не намагатися розібрати, модифікувати або поширювати Додаток</li>
+                <li>Не використовувати Додаток для порушення законів або правил</li>
+                <li>Брати повну відповідальність за свої фінансові рішення на основі інформації Додатку</li>
+            </ul>
+            
+            <h2>4. Обмеження відповідальності</h2>
+            <p><strong>Без фінансових консультацій:</strong> ForFuture не надає фінансових, інвестиційних, податкових або юридичних консультацій. Будь-яка інформація, розрахунки або пропозиції, надані Додатком, призначені лише для інформаційних цілей і не повинні розглядатися як професійна фінансова порада.</p>
+            <p><strong>Ваші фінансові рішення:</strong> Ви несете повну відповідальність за свої фінансові рішення та дії. ForFuture не несе відповідальності за будь-які втрати, збитки або несприятливі наслідки, що виникають у результаті використання вами Додатку або покладання на будь-яку інформацію, надану Додатком.</p>
+            <p><strong>Точність даних:</strong> Хоча ми прагнемо надавати точні розрахунки та функції, ми не гарантуємо точність, повноту або надійність будь-яких даних, розрахунків або інформації, що відображаються в Додатку.</p>
+            <p><strong>Доступність сервісу:</strong> Ми не гарантуємо, що Додаток буде доступний завжди, без помилок або без перерв. Ми залишаємо за собою право змінювати, призупиняти або припиняти роботу Додатку в будь-який час.</p>
+            <p><strong>Максимальна відповідальність:</strong> У максимальній мірі, дозволеній законом, наша загальна відповідальність за будь-які претензії, що виникають у результаті використання вами Додатку, не повинна перевищувати суму, яку ви заплатили за використання Додатку (наразі 0 ₴, оскільки Додаток безкоштовний).</p>
+            
+            <h2>5. Обробка даних та конфіденційність</h2>
+            <p>Ваше використання ForFuture також регулюється нашою <a href="privacy-policy.html">Політикою конфіденційності</a>, яка пояснює, як ми збираємо, використовуємо та захищаємо ваші персональні дані.</p>
+            <p>Використовуючи Додаток, ви погоджуєтеся на збір та обробку ваших даних, як описано в нашій Політиці конфіденційності. Ключові моменти:</p>
+            <ul>
+                <li>Ми використовуємо шифрування та заходи безпеки для захисту ваших даних</li>
+                <li>Ви маєте право доступу, зміни, експорту та видалення ваших даних</li>
+                <li>Ви можете видалити свій обліковий запис у будь-який час</li>
+                <li>Ваші дані обробляються відповідно до GDPR (для користувачів з ЄС) та застосовного законодавства про конфіденційність</li>
+            </ul>
+            
+            <h2>6. Інтелектуальна власність</h2>
+            <p><strong>Власність на Додаток:</strong> Додаток ForFuture, включаючи його дизайн, функції, код та контент, належить нам і захищений законами про авторське право, торгові марки та інші закони про інтелектуальну власність.</p>
+            <p><strong>Ваші дані:</strong> Ви зберігаєте право власності на всі дані, які ви вводите в Додаток. Використовуючи Додаток, ви надаєте нам ліцензію на обробку, зберігання та використання ваших даних виключно з метою надання послуг Додатку.</p>
+            <p><strong>Ліцензія на використання:</strong> Ми надаємо вам обмежену, невиключну, непередавану ліцензію на використання Додатку для вашого особистого, некомерційного використання, з урахуванням цих Умов.</p>
+            
+            <h2>7. Припинення облікового запису</h2>
+            <p><strong>Вами:</strong> Ви можете видалити свій обліковий запис у будь-який час через налаштування Додатку. Після видалення облікового запису ваші дані будуть безповоротно видалені відповідно до нашої Політики конфіденційності.</p>
+            <p><strong>Нами:</strong> Ми залишаємо за собою право призупинити або припинити роботу вашого облікового запису, якщо ви порушуєте ці Умови, займаєтеся шахрайською діяльністю або з інших причин, які ми вважаємо необхідними для захисту Додатку або інших користувачів.</p>
+            <p><strong>Наслідки припинення:</strong> Після припинення ваше право на використання Додатку негайно припиняється. Положення цих Умов, які за своєю природою повинні зберегтися після припинення, залишаються в силі.</p>
+            
+            <h2>8. Зміни в Умовах</h2>
+            <p>Ми залишаємо за собою право змінювати ці Умови в будь-який час. Якщо ми вносимо значні зміни, ми повідомимо вас через Додаток або електронною поштою (якщо ви надали адресу електронної пошти).</p>
+            <p>Ваше подальше використання Додатку після набуття змін чинності означає вашу згоду зі зміненими Умовами. Якщо ви не погоджуєтеся зі змінами, вам слід припинити використання Додатку та видалити свій обліковий запис.</p>
+            
+            <h2>9. Застосовне право та вирішення суперечок</h2>
+            <p>Ці Умови регулюються законами Німеччини, без урахування його принципів колізійного права.</p>
+            <p>Будь-які суперечки, що виникають з цих Умов або пов'язані з вашим використанням Додатку, повинні вирішуватися шляхом переговорів у добрій вірі. Якщо рішення не може бути досягнуте, суперечки підлягають виключній юрисдикції судів Німеччини.</p>
+            
+            <h2>10. Контактна інформація</h2>
+            <div class="contact-info">
+                <p><strong>З питань, проблем або підтримки щодо цих Умов:</strong></p>
+                <p><strong>Електронна пошта:</strong> diana.iglizn@gmail.com</p>
+                <p><strong>Адреса:</strong> Kastanienstraße 18, 40699 Erkrath, Німеччина</p>
+            </div>
+            
+            <h2>11. Роздільність</h2>
+            <p>Якщо будь-яке положення цих Умов визнано недійсним, незаконним або нездійсненним, інші положення залишаються в повній силі.</p>
+            
+            <h2>12. Повна угода</h2>
+            <p>Ці Умови разом з нашою Політикою конфіденційності становлять повну угоду між вами та нами щодо вашого використання додатку ForFuture.</p>
+            
+            <div class="last-updated">
+                <p>Останнє оновлення: Січень 2025</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function showLanguage(lang) {
+            // Hide all content
+            document.querySelectorAll('.tos-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all buttons
+            document.querySelectorAll('.language-selector button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected content
+            document.getElementById('tos-' + lang).classList.add('active');
+            
+            // Add active class to selected button
+            document.getElementById('btn-' + lang).classList.add('active');
+        }
+    </script>
+</body>
+</html>
+
