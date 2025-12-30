@@ -240,14 +240,29 @@
             <h2>7. App Permissions</h2>
             <p>The app may request Internet access, local storage, media / file access (uploads), document picker (PDF), camera (for receipt scanning/OCR) and push notifications. Permissions can be revoked in your device settings; some features may then be unavailable.</p>
             
-            <h2>8. Your Rights (Art. 15–21 GDPR)</h2>
-            <p>You have the right to access, rectification, erasure, restriction, data portability, and objection to processing based on Art. 6 (1)(f) GDPR.</p>
+            <h2>8. Your Rights (Art. 15–21 GDPR & CCPA)</h2>
+            <p><strong>GDPR Rights:</strong> You have the right to access, rectification, erasure, restriction, data portability, and objection to processing based on Art. 6 (1)(f) GDPR.</p>
+            <p><strong>CCPA Rights (California Residents):</strong> If you are a California resident, you have the right to:</p>
+            <ul>
+                <li><strong>Right to Know:</strong> Request information about what personal information we collect, use, and share.</li>
+                <li><strong>Right to Delete:</strong> Request deletion of your personal information (available in-app via Account Settings).</li>
+                <li><strong>Do Not Sell My Personal Information:</strong> You can opt-out of the sale of your personal information. Note: ForFuture does not sell your personal information, but we provide this option for CCPA compliance. You can manage this setting in the app under Privacy Settings.</li>
+            </ul>
             <p>You may withdraw consent at any time.</p>
-            <p>To exercise your rights, contact diana.iglizn@gmail.com.</p>
+            <p>To exercise your rights, contact diana.iglizn@gmail.com or use the in-app privacy settings.</p>
             <p>You may lodge a complaint with a supervisory authority, e.g. the State Commissioner for Data Protection and Freedom of Information of North Rhine-Westphalia (LDI NRW) (Art. 77 GDPR).</p>
             
             <h2>9. Security</h2>
-            <p>We employ TLS encryption, Row-Level Security (RLS), least-privilege access, secure password hashing, API-key restrictions, Edge-Function monitoring, and role-based access control. Only authorised development staff can access user data. Measures are regularly reviewed and updated.</p>
+            <p>We employ comprehensive security measures to protect your data:</p>
+            <ul>
+                <li><strong>Encryption in Transit:</strong> All data is transmitted over encrypted HTTPS connections (TLS 1.2+) with forward secrecy requirements. Android devices use Network Security Configuration to enforce secure connections, and iOS devices use App Transport Security (ATS) with strict TLS requirements.</li>
+                <li><strong>Encryption at Rest:</strong> All data stored in our database is encrypted using PostgreSQL Transparent Data Encryption (TDE).</li>
+                <li><strong>Row-Level Security (RLS):</strong> Database-level access control ensures users can only access their own data.</li>
+                <li><strong>Secure Authentication:</strong> Passwords are hashed using industry-standard algorithms. API keys are restricted and stored securely.</li>
+                <li><strong>Access Control:</strong> Least-privilege access principles, role-based access control, and Edge Function monitoring. Only authorised development staff can access user data.</li>
+                <li><strong>Secure Local Storage:</strong> Sensitive data stored locally uses platform-native secure storage (iOS Keychain / Android Keystore).</li>
+            </ul>
+            <p>Security measures are regularly reviewed and updated to maintain the highest standards.</p>
             
             <h2>10. Minors</h2>
             <p>The app is intended for adults and is not directed to children under the age of 16. Use is permitted from age 16 and above (or higher per national law). We do not knowingly collect data from children under 16. If you are under 16 years of age, you may not use this app. By using the app, you confirm that you are at least 16 years old.</p>
@@ -312,14 +327,29 @@
             <h2>7. App-Berechtigungen</h2>
             <p>Die App kann Internet, lokalen Speicher, Medien-/Dateizugriff (Uploads), Dokumentenauswahl (PDF), Kamera (für Beleg-Scanning/OCR) sowie Push-Benachrichtigungen anfordern. Berechtigungen können Sie jederzeit in den Geräteeinstellungen widerrufen. Ohne bestimmte Berechtigungen stehen ggf. einzelne Funktionen nicht zur Verfügung.</p>
             
-            <h2>8. Ihre Rechte (Art. 15–21 DSGVO)</h2>
-            <p>Sie haben Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit sowie Widerspruch gegen Verarbeitungen auf Basis von Art. 6 Abs. 1 f DSGVO.</p>
+            <h2>8. Ihre Rechte (Art. 15–21 DSGVO & CCPA)</h2>
+            <p><strong>DSGVO-Rechte:</strong> Sie haben Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit sowie Widerspruch gegen Verarbeitungen auf Basis von Art. 6 Abs. 1 f DSGVO.</p>
+            <p><strong>CCPA-Rechte (Kalifornische Einwohner):</strong> Wenn Sie in Kalifornien wohnen, haben Sie folgende Rechte:</p>
+            <ul>
+                <li><strong>Recht auf Information:</strong> Anfrage über gesammelte, verwendete und geteilte personenbezogene Daten.</li>
+                <li><strong>Recht auf Löschung:</strong> Anfrage zur Löschung Ihrer personenbezogenen Daten (verfügbar in der App unter Kontoeinstellungen).</li>
+                <li><strong>Meine Daten nicht verkaufen:</strong> Sie können dem Verkauf Ihrer personenbezogenen Daten widersprechen. Hinweis: ForFuture verkauft keine personenbezogenen Daten, aber wir bieten diese Option zur CCPA-Compliance. Sie können diese Einstellung in der App unter Datenschutzeinstellungen verwalten.</li>
+            </ul>
             <p>Erteilte Einwilligungen können Sie jederzeit mit Wirkung für die Zukunft widerrufen.</p>
-            <p>Zur Ausübung Ihrer Rechte genügt eine Nachricht an diana.iglizn@gmail.com.</p>
+            <p>Zur Ausübung Ihrer Rechte genügt eine Nachricht an diana.iglizn@gmail.com oder nutzen Sie die Datenschutzeinstellungen in der App.</p>
             <p>Sie haben zudem das Recht auf Beschwerde bei einer Datenschutz-Aufsichtsbehörde, z. B. Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen (LDI NRW) (Art. 77 DSGVO).</p>
             
             <h2>9. Sicherheit</h2>
-            <p>Wir setzen TLS-Verschlüsselung, Row-Level Security (RLS), Least-Privilege-Zugriffe, sichere Passwort-Hashes, API-Key-Restriktionen, Monitoring von Edge Functions und rollenbasierte Zugriffskontrollen ein. Zugriffe sind auf das Entwicklungsteam beschränkt. Maßnahmen werden regelmäßig überprüft und verbessert.</p>
+            <p>Wir setzen umfassende Sicherheitsmaßnahmen zum Schutz Ihrer Daten ein:</p>
+            <ul>
+                <li><strong>Verschlüsselung während der Übertragung:</strong> Alle Daten werden über verschlüsselte HTTPS-Verbindungen (TLS 1.2+) mit Forward Secrecy-Anforderungen übertragen. Android-Geräte verwenden Network Security Configuration zur Durchsetzung sicherer Verbindungen, iOS-Geräte verwenden App Transport Security (ATS) mit strengen TLS-Anforderungen.</li>
+                <li><strong>Verschlüsselung im Ruhezustand:</strong> Alle in unserer Datenbank gespeicherten Daten werden mit PostgreSQL Transparent Data Encryption (TDE) verschlüsselt.</li>
+                <li><strong>Row-Level Security (RLS):</strong> Datenbankebene Zugriffskontrolle stellt sicher, dass Benutzer nur auf ihre eigenen Daten zugreifen können.</li>
+                <li><strong>Sichere Authentifizierung:</strong> Passwörter werden mit branchenüblichen Algorithmen gehasht. API-Schlüssel sind eingeschränkt und sicher gespeichert.</li>
+                <li><strong>Zugriffskontrolle:</strong> Least-Privilege-Zugriffsprinzipien, rollenbasierte Zugriffskontrollen und Edge Function-Monitoring. Nur autorisierte Entwickler haben Zugriff auf Benutzerdaten.</li>
+                <li><strong>Sicheres lokales Speichern:</strong> Sensible lokal gespeicherte Daten verwenden plattformnative sichere Speicherung (iOS Keychain / Android Keystore).</li>
+            </ul>
+            <p>Sicherheitsmaßnahmen werden regelmäßig überprüft und aktualisiert, um höchste Standards zu gewährleisten.</p>
             
             <h2>10. Minderjährige</h2>
             <p>Die App richtet sich an Volljährige und ist nicht für Kinder unter 16 Jahren bestimmt. Eine Nutzung ist ab 16 Jahren (oder höher je nach nationalem Recht) vorgesehen. Wir erheben wissentlich keine Daten von Kindern unter 16 Jahren. Wenn Sie unter 16 Jahre alt sind, dürfen Sie diese App nicht nutzen. Durch die Nutzung der App bestätigen Sie, dass Sie mindestens 16 Jahre alt sind.</p>
@@ -384,14 +414,29 @@
             <h2>7. Дозволи додатка</h2>
             <p>Додаток може запитувати доступ до Інтернету, локального сховища, медіафайлів (завантаження), вибору документів (PDF), камери (для сканування квитанцій/OCR) та push-сповіщень. Дозволи можна відкликати в налаштуваннях пристрою.</p>
             
-            <h2>8. Ваші права (ст. 15–21 GDPR)</h2>
-            <p>Ви маєте права на: доступ, виправлення, видалення, обмеження обробки, перенесення даних та заперечення проти обробки (ст. 6 (1)(f)).</p>
+            <h2>8. Ваші права (ст. 15–21 GDPR & CCPA)</h2>
+            <p><strong>Права GDPR:</strong> Ви маєте права на: доступ, виправлення, видалення, обмеження обробки, перенесення даних та заперечення проти обробки (ст. 6 (1)(f)).</p>
+            <p><strong>Права CCPA (мешканці Каліфорнії):</strong> Якщо ви мешкаєте в Каліфорнії, ви маєте право:</p>
+            <ul>
+                <li><strong>Право на інформацію:</strong> Запитувати інформацію про те, які персональні дані ми збираємо, використовуємо та передаємо.</li>
+                <li><strong>Право на видалення:</strong> Запитувати видалення ваших персональних даних (доступно в додатку через Налаштування облікового запису).</li>
+                <li><strong>Не продавати мої персональні дані:</strong> Ви можете відмовитися від продажу ваших персональних даних. Примітка: ForFuture не продає ваші персональні дані, але ми надаємо цю опцію для відповідності CCPA. Ви можете керувати цим налаштуванням у додатку в розділі Налаштування конфіденційності.</li>
+            </ul>
             <p>Згоду можна відкликати у будь-який час.</p>
-            <p>Звертайтесь: diana.iglizn@gmail.com.</p>
+            <p>Звертайтесь: diana.iglizn@gmail.com або використовуйте налаштування конфіденційності в додатку.</p>
             <p>Скарги — до контролюючого органу, наприклад, Landesbeauftragte für Datenschutz NRW (Німеччина).</p>
             
             <h2>9. Безпека</h2>
-            <p>Застосовується TLS-шифрування, Row-Level Security, принцип мінімальних доступів, хешування паролів, обмеження API-ключів, моніторинг Edge Functions, рольовий контроль доступу. Доступ мають лише авторизовані розробники.</p>
+            <p>Ми застосовуємо комплексні заходи безпеки для захисту ваших даних:</p>
+            <ul>
+                <li><strong>Шифрування під час передачі:</strong> Всі дані передаються через зашифровані HTTPS-з'єднання (TLS 1.2+) з вимогами Forward Secrecy. Пристрої Android використовують Network Security Configuration для забезпечення безпечних з'єднань, пристрої iOS використовують App Transport Security (ATS) з суворими вимогами TLS.</li>
+                <li><strong>Шифрування в стані спокою:</strong> Всі дані, збережені в нашій базі даних, шифруються за допомогою PostgreSQL Transparent Data Encryption (TDE).</li>
+                <li><strong>Row-Level Security (RLS):</strong> Контроль доступу на рівні бази даних забезпечує, що користувачі можуть отримувати доступ лише до своїх власних даних.</li>
+                <li><strong>Безпечна аутентифікація:</strong> Паролі хешуються за допомогою стандартних алгоритмів. API-ключі обмежені та безпечно зберігаються.</li>
+                <li><strong>Контроль доступу:</strong> Принципи мінімальних доступів, рольовий контроль доступу та моніторинг Edge Functions. Лише авторизовані розробники мають доступ до даних користувачів.</li>
+                <li><strong>Безпечне локальне зберігання:</strong> Чутливі дані, збережені локально, використовують нативне безпечне сховище платформи (iOS Keychain / Android Keystore).</li>
+            </ul>
+            <p>Заходи безпеки регулярно перевіряються та оновлюються для підтримки найвищих стандартів.</p>
             
             <h2>10. Неповнолітні</h2>
             <p>Додаток призначений для повнолітніх і не призначений для дітей віком до 16 років. Використання дозволене з 16 років (або згідно національного права). Ми не збираємо дані дітей молодше 16 років. Якщо вам менше 16 років, ви не можете використовувати цей додаток. Використовуючи додаток, ви підтверджуєте, що вам виповнилося принаймні 16 років.</p>
@@ -408,7 +453,7 @@
         </div>
         
         <div class="last-updated">
-            <p><strong>Last Updated:</strong> November 10, 2025</p>
+            <p><strong>Last Updated:</strong> January 25, 2025</p>
         </div>
     </div>
     
