@@ -206,10 +206,17 @@
             <p><strong>Account Data:</strong> E-mail, password hash, language, optional profile settings (via Supabase Auth).</p>
             <p><strong>Financial Data:</strong> Income and expense categories, budgets, variable expenses, savings history, completed months, receipt drafts, investments, portfolio entries, categories (including user-defined).</p>
             <p><strong>Tasks & Progress:</strong> Missions, levels / XP, Lumars, questionnaire progress and answers, task history, rewards.</p>
-            <p><strong>Feedback & Support:</strong> Free-text feedback, metadata (timestamp, pseudonymised user ID).</p>
+            <p><strong>Gameplay Content:</strong> User progress data related to gamification features, including mission completion status, level progression, XP (experience points), Lumars (virtual currency), task history, and rewards earned. This data is used to track user progress and provide gamified experiences within the app.</p>
+            <p><strong>Feedback & Support:</strong> Free-text feedback, metadata (timestamp, pseudonymised user ID). Customer support data includes any information provided when contacting support or submitting feedback.</p>
+            <p><strong>Device Identifiers:</strong> Device tokens and identifiers used for push notification delivery. This includes device-level IDs required for the Apple Push Notification Service and Firebase Cloud Messaging. Device identifiers are linked to user accounts for notification delivery purposes only.</p>
             <p><strong>Device & App Settings (local):</strong> Language, design mode, notification toggles (stored locally in AsyncStorage / SecureStore).</p>
+            <p><strong>Product Interaction:</strong> Data about how you interact with the app, including app launches, taps, clicks, scrolling information, feature usage, and other information about how you use the app. This data is used for app functionality, gamification features, and service improvement.</p>
+            <p><strong>Other Usage Data:</strong> Additional usage metrics collected for app functionality and service improvement, including app launch times, session duration, feature usage patterns, and technical usage logs. This data is collected in aggregated and anonymized form where possible.</p>
             <p><strong>Usage Logs (technical):</strong> Limited Supabase logs for debugging; optional anonymous crash data via Firebase Crashlytics (if activated).</p>
+            <p><strong>Crash Data:</strong> Anonymous or pseudonymised crash logs collected via Firebase Crashlytics (if enabled) for debugging and app stability improvement.</p>
+            <p><strong>Performance Data:</strong> Technical performance metrics including launch time, hang rate, energy use, and other diagnostic data collected for app performance monitoring and improvement.</p>
             <p><strong>Receipt OCR:</strong> Uploaded images / PDFs are temporarily processed by an Edge Function and transmitted to OCR.space for text recognition.</p>
+            <p><strong>Other User Content:</strong> User-uploaded content including receipt images and PDFs for OCR processing. This content is temporarily processed for text recognition and immediately deleted after processing. No user-generated content is permanently stored or shared beyond the OCR processing service.</p>
             <p>We do not process special categories of personal data within the meaning of Art. 9 GDPR.</p>
             
             <h2>4. Purposes & Legal Bases (Art. 6 GDPR)</h2>
@@ -293,10 +300,17 @@
             <p><strong>Kontodaten:</strong> E-Mail, Passwort-Hash, Sprache, optionale Profileinstellungen (über Supabase Auth).</p>
             <p><strong>Finanzdaten:</strong> Einnahmen/Ausgaben-Kategorien, Budgets, variable Ausgaben, Sparhistorie, abgeschlossene Monate, Beleg-Entwürfe, Investitionen, Portfolio-Einträge, Kategorien (inkl. eigener Kategorien).</p>
             <p><strong>Aufgaben & Fortschritt:</strong> Missionen, Level/XP, Lumars, Fragebogen-Fortschritt und Antworten, Aufgabenhistorie, Belohnungen.</p>
-            <p><strong>Feedback & Support:</strong> Freitexte, Metadaten (Zeitpunkt, pseudonymisierte Nutzer-ID).</p>
+            <p><strong>Spielinhalte:</strong> Benutzerfortschrittsdaten im Zusammenhang mit Gamification-Funktionen, einschließlich Missionsabschlussstatus, Level-Fortschritt, XP (Erfahrungspunkte), Lumars (virtuelle Währung), Aufgabenhistorie und verdiente Belohnungen. Diese Daten werden verwendet, um den Benutzerfortschritt zu verfolgen und gamifizierte Erfahrungen innerhalb der App bereitzustellen.</p>
+            <p><strong>Feedback & Support:</strong> Freitexte, Metadaten (Zeitpunkt, pseudonymisierte Nutzer-ID). Kundensupport-Daten umfassen alle Informationen, die beim Kontaktieren des Supports oder beim Einreichen von Feedback bereitgestellt werden.</p>
+            <p><strong>Geräte-Identifikatoren:</strong> Gerätetokens und Identifikatoren, die für die Zustellung von Push-Benachrichtigungen verwendet werden. Dies umfasst gerätespezifische IDs, die für den Apple Push Notification Service und Firebase Cloud Messaging erforderlich sind. Geräte-Identifikatoren sind nur für Zwecke der Benachrichtigungszustellung mit Benutzerkonten verknüpft.</p>
             <p><strong>Geräte- & App-Einstellungen (lokal):</strong> Sprache, Designmodus, Benachrichtigungsschalter (lokal in AsyncStorage/SecureStore).</p>
+            <p><strong>Produktinteraktion:</strong> Daten darüber, wie Sie mit der App interagieren, einschließlich App-Starts, Taps, Klicks, Scroll-Informationen, Funktionsnutzung und anderen Informationen darüber, wie Sie die App verwenden. Diese Daten werden für App-Funktionalität, Gamification-Funktionen und Service-Verbesserung verwendet.</p>
+            <p><strong>Andere Nutzungsdaten:</strong> Zusätzliche Nutzungsmetriken, die für App-Funktionalität und Service-Verbesserung gesammelt werden, einschließlich App-Startzeiten, Sitzungsdauer, Funktionsnutzungsmuster und technischen Nutzungsprotokollen. Diese Daten werden nach Möglichkeit in aggregierter und anonymisierter Form gesammelt.</p>
             <p><strong>Nutzungsprotokolle (technisch):</strong> begrenzte Supabase-Logs zur Fehlersuche; optionale Crash-/Fehlerdaten durch Firebase Crashlytics (falls aktiviert).</p>
+            <p><strong>Crash-Daten:</strong> Anonyme oder pseudonymisierte Crash-Protokolle, die über Firebase Crashlytics (falls aktiviert) gesammelt werden, zur Fehlersuche und Verbesserung der App-Stabilität.</p>
+            <p><strong>Leistungsdaten:</strong> Technische Leistungsmetriken einschließlich Startzeit, Hängerate, Energieverbrauch und anderen Diagnosedaten, die für die Überwachung und Verbesserung der App-Leistung gesammelt werden.</p>
             <p><strong>Beleg-OCR:</strong> Bilder/PDFs werden temporär in einer Edge Function verarbeitet und an OCR.space zur Texterkennung übermittelt.</p>
+            <p><strong>Andere Benutzerinhalte:</strong> Von Benutzern hochgeladene Inhalte einschließlich Belegbildern und PDFs für die OCR-Verarbeitung. Diese Inhalte werden temporär für die Texterkennung verarbeitet und unverzüglich nach der Verarbeitung gelöscht. Keine benutzergenerierten Inhalte werden dauerhaft gespeichert oder über den OCR-Verarbeitungsservice hinaus geteilt.</p>
             <p>Wir verarbeiten keine besonderen Kategorien personenbezogener Daten i. S. d. Art. 9 DSGVO.</p>
             
             <h2>4. Zwecke & Rechtsgrundlagen (Art. 6 DSGVO)</h2>
@@ -380,10 +394,17 @@
             <p><strong>Дані облікового запису:</strong> електронна адреса, хеш пароля, мова, додаткові налаштування профілю (Supabase Auth).</p>
             <p><strong>Фінансові дані:</strong> категорії доходів і витрат, бюджети, змінні витрати, історія заощаджень, закриті місяці, чернетки квитанцій, інвестиції, портфельні позиції, власні категорії.</p>
             <p><strong>Завдання та прогрес:</strong> місії, рівні / досвід (XP), Lumars, опитування та відповіді, історія завдань, нагороди.</p>
-            <p><strong>Зворотний зв'язок і підтримка:</strong> текст повідомлення, метадані (час, псевдонімізований ID користувача).</p>
+            <p><strong>Ігровий контент:</strong> дані про прогрес користувача, пов'язані з функціями гейміфікації, включаючи статус завершення місій, прогрес рівня, XP (очки досвіду), Lumars (віртуальна валюта), історію завдань та зароблені нагороди. Ці дані використовуються для відстеження прогресу користувача та надання гейміфікованих досвідів у додатку.</p>
+            <p><strong>Зворотний зв'язок і підтримка:</strong> текст повідомлення, метадані (час, псевдонімізований ID користувача). Дані служби підтримки включають будь-яку інформацію, надану під час звернення до служби підтримки або надсилання зворотного зв'язку.</p>
+            <p><strong>Ідентифікатори пристрою:</strong> токени пристрою та ідентифікатори, що використовуються для доставки push-сповіщень. Це включає ідентифікатори на рівні пристрою, необхідні для Apple Push Notification Service та Firebase Cloud Messaging. Ідентифікатори пристрою пов'язані з обліковими записами користувачів лише для цілей доставки сповіщень.</p>
             <p><strong>Налаштування пристрою та додатка (локально):</strong> мова, режим дизайну, сповіщення (AsyncStorage / SecureStore).</p>
+            <p><strong>Взаємодія з продуктом:</strong> дані про те, як ви взаємодієте з додатком, включаючи запуски додатка, натискання, кліки, інформацію про прокрутку, використання функцій та іншу інформацію про те, як ви використовуєте додаток. Ці дані використовуються для функціональності додатка, функцій гейміфікації та покращення сервісу.</p>
+            <p><strong>Інші дані про використання:</strong> додаткові метрики використання, зібрані для функціональності додатка та покращення сервісу, включаючи час запуску додатка, тривалість сесії, зразки використання функцій та технічні журнали використання. Ці дані збираються в агрегованій та анонімізованій формі, де це можливо.</p>
             <p><strong>Технічні журнали:</strong> обмежені логи Supabase для діагностики; за потреби анонімізовані дані про збої Firebase Crashlytics.</p>
+            <p><strong>Дані про збої:</strong> анонімні або псевдонімізовані журнали збоїв, зібрані через Firebase Crashlytics (якщо увімкнено), для діагностики та покращення стабільності додатка.</p>
+            <p><strong>Дані про продуктивність:</strong> технічні метрики продуктивності, включаючи час запуску, частоту зависань, використання енергії та інші діагностичні дані, зібрані для моніторингу та покращення продуктивності додатка.</p>
             <p><strong>Розпізнавання квитанцій (OCR):</strong> зображення / PDF тимчасово обробляються через Edge Function та передаються в OCR.space для розпізнавання тексту.</p>
+            <p><strong>Інший контент користувача:</strong> контент, завантажений користувачем, включаючи зображення квитанцій та PDF для обробки OCR. Цей контент тимчасово обробляється для розпізнавання тексту та негайно видаляється після обробки. Жоден контент, створений користувачем, не зберігається постійно та не передається за межами сервісу обробки OCR.</p>
             <p>Ми не обробляємо особливі категорії даних за ст. 9 GDPR.</p>
             
             <h2>4. Цілі та правові підстави (ст. 6 GDPR)</h2>
@@ -453,7 +474,7 @@
         </div>
         
         <div class="last-updated">
-            <p><strong>Last Updated:</strong> January 25, 2025</p>
+            <p><strong>Last Updated:</strong> January 27, 2025</p>
         </div>
     </div>
     
