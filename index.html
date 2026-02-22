@@ -157,6 +157,58 @@
         
         .btn-secondary:hover { border-color: var(--muted); background: var(--surface); }
         
+        /* Google Play store-style button (coming soon) */
+        .btn-store-gplay {
+            background: #3c3d3e;
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 18px 10px 14px;
+            border-radius: 6px;
+            font-family: inherit;
+            min-height: 52px;
+        }
+        .btn-store-gplay .gplay-icon {
+            width: 28px;
+            height: 28px;
+            flex-shrink: 0;
+        }
+        .btn-store-gplay .gplay-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            line-height: 1.2;
+        }
+        .btn-store-gplay .gplay-small {
+            font-size: 0.7rem;
+            opacity: 0.95;
+        }
+        .btn-store-gplay .gplay-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+        }
+        .btn-coming-soon {
+            cursor: default;
+            opacity: 0.92;
+            position: relative;
+        }
+        .btn-coming-soon:hover { transform: none; }
+        .btn-coming-soon .coming-soon-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--accent);
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+        
         /* ----- Section common ----- */
         section {
             padding: 72px 0;
@@ -349,6 +401,14 @@
                 <div class="cta-row">
                     <!-- Replace with your App Store URL if different: https://apps.apple.com/app/forfuture/idYOUR_APP_ID -->
                     <a href="https://apps.apple.com/app/forfuture/id6757244689" class="btn btn-primary" aria-label="Download on the App Store">🍏 <span data-lang="en">Download on App Store</span><span data-lang="de">Im App Store laden</span></a>
+                    <span class="btn btn-store-gplay btn-coming-soon" aria-label="Google Play – Coming soon">
+                        <svg class="gplay-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 3v18l9-9-9-9zm2 2.83L10.17 12 5 17.17V5.83z"/></svg>
+                        <span class="gplay-text">
+                            <span class="gplay-small"><span data-lang="en">GET IT ON</span><span data-lang="de">JETZT BEI</span></span>
+                            <span class="gplay-title">Google Play</span>
+                        </span>
+                        <span class="coming-soon-badge"><span data-lang="en">Coming soon</span><span data-lang="de">Demnächst</span></span>
+                    </span>
                     <a href="#early-access" class="btn btn-secondary">📩 <span data-lang="en">Join Android Early Access</span><span data-lang="de">Android Early Access</span></a>
                 </div>
             </div>
