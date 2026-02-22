@@ -1,340 +1,469 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Redirecting to ForFuture...</title>
-  <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      margin: 0;
-      background: linear-gradient(135deg, #0A0B1F 0%, #1a1b3a 100%);
-      color: #fff;
-      padding: 20px;
-    }
-    .container {
-      text-align: center;
-      max-width: 500px;
-      background: rgba(255, 255, 255, 0.1);
-      padding: 40px;
-      border-radius: 20px;
-      backdrop-filter: blur(10px);
-    }
-    h1 {
-      margin: 0 0 20px 0;
-      font-size: 24px;
-      color: #00F2FE;
-    }
-    p {
-      margin: 15px 0;
-      line-height: 1.6;
-      color: rgba(255, 255, 255, 0.8);
-    }
-    .link {
-      display: inline-block;
-      margin: 20px 0;
-      padding: 16px 32px;
-      background: rgba(0, 242, 254, 0.3);
-      border: 2px solid #00F2FE;
-      border-radius: 12px;
-      color: #00F2FE;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 18px;
-      word-break: break-all;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      -webkit-tap-highlight-color: rgba(0, 242, 254, 0.5);
-    }
-    .link:hover,
-    .link:active {
-      background: rgba(0, 242, 254, 0.5);
-      transform: scale(1.05);
-    }
-    .error {
-      color: #ff6b6b;
-      display: none;
-    }
-    .instructions {
-      display: none;
-      margin-top: 30px;
-    }
-    .instructions.show {
-      display: block;
-    }
-    .spinner {
-      border: 3px solid rgba(0, 242, 254, 0.3);
-      border-top: 3px solid #00F2FE;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      animation: spin 1s linear infinite;
-      margin: 20px auto;
-    }
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    code {
-      background: rgba(0, 0, 0, 0.3);
-      padding: 10px;
-      border-radius: 5px;
-      display: block;
-      margin: 10px 0;
-      font-size: 12px;
-      word-break: break-all;
-      color: #00F2FE;
-    }
-    .copy-btn {
-      position: absolute;
-      top: 0;
-      right: 0;
-      padding: 8px 16px;
-      background: rgba(0, 242, 254, 0.3);
-      border: 1px solid #00F2FE;
-      border-radius: 8px;
-      color: #00F2FE;
-      font-size: 14px;
-      font-weight: bold;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      transition: all 0.3s ease;
-      -webkit-tap-highlight-color: rgba(0, 242, 254, 0.5);
-    }
-    .copy-btn:hover,
-    .copy-btn:active {
-      background: rgba(0, 242, 254, 0.5);
-      transform: scale(1.05);
-    }
-    .copy-btn.copied {
-      background: rgba(76, 175, 80, 0.3);
-      border-color: #4CAF50;
-      color: #4CAF50;
-    }
-    #copy-icon {
-      font-size: 16px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ForFuture – Complete financial missions. Not just track expenses. Turn saving and investing into a space journey toward your next life goal.">
+    <meta name="theme-color" content="#0A0B1F">
+    <title>ForFuture – Complete Financial Missions</title>
+    <link rel="canonical" href="https://forfuture.app/">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --bg: #0A0B1F;
+            --surface: #12142a;
+            --card: #181A20;
+            --border: #2a2b35;
+            --text: #FFFFFF;
+            --muted: #9ca3af;
+            --accent: #6366f1;
+            --accent-glow: rgba(99, 102, 241, 0.35);
+        }
+        
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        /* Subtle starfield */
+        .stars {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.4), transparent),
+                radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.3), transparent),
+                radial-gradient(2px 2px at 50px 160px, rgba(255,255,255,0.35), transparent),
+                radial-gradient(2px 2px at 90px 40px, rgba(255,255,255,0.25), transparent),
+                radial-gradient(2px 2px at 130px 80px, rgba(255,255,255,0.3), transparent);
+            background-size: 200px 200px;
+            opacity: 0.8;
+        }
+        
+        .wrap {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* Language switcher */
+        .lang-bar {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            justify-content: flex-end;
+            padding: 16px 24px;
+            gap: 8px;
+        }
+        .lang-bar button {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--muted);
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: color 0.2s, border-color 0.2s, background 0.2s;
+        }
+        .lang-bar button:hover {
+            color: var(--text);
+            border-color: var(--muted);
+        }
+        .lang-bar button.active {
+            background: var(--card);
+            color: var(--text);
+            border-color: var(--accent);
+        }
+        
+        /* Content by language */
+        [data-lang="de"] { display: none; }
+        [data-lang="en"] { display: block; }
+        body.lang-de [data-lang="en"] { display: none; }
+        body.lang-de [data-lang="de"] { display: block; }
+        
+        /* ----- Hero ----- */
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 0 80px;
+        }
+        
+        .hero h1 {
+            font-size: clamp(1.75rem, 5vw, 2.75rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+        
+        .hero .subheadline {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            color: var(--muted);
+            max-width: 520px;
+            margin-bottom: 40px;
+        }
+        
+        .cta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 24px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover { transform: translateY(-2px); }
+        
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 4px 20px var(--accent-glow);
+        }
+        
+        .btn-primary:hover { box-shadow: 0 6px 28px var(--accent-glow); }
+        
+        .btn-secondary {
+            background: var(--card);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+        
+        .btn-secondary:hover { border-color: var(--muted); background: var(--surface); }
+        
+        /* ----- Section common ----- */
+        section {
+            padding: 72px 0;
+        }
+        
+        section h2 {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+        
+        section .lead {
+            text-align: center;
+            color: var(--muted);
+            max-width: 560px;
+            margin: 0 auto 40px;
+            font-size: 1.1rem;
+        }
+        
+        /* ----- Problem ----- */
+        .problem ul {
+            list-style: none;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+        
+        .problem li {
+            padding: 14px 0;
+            padding-left: 36px;
+            position: relative;
+            color: var(--muted);
+        }
+        
+        .problem li::before {
+            content: "✕";
+            position: absolute;
+            left: 0;
+            color: #ef4444;
+            font-weight: bold;
+        }
+        
+        .problem .then {
+            text-align: center;
+            margin-top: 32px;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+        
+        /* ----- How it works (3 steps) ----- */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 28px;
+            margin-top: 40px;
+        }
+        
+        .step {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            text-align: center;
+        }
+        
+        .step .icon {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+        }
+        
+        .step h3 {
+            font-size: 1.15rem;
+            margin-bottom: 8px;
+        }
+        
+        .step p {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+        
+        /* ----- Social proof ----- */
+        .social-proof .lead {
+            margin-bottom: 16px;
+        }
+        
+        /* ----- Final CTA ----- */
+        .final-cta {
+            background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
+            border-top: 1px solid var(--border);
+        }
+        
+        .final-cta h2 { margin-bottom: 12px; }
+        
+        .final-cta .lead { margin-bottom: 12px; }
+        
+        .final-cta .android-note {
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+        
+        .signup-form {
+            max-width: 420px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .signup-form input[type="email"] {
+            width: 100%;
+            padding: 16px 20px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: var(--card);
+            color: var(--text);
+            font-size: 1rem;
+        }
+        
+        .signup-form input[type="email"]::placeholder {
+            color: var(--muted);
+        }
+        
+        .signup-form input[type="email"]:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-glow);
+        }
+        
+        .signup-form button {
+            width: 100%;
+            padding: 16px 24px;
+            border-radius: 12px;
+            border: none;
+            background: var(--accent);
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .signup-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 28px var(--accent-glow);
+        }
+        
+        /* Footer */
+        footer {
+            padding: 32px 24px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+        }
+        
+        footer a {
+            color: var(--muted);
+            text-decoration: none;
+        }
+        
+        footer a:hover { color: var(--text); }
+        
+        @media (max-width: 640px) {
+            .hero { min-height: 80vh; padding: 40px 0 60px; }
+            section { padding: 56px 0; }
+            .steps { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Redirecting to ForFuture...</h1>
-    <div class="spinner"></div>
-    <p>Please wait while we open the app...</p>
+    <div class="stars" aria-hidden="true"></div>
     
-    <div id="instructions" class="instructions">
-      <p><strong>If the app didn't open automatically:</strong></p>
-      <p>1. Make sure the ForFuture app is installed on your device</p>
-      <p>2. Tap the link below to open the app manually:</p>
-      <a href="#" id="app-link" class="link">Tap to Open ForFuture App</a>
-      <p style="margin-top: 20px; font-size: 14px; color: rgba(255, 255, 255, 0.6);">
-        <strong>For iOS Safari:</strong> Copy the URL below and use one of these methods:
-      </p>
-      <div style="position: relative; margin: 15px 0; background: rgba(0, 0, 0, 0.2); padding: 10px; border-radius: 8px;">
-        <code id="app-url" style="margin-bottom: 10px; padding-right: 70px; display: block; word-break: break-all;"></code>
-        <button id="copy-button" class="copy-btn" onclick="copyToClipboard()" title="Copy link">
-          <span id="copy-icon">📋</span>
-          <span id="copy-text">Copy</span>
-        </button>
-      </div>
-      <div style="margin-top: 15px; padding: 15px; background: rgba(0, 242, 254, 0.1); border-left: 3px solid #00F2FE; border-radius: 5px;">
-        <p style="margin: 0 0 10px 0; font-size: 14px; font-weight: bold; color: #00F2FE;">Method 1: Notes App (Recommended for iOS)</p>
-        <ol style="margin: 5px 0; padding-left: 20px; font-size: 13px; color: rgba(255, 255, 255, 0.8); line-height: 1.8;">
-          <li>Copy the URL above (tap "Copy" button)</li>
-          <li>Open <strong>Notes</strong> app on your iPhone</li>
-          <li>Create a new note</li>
-          <li>Paste the URL</li>
-          <li>Tap the link in Notes</li>
-          <li>App will open ✅</li>
-        </ol>
-        <p style="margin-top: 15px; margin-bottom: 0; font-size: 14px; font-weight: bold; color: #00F2FE;">Method 2: Safari Address Bar</p>
-        <p style="margin: 5px 0 0 0; font-size: 13px; color: rgba(255, 255, 255, 0.8);">
-          Paste in Safari address bar and press Go (may not work if app is in development mode)
-        </p>
-      </div>
-    </div>
+    <nav class="lang-bar" aria-label="Language">
+        <button type="button" id="lang-de" aria-pressed="false">Deutsch</button>
+        <button type="button" id="lang-en" class="active" aria-pressed="true">English</button>
+    </nav>
     
-    <div id="error" class="error">
-      <p><strong>Invalid or Expired Link</strong></p>
-      <p>The password reset link is invalid or has expired. Please request a new password reset link.</p>
-    </div>
-  </div>
-
-  <script>
-    (function() {
-      // Get the full URL with hash
-      const hash = window.location.hash;
-      const search = window.location.search;
-      
-      // Check if we have a token in hash (from Supabase redirect)
-      // Supabase may redirect to root (/) with hash, or to this page with hash
-      let token = null;
-      let appUrl = null;
-      
-      if (hash.includes('access_token=')) {
-        // Extract token from hash (Supabase puts it in hash)
-        const match = hash.match(/access_token=([^&]+)/);
-        token = match ? match[1] : null;
+    <main>
+        <!-- 1. HERO -->
+        <section class="hero">
+            <div class="wrap">
+                <h1 data-lang="en">Complete Financial Missions.<br>Not Just Track Expenses.</h1>
+                <h1 data-lang="de">Finanz-Missionen erfüllen.<br>Nicht nur Ausgaben tracken.</h1>
+                <p class="subheadline" data-lang="en">ForFuture turns saving and investing into a space journey toward your next life goal.</p>
+                <p class="subheadline" data-lang="de">ForFuture macht Sparen und Investieren zur Weltraumreise zu deinem nächsten Lebensziel.</p>
+                <div class="cta-row">
+                    <!-- Replace with your App Store URL if different: https://apps.apple.com/app/forfuture/idYOUR_APP_ID -->
+                    <a href="https://apps.apple.com/app/forfuture/id6757244689" class="btn btn-primary" aria-label="Download on the App Store">🍏 <span data-lang="en">Download on App Store</span><span data-lang="de">Im App Store laden</span></a>
+                    <a href="#early-access" class="btn btn-secondary">📩 <span data-lang="en">Join Android Early Access</span><span data-lang="de">Android Early Access</span></a>
+                </div>
+            </div>
+        </section>
         
-        if (token) {
-          // Build app deep link with full hash (includes access_token, expires_at, etc.)
-          appUrl = `forfuture://auth/reset-password${hash}`;
-        }
-      } else if (search.includes('access_token=')) {
-        // Alternative: token in query string
-        const match = search.match(/[?&]access_token=([^&]+)/);
-        token = match ? match[1] : null;
+        <!-- 2. PROBLEM -->
+        <section class="problem">
+            <div class="wrap">
+                <h2 data-lang="en">Most finance apps make you feel behind.</h2>
+                <h2 data-lang="de">Die meisten Finanz-Apps lassen dich zurück.</h2>
+                <ul>
+                    <li data-lang="en">Endless transaction lists</li>
+                    <li data-lang="de">Endlose Transaktionslisten</li>
+                    <li data-lang="en">No long-term vision</li>
+                    <li data-lang="de">Keine langfristige Vision</li>
+                    <li data-lang="en">No motivation</li>
+                    <li data-lang="de">Keine Motivation</li>
+                    <li data-lang="en">No progress feeling</li>
+                    <li data-lang="de">Kein Fortschrittsgefühl</li>
+                </ul>
+                <p class="then" data-lang="en">ForFuture gives you a mission.</p>
+                <p class="then" data-lang="de">ForFuture gibt dir eine Mission.</p>
+            </div>
+        </section>
         
-        if (token) {
-          // Build app deep link with token
-          appUrl = `forfuture://auth/reset-password#access_token=${token}`;
-        }
-      } else if (search.includes('token=')) {
-        // Alternative: token in query string (if Supabase sends it that way)
-        const params = new URLSearchParams(search);
-        token = params.get('token');
-        const redirectTo = params.get('redirect_to');
+        <!-- 3. HOW IT WORKS (3 steps – no Lumars; goal identification as differentiator) -->
+        <section class="how-it-works">
+            <div class="wrap">
+                <h2 data-lang="en">How it works</h2>
+                <h2 data-lang="de">So funktioniert es</h2>
+                <p class="lead" data-lang="en">Three steps from scattered money to a clear mission.</p>
+                <p class="lead" data-lang="de">Drei Schritte von verstreutem Geld zu einer klaren Mission.</p>
+                <div class="steps">
+                    <div class="step">
+                        <div class="icon">🌍</div>
+                        <h3 data-lang="en">Choose Your Planet</h3>
+                        <h3 data-lang="de">Wähle deinen Planeten</h3>
+                        <p data-lang="en">Buy a house? Build investments? Financial freedom? Pick the destination that matters to you.</p>
+                        <p data-lang="de">Haus kaufen? Vermögen aufbauen? Finanzielle Freiheit? Wähle das Ziel, das dir wichtig ist.</p>
+                    </div>
+                    <div class="step">
+                        <div class="icon">🎯</div>
+                        <h3 data-lang="en">Discover Your Real Goal</h3>
+                        <h3 data-lang="de">Entdecke dein echtes Ziel</h3>
+                        <p data-lang="en">A short journey in the app helps you find the goal that truly fits your situation—so you're not just tracking, you're aiming at something real.</p>
+                        <p data-lang="de">Eine kurze Reise in der App hilft dir, das Ziel zu finden, das wirklich zu deiner Situation passt—nicht nur tracken, sondern etwas Reales anvisieren.</p>
+                    </div>
+                    <div class="step">
+                        <div class="icon">🚀</div>
+                        <h3 data-lang="en">Complete Missions</h3>
+                        <h3 data-lang="de">Missionen erfüllen</h3>
+                        <p data-lang="en">Budget, invest, track progress. Every action moves you toward your planet.</p>
+                        <p data-lang="de">Budgetieren, investieren, Fortschritt verfolgen. Jede Aktion bringt dich deinem Planeten näher.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
         
-        if (token && redirectTo) {
-          // If redirect_to is our app scheme, use it
-          if (redirectTo.startsWith('forfuture://')) {
-            appUrl = `${redirectTo}#access_token=${token}`;
-          }
-        }
-      }
-      
-      if (appUrl) {
-        // Set the link for manual tap
-        const linkEl = document.getElementById('app-link');
-        const urlEl = document.getElementById('app-url');
-        if (linkEl) linkEl.href = appUrl;
-        if (urlEl) urlEl.textContent = appUrl;
+        <!-- 4. SOCIAL PROOF -->
+        <section class="social-proof">
+            <div class="wrap">
+                <h2 data-lang="en">Join early astronauts</h2>
+                <h2 data-lang="de">Werde früher Astronaut</h2>
+                <p class="lead" data-lang="en">People building their financial future with a clear mission. Even a small list of early signups is proof—every email counts.</p>
+                <p class="lead" data-lang="de">Menschen, die ihre finanzielle Zukunft mit einer klaren Mission aufbauen. Jede E-Mail zählt.</p>
+            </div>
+        </section>
         
-        // Show instructions immediately (Safari blocks automatic redirects)
-        document.getElementById('instructions').classList.add('show');
-        document.querySelector('.spinner').style.display = 'none';
-        document.querySelector('p').textContent = 'Tap the link below to open the app:';
-        
-        // Try automatic redirect on iOS Safari (may not work due to security restrictions)
-        // Use window.location.replace for better compatibility
-        try {
-          // For iOS Safari, we need user interaction, but try anyway
-          window.location.replace(appUrl);
-        } catch (e) {
-          // Fallback if replace fails
-          console.log('Automatic redirect failed, showing manual link');
-        }
-        
-        // Also try opening via iframe trick (iOS Safari workaround)
-        setTimeout(() => {
-          try {
-            const iframe = document.createElement('iframe');
-            iframe.style.display = 'none';
-            iframe.src = appUrl;
-            document.body.appendChild(iframe);
-            setTimeout(() => {
-              document.body.removeChild(iframe);
-            }, 1000);
-          } catch (e) {
-            // Ignore errors
-          }
-        }, 500);
-      } else {
-        // No valid token found
-        document.getElementById('error').style.display = 'block';
-        document.querySelector('.spinner').style.display = 'none';
-        document.querySelector('p').style.display = 'none';
-      }
-      
-      // Make entire page clickable as fallback
-      document.addEventListener('click', function(e) {
-        if (appUrl) {
-          // Only redirect if clicking on page itself (not on the link button or copy button)
-          if (e.target === document.body || e.target.closest('.container')) {
-            window.location.href = appUrl;
-          }
-        }
-      }, { once: true });
-    })();
-
-    // Copy to clipboard function
-    function copyToClipboard() {
-      const appUrl = document.getElementById('app-url').textContent;
-      const copyButton = document.getElementById('copy-button');
-      const copyText = document.getElementById('copy-text');
-      const copyIcon = document.getElementById('copy-icon');
-      
-      if (!appUrl) {
-        alert('No URL to copy. Please wait for the page to load.');
-        return;
-      }
-      
-      // Try modern clipboard API first
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(appUrl).then(function() {
-          // Success
-          copyButton.classList.add('copied');
-          copyIcon.textContent = '✅';
-          copyText.textContent = 'Copied!';
-          
-          setTimeout(function() {
-            copyButton.classList.remove('copied');
-            copyIcon.textContent = '📋';
-            copyText.textContent = 'Copy';
-          }, 2000);
-        }).catch(function(err) {
-          // Fallback to manual copy
-          fallbackCopyToClipboard(appUrl);
-        });
-      } else {
-        // Fallback for older browsers
-        fallbackCopyToClipboard(appUrl);
-      }
-    }
+        <!-- 5. FINAL CTA (email for Android early access) -->
+        <section class="final-cta" id="early-access">
+            <div class="wrap">
+                <h2 data-lang="en">Start Your Financial Mission Today</h2>
+                <h2 data-lang="de">Starte heute deine Finanz-Mission</h2>
+                <p class="lead" data-lang="en">Get early access and updates. No spam.</p>
+                <p class="lead" data-lang="de">Early Access und Updates. Kein Spam.</p>
+                <p class="android-note" data-lang="en">Android users: leave your email to join early access.</p>
+                <p class="android-note" data-lang="de">Android-Nutzer: E-Mail eintragen für Early Access.</p>
+                <!-- Create form at formspree.io, then set action to https://formspree.io/f/YOUR_FORM_ID -->
+                <form class="signup-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" aria-label="Email signup for Android early access">
+                    <input type="email" name="email" placeholder="your@email.com" required aria-label="Your email">
+                    <button type="submit"><span data-lang="en">Become Early Astronaut</span><span data-lang="de">Früher Astronaut werden</span></button>
+                </form>
+            </div>
+        </section>
+    </main>
     
-    // Fallback copy method for older browsers
-    function fallbackCopyToClipboard(text) {
-      const textArea = document.createElement('textarea');
-      textArea.value = text;
-      textArea.style.position = 'fixed';
-      textArea.style.top = '-9999px';
-      textArea.style.left = '-9999px';
-      document.body.appendChild(textArea);
-      textArea.focus();
-      textArea.select();
-      
-      try {
-        const successful = document.execCommand('copy');
-        if (successful) {
-          const copyButton = document.getElementById('copy-button');
-          const copyText = document.getElementById('copy-text');
-          const copyIcon = document.getElementById('copy-icon');
-          
-          copyButton.classList.add('copied');
-          copyIcon.textContent = '✅';
-          copyText.textContent = 'Copied!';
-          
-          setTimeout(function() {
-            copyButton.classList.remove('copied');
-            copyIcon.textContent = '📋';
-            copyText.textContent = 'Copy';
-          }, 2000);
-        } else {
-          alert('Failed to copy. Please manually select and copy the URL.');
-        }
-      } catch (err) {
-        alert('Failed to copy. Please manually select and copy the URL.');
-      } finally {
-        document.body.removeChild(textArea);
-      }
-    }
-  </script>
+    <footer>
+        <div class="wrap">
+            <a href="https://forfuture.app/privacy-policy.html"><span data-lang="en">Privacy Policy</span><span data-lang="de">Datenschutz</span></a>
+            <span> · </span>
+            <a href="https://forfuture.app/terms-of-service.html"><span data-lang="en">Terms of Service</span><span data-lang="de">Nutzungsbedingungen</span></a>
+        </div>
+    </footer>
+    
+    <script>
+        (function() {
+            var storageKey = 'forfuture-lang';
+            var lang = localStorage.getItem(storageKey) || (navigator.language && navigator.language.toLowerCase().startsWith('de') ? 'de' : 'en');
+            
+            function setLang(l) {
+                lang = l;
+                document.body.classList.toggle('lang-de', l === 'de');
+                document.body.classList.toggle('lang-en', l === 'en');
+                document.documentElement.lang = l === 'de' ? 'de' : 'en';
+                document.getElementById('lang-de').setAttribute('aria-pressed', l === 'de' ? 'true' : 'false');
+                document.getElementById('lang-en').setAttribute('aria-pressed', l === 'en' ? 'true' : 'false');
+                document.querySelector('.lang-bar .active') && document.querySelector('.lang-bar .active').classList.remove('active');
+                document.getElementById('lang-' + l).classList.add('active');
+                localStorage.setItem(storageKey, l);
+            }
+            
+            document.getElementById('lang-de').addEventListener('click', function() { setLang('de'); });
+            document.getElementById('lang-en').addEventListener('click', function() { setLang('en'); });
+            setLang(lang);
+        })();
+    </script>
 </body>
 </html>
-
