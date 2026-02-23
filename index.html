@@ -149,6 +149,65 @@
             align-items: stretch;
         }
         
+        /* Layout: QR left, buttons stacked right (like reference) */
+        .cta-block {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+            margin-top: 24px;
+        }
+        .cta-qr {
+            flex-shrink: 0;
+            position: relative;
+            width: 160px;
+            height: 160px;
+            background: #fff;
+            border-radius: 16px;
+            padding: 12px;
+            box-sizing: border-box;
+        }
+        .cta-qr img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+        .cta-qr .qr-center-icon {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 36px;
+            height: 36px;
+            background: #fff;
+            border-radius: 8px;
+            padding: 4px;
+            box-sizing: border-box;
+        }
+        .cta-qr .qr-center-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: flex-start;
+        }
+        .cta-early {
+            margin-top: 20px;
+            margin-bottom: 0;
+        }
+        .link-early {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+        .link-early:hover { color: var(--text); }
+        
         .btn {
             display: inline-flex;
             align-items: center;
@@ -196,6 +255,10 @@
             width: 28px;
             height: 28px;
             flex-shrink: 0;
+            display: block;
+        }
+        .btn-appstore .apple-logo path {
+            fill: #fff;
         }
         .btn-appstore .appstore-text {
             display: flex;
@@ -239,6 +302,7 @@
             width: 28px;
             height: 28px;
             flex-shrink: 0;
+            display: block;
         }
         .btn-store-gplay .gplay-text {
             display: flex;
@@ -453,6 +517,9 @@
             .hero { min-height: 80vh; padding: 40px 0 60px; }
             section { padding: 56px 0; }
             .steps { grid-template-columns: 1fr; }
+            .cta-block { flex-direction: column; gap: 24px; }
+            .cta-buttons { align-items: center; width: 100%; }
+            .cta-buttons .btn { width: 100%; max-width: 260px; justify-content: center; }
         }
     </style>
 </head>
@@ -477,24 +544,37 @@
                 <h1 data-lang="de">Finanz-Missionen erfüllen.<br>Nicht nur Ausgaben tracken.</h1>
                 <p class="subheadline" data-lang="en">ForFuture turns saving and investing into a space journey toward your next life goal.</p>
                 <p class="subheadline" data-lang="de">ForFuture macht Sparen und Investieren zur Weltraumreise zu deinem nächsten Lebensziel.</p>
-                <div class="cta-row">
-                    <!-- Official-style App Store badge (Apple logo + Download on the App Store) -->
-                    <a href="https://apps.apple.com/app/forfuture/id6757244689" class="btn btn-appstore" aria-label="Download on the App Store">
-                        <svg class="apple-logo" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.37-.84 1.45.12 2.78.92 3.06 2.04 2.76 1.27 3.66 3.18 3.66 5.2 0 1.32-.17 2.68-.34 4.02-.27 2.14-.57 4.48.38 6.38.93 1.46.45 2.25-.5 3.27zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
-                        <span class="appstore-text">
-                            <span class="appstore-small"><span data-lang="en">Download on the</span><span data-lang="de">Laden im</span></span>
-                            <span class="appstore-title"><span data-lang="en">App Store</span><span data-lang="de">App Store</span></span>
+                <div class="cta-block">
+                    <div class="cta-qr" aria-label="QR code: App Store">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=136x136&amp;data=https%3A%2F%2Fapps.apple.com%2Fapp%2Fforfuture%2Fid6757244689" alt="" width="136" height="136">
+                        <div class="qr-center-icon">
+                            <img src="/images/app-icon.png" alt="" width="28" height="28">
+                        </div>
+                    </div>
+                    <div class="cta-buttons">
+                        <span class="btn btn-store-gplay btn-coming-soon" aria-label="Google Play – Coming soon">
+                            <svg class="gplay-icon" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                                <path fill="#00E676" d="M2 12L12 12 12 22 2 12z"/>
+                                <path fill="#00D9FF" d="M2 12L12 12 22 2 2 12z"/>
+                                <path fill="#FF3D00" d="M12 12L22 2 22 22 12 12z"/>
+                                <path fill="#FFD600" d="M12 12L12 22 22 22 12 12z"/>
+                            </svg>
+                            <span class="gplay-text">
+                                <span class="gplay-small"><span data-lang="en">GET IT ON</span><span data-lang="de">JETZT BEI</span></span>
+                                <span class="gplay-title">Google Play</span>
+                            </span>
+                            <span class="coming-soon-badge"><span data-lang="en">Coming soon</span><span data-lang="de">Demnächst</span></span>
                         </span>
-                    </a>
-                    <span class="btn btn-store-gplay btn-coming-soon" aria-label="Google Play – Coming soon">
-                        <svg class="gplay-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 3v18l9-9-9-9zm2 2.83L10.17 12 5 17.17V5.83z"/></svg>
-                        <span class="gplay-text">
-                            <span class="gplay-small"><span data-lang="en">GET IT ON</span><span data-lang="de">JETZT BEI</span></span>
-                            <span class="gplay-title">Google Play</span>
-                        </span>
-                        <span class="coming-soon-badge"><span data-lang="en">Coming soon</span><span data-lang="de">Demnächst</span></span>
-                    </span>
-                    <a href="#early-access" class="btn btn-secondary">📩 <span data-lang="en">Join Android Early Access</span><span data-lang="de">Android Early Access</span></a>
+                        <a href="https://apps.apple.com/app/forfuture/id6757244689" class="btn btn-appstore" aria-label="Download on the App Store">
+                            <svg class="apple-logo" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision"><path fill="#ffffff" d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                            <span class="appstore-text">
+                                <span class="appstore-small"><span data-lang="en">Download on the</span><span data-lang="de">Laden im</span></span>
+                                <span class="appstore-title"><span data-lang="en">App Store</span><span data-lang="de">App Store</span></span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <p class="cta-early"><a href="#early-access" class="link-early">📩 <span data-lang="en">Join Android Early Access</span><span data-lang="de">Android Early Access</span></a></p>
                 </div>
             </div>
         </section>
