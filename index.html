@@ -174,23 +174,6 @@
             object-fit: contain;
             display: block;
         }
-        .cta-qr .qr-center-icon {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            width: 36px;
-            height: 36px;
-            background: #fff;
-            border-radius: 8px;
-            padding: 4px;
-            box-sizing: border-box;
-        }
-        .cta-qr .qr-center-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
         .cta-buttons {
             display: flex;
             flex-direction: column;
@@ -283,20 +266,20 @@
         
         .btn-secondary:hover { border-color: var(--muted); background: var(--surface); }
         
-        /* Google Play store-style button (coming soon) */
+        /* Google Play store-style button (coming soon) – ref: dark purplish, light border */
         .btn-store-gplay {
-            background: #2d2e2f;
+            background: #1f1a36;
             color: #fff;
-            border: 1px solid rgba(255,255,255,0.12);
+            border: 1px solid rgba(148, 130, 220, 0.4);
             display: inline-flex;
             align-items: center;
             gap: 10px;
             padding: 10px 18px 10px 14px;
-            border-radius: 10px;
+            border-radius: 12px;
             font-family: inherit;
             min-height: 52px;
             box-sizing: border-box;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
         .btn-store-gplay .gplay-icon {
             width: 28px;
@@ -546,18 +529,15 @@
                 <p class="subheadline" data-lang="de">ForFuture macht Sparen und Investieren zur Weltraumreise zu deinem nächsten Lebensziel.</p>
                 <div class="cta-block">
                     <div class="cta-qr" aria-label="QR code: App Store">
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=136x136&amp;data=https%3A%2F%2Fapps.apple.com%2Fapp%2Fforfuture%2Fid6757244689" alt="" width="136" height="136">
-                        <div class="qr-center-icon">
-                            <img src="/images/app-icon.png" alt="" width="28" height="28">
-                        </div>
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&amp;data=https%3A%2F%2Fapps.apple.com%2Fapp%2Fforfuture%2Fid6757244689" alt="QR code: scan to open ForFuture on App Store" width="136" height="136">
                     </div>
                     <div class="cta-buttons">
                         <span class="btn btn-store-gplay btn-coming-soon" aria-label="Google Play – Coming soon">
                             <svg class="gplay-icon" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                                <path fill="#00E676" d="M2 12L12 12 12 22 2 12z"/>
-                                <path fill="#00D9FF" d="M2 12L12 12 22 2 2 12z"/>
-                                <path fill="#FF3D00" d="M12 12L22 2 22 22 12 12z"/>
-                                <path fill="#FFD600" d="M12 12L12 22 22 22 12 12z"/>
+                                <path fill="#00A651" d="M2 12L15 12 22 2 2 12z"/>
+                                <path fill="#5AC8FA" d="M2 12L15 12 22 22 2 12z"/>
+                                <path fill="#EA4335" d="M15 12L22 12 22 22 15 12z"/>
+                                <path fill="#FBBC04" d="M15 12L22 2 22 12 15 12z"/>
                             </svg>
                             <span class="gplay-text">
                                 <span class="gplay-small"><span data-lang="en">GET IT ON</span><span data-lang="de">JETZT BEI</span></span>
