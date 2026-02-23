@@ -6,9 +6,10 @@
     <meta name="description" content="ForFuture – Complete financial missions. Not just track expenses. Turn saving and investing into a space journey toward your next life goal.">
     <meta name="theme-color" content="#0A0B1F">
     <title>ForFuture – Complete Financial Missions</title>
-    <link rel="icon" href="/images/app-icon.png" type="image/png" sizes="32x32">
-    <link rel="icon" href="/images/app-icon.png" type="image/png" sizes="88x88">
-    <link rel="apple-touch-icon" href="/images/app-icon.png">
+    <link rel="shortcut icon" href="/images/app-icon.png?v=2" type="image/png">
+    <link rel="icon" href="/images/app-icon.png?v=2" type="image/png" sizes="32x32">
+    <link rel="icon" href="/images/app-icon.png?v=2" type="image/png" sizes="88x88">
+    <link rel="apple-touch-icon" href="/images/app-icon.png?v=2">
     <link rel="canonical" href="https://forfuture.app/">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -59,7 +60,8 @@
             left: 0;
             width: 100%;
             height: 100vh;
-            background-image: url(/images/milkyway.png);
+            background-color: var(--bg);
+            background-image: url("images/milkyway.png");
             background-size: cover;
             background-position: center;
         }
@@ -69,22 +71,6 @@
         @keyframes milkyway-scroll {
             from { transform: translateY(0); }
             to { transform: translateY(-100vh); }
-        }
-        
-        /* Subtle starfield overlay */
-        .stars {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 1;
-            background-image: 
-                radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.4), transparent),
-                radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.3), transparent),
-                radial-gradient(2px 2px at 50px 160px, rgba(255,255,255,0.35), transparent),
-                radial-gradient(2px 2px at 90px 40px, rgba(255,255,255,0.25), transparent),
-                radial-gradient(2px 2px at 130px 80px, rgba(255,255,255,0.3), transparent);
-            background-size: 200px 200px;
-            opacity: 0.6;
         }
         
         .wrap {
@@ -176,7 +162,10 @@
             font-size: clamp(1rem, 2.5vw, 1.25rem);
             color: var(--muted);
             max-width: 520px;
+            margin-left: auto;
+            margin-right: auto;
             margin-bottom: 40px;
+            text-align: center;
         }
         
         .cta-row {
@@ -281,20 +270,21 @@
         
         .btn-primary:hover { box-shadow: 0 6px 28px var(--accent-glow); }
         
-        /* Official-style App Store badge (Apple guidelines) */
+        /* App Store badge – same brightness as Google Play button */
         .btn-appstore {
             display: inline-flex;
             align-items: center;
             gap: 10px;
             padding: 10px 18px 10px 14px;
             min-height: 52px;
-            background: #000;
+            background: #1f1a36;
             color: #fff;
-            border-radius: 10px;
+            border: 1px solid rgba(148, 130, 220, 0.4);
+            border-radius: 12px;
             text-decoration: none;
             transition: transform 0.2s, opacity 0.2s;
             box-sizing: border-box;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
         .btn-appstore:hover { transform: translateY(-2px); opacity: 0.95; }
         .btn-appstore .apple-logo {
@@ -580,7 +570,6 @@
             <div class="milkyway-tile"></div>
         </div>
     </div>
-    <div class="stars" aria-hidden="true"></div>
     
     <header class="site-header">
         <a href="/" class="brand-logo" aria-label="ForFuture home">
