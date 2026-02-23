@@ -6,7 +6,9 @@
     <meta name="description" content="ForFuture – Complete financial missions. Not just track expenses. Turn saving and investing into a space journey toward your next life goal.">
     <meta name="theme-color" content="#0A0B1F">
     <title>ForFuture – Complete Financial Missions</title>
-    <link rel="icon" href="/images/app-icon.png" sizes="88x88" type="image/png">
+    <link rel="icon" href="/images/app-icon.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="/images/app-icon.png" type="image/png" sizes="88x88">
+    <link rel="apple-touch-icon" href="/images/app-icon.png">
     <link rel="canonical" href="https://forfuture.app/">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -33,12 +35,48 @@
             overflow-x: hidden;
         }
         
-        /* Subtle starfield */
+        /* Milky Way background – same as app mission screen, continuous vertical scroll */
+        .milkyway-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        .milkyway-track {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 300vh;
+            animation: milkyway-scroll 60s linear infinite;
+            will-change: transform;
+        }
+        .milkyway-tile {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-image: url(/images/milkyway.png);
+            background-size: cover;
+            background-position: center;
+        }
+        .milkyway-tile:nth-child(1) { top: 0; }
+        .milkyway-tile:nth-child(2) { top: 100vh; }
+        .milkyway-tile:nth-child(3) { top: 200vh; }
+        @keyframes milkyway-scroll {
+            from { transform: translateY(0); }
+            to { transform: translateY(-100vh); }
+        }
+        
+        /* Subtle starfield overlay */
         .stars {
             position: fixed;
             inset: 0;
             pointer-events: none;
-            z-index: 0;
+            z-index: 1;
             background-image: 
                 radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.4), transparent),
                 radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.3), transparent),
@@ -46,12 +84,12 @@
                 radial-gradient(2px 2px at 90px 40px, rgba(255,255,255,0.25), transparent),
                 radial-gradient(2px 2px at 130px 80px, rgba(255,255,255,0.3), transparent);
             background-size: 200px 200px;
-            opacity: 0.8;
+            opacity: 0.6;
         }
         
         .wrap {
             position: relative;
-            z-index: 1;
+            z-index: 2;
             max-width: 900px;
             margin: 0 auto;
             padding: 0 24px;
@@ -149,14 +187,36 @@
             align-items: stretch;
         }
         
-        /* Layout: QR left, buttons stacked right (like reference) */
+        /* Layout: phone (left), QR + buttons (right), symmetrically centered */
         .cta-block {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             justify-content: center;
-            gap: 32px;
+            gap: 48px;
             margin-top: 24px;
+        }
+        .cta-phone {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .cta-phone img {
+            display: block;
+            max-height: 420px;
+            width: auto;
+            height: auto;
+            border-radius: 32px;
+            box-shadow: 0 24px 48px rgba(0,0,0,0.4);
+        }
+        .cta-downloads {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
         }
         .cta-qr {
             flex-shrink: 0;
@@ -178,6 +238,9 @@
             display: flex;
             flex-direction: column;
             gap: 12px;
+            align-items: flex-start;
+        }
+        .cta-downloads .cta-buttons {
             align-items: flex-start;
         }
         .cta-early {
@@ -286,6 +349,7 @@
             height: 28px;
             flex-shrink: 0;
             display: block;
+            transform: rotate(180deg);
         }
         .btn-store-gplay .gplay-text {
             display: flex;
@@ -500,13 +564,22 @@
             .hero { min-height: 80vh; padding: 40px 0 60px; }
             section { padding: 56px 0; }
             .steps { grid-template-columns: 1fr; }
-            .cta-block { flex-direction: column; gap: 24px; }
+            .cta-block { flex-direction: column; gap: 32px; }
+            .cta-phone img { max-height: 320px; }
+            .cta-downloads { flex-direction: column; }
             .cta-buttons { align-items: center; width: 100%; }
             .cta-buttons .btn { width: 100%; max-width: 260px; justify-content: center; }
         }
     </style>
 </head>
 <body>
+    <div class="milkyway-bg" aria-hidden="true">
+        <div class="milkyway-track">
+            <div class="milkyway-tile"></div>
+            <div class="milkyway-tile"></div>
+            <div class="milkyway-tile"></div>
+        </div>
+    </div>
     <div class="stars" aria-hidden="true"></div>
     
     <header class="site-header">
@@ -528,6 +601,10 @@
                 <p class="subheadline" data-lang="en">ForFuture turns saving and investing into a space journey toward your next life goal.</p>
                 <p class="subheadline" data-lang="de">ForFuture macht Sparen und Investieren zur Weltraumreise zu deinem nächsten Lebensziel.</p>
                 <div class="cta-block">
+                    <div class="cta-phone">
+                        <img src="/images/phone-app.png" alt="ForFuture app – income, expenses and budget overview" width="240" height="480">
+                    </div>
+                    <div class="cta-downloads">
                     <div class="cta-qr" aria-label="QR code: App Store">
                         <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&amp;data=https%3A%2F%2Fapps.apple.com%2Fapp%2Fforfuture%2Fid6757244689" alt="QR code: scan to open ForFuture on App Store" width="136" height="136">
                     </div>
@@ -552,6 +629,7 @@
                                 <span class="appstore-title"><span data-lang="en">App Store</span><span data-lang="de">App Store</span></span>
                             </span>
                         </a>
+                    </div>
                     </div>
                 </div>
                 <p class="cta-early"><a href="#early-access" class="link-early">📩 <span data-lang="en">Join Android Early Access</span><span data-lang="de">Android Early Access</span></a></p>
@@ -591,22 +669,22 @@
                         <div class="icon">🎯</div>
                         <h3 data-lang="en">Discover Your Real Goal</h3>
                         <h3 data-lang="de">Entdecke dein echtes Ziel</h3>
-                        <p data-lang="en">A short journey in the app helps you find the goal that truly fits your situation—so you're not just tracking, you're aiming at something real.</p>
-                        <p data-lang="de">Eine kurze Reise in der App hilft dir, das Ziel zu finden, das wirklich zu deiner Situation passt—nicht nur tracken, sondern etwas Reales anvisieren.</p>
+                        <p data-lang="en">A short journey in the app helps you find out what really matters to you financially. Not just tracking—clearly defining what you're working toward.</p>
+                        <p data-lang="de">Eine kurze Reise in der App hilft dir, herauszufinden, was dir finanziell wirklich wichtig ist. Nicht nur tracken, sondern klar definieren, worauf du hinarbeitest.</p>
                     </div>
                     <div class="step">
-                        <div class="icon">🚀</div>
-                        <h3 data-lang="en">Complete Missions</h3>
-                        <h3 data-lang="de">Missionen erfüllen</h3>
-                        <p data-lang="en">Budget, invest, track progress. Every action moves you toward your goal.</p>
-                        <p data-lang="de">Budgetieren, investieren, Fortschritt verfolgen. Jede Aktion bringt dich deinem Ziel näher.</p>
+                        <div class="icon">📊</div>
+                        <h3 data-lang="en">Overview of Your Finances</h3>
+                        <h3 data-lang="de">Überblick über deine Finanzen</h3>
+                        <p data-lang="en">Track your income, expenses, and budgets. See exactly where your money goes and spot opportunities to save or invest.</p>
+                        <p data-lang="de">Erfasse deine Einnahmen, Ausgaben und Budgets. Sieh genau, wohin dein Geld fließt und erkenne Chancen zum Sparen oder Investieren.</p>
                     </div>
                     <div class="step step-cta">
-                        <div class="icon">🛸</div>
-                        <h3 data-lang="en">Start Your Mission</h3>
-                        <h3 data-lang="de">Starte deine Mission</h3>
-                        <p data-lang="en">Download the app and begin your financial journey today.</p>
-                        <p data-lang="de">Lade die App herunter und starte heute deine Finanz-Reise.</p>
+                        <div class="icon">🚀</div>
+                        <h3 data-lang="en">Put Your Plan Into Action</h3>
+                        <h3 data-lang="de">Setze deinen Plan um</h3>
+                        <p data-lang="en">Time to execute: Use the app to turn your priorities into concrete steps, adjust budgets, and actively reach your financial goals.</p>
+                        <p data-lang="de">Jetzt geht es ans Umsetzen: Nutze die App, um deine Prioritäten in konkrete Schritte zu verwandeln, Budgets anzupassen und deine finanziellen Ziele aktiv zu erreichen.</p>
                         <a href="https://apps.apple.com/app/forfuture/id6757244689" class="btn btn-appstore step-button" aria-label="Download on the App Store">
                             <svg class="apple-logo" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.37-.84 1.45.12 2.78.92 3.06 2.04 2.76 1.27 3.66 3.18 3.66 5.2 0 1.32-.17 2.68-.34 4.02-.27 2.14-.57 4.48.38 6.38.93 1.46.45 2.25-.5 3.27zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
                             <span class="appstore-text">
