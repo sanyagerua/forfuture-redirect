@@ -61,7 +61,7 @@
             width: 100%;
             height: 100vh;
             background-color: var(--bg);
-            background-image: url("images/milkyway.png");
+            background-image: url("images/milkyway_doubled.png");
             background-size: cover;
             background-position: center;
         }
@@ -137,17 +137,6 @@
             width: auto;
             display: block;
         }
-        .header-ship {
-            flex-shrink: 0;
-            height: 200px;
-            width: auto;
-        }
-        .header-ship img {
-            height: 100%;
-            width: auto;
-            display: block;
-        }
-        
         /* Content by language */
         [data-lang="de"] { display: none; }
         [data-lang="en"] { display: block; }
@@ -600,7 +589,6 @@
             .cta-downloads { flex-direction: column; }
             .cta-buttons { align-items: center; width: 100%; }
             .cta-buttons .btn { width: 100%; max-width: 260px; justify-content: flex-start; }
-            .header-ship { height: 140px; }
         }
     </style>
 </head>
@@ -618,9 +606,6 @@
             <a href="/" class="brand-logo" aria-label="ForFuture home">
                 <img src="images/logo_bg.png" alt="ForFuture" width="160" height="32">
             </a>
-            <div class="header-ship">
-                <img src="images/ship_onboarding.png" alt="" width="200" height="200">
-            </div>
         </div>
         <nav class="lang-bar" aria-label="Language">
             <button type="button" id="lang-de" aria-pressed="false">Deutsch</button>
@@ -632,8 +617,8 @@
         <!-- 1. HERO -->
         <section class="hero">
             <div class="wrap">
-                <h1 data-lang="en">Complete Financial Missions<br>Not Just Track Expenses</h1>
-                <h1 data-lang="de">Finanz-Missionen erfüllen<br>Nicht nur Ausgaben tracken</h1>
+                <h1 data-lang="en">Complete Financial Missions</h1>
+                <h1 data-lang="de">Finanz-Missionen erfüllen</h1>
                 <p class="subheadline" data-lang="en">ForFuture turns saving and investing into a space journey toward your next life goal</p>
                 <p class="subheadline" data-lang="de">ForFuture macht Sparen und Investieren zur Weltraumreise zu deinem nächsten Lebensziel</p>
                 <div class="cta-block">
@@ -701,8 +686,8 @@
                         <div class="icon">🎯</div>
                         <h3 data-lang="en">Discover Your Real Goal</h3>
                         <h3 data-lang="de">Entdecke dein echtes Ziel</h3>
-                        <p data-lang="en">The app helps you recognize your real financial goal—and work toward it.</p>
-                        <p data-lang="de">Die App hilft dir, dein echtes finanzielles Ziel zu erkennen – und darauf hinzuarbeiten.</p>
+                        <p data-lang="en">The app helps you recognize your real financial goal—and supports you in working toward it concretely and implementing it long term.</p>
+                        <p data-lang="de">Die App hilft dir, dein echtes finanzielles Ziel zu erkennen – und unterstützt dich dabei, konkret darauf hinzuarbeiten und es langfristig umzusetzen.</p>
                     </div>
                     <div class="step">
                         <div class="icon">📊</div>
