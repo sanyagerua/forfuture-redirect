@@ -54,7 +54,6 @@
             left: -1px;
             width: calc(100% + 2px);
             height: 300vh;
-            animation: milkyway-scroll 60s linear infinite;
             will-change: transform;
         }
         .milkyway-tile {
@@ -70,10 +69,6 @@
         .milkyway-tile:nth-child(1) { top: 0; }
         .milkyway-tile:nth-child(2) { top: 100vh; }
         .milkyway-tile:nth-child(3) { top: 200vh; }
-        @keyframes milkyway-scroll {
-            from { transform: translateY(0); }
-            to { transform: translateY(-100vh); }
-        }
         
         .wrap {
             position: relative;
@@ -82,6 +77,7 @@
             margin: 0 auto;
             padding: 0 24px;
         }
+        .how-it-works .wrap { max-width: 1020px; }
         
         /* Language switcher */
         .lang-bar {
@@ -462,7 +458,7 @@
         /* ----- How it works (3 steps) ----- */
         .steps {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 28px;
             margin-top: 40px;
         }
@@ -481,8 +477,9 @@
         }
         
         .step h3 {
-            font-size: 1.15rem;
+            font-size: 1.05rem;
             margin-bottom: 8px;
+            white-space: nowrap;
         }
         
         .step p {
@@ -575,18 +572,24 @@
             font-size: 0.9rem;
             border-top: 1px solid var(--border);
         }
-        
+        footer .wrap {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 0 1rem;
+        }
         footer a {
             color: var(--muted);
             text-decoration: none;
         }
-        
         footer a:hover { color: var(--text); }
         
         @media (max-width: 640px) {
             .hero { min-height: 80vh; padding: 40px 0 60px; }
             section { padding: 56px 0; }
             .steps { grid-template-columns: 1fr; }
+            .step h3 { white-space: normal; }
             .cta-block { flex-direction: column; gap: 32px; }
             .cta-phone img { max-height: 320px; }
             .cta-downloads { flex-direction: column; }
@@ -740,9 +743,7 @@
     <footer>
         <div class="wrap">
             <a href="https://forfuture.app/privacy-policy.html"><span data-lang="en">Privacy Policy</span><span data-lang="de">Datenschutz</span></a>
-            <span> · </span>
             <a href="https://forfuture.app/terms-of-service.html"><span data-lang="en">Terms of Service</span><span data-lang="de">Nutzungsbedingungen</span></a>
-            <span> · </span>
             <a href="https://forfuture.app/impressum.html">Impressum</a>
         </div>
     </footer>
@@ -767,6 +768,17 @@
             document.getElementById('lang-de').addEventListener('click', function() { setLang('de'); });
             document.getElementById('lang-en').addEventListener('click', function() { setLang('en'); });
             setLang(lang);
+        })();
+        (function() {
+            var track = document.querySelector('.milkyway-track');
+            if (!track) return;
+            var factor = 1.4;
+            function updateParallax() {
+                var y = -window.scrollY * factor;
+                track.style.transform = 'translateY(' + y + 'px)';
+            }
+            window.addEventListener('scroll', function() { requestAnimationFrame(updateParallax); }, { passive: true });
+            updateParallax();
         })();
     </script>
 </body>
