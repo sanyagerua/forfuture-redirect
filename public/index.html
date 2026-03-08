@@ -7,6 +7,10 @@
     <meta name="theme-color" content="#0A0B1F">
     <title>ForFuture – Complete Financial Missions</title>
     <link rel="canonical" href="https://forfuture.app/">
+    <link rel="shortcut icon" href="https://forfuture.app/images/app-icon.png" type="image/png">
+    <link rel="icon" href="https://forfuture.app/images/app-icon.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="https://forfuture.app/images/app-icon.png" type="image/png" sizes="180x180">
+    <link rel="apple-touch-icon" href="https://forfuture.app/images/app-icon.png">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         
@@ -21,7 +25,7 @@
             --accent-glow: rgba(99, 102, 241, 0.35);
         }
         
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; overflow-x: hidden; }
         
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
@@ -32,29 +36,48 @@
             overflow-x: hidden;
         }
         
-        /* Subtle starfield */
-        .stars {
+        /* Milky Way background – milkyway_doubled2.png, continuous vertical scroll; overflow to avoid left-edge artefact */
+        .milkyway-bg {
             position: fixed;
-            inset: 0;
-            pointer-events: none;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            min-width: 100vw;
             z-index: 0;
-            background-image: 
-                radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.4), transparent),
-                radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.3), transparent),
-                radial-gradient(2px 2px at 50px 160px, rgba(255,255,255,0.35), transparent),
-                radial-gradient(2px 2px at 90px 40px, rgba(255,255,255,0.25), transparent),
-                radial-gradient(2px 2px at 130px 80px, rgba(255,255,255,0.3), transparent);
-            background-size: 200px 200px;
-            opacity: 0.8;
+            overflow: hidden;
+            pointer-events: none;
         }
+        .milkyway-track {
+            position: absolute;
+            left: -1px;
+            width: calc(100% + 2px);
+            height: 300vh;
+            will-change: transform;
+        }
+        .milkyway-tile {
+            position: absolute;
+            left: -1px;
+            width: calc(100% + 2px);
+            height: 100vh;
+            background-color: var(--bg);
+            background-image: url("images/milkyway_doubled2.png");
+            background-size: cover;
+            background-position: center;
+        }
+        .milkyway-tile:nth-child(1) { top: 0; }
+        .milkyway-tile:nth-child(2) { top: 100vh; }
+        .milkyway-tile:nth-child(3) { top: 200vh; }
         
         .wrap {
             position: relative;
-            z-index: 1;
+            z-index: 2;
             max-width: 900px;
             margin: 0 auto;
             padding: 0 24px;
         }
+        .how-it-works .wrap { max-width: 1020px; }
         
         /* Language switcher */
         .lang-bar {
@@ -85,6 +108,33 @@
             border-color: var(--accent);
         }
         
+        /* Brand: logo left, language switcher right */
+        .site-header {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            padding: 16px 24px;
+        }
+        .header-left {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        .brand-logo {
+            display: block;
+            height: 32px;
+            width: auto;
+        }
+        .brand-logo img {
+            height: 100%;
+            width: auto;
+            display: block;
+        }
         /* Content by language */
         [data-lang="de"] { display: none; }
         [data-lang="en"] { display: block; }
@@ -114,7 +164,10 @@
             font-size: clamp(1rem, 2.5vw, 1.25rem);
             color: var(--muted);
             max-width: 520px;
+            margin-left: auto;
+            margin-right: auto;
             margin-bottom: 40px;
+            text-align: center;
         }
         
         .cta-row {
@@ -122,12 +175,106 @@
             flex-wrap: wrap;
             gap: 16px;
             justify-content: center;
-            align-items: center;
+            align-items: stretch;
         }
+        
+        /* Layout: phone (left), QR + buttons (right), symmetrically centered */
+        .cta-block {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 48px;
+            margin-top: 24px;
+        }
+        .cta-phone {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .cta-phone img {
+            display: block;
+            max-height: 420px;
+            width: auto;
+            height: auto;
+            border-radius: 32px;
+            box-shadow: 0 24px 48px rgba(0,0,0,0.4);
+        }
+        .cta-downloads {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+        }
+        .cta-qr {
+            flex-shrink: 0;
+            position: relative;
+            width: 160px;
+            height: 160px;
+            background: #fff;
+            border-radius: 16px;
+            padding: 12px;
+            box-sizing: border-box;
+        }
+        .cta-qr img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: stretch;
+            min-width: 260px;
+        }
+        .cta-buttons .btn-store-gplay,
+        .cta-buttons .btn-appstore {
+            width: 100%;
+            min-width: 0;
+            justify-content: flex-start;
+        }
+        .cta-downloads .cta-buttons {
+            align-items: stretch;
+        }
+        .cta-early {
+            margin-top: 20px;
+            margin-bottom: 0;
+        }
+        .link-early {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+        .link-early:hover { color: var(--text); }
+        .link-early-with-icon {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .link-early-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            flex-shrink: 0;
+        }
+        .link-early-icon svg {
+            width: 100%;
+            height: 100%;
+            color: var(--muted);
+        }
+        .link-early:hover .link-early-icon svg { color: var(--text); }
         
         .btn {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 10px;
             padding: 14px 24px;
             border-radius: 12px;
@@ -137,6 +284,8 @@
             transition: transform 0.2s, box-shadow 0.2s;
             border: none;
             cursor: pointer;
+            min-height: 52px;
+            box-sizing: border-box;
         }
         
         .btn:hover { transform: translateY(-2px); }
@@ -149,13 +298,110 @@
         
         .btn-primary:hover { box-shadow: 0 6px 28px var(--accent-glow); }
         
+        /* App Store badge – same brightness as Google Play button */
+        .btn-appstore {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 18px 10px 14px;
+            min-height: 52px;
+            background: #1f1a36;
+            color: #fff;
+            border: 1px solid rgba(148, 130, 220, 0.4);
+            border-radius: 12px;
+            text-decoration: none;
+            transition: transform 0.2s, opacity 0.2s;
+            box-sizing: border-box;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        .btn-appstore:hover { transform: translateY(-2px); opacity: 0.95; }
+        .btn-appstore .apple-logo {
+            width: 28px;
+            height: 28px;
+            flex-shrink: 0;
+            display: block;
+        }
+        .btn-appstore .apple-logo path {
+            fill: #fff;
+        }
+        .btn-appstore .appstore-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            line-height: 1.2;
+        }
+        .btn-appstore .appstore-small {
+            font-size: 0.7rem;
+        }
+        .btn-appstore .appstore-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
         .btn-secondary {
             background: var(--card);
             color: var(--text);
             border: 1px solid var(--border);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
         
         .btn-secondary:hover { border-color: var(--muted); background: var(--surface); }
+        
+        /* Google Play store-style button (coming soon) – ref: dark purplish, light border */
+        .btn-store-gplay {
+            background: #1f1a36;
+            color: #fff;
+            border: 1px solid rgba(148, 130, 220, 0.4);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 18px 10px 14px;
+            border-radius: 12px;
+            font-family: inherit;
+            min-height: 52px;
+            box-sizing: border-box;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        .btn-store-gplay .gplay-icon {
+            width: 28px;
+            height: 28px;
+            flex-shrink: 0;
+            display: block;
+            transform: rotate(180deg);
+        }
+        .btn-store-gplay .gplay-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            line-height: 1.2;
+        }
+        .btn-store-gplay .gplay-small {
+            font-size: 0.7rem;
+            opacity: 0.95;
+        }
+        .btn-store-gplay .gplay-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+        }
+        .btn-coming-soon {
+            cursor: default;
+            opacity: 0.92;
+            position: relative;
+        }
+        .btn-coming-soon:hover { transform: none; }
+        .btn-coming-soon .coming-soon-badge {
+            position: absolute;
+            top: -14px;
+            right: 4px;
+            background: var(--accent);
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
         
         /* ----- Section common ----- */
         section {
@@ -190,6 +436,7 @@
             padding-left: 36px;
             position: relative;
             color: var(--muted);
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
         }
         
         .problem li::before {
@@ -211,7 +458,7 @@
         /* ----- How it works (3 steps) ----- */
         .steps {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 28px;
             margin-top: 40px;
         }
@@ -230,14 +477,24 @@
         }
         
         .step h3 {
-            font-size: 1.15rem;
+            font-size: 1.05rem;
             margin-bottom: 8px;
+            white-space: nowrap;
         }
         
         .step p {
             color: var(--muted);
             font-size: 0.95rem;
         }
+        
+        .step-cta .step-button {
+            margin-top: 16px;
+            display: inline-flex;
+        }
+        .step-cta .btn-appstore .apple-logo { width: 22px; height: 22px; }
+        .step-cta .btn-appstore .appstore-title { font-size: 1rem; }
+        .step-cta .btn-appstore .appstore-small { font-size: 0.65rem; }
+        .step-cta .btn-appstore { padding: 8px 14px 8px 12px; min-height: 44px; }
         
         /* ----- Social proof ----- */
         .social-proof .lead {
@@ -315,41 +572,103 @@
             font-size: 0.9rem;
             border-top: 1px solid var(--border);
         }
-        
+        footer .wrap {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 0 1rem;
+        }
         footer a {
             color: var(--muted);
             text-decoration: none;
         }
-        
         footer a:hover { color: var(--text); }
         
         @media (max-width: 640px) {
             .hero { min-height: 80vh; padding: 40px 0 60px; }
             section { padding: 56px 0; }
             .steps { grid-template-columns: 1fr; }
+            .step h3 { white-space: normal; }
+            .cta-block { flex-direction: column; gap: 32px; }
+            .cta-phone img { max-height: 320px; }
+            .cta-downloads { flex-direction: column; }
+            .cta-buttons { align-items: center; width: 100%; }
+            .cta-buttons .btn { width: 100%; max-width: 260px; justify-content: flex-start; }
         }
     </style>
 </head>
 <body>
-    <div class="stars" aria-hidden="true"></div>
+    <!-- Redirect password reset links that land on root to the reset page -->
+    <script>
+      (function() {
+        var h = window.location.hash;
+        if (h && h.indexOf('access_token=') !== -1 && h.indexOf('type=recovery') !== -1) {
+          window.location.replace('/password-reset-web.html' + h);
+        }
+      })();
+    </script>
+    <div class="milkyway-bg" aria-hidden="true">
+        <div class="milkyway-track">
+            <div class="milkyway-tile"></div>
+            <div class="milkyway-tile"></div>
+            <div class="milkyway-tile"></div>
+        </div>
+    </div>
     
-    <nav class="lang-bar" aria-label="Language">
-        <button type="button" id="lang-de" aria-pressed="false">Deutsch</button>
-        <button type="button" id="lang-en" class="active" aria-pressed="true">English</button>
-    </nav>
+    <header class="site-header">
+        <div class="header-left">
+            <a href="/" class="brand-logo" aria-label="ForFuture home">
+                <img src="images/logo_bg.png" alt="ForFuture" width="160" height="32">
+            </a>
+        </div>
+        <nav class="lang-bar" aria-label="Language">
+            <button type="button" id="lang-de" aria-pressed="false">Deutsch</button>
+            <button type="button" id="lang-en" class="active" aria-pressed="true">English</button>
+        </nav>
+    </header>
     
     <main>
         <!-- 1. HERO -->
         <section class="hero">
             <div class="wrap">
-                <h1 data-lang="en">Complete Financial Missions.<br>Not Just Track Expenses.</h1>
-                <h1 data-lang="de">Finanz-Missionen erfüllen.<br>Nicht nur Ausgaben tracken.</h1>
-                <p class="subheadline" data-lang="en">ForFuture turns saving and investing into a space journey toward your next life goal.</p>
-                <p class="subheadline" data-lang="de">ForFuture macht Sparen und Investieren zur Weltraumreise zu deinem nächsten Lebensziel.</p>
-                <div class="cta-row">
-                    <!-- Replace with your App Store URL if different: https://apps.apple.com/app/forfuture/idYOUR_APP_ID -->
-                    <a href="https://apps.apple.com/app/forfuture/id6757244689" class="btn btn-primary" aria-label="Download on the App Store">🍏 <span data-lang="en">Download on App Store</span><span data-lang="de">Im App Store laden</span></a>
-                    <a href="#early-access" class="btn btn-secondary">📩 <span data-lang="en">Join Android Early Access</span><span data-lang="de">Android Early Access</span></a>
+                <h1 data-lang="en">Complete Financial Missions</h1>
+                <h1 data-lang="de">Finanz-Missionen erfüllen</h1>
+                <p class="subheadline" data-lang="en">ForFuture turns saving and investing into a space journey toward your next life goal</p>
+                <p class="subheadline" data-lang="de">ForFuture macht Sparen und Investieren zur Weltraumreise zu deinem nächsten Lebensziel</p>
+                <div class="cta-block">
+                    <div class="cta-phone">
+                        <img src="/images/phone-app.png" alt="ForFuture app – income, expenses and budget overview" width="240" height="480">
+                    </div>
+                    <div class="cta-downloads">
+                    <div class="cta-qr" aria-label="QR code: App Store">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&amp;data=https%3A%2F%2Fapps.apple.com%2Fapp%2Fforfuture%2Fid6757244689" alt="QR code: scan to open ForFuture on App Store" width="136" height="136">
+                    </div>
+                    <div class="cta-buttons">
+                        <span class="btn btn-store-gplay btn-coming-soon" aria-label="Google Play – Coming soon">
+                            <svg class="gplay-icon" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                                <path fill="#00A651" d="M2 12L15 12 22 2 2 12z"/>
+                                <path fill="#5AC8FA" d="M2 12L15 12 22 22 2 12z"/>
+                                <path fill="#EA4335" d="M15 12L22 12 22 22 15 12z"/>
+                                <path fill="#FBBC04" d="M15 12L22 2 22 12 15 12z"/>
+                            </svg>
+                            <span class="gplay-text">
+                                <span class="gplay-small"><span data-lang="en">GET IT ON</span><span data-lang="de">JETZT BEI</span></span>
+                                <span class="gplay-title">Google Play</span>
+                            </span>
+                            <span class="coming-soon-badge"><span data-lang="en">Coming soon</span><span data-lang="de">Demnächst</span></span>
+                        </span>
+                        <a href="https://apps.apple.com/app/forfuture/id6757244689" class="btn btn-appstore" aria-label="Download on the App Store">
+                            <svg class="apple-logo" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision"><path fill="#ffffff" d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                            <span class="appstore-text">
+                                <span class="appstore-small"><span data-lang="en">Download on the</span><span data-lang="de">Laden im</span></span>
+                                <span class="appstore-title"><span data-lang="en">App Store</span><span data-lang="de">App Store</span></span>
+                            </span>
+                        </a>
+                    </div>
+                    </div>
+                </div>
+                <p class="cta-early"><a href="#early-access" class="link-early link-early-with-icon"><span class="link-early-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span><span data-lang="en">Request Android Early Access</span><span data-lang="de">Android Early Access anfordern</span></a></p>
                 </div>
             </div>
         </section>
@@ -357,11 +676,9 @@
         <!-- 2. PROBLEM -->
         <section class="problem">
             <div class="wrap">
-                <h2 data-lang="en">Most finance apps make you feel behind.</h2>
-                <h2 data-lang="de">Die meisten Finanz-Apps lassen dich zurück.</h2>
+                <h2 data-lang="en">Most finance apps make you feel behind</h2>
+                <h2 data-lang="de">Die meisten Finanz-Apps lassen dich zurück</h2>
                 <ul>
-                    <li data-lang="en">Endless transaction lists</li>
-                    <li data-lang="de">Endlose Transaktionslisten</li>
                     <li data-lang="en">No long-term vision</li>
                     <li data-lang="de">Keine langfristige Vision</li>
                     <li data-lang="en">No motivation</li>
@@ -369,8 +686,6 @@
                     <li data-lang="en">No progress feeling</li>
                     <li data-lang="de">Kein Fortschrittsgefühl</li>
                 </ul>
-                <p class="then" data-lang="en">ForFuture gives you a mission.</p>
-                <p class="then" data-lang="de">ForFuture gibt dir eine Mission.</p>
             </div>
         </section>
         
@@ -379,29 +694,29 @@
             <div class="wrap">
                 <h2 data-lang="en">How it works</h2>
                 <h2 data-lang="de">So funktioniert es</h2>
-                <p class="lead" data-lang="en">Three steps from scattered money to a clear mission.</p>
-                <p class="lead" data-lang="de">Drei Schritte von verstreutem Geld zu einer klaren Mission.</p>
+                <p class="lead" data-lang="en">Three steps from scattered money to a clear mission</p>
+                <p class="lead" data-lang="de">Drei Schritte von verstreutem Geld zu einer klaren Mission</p>
                 <div class="steps">
-                    <div class="step">
-                        <div class="icon">🌍</div>
-                        <h3 data-lang="en">Choose Your Planet</h3>
-                        <h3 data-lang="de">Wähle deinen Planeten</h3>
-                        <p data-lang="en">Buy a house? Build investments? Financial freedom? Pick the destination that matters to you.</p>
-                        <p data-lang="de">Haus kaufen? Vermögen aufbauen? Finanzielle Freiheit? Wähle das Ziel, das dir wichtig ist.</p>
-                    </div>
                     <div class="step">
                         <div class="icon">🎯</div>
                         <h3 data-lang="en">Discover Your Real Goal</h3>
                         <h3 data-lang="de">Entdecke dein echtes Ziel</h3>
-                        <p data-lang="en">A short journey in the app helps you find the goal that truly fits your situation—so you're not just tracking, you're aiming at something real.</p>
-                        <p data-lang="de">Eine kurze Reise in der App hilft dir, das Ziel zu finden, das wirklich zu deiner Situation passt—nicht nur tracken, sondern etwas Reales anvisieren.</p>
+                        <p data-lang="en">The app helps you recognize your real financial goal and supports you in implementing it long term.</p>
+                        <p data-lang="de">Die App hilft dir, dein echtes finanzielles Ziel zu erkennen und unterstützt dich dabei, es langfristig umzusetzen.</p>
                     </div>
                     <div class="step">
+                        <div class="icon">📊</div>
+                        <h3 data-lang="en">Overview of Your Finances</h3>
+                        <h3 data-lang="de">Überblick über deine Finanzen</h3>
+                        <p data-lang="en">Track your income, expenses, and budgets. See exactly where your money goes and spot opportunities to save or invest.</p>
+                        <p data-lang="de">Erfasse deine Einnahmen, Ausgaben und Budgets. Sieh genau, wohin dein Geld fließt und erkenne Chancen zum Sparen oder Investieren.</p>
+                    </div>
+                    <div class="step step-cta">
                         <div class="icon">🚀</div>
-                        <h3 data-lang="en">Complete Missions</h3>
-                        <h3 data-lang="de">Missionen erfüllen</h3>
-                        <p data-lang="en">Budget, invest, track progress. Every action moves you toward your planet.</p>
-                        <p data-lang="de">Budgetieren, investieren, Fortschritt verfolgen. Jede Aktion bringt dich deinem Planeten näher.</p>
+                        <h3 data-lang="en">Put Your Plan Into Action</h3>
+                        <h3 data-lang="de">Setze deinen Plan um</h3>
+                        <p data-lang="en">Time to execute: Use the app to turn your priorities into concrete steps, adjust budgets, and actively reach your financial goals.</p>
+                        <p data-lang="de">Nutze die App, um deine Prioritäten in konkrete Schritte zu verwandeln, Budgets anzupassen und deine finanziellen Ziele aktiv zu erreichen.</p>
                     </div>
                 </div>
             </div>
@@ -412,8 +727,8 @@
             <div class="wrap">
                 <h2 data-lang="en">Join early astronauts</h2>
                 <h2 data-lang="de">Werde früher Astronaut</h2>
-                <p class="lead" data-lang="en">People building their financial future with a clear mission. Even a small list of early signups is proof—every email counts.</p>
-                <p class="lead" data-lang="de">Menschen, die ihre finanzielle Zukunft mit einer klaren Mission aufbauen. Jede E-Mail zählt.</p>
+                <p class="lead" data-lang="en">People building their financial future with a clear mission. Even a small list of early signups is proof—every user counts</p>
+                <p class="lead" data-lang="de">Menschen, die ihre finanzielle Zukunft mit einer klaren Mission aufbauen. Jeder Nutzer zählt</p>
             </div>
         </section>
         
@@ -422,12 +737,11 @@
             <div class="wrap">
                 <h2 data-lang="en">Start Your Financial Mission Today</h2>
                 <h2 data-lang="de">Starte heute deine Finanz-Mission</h2>
-                <p class="lead" data-lang="en">Get early access and updates. No spam.</p>
-                <p class="lead" data-lang="de">Early Access und Updates. Kein Spam.</p>
-                <p class="android-note" data-lang="en">Android users: leave your email to join early access.</p>
-                <p class="android-note" data-lang="de">Android-Nutzer: E-Mail eintragen für Early Access.</p>
-                <!-- Create form at formspree.io, then set action to https://formspree.io/f/YOUR_FORM_ID -->
-                <form class="signup-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" aria-label="Email signup for Android early access">
+                <p class="lead" data-lang="en">Get early access and updates. No spam</p>
+                <p class="lead" data-lang="de">Early Access und Updates. Kein Spam</p>
+                <p class="android-note" data-lang="en">Android users: leave your email to join early access</p>
+                <p class="android-note" data-lang="de">Android-Nutzer: E-Mail eintragen für Early Access</p>
+                <form class="signup-form" action="https://formspree.io/f/maqdajge" method="POST" aria-label="Email signup for Android early access">
                     <input type="email" name="email" placeholder="your@email.com" required aria-label="Your email">
                     <button type="submit"><span data-lang="en">Become Early Astronaut</span><span data-lang="de">Früher Astronaut werden</span></button>
                 </form>
@@ -438,8 +752,8 @@
     <footer>
         <div class="wrap">
             <a href="https://forfuture.app/privacy-policy.html"><span data-lang="en">Privacy Policy</span><span data-lang="de">Datenschutz</span></a>
-            <span> · </span>
             <a href="https://forfuture.app/terms-of-service.html"><span data-lang="en">Terms of Service</span><span data-lang="de">Nutzungsbedingungen</span></a>
+            <a href="https://forfuture.app/impressum.html">Impressum</a>
         </div>
     </footer>
     
@@ -463,6 +777,17 @@
             document.getElementById('lang-de').addEventListener('click', function() { setLang('de'); });
             document.getElementById('lang-en').addEventListener('click', function() { setLang('en'); });
             setLang(lang);
+        })();
+        (function() {
+            var track = document.querySelector('.milkyway-track');
+            if (!track) return;
+            var factor = 3;
+            function updateParallax() {
+                var y = -window.scrollY * factor;
+                track.style.transform = 'translateY(' + y + 'px)';
+            }
+            window.addEventListener('scroll', function() { requestAnimationFrame(updateParallax); }, { passive: true });
+            updateParallax();
         })();
     </script>
 </body>
