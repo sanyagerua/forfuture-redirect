@@ -2,6 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <script>
+      (function(){
+        var h = window.location.hash;
+        if (h && h.indexOf('access_token=') !== -1 && h.indexOf('type=recovery') !== -1) {
+          window.location.replace('/password-reset-web.html' + h);
+          return;
+        }
+      })();
+    </script>
+    <!-- FORFUTURE-RESET-REDIRECT: if you see this in View Source at forfuture.app, the correct index.html is deployed -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="ForFuture – Complete financial missions. Not just track expenses. Turn saving and investing into a space journey toward your next life goal.">
     <meta name="theme-color" content="#0A0B1F">
@@ -599,6 +612,14 @@
     </style>
 </head>
 <body>
+    <script>
+      (function(){
+        var h = window.location.hash;
+        if (h && h.indexOf('access_token=') !== -1 && h.indexOf('type=recovery') !== -1) {
+          window.location.replace('/password-reset-web.html' + h);
+        }
+      })();
+    </script>
     <div class="milkyway-bg" aria-hidden="true">
         <div class="milkyway-track">
             <div class="milkyway-tile"></div>
@@ -772,7 +793,7 @@
         (function() {
             var track = document.querySelector('.milkyway-track');
             if (!track) return;
-            var factor = 2;
+            var factor = 3;
             function updateParallax() {
                 var y = -window.scrollY * factor;
                 track.style.transform = 'translateY(' + y + 'px)';
