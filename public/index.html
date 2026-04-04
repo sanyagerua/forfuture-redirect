@@ -220,7 +220,40 @@
             flex-wrap: wrap;
             align-items: center;
             justify-content: center;
-            gap: 24px;
+            gap: 28px 32px;
+        }
+        /* Two QR codes: fixed column width so labels and tiles never squash each other */
+        .cta-qr-row {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 28px 36px;
+            flex-shrink: 0;
+        }
+        .cta-qr-item {
+            flex: 0 0 auto;
+            width: 168px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .cta-qr-label {
+            margin: 0 0 10px 0;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text);
+            line-height: 1.25;
+            max-width: 168px;
+        }
+        .cta-qr-label-sub {
+            display: block;
+            margin-top: 3px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--muted);
         }
         .cta-qr {
             flex-shrink: 0;
@@ -522,6 +555,7 @@
             .cta-block { flex-direction: column; gap: 32px; }
             .cta-phone img { max-height: 320px; }
             .cta-downloads { flex-direction: column; }
+            .cta-qr-row { gap: 24px 28px; }
             .cta-buttons { align-items: center; width: 100%; }
             .cta-buttons .btn { width: 100%; max-width: 260px; justify-content: flex-start; }
         }
@@ -569,8 +603,25 @@
                         <img src="/images/phone-app.png" alt="ForFuture app – income, expenses and budget overview" width="240" height="480">
                     </div>
                     <div class="cta-downloads">
-                    <div class="cta-qr" aria-label="QR code: App Store">
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&amp;data=https%3A%2F%2Fapps.apple.com%2Fapp%2Fforfuture%2Fid6757244689" alt="QR code: scan to open ForFuture on App Store" width="136" height="136">
+                    <div class="cta-qr-row" role="group" aria-label="Download QR codes">
+                        <div class="cta-qr-item">
+                            <div class="cta-qr-label" id="hero-qr-appstore-label">
+                                <span data-lang="en">App Store</span><span data-lang="de">App Store</span>
+                                <span class="cta-qr-label-sub"><span data-lang="en">Scan for iPhone &amp; iPad</span><span data-lang="de">Scannen für iPhone &amp; iPad</span></span>
+                            </div>
+                            <div class="cta-qr" aria-labelledby="hero-qr-appstore-label">
+                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&amp;data=https%3A%2F%2Fapps.apple.com%2Fapp%2Fforfuture%2Fid6757244689" alt="QR code: open ForFuture on the App Store" width="136" height="136">
+                            </div>
+                        </div>
+                        <div class="cta-qr-item">
+                            <div class="cta-qr-label" id="hero-qr-gplay-label">
+                                <span data-lang="en">Google Play</span><span data-lang="de">Google Play</span>
+                                <span class="cta-qr-label-sub"><span data-lang="en">Scan for Android</span><span data-lang="de">Scannen für Android</span></span>
+                            </div>
+                            <div class="cta-qr" aria-labelledby="hero-qr-gplay-label">
+                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&amp;data=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.forfuture" alt="QR code: open ForFuture on Google Play" width="136" height="136">
+                            </div>
+                        </div>
                     </div>
                     <div class="cta-buttons">
                         <a href="https://play.google.com/store/apps/details?id=com.forfuture" class="btn btn-store-gplay" target="_blank" rel="noopener noreferrer" aria-label="Get ForFuture on Google Play">
