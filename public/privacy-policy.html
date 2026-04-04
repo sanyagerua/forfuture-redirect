@@ -2,393 +2,794 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <script>
+      (function(){
+        var h = window.location.hash;
+        if (h && h.indexOf('access_token=') !== -1 && h.indexOf('type=recovery') !== -1) {
+          window.location.replace('/password-reset-web.html' + h);
+          return;
+        }
+      })();
+    </script>
+    <!-- FORFUTURE-RESET-REDIRECT: if you see this in View Source at forfuture.app, the correct index.html is deployed -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="ForFuture Privacy Policy - Financial Planning and Budgeting App">
-    <title>Privacy Policy - ForFuture</title>
+    <meta name="description" content="ForFuture – Complete financial missions. Not just track expenses. Turn saving and investing into a space journey toward your next life goal.">
+    <meta name="theme-color" content="#0A0B1F">
+    <title>ForFuture – Complete Financial Missions</title>
+    <link rel="canonical" href="https://forfuture.app/">
+    <link rel="shortcut icon" href="https://forfuture.app/images/app-icon.png" type="image/png">
+    <link rel="icon" href="https://forfuture.app/images/app-icon.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="https://forfuture.app/images/app-icon.png" type="image/png" sizes="180x180">
+    <link rel="apple-touch-icon" href="https://forfuture.app/images/app-icon.png">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --bg: #0A0B1F;
+            --surface: #12142a;
+            --card: #181A20;
+            --border: #2a2b35;
+            --text: #FFFFFF;
+            --muted: #9ca3af;
+            --accent: #6366f1;
+            --accent-glow: rgba(99, 102, 241, 0.35);
+        }
+        
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        /* Milky Way background – milkyway_doubled2.png, continuous vertical scroll; overflow to avoid left-edge artefact */
+        .milkyway-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            min-width: 100vw;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        .milkyway-track {
+            position: absolute;
+            left: -1px;
+            width: calc(100% + 2px);
+            height: 300vh;
+            will-change: transform;
+        }
+        .milkyway-tile {
+            position: absolute;
+            left: -1px;
+            width: calc(100% + 2px);
+            height: 100vh;
+            background-color: var(--bg);
+            background-image: url("images/milkyway_doubled2.png");
+            background-size: cover;
+            background-position: center;
+        }
+        .milkyway-tile:nth-child(1) { top: 0; }
+        .milkyway-tile:nth-child(2) { top: 100vh; }
+        .milkyway-tile:nth-child(3) { top: 200vh; }
+        
+        .wrap {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .hero .wrap { max-width: 1040px; }
+        .how-it-works .wrap { max-width: 1020px; }
+        
+        /* Language switcher */
+        .lang-bar {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            justify-content: flex-end;
+            padding: 16px 24px;
+            gap: 8px;
+        }
+        .lang-bar button {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--muted);
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: color 0.2s, border-color 0.2s, background 0.2s;
+        }
+        .lang-bar button:hover {
+            color: var(--text);
+            border-color: var(--muted);
+        }
+        .lang-bar button.active {
+            background: var(--card);
+            color: var(--text);
+            border-color: var(--accent);
+        }
+        
+        /* Brand: logo left, language switcher right */
+        .site-header {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            padding: 16px 24px;
+        }
+        .header-left {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        .brand-logo {
+            display: block;
+            height: 32px;
+            width: auto;
+        }
+        .brand-logo img {
+            height: 100%;
+            width: auto;
+            display: block;
+        }
+        /* Content by language */
+        [data-lang="de"] { display: none; }
+        [data-lang="en"] { display: block; }
+        body.lang-de [data-lang="en"] { display: none; }
+        body.lang-de [data-lang="de"] { display: block; }
+        
+        /* ----- Hero ----- */
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 0 80px;
+        }
+        
+        .hero h1 {
+            font-size: clamp(1.75rem, 5vw, 2.75rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+        
+        .hero .subheadline {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            color: var(--muted);
+            max-width: 520px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .cta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+            align-items: stretch;
+        }
+        
+        /* One row: [phone] | [flex column: (btn+QR), (btn+QR)] */
+        .cta-block {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 28px 36px;
+            margin-top: 20px;
+        }
+        .cta-phone {
+            flex: 0 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .cta-phone img {
+            display: block;
+            width: clamp(188px, 20vw, 232px);
+            height: auto;
+            max-height: min(488px, calc(100vh - 280px));
+            object-fit: contain;
+            border-radius: 32px;
+            box-shadow: 0 24px 48px rgba(0,0,0,0.4);
+        }
+        .hero-store-note {
+            font-size: clamp(0.88rem, 2.2vw, 0.98rem);
+            color: var(--muted);
+            text-align: center;
+            line-height: 1.45;
+            max-width: 520px;
+            margin: 0 auto 16px;
+            padding: 0 8px;
+        }
+        /* Right column: two horizontal rows, each = store button + QR */
+        .cta-downloads {
+            flex: 0 1 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            justify-content: center;
+            gap: 16px;
+            min-width: 0;
+            max-width: 460px;
+        }
+        .cta-store-row {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: 14px 20px;
+        }
+        .cta-qr-item {
+            flex: 0 0 auto;
+            width: 168px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .cta-qr-label {
+            margin: 0 0 10px 0;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text);
+            line-height: 1.25;
+            max-width: 168px;
+        }
+        .cta-qr-label-sub {
+            display: block;
+            margin-top: 3px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--muted);
+        }
+        .cta-qr {
+            flex-shrink: 0;
+            position: relative;
+            width: 160px;
+            height: 160px;
+            background: #fff;
+            border-radius: 16px;
+            padding: 12px;
+            box-sizing: border-box;
+        }
+        .cta-qr img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+        .cta-store-row .btn-store-gplay,
+        .cta-store-row .btn-appstore {
+            flex: 0 1 260px;
+            min-width: 220px;
+            max-width: 280px;
+            width: 100%;
+            justify-content: flex-start;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 24px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: none;
+            cursor: pointer;
+            min-height: 52px;
             box-sizing: border-box;
         }
         
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #f5f5f5;
-            padding: 20px;
-        }
+        .btn:hover { transform: translateY(-2px); }
         
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: white;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        h1 {
-            color: #0A0B1F;
-            margin-bottom: 10px;
-            font-size: 2em;
-        }
-        
-        .subtitle {
-            color: #666;
-            margin-bottom: 30px;
-            font-size: 0.9em;
-        }
-        
-        .language-selector {
-            margin-bottom: 30px;
-            padding: 15px;
-            background: #f8f9fa;
-            border-radius: 6px;
-        }
-        
-        .language-selector button {
-            background: #0A0B1F;
+        .btn-primary {
+            background: var(--accent);
             color: white;
-            border: none;
-            padding: 8px 16px;
-            margin: 5px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.9em;
+            box-shadow: 0 4px 20px var(--accent-glow);
         }
         
-        .language-selector button:hover {
-            background: #1a1b2f;
-        }
+        .btn-primary:hover { box-shadow: 0 6px 28px var(--accent-glow); }
         
-        .language-selector button.active {
-            background: #4a90e2;
+        /* App Store badge – same brightness as Google Play button */
+        .btn-appstore {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 18px 10px 14px;
+            min-height: 52px;
+            background: #1f1a36;
+            color: #fff;
+            border: 1px solid rgba(148, 130, 220, 0.4);
+            border-radius: 12px;
+            text-decoration: none;
+            transition: transform 0.2s, opacity 0.2s;
+            box-sizing: border-box;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
-        
-        .policy-content {
-            display: none;
-        }
-        
-        .policy-content.active {
+        .btn-appstore:hover { transform: translateY(-2px); opacity: 0.95; }
+        .btn-appstore .apple-logo {
+            width: 28px;
+            height: 28px;
+            flex-shrink: 0;
             display: block;
         }
-        
-        .policy-content h2 {
-            color: #0A0B1F;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            font-size: 1.5em;
-            border-bottom: 2px solid #e0e0e0;
-            padding-bottom: 10px;
+        .btn-appstore .apple-logo path {
+            fill: #fff;
+        }
+        .btn-appstore .appstore-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            line-height: 1.2;
+        }
+        .btn-appstore .appstore-title {
+            font-size: 1.2rem;
+            font-weight: 600;
         }
         
-        .policy-content h3 {
-            color: #333;
-            margin-top: 20px;
-            margin-bottom: 10px;
-            font-size: 1.2em;
+        .btn-secondary {
+            background: var(--card);
+            color: var(--text);
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
         
-        .policy-content p {
-            margin-bottom: 15px;
-            text-align: justify;
+        .btn-secondary:hover { border-color: var(--muted); background: var(--surface); }
+        
+        /* Google Play store-style button */
+        .btn-store-gplay {
+            background: #1f1a36;
+            color: #fff;
+            border: 1px solid rgba(148, 130, 220, 0.4);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 18px 10px 14px;
+            border-radius: 12px;
+            font-family: inherit;
+            min-height: 52px;
+            box-sizing: border-box;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+        a.btn-store-gplay:hover {
+            transform: translateY(-2px);
+            opacity: 0.95;
+        }
+        .btn-store-gplay .gplay-icon {
+            width: 28px;
+            height: 28px;
+            flex-shrink: 0;
+            display: block;
+            transform: rotate(180deg);
+        }
+        .btn-store-gplay .gplay-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            line-height: 1.2;
+        }
+        .btn-store-gplay .gplay-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+        }
+        /* ----- Section common ----- */
+        section {
+            padding: 72px 0;
         }
         
-        .policy-content ul, .policy-content ol {
-            margin-left: 20px;
-            margin-bottom: 15px;
+        section h2 {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
         }
         
-        .policy-content li {
+        section .lead {
+            text-align: center;
+            color: var(--muted);
+            max-width: 560px;
+            margin: 0 auto 40px;
+            font-size: 1.1rem;
+        }
+        
+        /* ----- Problem ----- */
+        .problem ul {
+            list-style: none;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+        
+        .problem li {
+            padding: 14px 0;
+            padding-left: 36px;
+            position: relative;
+            color: var(--muted);
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+        }
+        
+        .problem li::before {
+            content: "✕";
+            position: absolute;
+            left: 0;
+            color: #ef4444;
+            font-weight: bold;
+        }
+        
+        .problem .then {
+            text-align: center;
+            margin-top: 32px;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+        
+        /* ----- How it works (3 steps) ----- */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            margin-top: 40px;
+        }
+        
+        .step {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            text-align: center;
+        }
+        
+        .step .icon {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+        }
+        
+        .step h3 {
+            font-size: 1.05rem;
             margin-bottom: 8px;
+            white-space: nowrap;
         }
         
-        .contact-info {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 6px;
-            margin-top: 30px;
-            border-left: 4px solid #4a90e2;
+        .step p {
+            color: var(--muted);
+            font-size: 0.95rem;
         }
         
-        .contact-info strong {
-            color: #0A0B1F;
+        .step-cta .step-button {
+            margin-top: 16px;
+            display: inline-flex;
+        }
+        .step-cta .btn-appstore .apple-logo { width: 22px; height: 22px; }
+        .step-cta .btn-appstore .appstore-title { font-size: 1rem; }
+        .step-cta .btn-appstore { padding: 8px 14px 8px 12px; min-height: 44px; }
+        
+        /* ----- Final CTA (download) ----- */
+        .final-cta {
+            background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
+            border-top: 1px solid var(--border);
         }
         
-        .last-updated {
-            color: #666;
-            font-size: 0.9em;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid #e0e0e0;
+        .final-cta h2 { margin-bottom: 12px; }
+        .final-cta .lead { margin-bottom: 24px; }
+        
+        .final-cta-store-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: stretch;
+            gap: 12px;
+            max-width: 560px;
+            margin: 0 auto;
         }
         
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px;
+        .final-cta-store-row .btn-store-gplay,
+        .final-cta-store-row .btn-appstore {
+            flex: 1 1 240px;
+            min-width: 0;
+            justify-content: flex-start;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 32px 24px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+        }
+        footer .wrap {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 0 1rem;
+        }
+        footer a {
+            color: var(--muted);
+            text-decoration: none;
+        }
+        footer a:hover { color: var(--text); }
+        
+        @media (min-width: 768px) {
+            .cta-block {
+                flex-wrap: nowrap;
+                align-items: center;
+                gap: 32px clamp(28px, 4vw, 48px);
             }
-            
-            h1 {
-                font-size: 1.5em;
+        }
+        @media (max-width: 640px) {
+            .hero { min-height: 80vh; padding: 40px 0 60px; }
+            section { padding: 56px 0; }
+            .steps { grid-template-columns: 1fr; }
+            .step h3 { white-space: normal; }
+        }
+        @media (max-width: 767px) {
+            .cta-block {
+                flex-direction: column;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: 24px;
             }
-            
-            .policy-content h2 {
-                font-size: 1.3em;
+            .cta-phone img {
+                width: auto;
+                max-width: min(260px, 88vw);
+                max-height: min(340px, 52vh);
+            }
+            .cta-downloads {
+                max-width: 100%;
+                align-items: center;
+            }
+            .cta-store-row {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .cta-store-row .btn-store-gplay,
+            .cta-store-row .btn-appstore {
+                max-width: 260px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>ForFuture Privacy Policy</h1>
-        <p class="subtitle">Financial Planning and Budgeting App</p>
-        
-        <div class="language-selector">
-            <button onclick="showLanguage('en')" class="active" id="btn-en">English</button>
-            <button onclick="showLanguage('de')" id="btn-de">Deutsch</button>
-            <button onclick="showLanguage('uk')" id="btn-uk">Українська</button>
-        </div>
-        
-        <!-- English Version -->
-        <div id="policy-en" class="policy-content active">
-            <h2>1. Controller & Contact</h2>
-            <p><strong>ForFuture</strong> (Mobile App and Landing Page)</p>
-            <p><strong>Responsible person:</strong> Diana Barkova, Kastanienstraße 18, 40699 Erkrath, Germany</p>
-            <p><strong>E-mail:</strong> diana.barkova@gmail.com</p>
-            <p>(No data-protection officer appointed. For any privacy-related inquiries, please contact us by e-mail.)</p>
-            
-            <h2>2. Overview of Data Processing</h2>
-            <p>We process personal data only to provide and improve the ForFuture App, fulfil contractual obligations, offer requested services such as budgeting, missions and support, and comply with legal requirements. Data is disclosed to third parties only on a lawful basis (e.g. data-processing agreements).</p>
-            
-            <h2>3. Categories of Personal Data</h2>
-            <p><strong>Account Data:</strong> E-mail, password hash, language, optional profile settings (via Supabase Auth).</p>
-            <p><strong>Financial Data:</strong> Income and expense categories, budgets, variable expenses, savings history, completed months, receipt drafts, investments, portfolio entries, categories (including user-defined).</p>
-            <p><strong>Tasks & Progress:</strong> Missions, levels / XP, Lumars, questionnaire progress and answers, task history, rewards.</p>
-            <p><strong>Feedback & Support:</strong> Free-text feedback, metadata (timestamp, pseudonymised user ID).</p>
-            <p><strong>Device & App Settings (local):</strong> Language, design mode, notification toggles (stored locally in AsyncStorage / SecureStore).</p>
-            <p><strong>Usage Logs (technical):</strong> Limited Supabase logs for debugging; optional anonymous crash data via Firebase Crashlytics (if activated).</p>
-            <p><strong>Receipt OCR:</strong> Uploaded images / PDFs are temporarily processed by an Edge Function and transmitted to OCR.space for text recognition.</p>
-            <p>We do not process special categories of personal data within the meaning of Art. 9 GDPR.</p>
-            
-            <h2>4. Purposes & Legal Bases (Art. 6 GDPR)</h2>
-            <p><strong>Contract performance / pre-contractual steps (Art. 6 (1)(b)):</strong> Account management, budgeting, expense tracking, missions / gamification, OCR receipt processing, portfolio functions.</p>
-            <p><strong>Consent (Art. 6 (1)(a)):</strong> Push notifications, optional questionnaires or beta features, optional analytics. Consent may be withdrawn at any time with future effect.</p>
-            <p><strong>Legitimate interests (Art. 6 (1)(f)):</strong> Security, fraud prevention, service improvement, aggregated analytics, crash diagnostics — processed with strict data minimisation.</p>
-            <p><strong>Legal obligations (Art. 6 (1)(c)):</strong> Compliance with legal record-keeping and official requests.</p>
-            <p>No automated decision-making within the meaning of Art. 22 GDPR takes place. Gamification / Lumars levels have no legal or similar significant effect.</p>
-            
-            <h2>5. Recipients / Processors / International Transfers</h2>
-            <p>We use carefully selected processors under Art. 28 GDPR:</p>
-            <ul>
-                <li><strong>Supabase Inc. (EU / USA):</strong> Database, authentication, storage, Edge Functions — operated in the EU region (Frankfurt), encrypted in transit and at rest.</li>
-                <li><strong>OCR.space (Netherlands):</strong> Receipt text recognition via Edge Function; images transmitted in Base64 and deleted immediately after processing. Privacy: <a href="https://ocr.space/privacy" target="_blank">ocr.space/privacy</a></li>
-                <li><strong>Resend (USA / EU):</strong> Used to forward feedback e-mails to our support ("send-feedback-email" function).</li>
-                <li><strong>Push Services:</strong> Expo Notifications / Apple Push Notification Service / Firebase Cloud Messaging (processing device tokens & message metadata).</li>
-                <li><strong>Firebase Crashlytics (Google Ireland Ltd.):</strong> Anonymous or pseudonymised crash data (if enabled).</li>
-            </ul>
-            <p>Transfers to third countries (esp. USA) rely on Standard Contractual Clauses under Art. 46 GDPR and supplier DPAs. Copies of key safeguards are available upon request.</p>
-            
-            <h2>6. Storage Period & Erasure</h2>
-            <p><strong>Account, financial, mission, questionnaire data:</strong> kept until you delete your account or request deletion.</p>
-            <p><strong>Receipt images / PDFs:</strong> used only for temporary OCR processing, then immediately deleted.</p>
-            <p><strong>Notification tokens & local settings:</strong> retained until logout, token revocation or reinstallation.</p>
-            <p><strong>Logs / backups:</strong> per Supabase default (approx. 30–90 days).</p>
-            <p><strong>Support e-mails:</strong> deleted after issue resolution, usually within 12 months unless legal retention duties apply.</p>
-            
-            <h2>7. App Permissions</h2>
-            <p>The app may request Internet access, local storage, media / file access (uploads), document picker (PDF), camera (for receipt scanning/OCR) and push notifications. Permissions can be revoked in your device settings; some features may then be unavailable.</p>
-            
-            <h2>8. Your Rights (Art. 15–21 GDPR)</h2>
-            <p>You have the right to access, rectification, erasure, restriction, data portability, and objection to processing based on Art. 6 (1)(f) GDPR.</p>
-            <p>You may withdraw consent at any time.</p>
-            <p>To exercise your rights, contact diana.barkova@gmail.com.</p>
-            <p>You may lodge a complaint with a supervisory authority, e.g. the State Commissioner for Data Protection and Freedom of Information of North Rhine-Westphalia (LDI NRW) (Art. 77 GDPR).</p>
-            
-            <h2>9. Security</h2>
-            <p>We employ TLS encryption, Row-Level Security (RLS), least-privilege access, secure password hashing, API-key restrictions, Edge-Function monitoring, and role-based access control. Only authorised development staff can access user data. Measures are regularly reviewed and updated.</p>
-            
-            <h2>10. Minors</h2>
-            <p>The app is intended for adults. Use is permitted from age 16 and above (or higher per national law). We do not knowingly collect data from children under 16.</p>
-            
-            <h2>11. Cookies & Similar Technologies (Landing Page)</h2>
-            <p>Our website uses essential cookies (e.g. session, security). Optional cookies / tools (e.g. analytics) are used only with consent (Art. 6 (1)(a) GDPR). Details and storage times are listed in the cookie banner. Consent can be changed or withdrawn at any time.</p>
-            
-            <h2>12. Changes</h2>
-            <p>We may update this Privacy Policy to reflect feature or legal changes. The current version is always available within the app and on our website.</p>
-            
-            <div class="contact-info">
-                <p><strong>Contact:</strong> diana.barkova@gmail.com</p>
-            </div>
-        </div>
-        
-        <!-- German Version -->
-        <div id="policy-de" class="policy-content">
-            <h2>1. Verantwortliche Stelle & Kontakt</h2>
-            <p><strong>ForFuture</strong> (Mobile-App & Landingpage)</p>
-            <p><strong>Verantwortlich:</strong> Diana Barkova, Kastanienstraße 18, 40699 Erkrath, Deutschland</p>
-            <p><strong>E-Mail:</strong> diana.barkova@gmail.com</p>
-            <p>(Kein betrieblicher Datenschutzbeauftragter bestellt. Bei datenschutzbezogenen Anfragen kontaktieren Sie uns bitte per E-Mail.)</p>
-            
-            <h2>2. Überblick über die Datenverarbeitung</h2>
-            <p>Wir verarbeiten personenbezogene Daten, um die ForFuture-App bereitzustellen, zu verbessern, vertragliche Leistungen (z. B. Budget- & Missionsfunktionen) zu erbringen, Support anzubieten sowie gesetzlichen Pflichten nachzukommen. Eine Weitergabe an Dritte erfolgt ausschließlich auf Basis eines Rechtsgrundes (z. B. Auftragsverarbeitung).</p>
-            
-            <h2>3. Kategorien personenbezogener Daten</h2>
-            <p><strong>Kontodaten:</strong> E-Mail, Passwort-Hash, Sprache, optionale Profileinstellungen (über Supabase Auth).</p>
-            <p><strong>Finanzdaten:</strong> Einnahmen/Ausgaben-Kategorien, Budgets, variable Ausgaben, Sparhistorie, abgeschlossene Monate, Beleg-Entwürfe, Investitionen, Portfolio-Einträge, Kategorien (inkl. eigener Kategorien).</p>
-            <p><strong>Aufgaben & Fortschritt:</strong> Missionen, Level/XP, Lumars, Fragebogen-Fortschritt und Antworten, Aufgabenhistorie, Belohnungen.</p>
-            <p><strong>Feedback & Support:</strong> Freitexte, Metadaten (Zeitpunkt, pseudonymisierte Nutzer-ID).</p>
-            <p><strong>Geräte- & App-Einstellungen (lokal):</strong> Sprache, Designmodus, Benachrichtigungsschalter (lokal in AsyncStorage/SecureStore).</p>
-            <p><strong>Nutzungsprotokolle (technisch):</strong> begrenzte Supabase-Logs zur Fehlersuche; optionale Crash-/Fehlerdaten durch Firebase Crashlytics (falls aktiviert).</p>
-            <p><strong>Beleg-OCR:</strong> Bilder/PDFs werden temporär in einer Edge Function verarbeitet und an OCR.space zur Texterkennung übermittelt.</p>
-            <p>Wir verarbeiten keine besonderen Kategorien personenbezogener Daten i. S. d. Art. 9 DSGVO.</p>
-            
-            <h2>4. Zwecke & Rechtsgrundlagen (Art. 6 DSGVO)</h2>
-            <p><strong>Vertragserfüllung, vorvertragliche Maßnahmen (Art. 6 Abs. 1 b):</strong> Kontoverwaltung, Kernfunktionen (Budgetierung, Ausgaben, Missionen/Gamification), Beleg-/OCR-Verarbeitung, Portfolios.</p>
-            <p><strong>Einwilligung (Art. 6 Abs. 1 a):</strong> Push-Benachrichtigungen, optionale Fragebögen/Beta-Features, ggf. optionale Analysen. Einwilligungen sind jederzeit mit Wirkung für die Zukunft widerrufbar.</p>
-            <p><strong>Berechtigtes Interesse (Art. 6 Abs. 1 f):</strong> Sicherheit, Betrugs-/Missbrauchsprävention, Service-Verbesserung, aggregierte/nicht-personenbezogene Auswertungen, Stabilität (Crash-Daten). Interessenabwägung erfolgt zugunsten hoher Datensparsamkeit.</p>
-            <p><strong>Rechtspflichten (Art. 6 Abs. 1 c):</strong> Erfüllung gesetzlicher Auskunfts-/Aufbewahrungspflichten, behördliche Anfragen.</p>
-            <p>Keine automatisierten Entscheidungen i. S. v. Art. 22 DSGVO. Gamification/Level/Lumars haben keine rechtliche/ähnlich erhebliche Wirkung.</p>
-            
-            <h2>5. Empfänger, Auftragsverarbeiter & Drittlandübermittlungen</h2>
-            <p>Wir setzen sorgfältig ausgewählte Dienstleister (Auftragsverarbeiter, Art. 28 DSGVO) ein:</p>
-            <ul>
-                <li><strong>Supabase (Supabase Inc., EU/USA):</strong> Datenbank, Auth, Storage, Edge Functions. Betrieb im EU-Cluster (derzeit Frankfurt); Verschlüsselung in Transit/Ruhe.</li>
-                <li><strong>OCR.space (Niederlande):</strong> Texterkennung für Belege via Edge Function; Bilder werden als Base64 übertragen und nach Verarbeitung gelöscht. Datenschutz: <a href="https://ocr.space/privacy" target="_blank">ocr.space/privacy</a>.</li>
-                <li><strong>Resend (USA/EU):</strong> Versand von Feedback-E-Mails an den Support („send-feedback-email").</li>
-                <li><strong>Push-Dienste:</strong> Expo Notifications / Apple Push Notification Service / Firebase Cloud Messaging (Verarbeitung von Gerätetokens/Nachrichtenmetadaten).</li>
-                <li><strong>Firebase Crashlytics (Google Ireland Ltd.):</strong> anonyme/ pseudonymisierte Crash-Daten (falls aktiviert).</li>
-            </ul>
-            <p>Drittlandübermittlungen (insb. USA) erfolgen auf Grundlage geeigneter Garantien nach Art. 46 DSGVO (Standardvertragsklauseln) und vertraglicher Zusicherungen (DPA/ SCC). Kopien der wesentlichen Garantien können auf Anfrage bereitgestellt werden.</p>
-            
-            <h2>6. Speicherdauer & Löschung</h2>
-            <p><strong>Konto-, Finanz-, Missions-, Fragebogen-Daten:</strong> bis zur Kontolöschung oder bis Sie Löschung verlangen.</p>
-            <p><strong>Belegbilder/PDFs (OCR):</strong> nur für die temporäre Verarbeitung, anschließend unverzüglich gelöscht.</p>
-            <p><strong>Benachrichtigungstokens & lokale App-Einstellungen:</strong> bis Abmeldung, Token-Widerruf oder App-Neuinstallation.</p>
-            <p><strong>Protokolle/Backups:</strong> gemäß Supabase-Standardeinstellungen, i. d. R. 30–90 Tage; danach Löschung/Überschreibung.</p>
-            <p><strong>Support-/Feedback-E-Mails:</strong> nach Abschluss des Vorgangs, sofern keine gesetzlichen Pflichten entgegenstehen (i. d. R. bis zu 12 Monate).</p>
-            
-            <h2>7. App-Berechtigungen</h2>
-            <p>Die App kann Internet, lokalen Speicher, Medien-/Dateizugriff (Uploads), Dokumentenauswahl (PDF), Kamera (für Beleg-Scanning/OCR) sowie Push-Benachrichtigungen anfordern. Berechtigungen können Sie jederzeit in den Geräteeinstellungen widerrufen. Ohne bestimmte Berechtigungen stehen ggf. einzelne Funktionen nicht zur Verfügung.</p>
-            
-            <h2>8. Ihre Rechte (Art. 15–21 DSGVO)</h2>
-            <p>Sie haben Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit sowie Widerspruch gegen Verarbeitungen auf Basis von Art. 6 Abs. 1 f DSGVO.</p>
-            <p>Erteilte Einwilligungen können Sie jederzeit mit Wirkung für die Zukunft widerrufen.</p>
-            <p>Zur Ausübung Ihrer Rechte genügt eine Nachricht an diana.barkova@gmail.com.</p>
-            <p>Sie haben zudem das Recht auf Beschwerde bei einer Datenschutz-Aufsichtsbehörde, z. B. Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen (LDI NRW) (Art. 77 DSGVO).</p>
-            
-            <h2>9. Sicherheit</h2>
-            <p>Wir setzen TLS-Verschlüsselung, Row-Level Security (RLS), Least-Privilege-Zugriffe, sichere Passwort-Hashes, API-Key-Restriktionen, Monitoring von Edge Functions und rollenbasierte Zugriffskontrollen ein. Zugriffe sind auf das Entwicklungsteam beschränkt. Maßnahmen werden regelmäßig überprüft und verbessert.</p>
-            
-            <h2>10. Minderjährige</h2>
-            <p>Die App richtet sich an Volljährige. Eine Nutzung ist ab 16 Jahren (oder höher je nach nationalem Recht) vorgesehen. Wir erheben wissentlich keine Daten von Kindern unter 16 Jahren.</p>
-            
-            <h2>11. Cookies & ähnliche Technologien (Landingpage)</h2>
-            <p>Unsere Website verwendet essenzielle Cookies (z. B. Session, Sicherheit). Optionale Cookies/Tools (z. B. Reichweitenmessung) werden nur mit Einwilligung gesetzt (Art. 6 Abs. 1 a DSGVO). Details inkl. Anbieter, Zweck und Speicherdauer entnehmen Sie bitte dem Cookie-Banner bzw. der Cookie-Übersicht auf der Website. Einwilligungen können Sie dort jederzeit ändern/widerrufen.</p>
-            
-            <h2>12. Änderungen dieser Erklärung</h2>
-            <p>Bei Funktions-, Rechts- oder Anbieteränderungen passen wir diese Erklärung an. Die aktuelle Version ist jederzeit in der App und auf der Website verfügbar.</p>
-            
-            <div class="contact-info">
-                <p><strong>Kontakt:</strong> diana.barkova@gmail.com</p>
-            </div>
-        </div>
-        
-        <!-- Ukrainian Version -->
-        <div id="policy-uk" class="policy-content">
-            <h2>1. Відповідальна особа та контакт</h2>
-            <p><strong>ForFuture</strong> (мобільний додаток та лендінг-сторінка)</p>
-            <p><strong>Відповідальна особа:</strong> Діана Баркова, Kastanienstraße 18, 40699 Еркрах, Німеччина</p>
-            <p><strong>Е-mail:</strong> diana.barkova@gmail.com</p>
-            <p>(Окремий уповноважений із захисту даних не призначений. Для запитів щодо захисту даних пишіть на вказану адресу.)</p>
-            
-            <h2>2. Загальна інформація про обробку даних</h2>
-            <p>Ми обробляємо персональні дані лише для надання та покращення додатка ForFuture, виконання договорів, надання замовлених послуг (бюджетування, місії, підтримка) та виконання законодавчих вимог. Передача третім особам здійснюється лише на законних підставах (наприклад, договір обробки даних).</p>
-            
-            <h2>3. Категорії персональних даних</h2>
-            <p><strong>Дані облікового запису:</strong> електронна адреса, хеш пароля, мова, додаткові налаштування профілю (Supabase Auth).</p>
-            <p><strong>Фінансові дані:</strong> категорії доходів і витрат, бюджети, змінні витрати, історія заощаджень, закриті місяці, чернетки квитанцій, інвестиції, портфельні позиції, власні категорії.</p>
-            <p><strong>Завдання та прогрес:</strong> місії, рівні / досвід (XP), Lumars, опитування та відповіді, історія завдань, нагороди.</p>
-            <p><strong>Зворотний зв'язок і підтримка:</strong> текст повідомлення, метадані (час, псевдонімізований ID користувача).</p>
-            <p><strong>Налаштування пристрою та додатка (локально):</strong> мова, режим дизайну, сповіщення (AsyncStorage / SecureStore).</p>
-            <p><strong>Технічні журнали:</strong> обмежені логи Supabase для діагностики; за потреби анонімізовані дані про збої Firebase Crashlytics.</p>
-            <p><strong>Розпізнавання квитанцій (OCR):</strong> зображення / PDF тимчасово обробляються через Edge Function та передаються в OCR.space для розпізнавання тексту.</p>
-            <p>Ми не обробляємо особливі категорії даних за ст. 9 GDPR.</p>
-            
-            <h2>4. Цілі та правові підстави (ст. 6 GDPR)</h2>
-            <p><strong>Виконання договору (ст. 6 (1)(b)):</strong> керування акаунтом, бюджетування, місії, ігрові механіки (Lumars), обробка квитанцій, портфелі.</p>
-            <p><strong>Згода (ст. 6 (1)(a)):</strong> push-сповіщення, опитування, бета-функції, аналітика — з можливістю відкликання у будь-який час.</p>
-            <p><strong>Законний інтерес (ст. 6 (1)(f)):</strong> безпека, запобігання шахрайству, покращення сервісу, агрегований аналіз, стабільність.</p>
-            <p><strong>Юридичні зобов'язання (ст. 6 (1)(c)):</strong> виконання вимог законодавства та запитів органів влади.</p>
-            <p>Автоматизоване прийняття рішень (ст. 22 GDPR) не застосовується; ігрові елементи не мають правових наслідків.</p>
-            
-            <h2>5. Отримувачі та передача даних за кордон</h2>
-            <p>Ми залучаємо відповідальних постачальників (обробників даних) з відповідними договорами:</p>
-            <ul>
-                <li><strong>Supabase (EU / США)</strong> — база даних, аутентифікація, зберігання, Edge Functions (кластер Франкфурт, шифрування TLS).</li>
-                <li><strong>OCR.space (Нідерланди)</strong> — розпізнавання тексту; зображення передаються в Base64 і видаляються після обробки.</li>
-                <li><strong>Resend (США / ЄС)</strong> — надсилання листів із зворотним зв'язком до служби підтримки.</li>
-                <li><strong>Push-служби:</strong> Expo Notifications, Apple Push Notification Service, Firebase Cloud Messaging.</li>
-                <li><strong>Firebase Crashlytics (Google Ireland)</strong> — анонімізовані дані про збої.</li>
-            </ul>
-            <p>Передача до третіх країн (особливо США) базується на Стандартних договорах ЄС (ст. 46 GDPR) та угодах про обробку даних. Копії гарантій надаються за запитом.</p>
-            
-            <h2>6. Період зберігання та видалення</h2>
-            <p><strong>Дані облікового запису, фінансів, місій:</strong> зберігаються до видалення акаунта або запиту на видалення.</p>
-            <p><strong>Зображення / PDF квитанцій:</strong> використовуються лише для тимчасової обробки та негайно видаляються.</p>
-            <p><strong>Токени push-сповіщень і локальні налаштування:</strong> до виходу з акаунта або перевстановлення.</p>
-            <p><strong>Логи / резервні копії:</strong> 30–90 днів (за налаштуваннями Supabase).</p>
-            <p><strong>Листи служби підтримки:</strong> до 12 місяців після завершення звернення.</p>
-            
-            <h2>7. Дозволи додатка</h2>
-            <p>Додаток може запитувати доступ до Інтернету, локального сховища, медіафайлів (завантаження), вибору документів (PDF), камери (для сканування квитанцій/OCR) та push-сповіщень. Дозволи можна відкликати в налаштуваннях пристрою.</p>
-            
-            <h2>8. Ваші права (ст. 15–21 GDPR)</h2>
-            <p>Ви маєте права на: доступ, виправлення, видалення, обмеження обробки, перенесення даних та заперечення проти обробки (ст. 6 (1)(f)).</p>
-            <p>Згоду можна відкликати у будь-який час.</p>
-            <p>Звертайтесь: diana.barkova@gmail.com.</p>
-            <p>Скарги — до контролюючого органу, наприклад, Landesbeauftragte für Datenschutz NRW (Німеччина).</p>
-            
-            <h2>9. Безпека</h2>
-            <p>Застосовується TLS-шифрування, Row-Level Security, принцип мінімальних доступів, хешування паролів, обмеження API-ключів, моніторинг Edge Functions, рольовий контроль доступу. Доступ мають лише авторизовані розробники.</p>
-            
-            <h2>10. Неповнолітні</h2>
-            <p>Додаток призначений для повнолітніх. Використання дозволене з 16 років (або згідно національного права). Ми не збираємо дані дітей молодше 16 років.</p>
-            
-            <h2>11. Файли cookie та аналогічні технології (лендінг-сторінка)</h2>
-            <p>Вебсайт використовує необхідні cookie (сесія, безпека). Додаткові cookie / аналітика використовуються лише за згодою (ст. 6 (1)(a) GDPR). Згоду можна змінити або відкликати через банер cookie.</p>
-            
-            <h2>12. Зміни до політики</h2>
-            <p>Політика може оновлюватися при змінах функцій або законодавства.</p>
-            
-            <div class="contact-info">
-                <p><strong>Контакт:</strong> diana.barkova@gmail.com</p>
-            </div>
-        </div>
-        
-        <div class="last-updated">
-            <p><strong>Last Updated:</strong> November 10, 2025</p>
+    <script>
+      (function(){
+        var h = window.location.hash;
+        if (h && h.indexOf('access_token=') !== -1 && h.indexOf('type=recovery') !== -1) {
+          window.location.replace('/password-reset-web.html' + h);
+        }
+      })();
+    </script>
+    <div class="milkyway-bg" aria-hidden="true">
+        <div class="milkyway-track">
+            <div class="milkyway-tile"></div>
+            <div class="milkyway-tile"></div>
+            <div class="milkyway-tile"></div>
         </div>
     </div>
     
+    <header class="site-header">
+        <div class="header-left">
+            <a href="/" class="brand-logo" aria-label="ForFuture home">
+                <img src="images/logo_bg.png" alt="ForFuture" width="160" height="32">
+            </a>
+        </div>
+        <nav class="lang-bar" aria-label="Language">
+            <button type="button" id="lang-de" aria-pressed="false">Deutsch</button>
+            <button type="button" id="lang-en" class="active" aria-pressed="true">English</button>
+        </nav>
+    </header>
+    
+    <main>
+        <!-- 1. HERO -->
+        <section class="hero">
+            <div class="wrap">
+                <h1 data-lang="en">Complete Financial Missions</h1>
+                <h1 data-lang="de">Finanz-Missionen erfüllen</h1>
+                <p class="subheadline" data-lang="en">ForFuture turns saving and investing into a space journey toward your next life goal</p>
+                <p class="subheadline" data-lang="de">ForFuture macht Sparen und Investieren zur Weltraumreise zu deinem nächsten Lebensziel</p>
+                <p class="hero-store-note" data-lang="en">Available on the App Store and Google Play—no email signup required.</p>
+                <p class="hero-store-note" data-lang="de">Im App Store und bei Google Play verfügbar—keine E-Mail-Voranmeldung nötig.</p>
+                <div class="cta-block">
+                    <div class="cta-phone">
+                        <img src="/images/phone-app.png" alt="ForFuture app – income, expenses and budget overview" width="240" height="480">
+                    </div>
+                    <div class="cta-downloads" role="group" aria-label="Download app">
+                        <div class="cta-store-row" aria-label="Google Play">
+                            <a href="https://play.google.com/store/apps/details?id=com.forfuture" class="btn btn-store-gplay" target="_blank" rel="noopener noreferrer" aria-label="Get ForFuture on Google Play">
+                                <svg class="gplay-icon" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill="#00A651" d="M2 12L15 12 22 2 2 12z"/>
+                                    <path fill="#5AC8FA" d="M2 12L15 12 22 22 2 12z"/>
+                                    <path fill="#EA4335" d="M15 12L22 12 22 22 15 12z"/>
+                                    <path fill="#FBBC04" d="M15 12L22 2 22 12 15 12z"/>
+                                </svg>
+                                <span class="gplay-text">
+                                    <span class="gplay-title">Google Play</span>
+                                </span>
+                            </a>
+                            <div class="cta-qr-item">
+                                <div class="cta-qr-label" id="hero-qr-gplay-label">
+                                    <span data-lang="en">Google Play</span><span data-lang="de">Google Play</span>
+                                    <span class="cta-qr-label-sub"><span data-lang="en">Scan for Android</span><span data-lang="de">Scannen für Android</span></span>
+                                </div>
+                                <div class="cta-qr" aria-labelledby="hero-qr-gplay-label">
+                                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&amp;data=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.forfuture" alt="QR code: open ForFuture on Google Play" width="136" height="136">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cta-store-row" aria-label="App Store">
+                            <a href="https://apps.apple.com/app/forfuture/id6757244689" class="btn btn-appstore" aria-label="Download on the App Store">
+                                <svg class="apple-logo" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision"><path fill="#ffffff" d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                                <span class="appstore-text">
+                                    <span class="appstore-title"><span data-lang="en">App Store</span><span data-lang="de">App Store</span></span>
+                                </span>
+                            </a>
+                            <div class="cta-qr-item">
+                                <div class="cta-qr-label" id="hero-qr-appstore-label">
+                                    <span data-lang="en">App Store</span><span data-lang="de">App Store</span>
+                                    <span class="cta-qr-label-sub"><span data-lang="en">Scan for iPhone &amp; iPad</span><span data-lang="de">Scannen für iPhone &amp; iPad</span></span>
+                                </div>
+                                <div class="cta-qr" aria-labelledby="hero-qr-appstore-label">
+                                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&amp;data=https%3A%2F%2Fapps.apple.com%2Fapp%2Fforfuture%2Fid6757244689" alt="QR code: open ForFuture on the App Store" width="136" height="136">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 2. PROBLEM -->
+        <section class="problem">
+            <div class="wrap">
+                <h2 data-lang="en">Most finance apps make you feel behind</h2>
+                <h2 data-lang="de">Die meisten Finanz-Apps lassen dich zurück</h2>
+                <ul>
+                    <li data-lang="en">No long-term vision</li>
+                    <li data-lang="de">Keine langfristige Vision</li>
+                    <li data-lang="en">No motivation</li>
+                    <li data-lang="de">Keine Motivation</li>
+                    <li data-lang="en">No progress feeling</li>
+                    <li data-lang="de">Kein Fortschrittsgefühl</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- 3. HOW IT WORKS (3 steps – no Lumars; goal identification as differentiator) -->
+        <section class="how-it-works">
+            <div class="wrap">
+                <h2 data-lang="en">How it works</h2>
+                <h2 data-lang="de">So funktioniert es</h2>
+                <p class="lead" data-lang="en">Three steps from scattered money to a clear mission</p>
+                <p class="lead" data-lang="de">Drei Schritte von verstreutem Geld zu einer klaren Mission</p>
+                <div class="steps">
+                    <div class="step">
+                        <div class="icon">🎯</div>
+                        <h3 data-lang="en">Discover Your Real Goal</h3>
+                        <h3 data-lang="de">Entdecke dein echtes Ziel</h3>
+                        <p data-lang="en">The app helps you recognize your real financial goal and supports you in implementing it long term.</p>
+                        <p data-lang="de">Die App hilft dir, dein echtes finanzielles Ziel zu erkennen und unterstützt dich dabei, es langfristig umzusetzen.</p>
+                    </div>
+                    <div class="step">
+                        <div class="icon">📊</div>
+                        <h3 data-lang="en">Overview of Your Finances</h3>
+                        <h3 data-lang="de">Überblick über deine Finanzen</h3>
+                        <p data-lang="en">Track your income, expenses, and budgets. See exactly where your money goes and spot opportunities to save or invest.</p>
+                        <p data-lang="de">Erfasse deine Einnahmen, Ausgaben und Budgets. Sieh genau, wohin dein Geld fließt und erkenne Chancen zum Sparen oder Investieren.</p>
+                    </div>
+                    <div class="step step-cta">
+                        <div class="icon">🚀</div>
+                        <h3 data-lang="en">Put Your Plan Into Action</h3>
+                        <h3 data-lang="de">Setze deinen Plan um</h3>
+                        <p data-lang="en">Time to execute: Use the app to turn your priorities into concrete steps, adjust budgets, and actively reach your financial goals.</p>
+                        <p data-lang="de">Nutze die App, um deine Prioritäten in konkrete Schritte zu verwandeln, Budgets anzupassen und deine finanziellen Ziele aktiv zu erreichen.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 4. FINAL CTA (App Store + Google Play) -->
+        <section class="final-cta" id="download">
+            <div class="wrap">
+                <h2 data-lang="en">Start Your Financial Mission Today</h2>
+                <h2 data-lang="de">Starte heute deine Finanz-Mission</h2>
+                <p class="lead" data-lang="en">Available on the App Store and Google Play—no email signup required.</p>
+                <p class="lead" data-lang="de">Im App Store und bei Google Play verfügbar—keine E-Mail-Voranmeldung nötig.</p>
+                <div class="final-cta-store-row">
+                    <a href="https://play.google.com/store/apps/details?id=com.forfuture" class="btn btn-store-gplay" target="_blank" rel="noopener noreferrer" aria-label="Get ForFuture on Google Play">
+                        <svg class="gplay-icon" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="#00A651" d="M2 12L15 12 22 2 2 12z"/>
+                            <path fill="#5AC8FA" d="M2 12L15 12 22 22 2 12z"/>
+                            <path fill="#EA4335" d="M15 12L22 12 22 22 15 12z"/>
+                            <path fill="#FBBC04" d="M15 12L22 2 22 12 15 12z"/>
+                        </svg>
+                        <span class="gplay-text">
+                            <span class="gplay-title">Google Play</span>
+                        </span>
+                    </a>
+                    <a href="https://apps.apple.com/app/forfuture/id6757244689" class="btn btn-appstore" aria-label="Download on the App Store">
+                        <svg class="apple-logo" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision"><path fill="#ffffff" d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                        <span class="appstore-text">
+                            <span class="appstore-title"><span data-lang="en">App Store</span><span data-lang="de">App Store</span></span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="wrap">
+            <a href="https://forfuture.app/privacy-policy.html"><span data-lang="en">Privacy Policy</span><span data-lang="de">Datenschutz</span></a>
+            <a href="https://forfuture.app/terms-of-service.html"><span data-lang="en">Terms of Service</span><span data-lang="de">Nutzungsbedingungen</span></a>
+            <a href="https://forfuture.app/impressum.html">Impressum</a>
+        </div>
+    </footer>
+    
     <script>
-        function showLanguage(lang) {
-            // Hide all policy contents
-            document.querySelectorAll('.policy-content').forEach(content => {
-                content.classList.remove('active');
-            });
+        (function() {
+            var storageKey = 'forfuture-lang';
+            var lang = localStorage.getItem(storageKey) || (navigator.language && navigator.language.toLowerCase().startsWith('de') ? 'de' : 'en');
             
-            // Remove active class from all buttons
-            document.querySelectorAll('.language-selector button').forEach(btn => {
-                btn.classList.remove('active');
-            });
+            function setLang(l) {
+                lang = l;
+                document.body.classList.toggle('lang-de', l === 'de');
+                document.body.classList.toggle('lang-en', l === 'en');
+                document.documentElement.lang = l === 'de' ? 'de' : 'en';
+                document.getElementById('lang-de').setAttribute('aria-pressed', l === 'de' ? 'true' : 'false');
+                document.getElementById('lang-en').setAttribute('aria-pressed', l === 'en' ? 'true' : 'false');
+                document.querySelector('.lang-bar .active') && document.querySelector('.lang-bar .active').classList.remove('active');
+                document.getElementById('lang-' + l).classList.add('active');
+                localStorage.setItem(storageKey, l);
+            }
             
-            // Show selected language
-            document.getElementById('policy-' + lang).classList.add('active');
-            document.getElementById('btn-' + lang).classList.add('active');
-        }
+            document.getElementById('lang-de').addEventListener('click', function() { setLang('de'); });
+            document.getElementById('lang-en').addEventListener('click', function() { setLang('en'); });
+            setLang(lang);
+        })();
+        (function() {
+            var track = document.querySelector('.milkyway-track');
+            if (!track) return;
+            var factor = 3;
+            function updateParallax() {
+                var y = -window.scrollY * factor;
+                track.style.transform = 'translateY(' + y + 'px)';
+            }
+            window.addEventListener('scroll', function() { requestAnimationFrame(updateParallax); }, { passive: true });
+            updateParallax();
+        })();
     </script>
 </body>
 </html>
-
