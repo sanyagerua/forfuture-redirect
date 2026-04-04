@@ -90,6 +90,7 @@
             margin: 0 auto;
             padding: 0 24px;
         }
+        .hero .wrap { max-width: 1040px; }
         .how-it-works .wrap { max-width: 1020px; }
         
         /* Language switcher */
@@ -191,48 +192,58 @@
             align-items: stretch;
         }
         
-        /* Layout: phone (left); right: stacked rows [store button | matching QR] */
+        /* One row: [phone] | [flex column: (btn+QR), (btn+QR)] */
         .cta-block {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: stretch;
-            justify-content: center;
-            gap: 48px;
-            margin-top: 24px;
-        }
-        .cta-phone {
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            align-self: stretch;
-            min-height: 0;
-        }
-        .cta-phone img {
-            display: block;
-            max-height: 100%;
-            width: auto;
-            height: auto;
-            max-width: min(100%, 300px);
-            object-fit: contain;
-            border-radius: 32px;
-            box-shadow: 0 24px 48px rgba(0,0,0,0.4);
-        }
-        /* Stacked rows: [Google Play btn | GPlay QR], then [App Store btn | App Store QR] */
-        .cta-downloads {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-        }
-        .cta-store-row {
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
             align-items: center;
             justify-content: center;
-            gap: 16px 28px;
+            gap: 28px 36px;
+            margin-top: 20px;
+        }
+        .cta-phone {
+            flex: 0 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .cta-phone img {
+            display: block;
+            width: clamp(188px, 20vw, 232px);
+            height: auto;
+            max-height: min(488px, calc(100vh - 280px));
+            object-fit: contain;
+            border-radius: clamp(18px, 4vw, 32px);
+            box-shadow: 0 24px 48px rgba(0,0,0,0.4);
+        }
+        .hero-store-note {
+            font-size: clamp(0.88rem, 2.2vw, 0.98rem);
+            color: var(--muted);
+            text-align: center;
+            line-height: 1.45;
+            max-width: 520px;
+            margin: 0 auto 16px;
+            padding: 0 8px;
+        }
+        /* Right column: two horizontal rows, each = store button + QR */
+        .cta-downloads {
+            flex: 0 1 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            justify-content: center;
+            gap: 16px;
+            min-width: 0;
+            max-width: 460px;
+        }
+        .cta-store-row {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: 14px 20px;
         }
         .cta-qr-item {
             flex: 0 0 auto;
@@ -491,7 +502,8 @@
             border-top: 1px solid var(--border);
         }
         
-        .final-cta h2 { margin-bottom: 24px; }
+        .final-cta h2 { margin-bottom: 12px; }
+        .final-cta .lead { margin-bottom: 24px; }
         
         .final-cta-store-row {
             display: flex;
@@ -531,21 +543,112 @@
         }
         footer a:hover { color: var(--text); }
         
+        /* Phone + store column stay ONE ROW on mobile (left | right); scaled to fit narrow viewports */
+        @media (max-width: 767px) {
+            .hero .wrap {
+                padding-left: max(12px, env(safe-area-inset-left));
+                padding-right: max(12px, env(safe-area-inset-right));
+            }
+            .cta-block {
+                flex-direction: row;
+                flex-wrap: nowrap;
+                align-items: center;
+                justify-content: center;
+                gap: 10px 12px;
+                width: 100%;
+                max-width: 100%;
+            }
+            .cta-phone {
+                flex: 0 0 auto;
+            }
+            .cta-phone img {
+                width: clamp(100px, 28vw, 150px);
+                max-width: 42%;
+                max-height: min(380px, 52vh);
+            }
+            .cta-downloads {
+                flex: 1 1 0;
+                min-width: 0;
+                max-width: none;
+                align-items: stretch;
+                gap: 10px;
+            }
+            .cta-store-row {
+                flex-wrap: nowrap;
+                justify-content: flex-start;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            .cta-qr-item {
+                width: auto;
+                flex: 0 0 auto;
+                max-width: 104px;
+            }
+            .cta-qr-label {
+                font-size: 0.62rem;
+                margin-bottom: 4px;
+                max-width: 104px;
+            }
+            .cta-qr-label-sub {
+                font-size: 0.58rem;
+            }
+            .cta-qr {
+                width: 92px;
+                height: 92px;
+                padding: 6px;
+                border-radius: 10px;
+            }
+            .cta-store-row .btn-store-gplay,
+            .cta-store-row .btn-appstore {
+                flex: 1 1 0;
+                min-width: 0;
+                max-width: none;
+                padding: 8px 6px;
+                min-height: 44px;
+                font-size: 0.78rem;
+                gap: 6px;
+            }
+            .cta-store-row .btn-store-gplay .gplay-icon,
+            .cta-store-row .btn-appstore .apple-logo {
+                width: 22px;
+                height: 22px;
+            }
+            .cta-store-row .btn-appstore .appstore-title {
+                font-size: 0.95rem;
+            }
+            .cta-store-row .btn-store-gplay .gplay-title {
+                font-size: 0.9rem;
+            }
+        }
+        @media (min-width: 768px) {
+            .cta-block {
+                flex-wrap: nowrap;
+                align-items: center;
+                gap: 32px clamp(28px, 4vw, 48px);
+            }
+        }
         @media (max-width: 640px) {
             .hero { min-height: 80vh; padding: 40px 0 60px; }
             section { padding: 56px 0; }
             .steps { grid-template-columns: 1fr; }
             .step h3 { white-space: normal; }
-            .cta-block { flex-direction: column; align-items: center; gap: 32px; }
-            .cta-phone { align-self: center; }
-            .cta-phone img { max-height: 320px; }
-            .cta-store-row {
+        }
+        /* Only on very narrow screens fall back to stacked CTA */
+        @media (max-width: 340px) {
+            .cta-block {
                 flex-direction: column;
-                gap: 14px;
+                flex-wrap: wrap;
+                gap: 20px;
             }
-            .cta-store-row .btn-store-gplay,
-            .cta-store-row .btn-appstore {
-                max-width: 260px;
+            .cta-phone img {
+                max-width: min(220px, 80vw);
+                width: auto;
+            }
+            .cta-downloads {
+                align-items: center;
+            }
+            .cta-store-row {
+                justify-content: center;
             }
         }
     </style>
@@ -587,6 +690,8 @@
                 <h1 data-lang="de">Finanz-Missionen erfüllen</h1>
                 <p class="subheadline" data-lang="en">ForFuture turns saving and investing into a space journey toward your next life goal</p>
                 <p class="subheadline" data-lang="de">ForFuture macht Sparen und Investieren zur Weltraumreise zu deinem nächsten Lebensziel</p>
+                <p class="hero-store-note" data-lang="en">Available on the App Store and Google Play—no email signup required.</p>
+                <p class="hero-store-note" data-lang="de">Im App Store und bei Google Play verfügbar—keine E-Mail-Voranmeldung nötig.</p>
                 <div class="cta-block">
                     <div class="cta-phone">
                         <img src="/images/phone-app.png" alt="ForFuture app – income, expenses and budget overview" width="240" height="480">
@@ -690,6 +795,8 @@
             <div class="wrap">
                 <h2 data-lang="en">Start Your Financial Mission Today</h2>
                 <h2 data-lang="de">Starte heute deine Finanz-Mission</h2>
+                <p class="lead" data-lang="en">Available on the App Store and Google Play—no email signup required.</p>
+                <p class="lead" data-lang="de">Im App Store und bei Google Play verfügbar—keine E-Mail-Voranmeldung nötig.</p>
                 <div class="final-cta-store-row">
                     <a href="https://play.google.com/store/apps/details?id=com.forfuture" class="btn btn-store-gplay" target="_blank" rel="noopener noreferrer" aria-label="Get ForFuture on Google Play">
                         <svg class="gplay-icon" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
