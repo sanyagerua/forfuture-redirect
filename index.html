@@ -192,7 +192,7 @@
             align-items: stretch;
         }
         
-        /* One row: [phone] | [flex column: (btn+QR), (btn+QR)] */
+        /* One row: [phone] | [column of stacks: button → QR] */
         .cta-block {
             display: flex;
             flex-direction: row;
@@ -208,42 +208,36 @@
             align-items: center;
             justify-content: center;
         }
+        /* +40% vs previous clamp(188px,20vw,232px) and max-height 488px */
         .cta-phone img {
             display: block;
-            width: clamp(188px, 20vw, 232px);
+            width: clamp(263px, 28vw, 325px);
             height: auto;
-            max-height: min(488px, calc(100vh - 280px));
+            max-height: min(683px, calc(100vh - 220px));
             object-fit: contain;
-            border-radius: clamp(18px, 4vw, 32px);
+            border-radius: clamp(22px, 4vw, 36px);
             box-shadow: 0 24px 48px rgba(0,0,0,0.4);
         }
-        .hero-store-note {
-            font-size: clamp(0.88rem, 2.2vw, 0.98rem);
-            color: var(--muted);
-            text-align: center;
-            line-height: 1.45;
-            max-width: 520px;
-            margin: 0 auto 16px;
-            padding: 0 8px;
-        }
-        /* Right column: two horizontal rows, each = store button + QR */
+        /* Right column: vertical stacks (button, then QR below) */
         .cta-downloads {
             flex: 0 1 auto;
             display: flex;
             flex-direction: column;
-            align-items: stretch;
+            align-items: center;
             justify-content: center;
-            gap: 16px;
+            gap: 20px;
             min-width: 0;
-            max-width: 460px;
+            max-width: 320px;
         }
         .cta-store-row {
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             flex-wrap: nowrap;
-            align-items: flex-start;
+            align-items: center;
             justify-content: flex-start;
-            gap: 14px 20px;
+            gap: 12px;
+            width: 100%;
+            max-width: 280px;
         }
         .cta-qr-item {
             flex: 0 0 auto;
@@ -286,10 +280,9 @@
         }
         .cta-store-row .btn-store-gplay,
         .cta-store-row .btn-appstore {
-            flex: 0 1 260px;
-            min-width: 220px;
-            max-width: 280px;
+            flex: 0 0 auto;
             width: 100%;
+            max-width: 280px;
             justify-content: flex-start;
         }
         .btn {
@@ -502,8 +495,7 @@
             border-top: 1px solid var(--border);
         }
         
-        .final-cta h2 { margin-bottom: 12px; }
-        .final-cta .lead { margin-bottom: 24px; }
+        .final-cta h2 { margin-bottom: 24px; }
         
         .final-cta-store-row {
             display: flex;
@@ -562,22 +554,23 @@
                 flex: 0 0 auto;
             }
             .cta-phone img {
-                width: clamp(100px, 28vw, 150px);
+                width: clamp(140px, 39vw, 210px);
                 max-width: 42%;
-                max-height: min(380px, 52vh);
+                max-height: min(532px, 58vh);
             }
             .cta-downloads {
                 flex: 1 1 0;
                 min-width: 0;
                 max-width: none;
-                align-items: stretch;
+                align-items: center;
                 gap: 10px;
             }
             .cta-store-row {
-                flex-wrap: nowrap;
+                flex-direction: column;
+                align-items: center;
                 justify-content: flex-start;
-                align-items: flex-start;
                 gap: 8px;
+                max-width: min(280px, 48vw);
             }
             .cta-qr-item {
                 width: auto;
@@ -690,8 +683,6 @@
                 <h1 data-lang="de">Finanz-Missionen erfüllen</h1>
                 <p class="subheadline" data-lang="en">ForFuture turns saving and investing into a space journey toward your next life goal</p>
                 <p class="subheadline" data-lang="de">ForFuture macht Sparen und Investieren zur Weltraumreise zu deinem nächsten Lebensziel</p>
-                <p class="hero-store-note" data-lang="en">Available on the App Store and Google Play—no email signup required.</p>
-                <p class="hero-store-note" data-lang="de">Im App Store und bei Google Play verfügbar—keine E-Mail-Voranmeldung nötig.</p>
                 <div class="cta-block">
                     <div class="cta-phone">
                         <img src="/images/phone-app.png" alt="ForFuture app – income, expenses and budget overview" width="240" height="480">
@@ -795,8 +786,6 @@
             <div class="wrap">
                 <h2 data-lang="en">Start Your Financial Mission Today</h2>
                 <h2 data-lang="de">Starte heute deine Finanz-Mission</h2>
-                <p class="lead" data-lang="en">Available on the App Store and Google Play—no email signup required.</p>
-                <p class="lead" data-lang="de">Im App Store und bei Google Play verfügbar—keine E-Mail-Voranmeldung nötig.</p>
                 <div class="final-cta-store-row">
                     <a href="https://play.google.com/store/apps/details?id=com.forfuture" class="btn btn-store-gplay" target="_blank" rel="noopener noreferrer" aria-label="Get ForFuture on Google Play">
                         <svg class="gplay-icon" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
