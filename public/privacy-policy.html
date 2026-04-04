@@ -214,7 +214,7 @@
             height: auto;
             max-height: min(488px, calc(100vh - 280px));
             object-fit: contain;
-            border-radius: 32px;
+            border-radius: clamp(18px, 4vw, 32px);
             box-shadow: 0 24px 48px rgba(0,0,0,0.4);
         }
         .hero-store-note {
@@ -543,6 +543,83 @@
         }
         footer a:hover { color: var(--text); }
         
+        /* Phone + store column stay ONE ROW on mobile (left | right); scaled to fit narrow viewports */
+        @media (max-width: 767px) {
+            .hero .wrap {
+                padding-left: max(12px, env(safe-area-inset-left));
+                padding-right: max(12px, env(safe-area-inset-right));
+            }
+            .cta-block {
+                flex-direction: row;
+                flex-wrap: nowrap;
+                align-items: center;
+                justify-content: center;
+                gap: 10px 12px;
+                width: 100%;
+                max-width: 100%;
+            }
+            .cta-phone {
+                flex: 0 0 auto;
+            }
+            .cta-phone img {
+                width: clamp(100px, 28vw, 150px);
+                max-width: 42%;
+                max-height: min(380px, 52vh);
+            }
+            .cta-downloads {
+                flex: 1 1 0;
+                min-width: 0;
+                max-width: none;
+                align-items: stretch;
+                gap: 10px;
+            }
+            .cta-store-row {
+                flex-wrap: nowrap;
+                justify-content: flex-start;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            .cta-qr-item {
+                width: auto;
+                flex: 0 0 auto;
+                max-width: 104px;
+            }
+            .cta-qr-label {
+                font-size: 0.62rem;
+                margin-bottom: 4px;
+                max-width: 104px;
+            }
+            .cta-qr-label-sub {
+                font-size: 0.58rem;
+            }
+            .cta-qr {
+                width: 92px;
+                height: 92px;
+                padding: 6px;
+                border-radius: 10px;
+            }
+            .cta-store-row .btn-store-gplay,
+            .cta-store-row .btn-appstore {
+                flex: 1 1 0;
+                min-width: 0;
+                max-width: none;
+                padding: 8px 6px;
+                min-height: 44px;
+                font-size: 0.78rem;
+                gap: 6px;
+            }
+            .cta-store-row .btn-store-gplay .gplay-icon,
+            .cta-store-row .btn-appstore .apple-logo {
+                width: 22px;
+                height: 22px;
+            }
+            .cta-store-row .btn-appstore .appstore-title {
+                font-size: 0.95rem;
+            }
+            .cta-store-row .btn-store-gplay .gplay-title {
+                font-size: 0.9rem;
+            }
+        }
         @media (min-width: 768px) {
             .cta-block {
                 flex-wrap: nowrap;
@@ -556,29 +633,22 @@
             .steps { grid-template-columns: 1fr; }
             .step h3 { white-space: normal; }
         }
-        @media (max-width: 767px) {
+        /* Only on very narrow screens fall back to stacked CTA */
+        @media (max-width: 340px) {
             .cta-block {
                 flex-direction: column;
                 flex-wrap: wrap;
-                align-items: center;
-                gap: 24px;
+                gap: 20px;
             }
             .cta-phone img {
+                max-width: min(220px, 80vw);
                 width: auto;
-                max-width: min(260px, 88vw);
-                max-height: min(340px, 52vh);
             }
             .cta-downloads {
-                max-width: 100%;
                 align-items: center;
             }
             .cta-store-row {
-                flex-wrap: wrap;
                 justify-content: center;
-            }
-            .cta-store-row .btn-store-gplay,
-            .cta-store-row .btn-appstore {
-                max-width: 260px;
             }
         }
     </style>
