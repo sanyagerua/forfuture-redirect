@@ -195,7 +195,7 @@
         .cta-block {
             display: flex;
             flex-wrap: wrap;
-            align-items: center;
+            align-items: stretch;
             justify-content: center;
             gap: 48px;
             margin-top: 24px;
@@ -205,12 +205,16 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            align-self: stretch;
+            min-height: 0;
         }
         .cta-phone img {
             display: block;
-            max-height: 420px;
+            max-height: 100%;
             width: auto;
             height: auto;
+            max-width: min(100%, 300px);
+            object-fit: contain;
             border-radius: 32px;
             box-shadow: 0 24px 48px rgba(0,0,0,0.4);
         }
@@ -336,9 +340,6 @@
             align-items: flex-start;
             line-height: 1.2;
         }
-        .btn-appstore .appstore-small {
-            font-size: 0.7rem;
-        }
         .btn-appstore .appstore-title {
             font-size: 1.2rem;
             font-weight: 600;
@@ -387,10 +388,6 @@
             flex-direction: column;
             align-items: flex-start;
             line-height: 1.2;
-        }
-        .btn-store-gplay .gplay-small {
-            font-size: 0.7rem;
-            opacity: 0.95;
         }
         .btn-store-gplay .gplay-title {
             font-size: 1.15rem;
@@ -486,7 +483,6 @@
         }
         .step-cta .btn-appstore .apple-logo { width: 22px; height: 22px; }
         .step-cta .btn-appstore .appstore-title { font-size: 1rem; }
-        .step-cta .btn-appstore .appstore-small { font-size: 0.65rem; }
         .step-cta .btn-appstore { padding: 8px 14px 8px 12px; min-height: 44px; }
         
         /* ----- Final CTA (download) ----- */
@@ -495,9 +491,7 @@
             border-top: 1px solid var(--border);
         }
         
-        .final-cta h2 { margin-bottom: 12px; }
-        
-        .final-cta .lead { margin-bottom: 24px; }
+        .final-cta h2 { margin-bottom: 24px; }
         
         .final-cta-store-row {
             display: flex;
@@ -542,7 +536,8 @@
             section { padding: 56px 0; }
             .steps { grid-template-columns: 1fr; }
             .step h3 { white-space: normal; }
-            .cta-block { flex-direction: column; gap: 32px; }
+            .cta-block { flex-direction: column; align-items: center; gap: 32px; }
+            .cta-phone { align-self: center; }
             .cta-phone img { max-height: 320px; }
             .cta-store-row {
                 flex-direction: column;
@@ -606,7 +601,6 @@
                                     <path fill="#FBBC04" d="M15 12L22 2 22 12 15 12z"/>
                                 </svg>
                                 <span class="gplay-text">
-                                    <span class="gplay-small"><span data-lang="en">GET IT ON</span><span data-lang="de">JETZT BEI</span></span>
                                     <span class="gplay-title">Google Play</span>
                                 </span>
                             </a>
@@ -624,7 +618,6 @@
                             <a href="https://apps.apple.com/app/forfuture/id6757244689" class="btn btn-appstore" aria-label="Download on the App Store">
                                 <svg class="apple-logo" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision"><path fill="#ffffff" d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
                                 <span class="appstore-text">
-                                    <span class="appstore-small"><span data-lang="en">Download on the</span><span data-lang="de">Laden im</span></span>
                                     <span class="appstore-title"><span data-lang="en">App Store</span><span data-lang="de">App Store</span></span>
                                 </span>
                             </a>
@@ -697,8 +690,6 @@
             <div class="wrap">
                 <h2 data-lang="en">Start Your Financial Mission Today</h2>
                 <h2 data-lang="de">Starte heute deine Finanz-Mission</h2>
-                <p class="lead" data-lang="en">Available on the App Store and Google Play—no email signup required.</p>
-                <p class="lead" data-lang="de">Im App Store und bei Google Play verfügbar—keine E-Mail-Voranmeldung nötig.</p>
                 <div class="final-cta-store-row">
                     <a href="https://play.google.com/store/apps/details?id=com.forfuture" class="btn btn-store-gplay" target="_blank" rel="noopener noreferrer" aria-label="Get ForFuture on Google Play">
                         <svg class="gplay-icon" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
@@ -708,14 +699,12 @@
                             <path fill="#FBBC04" d="M15 12L22 2 22 12 15 12z"/>
                         </svg>
                         <span class="gplay-text">
-                            <span class="gplay-small"><span data-lang="en">GET IT ON</span><span data-lang="de">JETZT BEI</span></span>
                             <span class="gplay-title">Google Play</span>
                         </span>
                     </a>
                     <a href="https://apps.apple.com/app/forfuture/id6757244689" class="btn btn-appstore" aria-label="Download on the App Store">
                         <svg class="apple-logo" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision"><path fill="#ffffff" d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
                         <span class="appstore-text">
-                            <span class="appstore-small"><span data-lang="en">Download on the</span><span data-lang="de">Laden im</span></span>
                             <span class="appstore-title"><span data-lang="en">App Store</span><span data-lang="de">App Store</span></span>
                         </span>
                     </a>
