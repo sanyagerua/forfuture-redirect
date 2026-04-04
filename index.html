@@ -191,7 +191,7 @@
             align-items: stretch;
         }
         
-        /* Layout: phone (left), QR + buttons (right), symmetrically centered */
+        /* Layout: phone (left); right: stacked rows [store button | matching QR] */
         .cta-block {
             display: flex;
             flex-wrap: wrap;
@@ -214,23 +214,21 @@
             border-radius: 32px;
             box-shadow: 0 24px 48px rgba(0,0,0,0.4);
         }
+        /* Stacked rows: [Google Play btn | GPlay QR], then [App Store btn | App Store QR] */
         .cta-downloads {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+        .cta-store-row {
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
             align-items: center;
             justify-content: center;
-            gap: 28px 32px;
-        }
-        /* Two QR codes: fixed column width so labels and tiles never squash each other */
-        .cta-qr-row {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            align-items: flex-start;
-            justify-content: center;
-            gap: 28px 36px;
-            flex-shrink: 0;
+            gap: 16px 28px;
         }
         .cta-qr-item {
             flex: 0 0 auto;
@@ -271,21 +269,13 @@
             object-fit: contain;
             display: block;
         }
-        .cta-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            align-items: stretch;
-            min-width: 260px;
-        }
-        .cta-buttons .btn-store-gplay,
-        .cta-buttons .btn-appstore {
+        .cta-store-row .btn-store-gplay,
+        .cta-store-row .btn-appstore {
+            flex: 0 1 260px;
+            min-width: 220px;
+            max-width: 280px;
             width: 100%;
-            min-width: 0;
             justify-content: flex-start;
-        }
-        .cta-downloads .cta-buttons {
-            align-items: stretch;
         }
         .btn {
             display: inline-flex;
@@ -554,10 +544,14 @@
             .step h3 { white-space: normal; }
             .cta-block { flex-direction: column; gap: 32px; }
             .cta-phone img { max-height: 320px; }
-            .cta-downloads { flex-direction: column; }
-            .cta-qr-row { gap: 24px 28px; }
-            .cta-buttons { align-items: center; width: 100%; }
-            .cta-buttons .btn { width: 100%; max-width: 260px; justify-content: flex-start; }
+            .cta-store-row {
+                flex-direction: column;
+                gap: 14px;
+            }
+            .cta-store-row .btn-store-gplay,
+            .cta-store-row .btn-appstore {
+                max-width: 260px;
+            }
         }
     </style>
 </head>
@@ -602,48 +596,48 @@
                     <div class="cta-phone">
                         <img src="/images/phone-app.png" alt="ForFuture app – income, expenses and budget overview" width="240" height="480">
                     </div>
-                    <div class="cta-downloads">
-                    <div class="cta-qr-row" role="group" aria-label="Download QR codes">
-                        <div class="cta-qr-item">
-                            <div class="cta-qr-label" id="hero-qr-appstore-label">
-                                <span data-lang="en">App Store</span><span data-lang="de">App Store</span>
-                                <span class="cta-qr-label-sub"><span data-lang="en">Scan for iPhone &amp; iPad</span><span data-lang="de">Scannen für iPhone &amp; iPad</span></span>
-                            </div>
-                            <div class="cta-qr" aria-labelledby="hero-qr-appstore-label">
-                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&amp;data=https%3A%2F%2Fapps.apple.com%2Fapp%2Fforfuture%2Fid6757244689" alt="QR code: open ForFuture on the App Store" width="136" height="136">
+                    <div class="cta-downloads" role="group" aria-label="Download app">
+                        <div class="cta-store-row" aria-label="Google Play">
+                            <a href="https://play.google.com/store/apps/details?id=com.forfuture" class="btn btn-store-gplay" target="_blank" rel="noopener noreferrer" aria-label="Get ForFuture on Google Play">
+                                <svg class="gplay-icon" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill="#00A651" d="M2 12L15 12 22 2 2 12z"/>
+                                    <path fill="#5AC8FA" d="M2 12L15 12 22 22 2 12z"/>
+                                    <path fill="#EA4335" d="M15 12L22 12 22 22 15 12z"/>
+                                    <path fill="#FBBC04" d="M15 12L22 2 22 12 15 12z"/>
+                                </svg>
+                                <span class="gplay-text">
+                                    <span class="gplay-small"><span data-lang="en">GET IT ON</span><span data-lang="de">JETZT BEI</span></span>
+                                    <span class="gplay-title">Google Play</span>
+                                </span>
+                            </a>
+                            <div class="cta-qr-item">
+                                <div class="cta-qr-label" id="hero-qr-gplay-label">
+                                    <span data-lang="en">Google Play</span><span data-lang="de">Google Play</span>
+                                    <span class="cta-qr-label-sub"><span data-lang="en">Scan for Android</span><span data-lang="de">Scannen für Android</span></span>
+                                </div>
+                                <div class="cta-qr" aria-labelledby="hero-qr-gplay-label">
+                                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&amp;data=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.forfuture" alt="QR code: open ForFuture on Google Play" width="136" height="136">
+                                </div>
                             </div>
                         </div>
-                        <div class="cta-qr-item">
-                            <div class="cta-qr-label" id="hero-qr-gplay-label">
-                                <span data-lang="en">Google Play</span><span data-lang="de">Google Play</span>
-                                <span class="cta-qr-label-sub"><span data-lang="en">Scan for Android</span><span data-lang="de">Scannen für Android</span></span>
-                            </div>
-                            <div class="cta-qr" aria-labelledby="hero-qr-gplay-label">
-                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&amp;data=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.forfuture" alt="QR code: open ForFuture on Google Play" width="136" height="136">
+                        <div class="cta-store-row" aria-label="App Store">
+                            <a href="https://apps.apple.com/app/forfuture/id6757244689" class="btn btn-appstore" aria-label="Download on the App Store">
+                                <svg class="apple-logo" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision"><path fill="#ffffff" d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                                <span class="appstore-text">
+                                    <span class="appstore-small"><span data-lang="en">Download on the</span><span data-lang="de">Laden im</span></span>
+                                    <span class="appstore-title"><span data-lang="en">App Store</span><span data-lang="de">App Store</span></span>
+                                </span>
+                            </a>
+                            <div class="cta-qr-item">
+                                <div class="cta-qr-label" id="hero-qr-appstore-label">
+                                    <span data-lang="en">App Store</span><span data-lang="de">App Store</span>
+                                    <span class="cta-qr-label-sub"><span data-lang="en">Scan for iPhone &amp; iPad</span><span data-lang="de">Scannen für iPhone &amp; iPad</span></span>
+                                </div>
+                                <div class="cta-qr" aria-labelledby="hero-qr-appstore-label">
+                                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&amp;data=https%3A%2F%2Fapps.apple.com%2Fapp%2Fforfuture%2Fid6757244689" alt="QR code: open ForFuture on the App Store" width="136" height="136">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="cta-buttons">
-                        <a href="https://play.google.com/store/apps/details?id=com.forfuture" class="btn btn-store-gplay" target="_blank" rel="noopener noreferrer" aria-label="Get ForFuture on Google Play">
-                            <svg class="gplay-icon" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                                <path fill="#00A651" d="M2 12L15 12 22 2 2 12z"/>
-                                <path fill="#5AC8FA" d="M2 12L15 12 22 22 2 12z"/>
-                                <path fill="#EA4335" d="M15 12L22 12 22 22 15 12z"/>
-                                <path fill="#FBBC04" d="M15 12L22 2 22 12 15 12z"/>
-                            </svg>
-                            <span class="gplay-text">
-                                <span class="gplay-small"><span data-lang="en">GET IT ON</span><span data-lang="de">JETZT BEI</span></span>
-                                <span class="gplay-title">Google Play</span>
-                            </span>
-                        </a>
-                        <a href="https://apps.apple.com/app/forfuture/id6757244689" class="btn btn-appstore" aria-label="Download on the App Store">
-                            <svg class="apple-logo" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision"><path fill="#ffffff" d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-                            <span class="appstore-text">
-                                <span class="appstore-small"><span data-lang="en">Download on the</span><span data-lang="de">Laden im</span></span>
-                                <span class="appstore-title"><span data-lang="en">App Store</span><span data-lang="de">App Store</span></span>
-                            </span>
-                        </a>
-                    </div>
                     </div>
                 </div>
             </div>
