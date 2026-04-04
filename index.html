@@ -2,6 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <script>
+      (function(){
+        var h = window.location.hash;
+        if (h && h.indexOf('access_token=') !== -1 && h.indexOf('type=recovery') !== -1) {
+          window.location.replace('/password-reset-web.html' + h);
+          return;
+        }
+      })();
+    </script>
+    <!-- FORFUTURE-RESET-REDIRECT: if you see this in View Source at forfuture.app, the correct index.html is deployed -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="ForFuture – Complete financial missions. Not just track expenses. Turn saving and investing into a space journey toward your next life goal.">
     <meta name="theme-color" content="#0A0B1F">
@@ -207,7 +220,40 @@
             flex-wrap: wrap;
             align-items: center;
             justify-content: center;
-            gap: 24px;
+            gap: 28px 32px;
+        }
+        /* Two QR codes: fixed column width so labels and tiles never squash each other */
+        .cta-qr-row {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 28px 36px;
+            flex-shrink: 0;
+        }
+        .cta-qr-item {
+            flex: 0 0 auto;
+            width: 168px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .cta-qr-label {
+            margin: 0 0 10px 0;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text);
+            line-height: 1.25;
+            max-width: 168px;
+        }
+        .cta-qr-label-sub {
+            display: block;
+            margin-top: 3px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--muted);
         }
         .cta-qr {
             flex-shrink: 0;
@@ -241,36 +287,6 @@
         .cta-downloads .cta-buttons {
             align-items: stretch;
         }
-        .cta-early {
-            margin-top: 20px;
-            margin-bottom: 0;
-        }
-        .link-early {
-            color: var(--muted);
-            text-decoration: none;
-            font-size: 0.95rem;
-        }
-        .link-early:hover { color: var(--text); }
-        .link-early-with-icon {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .link-early-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 28px;
-            height: 28px;
-            flex-shrink: 0;
-        }
-        .link-early-icon svg {
-            width: 100%;
-            height: 100%;
-            color: var(--muted);
-        }
-        .link-early:hover .link-early-icon svg { color: var(--text); }
-        
         .btn {
             display: inline-flex;
             align-items: center;
@@ -347,7 +363,7 @@
         
         .btn-secondary:hover { border-color: var(--muted); background: var(--surface); }
         
-        /* Google Play store-style button (coming soon) – ref: dark purplish, light border */
+        /* Google Play store-style button */
         .btn-store-gplay {
             background: #1f1a36;
             color: #fff;
@@ -361,6 +377,13 @@
             min-height: 52px;
             box-sizing: border-box;
             box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+        a.btn-store-gplay:hover {
+            transform: translateY(-2px);
+            opacity: 0.95;
         }
         .btn-store-gplay .gplay-icon {
             width: 28px;
@@ -383,26 +406,6 @@
             font-size: 1.15rem;
             font-weight: 600;
         }
-        .btn-coming-soon {
-            cursor: default;
-            opacity: 0.92;
-            position: relative;
-        }
-        .btn-coming-soon:hover { transform: none; }
-        .btn-coming-soon .coming-soon-badge {
-            position: absolute;
-            top: -14px;
-            right: 4px;
-            background: var(--accent);
-            color: white;
-            font-size: 0.65rem;
-            font-weight: 700;
-            padding: 3px 8px;
-            border-radius: 6px;
-            text-transform: uppercase;
-            letter-spacing: 0.03em;
-        }
-        
         /* ----- Section common ----- */
         section {
             padding: 72px 0;
@@ -496,12 +499,7 @@
         .step-cta .btn-appstore .appstore-small { font-size: 0.65rem; }
         .step-cta .btn-appstore { padding: 8px 14px 8px 12px; min-height: 44px; }
         
-        /* ----- Social proof ----- */
-        .social-proof .lead {
-            margin-bottom: 16px;
-        }
-        
-        /* ----- Final CTA ----- */
+        /* ----- Final CTA (download) ----- */
         .final-cta {
             background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
             border-top: 1px solid var(--border);
@@ -509,59 +507,23 @@
         
         .final-cta h2 { margin-bottom: 12px; }
         
-        .final-cta .lead { margin-bottom: 12px; }
+        .final-cta .lead { margin-bottom: 24px; }
         
-        .final-cta .android-note {
-            text-align: center;
-            color: var(--muted);
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-        }
-        
-        .signup-form {
-            max-width: 420px;
-            margin: 0 auto;
+        .final-cta-store-row {
             display: flex;
-            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: stretch;
             gap: 12px;
+            max-width: 560px;
+            margin: 0 auto;
         }
         
-        .signup-form input[type="email"] {
-            width: 100%;
-            padding: 16px 20px;
-            border-radius: 12px;
-            border: 1px solid var(--border);
-            background: var(--card);
-            color: var(--text);
-            font-size: 1rem;
-        }
-        
-        .signup-form input[type="email"]::placeholder {
-            color: var(--muted);
-        }
-        
-        .signup-form input[type="email"]:focus {
-            outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px var(--accent-glow);
-        }
-        
-        .signup-form button {
-            width: 100%;
-            padding: 16px 24px;
-            border-radius: 12px;
-            border: none;
-            background: var(--accent);
-            color: white;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        
-        .signup-form button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 28px var(--accent-glow);
+        .final-cta-store-row .btn-store-gplay,
+        .final-cta-store-row .btn-appstore {
+            flex: 1 1 240px;
+            min-width: 0;
+            justify-content: flex-start;
         }
         
         /* Footer */
@@ -593,12 +555,21 @@
             .cta-block { flex-direction: column; gap: 32px; }
             .cta-phone img { max-height: 320px; }
             .cta-downloads { flex-direction: column; }
+            .cta-qr-row { gap: 24px 28px; }
             .cta-buttons { align-items: center; width: 100%; }
             .cta-buttons .btn { width: 100%; max-width: 260px; justify-content: flex-start; }
         }
     </style>
 </head>
 <body>
+    <script>
+      (function(){
+        var h = window.location.hash;
+        if (h && h.indexOf('access_token=') !== -1 && h.indexOf('type=recovery') !== -1) {
+          window.location.replace('/password-reset-web.html' + h);
+        }
+      })();
+    </script>
     <div class="milkyway-bg" aria-hidden="true">
         <div class="milkyway-track">
             <div class="milkyway-tile"></div>
@@ -632,11 +603,28 @@
                         <img src="/images/phone-app.png" alt="ForFuture app – income, expenses and budget overview" width="240" height="480">
                     </div>
                     <div class="cta-downloads">
-                    <div class="cta-qr" aria-label="QR code: App Store">
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&amp;data=https%3A%2F%2Fapps.apple.com%2Fapp%2Fforfuture%2Fid6757244689" alt="QR code: scan to open ForFuture on App Store" width="136" height="136">
+                    <div class="cta-qr-row" role="group" aria-label="Download QR codes">
+                        <div class="cta-qr-item">
+                            <div class="cta-qr-label" id="hero-qr-appstore-label">
+                                <span data-lang="en">App Store</span><span data-lang="de">App Store</span>
+                                <span class="cta-qr-label-sub"><span data-lang="en">Scan for iPhone &amp; iPad</span><span data-lang="de">Scannen für iPhone &amp; iPad</span></span>
+                            </div>
+                            <div class="cta-qr" aria-labelledby="hero-qr-appstore-label">
+                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&amp;data=https%3A%2F%2Fapps.apple.com%2Fapp%2Fforfuture%2Fid6757244689" alt="QR code: open ForFuture on the App Store" width="136" height="136">
+                            </div>
+                        </div>
+                        <div class="cta-qr-item">
+                            <div class="cta-qr-label" id="hero-qr-gplay-label">
+                                <span data-lang="en">Google Play</span><span data-lang="de">Google Play</span>
+                                <span class="cta-qr-label-sub"><span data-lang="en">Scan for Android</span><span data-lang="de">Scannen für Android</span></span>
+                            </div>
+                            <div class="cta-qr" aria-labelledby="hero-qr-gplay-label">
+                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&amp;data=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.forfuture" alt="QR code: open ForFuture on Google Play" width="136" height="136">
+                            </div>
+                        </div>
                     </div>
                     <div class="cta-buttons">
-                        <span class="btn btn-store-gplay btn-coming-soon" aria-label="Google Play – Coming soon">
+                        <a href="https://play.google.com/store/apps/details?id=com.forfuture" class="btn btn-store-gplay" target="_blank" rel="noopener noreferrer" aria-label="Get ForFuture on Google Play">
                             <svg class="gplay-icon" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
                                 <path fill="#00A651" d="M2 12L15 12 22 2 2 12z"/>
                                 <path fill="#5AC8FA" d="M2 12L15 12 22 22 2 12z"/>
@@ -647,8 +635,7 @@
                                 <span class="gplay-small"><span data-lang="en">GET IT ON</span><span data-lang="de">JETZT BEI</span></span>
                                 <span class="gplay-title">Google Play</span>
                             </span>
-                            <span class="coming-soon-badge"><span data-lang="en">Coming soon</span><span data-lang="de">Demnächst</span></span>
-                        </span>
+                        </a>
                         <a href="https://apps.apple.com/app/forfuture/id6757244689" class="btn btn-appstore" aria-label="Download on the App Store">
                             <svg class="apple-logo" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision"><path fill="#ffffff" d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
                             <span class="appstore-text">
@@ -658,8 +645,6 @@
                         </a>
                     </div>
                     </div>
-                </div>
-                <p class="cta-early"><a href="#early-access" class="link-early link-early-with-icon"><span class="link-early-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span><span data-lang="en">Request Android Early Access</span><span data-lang="de">Android Early Access anfordern</span></a></p>
                 </div>
             </div>
         </section>
@@ -713,29 +698,34 @@
             </div>
         </section>
         
-        <!-- 4. SOCIAL PROOF -->
-        <section class="social-proof">
-            <div class="wrap">
-                <h2 data-lang="en">Join early astronauts</h2>
-                <h2 data-lang="de">Werde früher Astronaut</h2>
-                <p class="lead" data-lang="en">People building their financial future with a clear mission. Even a small list of early signups is proof—every user counts</p>
-                <p class="lead" data-lang="de">Menschen, die ihre finanzielle Zukunft mit einer klaren Mission aufbauen. Jeder Nutzer zählt</p>
-            </div>
-        </section>
-        
-        <!-- 5. FINAL CTA (email for Android early access) -->
-        <section class="final-cta" id="early-access">
+        <!-- 4. FINAL CTA (App Store + Google Play) -->
+        <section class="final-cta" id="download">
             <div class="wrap">
                 <h2 data-lang="en">Start Your Financial Mission Today</h2>
                 <h2 data-lang="de">Starte heute deine Finanz-Mission</h2>
-                <p class="lead" data-lang="en">Get early access and updates. No spam</p>
-                <p class="lead" data-lang="de">Early Access und Updates. Kein Spam</p>
-                <p class="android-note" data-lang="en">Android users: leave your email to join early access</p>
-                <p class="android-note" data-lang="de">Android-Nutzer: E-Mail eintragen für Early Access</p>
-                <form class="signup-form" action="https://formspree.io/f/maqdajge" method="POST" aria-label="Email signup for Android early access">
-                    <input type="email" name="email" placeholder="your@email.com" required aria-label="Your email">
-                    <button type="submit"><span data-lang="en">Become Early Astronaut</span><span data-lang="de">Früher Astronaut werden</span></button>
-                </form>
+                <p class="lead" data-lang="en">Available on the App Store and Google Play—no email signup required.</p>
+                <p class="lead" data-lang="de">Im App Store und bei Google Play verfügbar—keine E-Mail-Voranmeldung nötig.</p>
+                <div class="final-cta-store-row">
+                    <a href="https://play.google.com/store/apps/details?id=com.forfuture" class="btn btn-store-gplay" target="_blank" rel="noopener noreferrer" aria-label="Get ForFuture on Google Play">
+                        <svg class="gplay-icon" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="#00A651" d="M2 12L15 12 22 2 2 12z"/>
+                            <path fill="#5AC8FA" d="M2 12L15 12 22 22 2 12z"/>
+                            <path fill="#EA4335" d="M15 12L22 12 22 22 15 12z"/>
+                            <path fill="#FBBC04" d="M15 12L22 2 22 12 15 12z"/>
+                        </svg>
+                        <span class="gplay-text">
+                            <span class="gplay-small"><span data-lang="en">GET IT ON</span><span data-lang="de">JETZT BEI</span></span>
+                            <span class="gplay-title">Google Play</span>
+                        </span>
+                    </a>
+                    <a href="https://apps.apple.com/app/forfuture/id6757244689" class="btn btn-appstore" aria-label="Download on the App Store">
+                        <svg class="apple-logo" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision"><path fill="#ffffff" d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                        <span class="appstore-text">
+                            <span class="appstore-small"><span data-lang="en">Download on the</span><span data-lang="de">Laden im</span></span>
+                            <span class="appstore-title"><span data-lang="en">App Store</span><span data-lang="de">App Store</span></span>
+                        </span>
+                    </a>
+                </div>
             </div>
         </section>
     </main>
@@ -772,7 +762,7 @@
         (function() {
             var track = document.querySelector('.milkyway-track');
             if (!track) return;
-            var factor = 2;
+            var factor = 3;
             function updateParallax() {
                 var y = -window.scrollY * factor;
                 track.style.transform = 'translateY(' + y + 'px)';
