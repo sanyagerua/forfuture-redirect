@@ -149,10 +149,10 @@ h1 { color: #FFFFFF; margin-bottom: 10px; font-size: 2em; }
       </p>
       <div class="info-box">
         <p>
-          <strong>Local-first:</strong> Monthly income and closed month reports stay
+          <strong>Local-first:</strong> Financial data stays
           <strong>on your device by default</strong>. You may optionally enable
-          <strong>cloud backup</strong>; then selected data (e.g.&nbsp;transactions, categories, goals, learned payees)
-          is stored encrypted on servers in the EU. Without cloud backup, that data also remains local.
+          <strong>cloud backup</strong>; then selected data (e.g.&nbsp;transactions, categories, goals, learned payees,
+          monthly income, closed month reports) is stored on servers in the EU. Without cloud backup, that data remains local.
         </p>
       </div>
 
@@ -169,13 +169,8 @@ h1 { color: #FFFFFF; margin-bottom: 10px; font-size: 2em; }
           </tr>
           <tr>
             <td><strong>Financial data (optional cloud)</strong></td>
-            <td>Transactions, budget categories, fixed costs, savings goals, progress, learned merchants/payees</td>
+            <td>Transactions, budget categories, fixed costs, savings goals, progress, learned merchants/payees, monthly income, closed month reports</td>
             <td>Primarily <strong>local</strong> on device; with cloud backup enabled, also Supabase (EU)</td>
-          </tr>
-          <tr>
-            <td><strong>Local only (not in cloud)</strong></td>
-            <td>Monthly income, closed month reports/statistics</td>
-            <td>Device only (AsyncStorage etc.)</td>
           </tr>
           <tr>
             <td><strong>Feedback</strong></td>
@@ -203,9 +198,9 @@ h1 { color: #FFFFFF; margin-bottom: 10px; font-size: 2em; }
             <td>Local; subscription/profile flags may be in Supabase</td>
           </tr>
           <tr>
-            <td><strong>Push (optional)</strong></td>
-            <td>Device token for alerts (e.g.&nbsp;“payment detected”)</td>
-            <td>Apple / Google push services; minimal metadata</td>
+            <td><strong>Local alerts (Android, optional)</strong></td>
+            <td>On-device notification shown when payment auto-capture detects a transaction (not remote marketing push)</td>
+            <td>Processed locally; we do not send remote push from our servers</td>
           </tr>
           <tr>
             <td><strong>Technical logs</strong></td>
@@ -218,11 +213,16 @@ h1 { color: #FFFFFF; margin-bottom: 10px; font-size: 2em; }
         We do <strong>not</strong> process <strong>special categories</strong> of personal data under Art.&nbsp;9 GDPR
         (e.g.&nbsp;health or religion data) unless you voluntarily enter them in free-text fields.
       </p>
+      <p>
+        The <strong>mobile app</strong> does <strong>not</strong> integrate third-party <strong>analytics</strong> or
+        <strong>crash reporting</strong> SDKs (e.g.&nbsp;Firebase Analytics, Sentry). Settings toggles for future
+        budget reminders are stored locally only; we do not send remote marketing push notifications from our servers.
+      </p>
 
       <h2>4. Purposes and legal bases (Art.&nbsp;6 GDPR)</h2>
       <ul>
         <li><strong>Contract / pre-contractual measures (Art.&nbsp;6(1)(b)):</strong> Account, app features, subscription management, support.</li>
-        <li><strong>Consent (Art.&nbsp;6(1)(a)):</strong> Push notifications, notification access (auto-capture), microphone (voice), optional cloud backup (enable in Settings). Withdraw consent at any time with future effect.</li>
+        <li><strong>Consent (Art.&nbsp;6(1)(a)):</strong> Notification access (auto-capture), optional local confirmation alerts (Android), microphone (voice), optional cloud backup (enable in Settings). Withdraw consent at any time with future effect.</li>
         <li><strong>Legitimate interest (Art.&nbsp;6(1)(f)):</strong> IT security, abuse prevention, error analysis in logs, enforcement of subscription rights — while respecting your interests (data minimisation).</li>
         <li><strong>Legal obligation (Art.&nbsp;6(1)(c)):</strong> Retention under commercial/tax law where applicable.</li>
       </ul>
@@ -256,7 +256,10 @@ h1 { color: #FFFFFF; margin-bottom: 10px; font-size: 2em; }
         (region <strong>Frankfurt / EU</strong>). You can disable this at any time;
         data already uploaded can be removed by <strong>account deletion</strong>.
       </p>
-      <p><strong>Never uploaded:</strong> Monthly income, closed month reports.</p>
+      <p>
+        With cloud backup enabled, monthly income (<code>user_profiles.income</code>) and closed month reports
+        (<code>period_reports</code>) are synced to your account. Auto-capture notification text is never uploaded.
+      </p>
 
       <h2>7. Auto-capture of payments (Android, optional)</h2>
       <p>
@@ -276,8 +279,8 @@ h1 { color: #FFFFFF; margin-bottom: 10px; font-size: 2em; }
       <h2>9. Recipients and processors (Art.&nbsp;28 GDPR)</h2>
       <ul>
         <li><strong>Supabase Inc.</strong> — Authentication, database, edge functions (EU data centre Frankfurt); encryption in transit and at rest.</li>
-        <li><strong>Apple Inc.</strong> — App Store, in-app purchases (iOS), push (APNs) where used.</li>
-        <li><strong>Google Ireland Ltd.</strong> — Google Play, in-app purchases (Android), push (FCM) where used.</li>
+        <li><strong>Apple Inc.</strong> — App Store, in-app purchases (iOS), optional on-device speech recognition.</li>
+        <li><strong>Google Ireland Ltd.</strong> — Google Play, in-app purchases (Android), optional on-device speech recognition.</li>
         <li><strong>Expo / hosting providers</strong> — App build infrastructure (no access to your financial content in normal operation).</li>
       </ul>
       <p>
@@ -392,11 +395,11 @@ h1 { color: #FFFFFF; margin-bottom: 10px; font-size: 2em; }
       </p>
       <div class="info-box">
         <p>
-          <strong>Lokal zuerst:</strong> Monatseinkommen und abgeschlossene Monatsberichte bleiben
-          <strong>standardmäßig nur auf Ihrem Gerät</strong>. Optional können Sie eine
+          <strong>Lokal zuerst:</strong> Finanzdaten bleiben
+          <strong>standardmäßig auf Ihrem Gerät</strong>. Optional können Sie eine
           <strong>Cloud-Sicherung</strong> aktivieren; dann werden ausgewählte Daten (z.&nbsp;B. Transaktionen,
-          Kategorien, Ziele, gelernte Zahlungsempfänger) verschlüsselt auf Servern in der EU gespeichert.
-          Ohne Cloud-Sicherung verbleiben diese Daten ebenfalls lokal.
+          Kategorien, Ziele, gelernte Zahlungsempfänger, Monatseinkommen, abgeschlossene Monatsberichte)
+          auf Servern in der EU gespeichert. Ohne Cloud-Sicherung verbleiben diese Daten lokal.
         </p>
       </div>
 
@@ -413,13 +416,8 @@ h1 { color: #FFFFFF; margin-bottom: 10px; font-size: 2em; }
           </tr>
           <tr>
             <td><strong>Finanzdaten (optional Cloud)</strong></td>
-            <td>Transaktionen, Budgetkategorien, Fixkosten, Sparziele, Fortschritt, gelernte Händler/Zahlungsempfänger</td>
+            <td>Transaktionen, Budgetkategorien, Fixkosten, Sparziele, Fortschritt, gelernte Händler/Zahlungsempfänger, Monatseinkommen, abgeschlossene Monatsberichte</td>
             <td>Primär <strong>lokal</strong> auf dem Gerät; bei aktivierter Cloud-Sicherung zusätzlich Supabase (EU)</td>
-          </tr>
-          <tr>
-            <td><strong>Nur lokal (nicht in Cloud)</strong></td>
-            <td>Monatseinkommen, abgeschlossene Monatsberichte/-statistiken</td>
-            <td>Ausschließlich Gerät (AsyncStorage o.&nbsp;Ä.)</td>
           </tr>
           <tr>
             <td><strong>Feedback</strong></td>
@@ -447,9 +445,9 @@ h1 { color: #FFFFFF; margin-bottom: 10px; font-size: 2em; }
             <td>Lokal; Abo-/Profilflags ggf. Supabase</td>
           </tr>
           <tr>
-            <td><strong>Push (optional)</strong></td>
-            <td>Gerätetoken für Hinweise (z.&nbsp;B. „Zahlung erkannt“)</td>
-            <td>Apple / Google Push-Dienste; Metadaten minimal</td>
+            <td><strong>Lokale Hinweise (Android, optional)</strong></td>
+            <td>On-Device-Benachrichtigung bei erkanntem Zahlungsvorgang (kein Remote-Marketing-Push)</td>
+            <td>Lokal verarbeitet; kein Push von unseren Servern</td>
           </tr>
           <tr>
             <td><strong>Technische Protokolle</strong></td>
@@ -463,11 +461,16 @@ h1 { color: #FFFFFF; margin-bottom: 10px; font-size: 2em; }
         Art.&nbsp;9 DSGVO (z.&nbsp;B. Gesundheits- oder Religiondaten), sofern Sie diese nicht freiwillig in
         Freitextfeldern eingeben.
       </p>
+      <p>
+        Die <strong>mobile App</strong> bindet <strong>keine</strong> Drittanbieter-<strong>Analytics-</strong> oder
+        <strong>Crash-Reporting-SDKs</strong> ein (z.&nbsp;B. Firebase Analytics, Sentry). Erinnerungs-Schalter in den
+        Einstellungen werden nur lokal gespeichert; wir versenden keinen Remote-Marketing-Push von unseren Servern.
+      </p>
 
       <h2>4. Zwecke und Rechtsgrundlagen (Art.&nbsp;6 DSGVO)</h2>
       <ul>
         <li><strong>Vertrag / vorvertragliche Maßnahmen (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;b):</strong> Konto, App-Funktionen, Abo-Verwaltung, Support.</li>
-        <li><strong>Einwilligung (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;a):</strong> Push-Benachrichtigungen, Zugriff auf Benachrichtigungen (Auto-Erfassung), Sprachmikrofon, optionale Cloud-Sicherung (aktivierbar in den Einstellungen). Widerruf jederzeit mit Wirkung für die Zukunft.</li>
+        <li><strong>Einwilligung (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;a):</strong> Zugriff auf Benachrichtigungen (Auto-Erfassung), optionale lokale Bestätigungshinweise (Android), Sprachmikrofon, optionale Cloud-Sicherung (aktivierbar in den Einstellungen). Widerruf jederzeit mit Wirkung für die Zukunft.</li>
         <li><strong>Berechtigtes Interesse (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;f):</strong> IT-Sicherheit, Missbrauchsprävention, Fehleranalyse in Protokollen, Durchsetzung von Abo-Rechten — unter Wahrung Ihrer Interessen (Datenminimierung).</li>
         <li><strong>Rechtspflicht (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;c):</strong> Aufbewahrung nach Handels-/Steuerrecht, soweit anwendbar.</li>
       </ul>
@@ -502,7 +505,11 @@ h1 { color: #FFFFFF; margin-bottom: 10px; font-size: 2em; }
         Konto auf Supabase (Region <strong>Frankfurt / EU</strong>). Sie können die Funktion jederzeit deaktivieren;
         bereits hochgeladene Daten können Sie durch <strong>Kontolöschung</strong> entfernen lassen.
       </p>
-      <p><strong>Niemals hochgeladen:</strong> Monatseinkommen, abgeschlossene Monatsberichte.</p>
+      <p>
+        Bei aktivierter Cloud-Sicherung werden Monatseinkommen (<code>user_profiles.income</code>) und
+        abgeschlossene Monatsberichte (<code>period_reports</code>) mit Ihrem Konto synchronisiert.
+        Benachrichtigungstexte der Auto-Erfassung werden nicht hochgeladen.
+      </p>
 
       <h2>7. Auto-Erfassung von Zahlungen (Android, optional)</h2>
       <p>
@@ -524,8 +531,8 @@ h1 { color: #FFFFFF; margin-bottom: 10px; font-size: 2em; }
       <h2>9. Empfänger und Auftragsverarbeiter (Art.&nbsp;28 DSGVO)</h2>
       <ul>
         <li><strong>Supabase Inc.</strong> — Authentifizierung, Datenbank, Edge Functions (EU-Rechenzentrum Frankfurt); Verschlüsselung in Transit und at Rest.</li>
-        <li><strong>Apple Inc.</strong> — App Store, In-App-Käufe (iOS), ggf. Push (APNs).</li>
-        <li><strong>Google Ireland Ltd.</strong> — Google Play, In-App-Käufe (Android), ggf. Push (FCM).</li>
+        <li><strong>Apple Inc.</strong> — App Store, In-App-Käufe (iOS), optionale Spracherkennung auf dem Gerät.</li>
+        <li><strong>Google Ireland Ltd.</strong> — Google Play, In-App-Käufe (Android), optionale Spracherkennung auf dem Gerät.</li>
         <li><strong>Expo / Hosting-Anbieter</strong> — App-Build-Infrastruktur (kein Zugriff auf Ihre Finanzinhalte im Normalbetrieb).</li>
       </ul>
       <p>
@@ -697,9 +704,9 @@ h1 { color: #FFFFFF; margin-bottom: 10px; font-size: 2em; }
             <td>Local; indicadores de suscripción/perfil pueden estar en Supabase</td>
           </tr>
           <tr>
-            <td><strong>Push (opcional)</strong></td>
-            <td>Token del dispositivo para avisos (p.&nbsp;ej. «pago detectado»)</td>
-            <td>Servicios push de Apple / Google; metadatos mínimos</td>
+            <td><strong>Avisos locales (Android, opcional)</strong></td>
+            <td>Notificación en el dispositivo cuando la auto-captura detecta un pago (no push remoto de marketing)</td>
+            <td>Procesado localmente; no enviamos push remoto desde nuestros servidores</td>
           </tr>
           <tr>
             <td><strong>Registros técnicos</strong></td>
@@ -712,11 +719,17 @@ h1 { color: #FFFFFF; margin-bottom: 10px; font-size: 2em; }
         <strong>No</strong> tratamos <strong>categorías especiales</strong> de datos personales del art.&nbsp;9 RGPD
         (p.&nbsp;ej. salud o religión) salvo que usted los introduzca voluntariamente en campos de texto libre.
       </p>
+      <p>
+        La <strong>app móvil</strong> <strong>no</strong> integra SDK de <strong>analítica</strong> ni de
+        <strong>informes de fallos</strong> de terceros (p.&nbsp;ej. Firebase Analytics, Sentry). Los interruptores de
+        recordatorios en Ajustes se guardan solo en el dispositivo; no enviamos notificaciones push remotas de marketing
+        desde nuestros servidores.
+      </p>
 
       <h2>4. Finalidades y bases jurídicas (art.&nbsp;6 RGPD)</h2>
       <ul>
         <li><strong>Contrato / medidas precontractuales (art.&nbsp;6.1.b):</strong> Cuenta, funciones de la app, gestión de suscripción, soporte.</li>
-        <li><strong>Consentimiento (art.&nbsp;6.1.a):</strong> Notificaciones push, acceso a notificaciones (auto-captura), micrófono (voz), copia en nube opcional (activable en Ajustes). Revocable en cualquier momento con efectos futuros.</li>
+        <li><strong>Consentimiento (art.&nbsp;6.1.a):</strong> Acceso a notificaciones (auto-captura), avisos locales de confirmación (Android, opcional), micrófono (voz), copia en nube opcional (activable en Ajustes). Revocable en cualquier momento con efectos futuros.</li>
         <li><strong>Interés legítimo (art.&nbsp;6.1.f):</strong> Seguridad informática, prevención de abusos, análisis de errores en registros, aplicación de derechos de suscripción — respetando sus intereses (minimización de datos).</li>
         <li><strong>Obligación legal (art.&nbsp;6.1.c):</strong> Conservación según derecho mercantil/fiscal cuando corresponda.</li>
       </ul>
@@ -770,8 +783,8 @@ h1 { color: #FFFFFF; margin-bottom: 10px; font-size: 2em; }
       <h2>9. Destinatarios y encargados del tratamiento (art.&nbsp;28 RGPD)</h2>
       <ul>
         <li><strong>Supabase Inc.</strong> — Autenticación, base de datos, edge functions (centro de datos UE Fráncfort); cifrado en tránsito y en reposo.</li>
-        <li><strong>Apple Inc.</strong> — App Store, compras in-app (iOS), push (APNs) cuando se utilice.</li>
-        <li><strong>Google Ireland Ltd.</strong> — Google Play, compras in-app (Android), push (FCM) cuando se utilice.</li>
+        <li><strong>Apple Inc.</strong> — App Store, compras in-app (iOS), reconocimiento de voz opcional en el dispositivo.</li>
+        <li><strong>Google Ireland Ltd.</strong> — Google Play, compras in-app (Android), reconocimiento de voz opcional en el dispositivo.</li>
         <li><strong>Expo / proveedores de alojamiento</strong> — Infraestructura de compilación de la app (sin acceso a su contenido financiero en funcionamiento normal).</li>
       </ul>
       <p>
