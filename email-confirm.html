@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ForFuture — Email</title>
+    <!--
+      Public URL: https://forfuture.app/email-confirm.html
+      Allow-list in Supabase → Authentication → Redirect URLs (exact string).
+      Used for sign-up confirmation and password-recovery links from the app.
+    -->
+    <style>
+      :root {
+        font-family:
+          system-ui,
+          -apple-system,
+          Segoe UI,
+          Roboto,
+          sans-serif;
+        line-height: 1.45;
+        color: #111827;
+        background: #f9fafb;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+      }
+      .card {
+        max-width: 420px;
+        width: 100%;
+        background: #fff;
+        border-radius: 16px;
+        padding: 28px 24px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        border: 1px solid #e5e7eb;
+      }
+      h1 {
+        font-size: 1.25rem;
+        margin: 0 0 12px;
+      }
+      p {
+        margin: 0 0 12px;
+        color: #4b5563;
+        font-size: 0.95rem;
+      }
+      .err {
+        color: #b91c1c;
+      }
+      a.btn {
+        display: inline-block;
+        margin-top: 16px;
+        padding: 12px 20px;
+        border-radius: 999px;
+        background: #111827;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.95rem;
+      }
+      .muted {
+        font-size: 0.85rem;
+        color: #6b7280;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card" id="card">
+      <h1 id="headline">…</h1>
+      <p id="msg"></p>
+      <div id="actions"></div>
+      <p class="muted" id="hint"></p>
+    </div>
+    <script type="module">
+      const de = navigator.language.toLowerCase().startsWith('de');
+      const $ = (id) => document.getElementById(id);
+
+      /** Public anon keys — safe to embed; must match the Supabase project that sent the email. */
+      const ANON_BY_HOST = {
+        'sxrngcrgrpsjajggtoam.supabase.co':
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN4cm5nY3JncnBzamFqZ2d0b2FtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA3Nzg3MTUsImV4cCI6MjA5NjM1NDcxNX0.Xwv-kYkXO1AYirGyq34BwN0rl0-Yu6qqxKdNqT2VLNk',
+        'lulnjwqvpwsxyylzjybp.supabase.co':
+          'sb_publishable_t2U0QfJ9lhyxhIfSAGuBQA_jqc2mSjm',
+      };
+
+      const headline = $('headline');
+      const msg = $('msg');
+      const actions = $('actions');
+      const hint = $('hint');
+
+      function supabaseHostFromJwt(token) {
+        try {
+          const payload = JSON.parse(atob(token.split('.')[1].replace(/-/g, '+').replace(/_/g, '/')));
+          const iss = payload.iss ?? '';
+          const match = iss.match(/^https:\/\/([^.]+\.supabase\.co)\/auth\/v1$/);
+          return match ? match[1] : null;
+        } catch {
+          return null;
+        }
+      }
+
+      function resolveSupabaseConfig() {
+        const hash = window.location.hash?.replace(/^#/, '') ?? '';
+        const hashParams = new URLSearchParams(hash);
+        const accessToken = hashParams.get('access_token');
+        const host = accessToken ? supabaseHostFromJwt(accessToken) : null;
+        if (host && ANON_BY_HOST[host]) {
+          return { url: `https://${host}`, anon: ANON_BY_HOST[host] };
+        }
+        // Default production when no token yet (pre-verify or misconfigured link).
+        return {
+          url: 'https://lulnjwqvpwsxyylzjybp.supabase.co',
+          anon: ANON_BY_HOST['lulnjwqvpwsxyylzjybp.supabase.co'],
+        };
+      }
+
+      const hash = window.location.hash?.replace(/^#/, '') ?? '';
+      const hashParams = new URLSearchParams(hash);
+      const qParams = new URLSearchParams(window.location.search);
+      const flowType = hashParams.get('type') || qParams.get('type') || 'signup';
+      const err =
+        hashParams.get('error') ||
+        hashParams.get('error_code') ||
+        qParams.get('error') ||
+        qParams.get('error_description');
+
+      if (err) {
+        document.title = de ? 'ForFuture — Link' : 'ForFuture — Link';
+        headline.textContent = de ? 'Link ungültig' : 'Link invalid';
+        msg.classList.add('err');
+        msg.textContent =
+          hashParams.get('error_description') ||
+          qParams.get('error_description') ||
+          err ||
+          (de
+            ? 'Der Bestätigungslink ist abgelaufen oder wurde bereits verwendet.'
+            : 'This confirmation link has expired or was already used.');
+        hint.textContent = de
+          ? 'Registriere dich erneut in der ForFuture-App, um eine neue E-Mail zu erhalten.'
+          : 'Sign up again in the ForFuture app to receive a new confirmation email.';
+        throw new Error('auth error');
+      }
+
+      const { url: sbUrl, anon: sbAnon } = resolveSupabaseConfig();
+      const { createClient } = await import('https://esm.sh/@supabase/supabase-js@2.49.4');
+      const supabase = createClient(sbUrl, sbAnon, {
+        auth: { detectSessionInUrl: true, persistSession: false },
+      });
+
+      const code = qParams.get('code');
+      if (code) {
+        const { error: exErr } = await supabase.auth.exchangeCodeForSession(window.location.href);
+        if (exErr) {
+          headline.textContent = de ? 'Fehler' : 'Error';
+          msg.classList.add('err');
+          msg.textContent = exErr.message;
+          throw new Error('exchange failed');
+        }
+      }
+
+      const {
+        data: { session },
+        error: sessErr,
+      } = await supabase.auth.getSession();
+      if (sessErr) {
+        headline.textContent = de ? 'Fehler' : 'Error';
+        msg.classList.add('err');
+        msg.textContent = sessErr.message;
+        throw new Error('session failed');
+      }
+
+      if (session) {
+        document.title = de ? 'ForFuture — Bestätigt' : 'ForFuture — Confirmed';
+        if (flowType === 'recovery') {
+          headline.textContent = de ? 'Link bestätigt' : 'Link confirmed';
+          msg.textContent = de
+            ? 'Du kannst zur ForFuture-App zurückkehren und dort dein neues Passwort setzen.'
+            : 'You can return to the ForFuture app and set your new password there.';
+        } else {
+          headline.textContent = de ? 'E-Mail bestätigt' : 'Email confirmed';
+          msg.textContent = de
+            ? 'Danke — deine E-Mail-Adresse ist bestätigt. Du kannst zur ForFuture-App zurückkehren und dich anmelden.'
+            : 'Thanks — your email address is confirmed. Return to the ForFuture app and sign in.';
+        }
+        const open = document.createElement('a');
+        open.href = 'forfuture2://';
+        open.className = 'btn';
+        open.textContent = de ? 'App öffnen' : 'Open app';
+        actions.appendChild(open);
+        hint.textContent = de
+          ? 'Falls die App nicht startet, öffne ForFuture manuell und melde dich mit E-Mail und Passwort an.'
+          : 'If the app does not open, launch ForFuture manually and sign in with your email and password.';
+      } else {
+        document.title = de ? 'ForFuture — Hinweis' : 'ForFuture — Note';
+        headline.textContent = de ? 'Fast geschafft' : 'Almost done';
+        msg.textContent = de
+          ? 'Es wurde keine Sitzung aus dem Link gelesen. Öffne den Link erneut im Browser.'
+          : 'No session was read from this link. Try opening the link again in your browser.';
+        hint.textContent = de
+          ? 'Stelle sicher, dass https://forfuture.app/email-confirm.html in Supabase unter „Redirect URLs“ eingetragen ist.'
+          : 'Ensure https://forfuture.app/email-confirm.html is listed under Supabase → Redirect URLs.';
+      }
+    </script>
+  </body>
+</html>
