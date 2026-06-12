@@ -1,21 +1,18 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>ForFuture — E-Mail</title>
+    <title>ForFuture — Email</title>
     <!--
-      Deploy this file at: https://forfuture.app/auth/email-change.html
-      (path must match EMAIL_CHANGE_REDIRECT_URL in the app .env)
+      Public URL: https://forfuture.app/email-change.html
+      Allow-list in Supabase → Authentication → Redirect URLs (exact string).
+      Used when changing email in Settings → Personal information.
 
-      Supabase Dashboard → Authentication → URL Configuration:
-      - Add this full URL to "Redirect URLs".
-
-      Replace the two meta values below with your project URL and anon key
-      (same as SUPABASE_URL / SUPABASE_ANON_KEY in the app — the anon key is safe in the browser).
+      With “Secure email change” enabled, Supabase sends two confirmation emails.
+      The first link opens with #message=… (step 1). The second link includes
+      #access_token=…&type=email_change (step 2 — change complete).
     -->
-    <meta name="sb-url" content="https://lulnjwqvpwsxyylzjybp.supabase.co" />
-    <meta name="sb-anon" content="sb_publishable_t2U0QfJ9lhyxhIfSAGuBQA_jqc2mSjm" />
     <style>
       :root {
         font-family:
@@ -57,6 +54,9 @@
       .err {
         color: #b91c1c;
       }
+      .ok {
+        color: #047857;
+      }
       a.btn {
         display: inline-block;
         margin-top: 16px;
@@ -68,11 +68,6 @@
         font-weight: 600;
         font-size: 0.95rem;
       }
-      a.btn.secondary {
-        background: #e5e7eb;
-        color: #111827;
-        margin-left: 8px;
-      }
       .muted {
         font-size: 0.85rem;
         color: #6b7280;
@@ -82,7 +77,7 @@
   </head>
   <body>
     <div class="card" id="card">
-      <h1 id="headline">…</h1>
+      <h1 id="headline">ForFuture</h1>
       <p id="msg"></p>
       <div id="actions"></div>
       <p class="muted" id="hint"></p>
@@ -91,98 +86,217 @@
       const de = navigator.language.toLowerCase().startsWith('de');
       const $ = (id) => document.getElementById(id);
 
-      const sbUrl = (document.querySelector('meta[name="sb-url"]')?.getAttribute('content') ?? '').trim();
-      const sbAnon = (document.querySelector('meta[name="sb-anon"]')?.getAttribute('content') ?? '').trim();
+      /** Public anon keys — safe to embed; must match the Supabase project that sent the email. */
+      const ANON_BY_HOST = {
+        'sxrngcrgrpsjajggtoam.supabase.co':
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN4cm5nY3JncnBzamFqZ2d0b2FtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA3Nzg3MTUsImV4cCI6MjA5NjM1NDcxNX0.Xwv-kYkXO1AYirGyq34BwN0rl0-Yu6qqxKdNqT2VLNk',
+        'lulnjwqvpwsxyylzjybp.supabase.co':
+          'sb_publishable_t2U0QfJ9lhyxhIfSAGuBQA_jqc2mSjm',
+      };
 
       const headline = $('headline');
       const msg = $('msg');
       const actions = $('actions');
       const hint = $('hint');
 
-      if (!sbUrl || !sbAnon) {
-        document.title = de ? 'ForFuture — Konfiguration' : 'ForFuture — Setup';
-        headline.textContent = de ? 'Konfiguration fehlt' : 'Configuration missing';
-        msg.textContent = de
-          ? 'In dieser HTML-Datei müssen die meta-Tags sb-url und sb-anon gesetzt werden.'
-          : 'Set the sb-url and sb-anon meta tags in this HTML file.';
-        throw new Error('sb meta');
-      }
-
-      const { createClient } = await import('https://esm.sh/@supabase/supabase-js@2.49.4');
-      const supabase = createClient(sbUrl, sbAnon, {
-        auth: {
-          detectSessionInUrl: true,
-          persistSession: false,
-        },
-      });
-
-      const hash = window.location.hash?.replace(/^#/, '') ?? '';
-      const hashParams = new URLSearchParams(hash);
-      const qParams = new URLSearchParams(window.location.search);
-      const err =
-        hashParams.get('error') ||
-        hashParams.get('error_code') ||
-        qParams.get('error') ||
-        qParams.get('error_description');
-
-      if (err) {
-        document.title = de ? 'ForFuture — Link' : 'ForFuture — Link';
-        headline.textContent = de ? 'Link ungültig' : 'Link invalid';
-        msg.classList.add('err');
-        msg.textContent =
-          hashParams.get('error_description') ||
-          qParams.get('error_description') ||
-          err ||
-          (de ? 'Der Bestätigungslink ist abgelaufen oder wurde bereits verwendet.' : 'This confirmation link has expired or was already used.');
-        hint.textContent = de
-          ? 'Fordere im ForFuture-App-Menü eine neue E-Mail-Bestätigung an.'
-          : 'Request a new confirmation from the ForFuture app settings.';
-        return;
-      }
-
-      const code = qParams.get('code');
-      if (code) {
-        const { error: exErr } = await supabase.auth.exchangeCodeForSession(window.location.href);
-        if (exErr) {
-          headline.textContent = de ? 'Fehler' : 'Error';
-          msg.classList.add('err');
-          msg.textContent = exErr.message;
-          return;
-        }
-      }
-
-      let {
-        data: { session },
-        error: sessErr,
-      } = await supabase.auth.getSession();
-      if (sessErr) {
-        headline.textContent = de ? 'Fehler' : 'Error';
-        msg.classList.add('err');
-        msg.textContent = sessErr.message;
-        return;
-      }
-
-      if (session) {
-        document.title = de ? 'ForFuture — Bestätigt' : 'ForFuture — Confirmed';
-        headline.textContent = de ? 'E-Mail aktualisiert' : 'Email updated';
-        msg.textContent = de
-          ? 'Deine neue Adresse ist bestätigt. Du kannst diese Seite schließen und zur ForFuture-App zurückkehren.'
-          : 'Your new address is confirmed. You can close this page and return to the ForFuture app.';
+      function addOpenAppButton() {
         const open = document.createElement('a');
         open.href = 'forfuture2://';
         open.className = 'btn';
         open.textContent = de ? 'App öffnen' : 'Open app';
         actions.appendChild(open);
-        hint.textContent = de
-          ? 'Falls die App nicht startet, öffne ForFuture manuell. Bei Problemen melde dich erneut mit der neuen E-Mail an.'
-          : 'If the app does not open, launch ForFuture manually. Sign in again with your new email if needed.';
-      } else {
-        document.title = de ? 'ForFuture — Hinweis' : 'ForFuture — Note';
-        headline.textContent = de ? 'Fast geschafft' : 'Almost done';
-        msg.textContent = de
-          ? 'Es wurde keine Sitzung aus dem Link gelesen. Öffne den Link erneut im Browser oder prüfe, ob die Adresse exakt in Supabase unter „Redirect URLs“ eingetragen ist.'
-          : 'No session was read from this link. Open the link again in the browser, or confirm this page’s URL is listed under Supabase → Redirect URLs.';
       }
+
+      function showError(title, body, foot) {
+        document.title = de ? 'ForFuture — Link' : 'ForFuture — Link';
+        headline.textContent = title;
+        msg.classList.add('err');
+        msg.textContent = body;
+        if (foot) hint.textContent = foot;
+      }
+
+      function showSuccess(title, body, foot, withAppButton = true) {
+        document.title = de ? 'ForFuture — Bestätigt' : 'ForFuture — Confirmed';
+        headline.textContent = title;
+        msg.classList.add('ok');
+        msg.textContent = body;
+        if (withAppButton) addOpenAppButton();
+        if (foot) hint.textContent = foot;
+      }
+
+      function showInfo(title, body, foot) {
+        document.title = de ? 'ForFuture — E-Mail' : 'ForFuture — Email';
+        headline.textContent = title;
+        msg.textContent = body;
+        if (foot) hint.textContent = foot;
+      }
+
+      function supabaseHostFromJwt(token) {
+        try {
+          const payload = JSON.parse(atob(token.split('.')[1].replace(/-/g, '+').replace(/_/g, '/')));
+          const iss = payload.iss ?? '';
+          const match = iss.match(/^https:\/\/([^.]+\.supabase\.co)\/auth\/v1$/);
+          return match ? match[1] : null;
+        } catch {
+          return null;
+        }
+      }
+
+      function resolveSupabaseConfig(accessToken) {
+        const host = accessToken ? supabaseHostFromJwt(accessToken) : null;
+        if (host && ANON_BY_HOST[host]) {
+          return { url: `https://${host}`, anon: ANON_BY_HOST[host] };
+        }
+        return {
+          url: 'https://lulnjwqvpwsxyylzjybp.supabase.co',
+          anon: ANON_BY_HOST['lulnjwqvpwsxyylzjybp.supabase.co'],
+        };
+      }
+
+      /** Map Supabase #message=… redirects to friendly copy (secure email change step 1). */
+      function friendlyMessage(raw) {
+        const text = decodeURIComponent(String(raw).replace(/\+/g, ' ')).trim();
+        const lower = text.toLowerCase();
+        if (
+          lower.includes('confirmation link accepted') &&
+          lower.includes('other email')
+        ) {
+          return de
+            ? {
+                title: 'Erster Schritt bestätigt',
+                body: 'Danke — dieser Bestätigungslink wurde akzeptiert. Öffne jetzt die E-Mail an deine andere Adresse und tippe dort auf den zweiten Link, um die Änderung abzuschließen.',
+                hint: 'Prüfe auch den Spam-Ordner. Erst wenn beide Links bestätigt sind, ist die neue Adresse aktiv.',
+              }
+            : {
+                title: 'First step confirmed',
+                body: 'Thanks — this confirmation link was accepted. Now open the email we sent to your other address and tap the second link to finish the change.',
+                hint: 'Check your spam folder too. Your new address is only active after both links are confirmed.',
+              };
+        }
+        if (lower.includes('email') && lower.includes('changed')) {
+          return de
+            ? {
+                title: 'E-Mail geändert',
+                body: 'Deine E-Mail-Adresse wurde erfolgreich geändert.',
+                hint: 'Du kannst zur ForFuture-App zurückkehren und dich mit der neuen Adresse anmelden.',
+              }
+            : {
+                title: 'Email changed',
+                body: 'Your email address has been successfully changed.',
+                hint: 'You can return to the ForFuture app and sign in with your new address.',
+              };
+        }
+        return de
+          ? { title: 'Hinweis', body: text, hint: null }
+          : { title: 'Notice', body: text, hint: null };
+      }
+
+      async function main() {
+        const hash = window.location.hash?.replace(/^#/, '') ?? '';
+        const hashParams = new URLSearchParams(hash);
+        const qParams = new URLSearchParams(window.location.search);
+        const flowType = hashParams.get('type') || qParams.get('type') || '';
+        const accessToken = hashParams.get('access_token');
+        const rawMessage = hashParams.get('message') || qParams.get('message');
+        const err =
+          hashParams.get('error') ||
+          hashParams.get('error_code') ||
+          qParams.get('error') ||
+          qParams.get('error_description');
+
+        if (err) {
+          showError(
+            de ? 'Link ungültig' : 'Link invalid',
+            hashParams.get('error_description') ||
+              qParams.get('error_description') ||
+              err ||
+              (de
+                ? 'Der Bestätigungslink ist abgelaufen oder wurde bereits verwendet.'
+                : 'This confirmation link has expired or was already used.'),
+            de
+              ? 'Fordere im ForFuture-App-Menü eine neue E-Mail-Bestätigung an.'
+              : 'Request a new confirmation from the ForFuture app settings.',
+          );
+          return;
+        }
+
+        // Secure email change — step 1: Supabase redirects with #message= only (no tokens).
+        if (rawMessage && !accessToken && !qParams.get('code')) {
+          const copy = friendlyMessage(rawMessage);
+          showInfo(copy.title, copy.body, copy.hint);
+          return;
+        }
+
+        const { url: sbUrl, anon: sbAnon } = resolveSupabaseConfig(accessToken);
+        const { createClient } = await import('https://esm.sh/@supabase/supabase-js@2.49.4');
+        const supabase = createClient(sbUrl, sbAnon, {
+          auth: { detectSessionInUrl: true, persistSession: false },
+        });
+
+        const code = qParams.get('code');
+        if (code) {
+          const { error: exErr } = await supabase.auth.exchangeCodeForSession(window.location.href);
+          if (exErr) {
+            showError(de ? 'Fehler' : 'Error', exErr.message, null);
+            return;
+          }
+        }
+
+        const {
+          data: { session },
+          error: sessErr,
+        } = await supabase.auth.getSession();
+        if (sessErr) {
+          showError(de ? 'Fehler' : 'Error', sessErr.message, null);
+          return;
+        }
+
+        if (session) {
+          const emailChanged = flowType === 'email_change' || Boolean(session.user?.email);
+          if (emailChanged) {
+            showSuccess(
+              de ? 'E-Mail geändert' : 'Email changed',
+              de
+                ? 'Deine E-Mail-Adresse wurde erfolgreich geändert. Du kannst diese Seite schließen und zur ForFuture-App zurückkehren.'
+                : 'Your email address has been successfully changed. You can close this page and return to the ForFuture app.',
+              de
+                ? 'Falls die App nicht startet, öffne ForFuture manuell und melde dich mit der neuen E-Mail an.'
+                : 'If the app does not open, launch ForFuture manually and sign in with your new email.',
+            );
+          } else {
+            showSuccess(
+              de ? 'E-Mail bestätigt' : 'Email confirmed',
+              de
+                ? 'Deine Adresse ist bestätigt. Du kannst zur ForFuture-App zurückkehren.'
+                : 'Your address is confirmed. You can return to the ForFuture app.',
+              de
+                ? 'Falls die App nicht startet, öffne ForFuture manuell.'
+                : 'If the app does not open, launch ForFuture manually.',
+            );
+          }
+          return;
+        }
+
+        showInfo(
+          de ? 'Fast geschafft' : 'Almost done',
+          de
+            ? 'Es wurde keine Sitzung aus dem Link gelesen. Öffne den Link erneut im Browser.'
+            : 'No session was read from this link. Try opening the link again in your browser.',
+          de
+            ? 'Stelle sicher, dass https://forfuture.app/email-change.html in Supabase unter „Redirect URLs“ eingetragen ist.'
+            : 'Ensure https://forfuture.app/email-change.html is listed under Supabase → Redirect URLs.',
+        );
+      }
+
+      void main().catch(() => {
+        showError(
+          de ? 'Fehler' : 'Error',
+          de
+            ? 'Die Seite konnte den Link nicht verarbeiten. Bitte erneut öffnen.'
+            : 'This page could not process the link. Please try opening it again.',
+          null,
+        );
+      });
     </script>
   </body>
 </html>
