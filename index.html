@@ -1,854 +1,544 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
-    <script>
-      (function(){
-        var h = window.location.hash;
-        if (h && h.indexOf('access_token=') !== -1 && h.indexOf('type=recovery') !== -1) {
-          window.location.replace('/password-reset-web.html' + h);
-          return;
-        }
-      })();
-    </script>
-    <!-- FORFUTURE-RESET-REDIRECT: if you see this in View Source at forfuture.app, the correct index.html is deployed -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="ForFuture – Complete financial missions. Not just track expenses. Turn saving and investing into a space journey toward your next life goal.">
-    <meta name="theme-color" content="#0A0B1F">
-    <title>ForFuture – Complete Financial Missions</title>
-    <link rel="canonical" href="https://forfuture.app/">
-    <link rel="shortcut icon" href="https://forfuture.app/images/app-icon.png" type="image/png">
-    <link rel="icon" href="https://forfuture.app/images/app-icon.png" type="image/png" sizes="32x32">
-    <link rel="icon" href="https://forfuture.app/images/app-icon.png" type="image/png" sizes="180x180">
-    <link rel="apple-touch-icon" href="https://forfuture.app/images/app-icon.png">
-    <style>
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        :root {
-            --bg: #0A0B1F;
-            --surface: #12142a;
-            --card: #181A20;
-            --border: #2a2b35;
-            --text: #FFFFFF;
-            --muted: #9ca3af;
-            --accent: #6366f1;
-            --accent-glow: rgba(99, 102, 241, 0.35);
-        }
-        
-        html { scroll-behavior: smooth; overflow-x: hidden; }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-        
-        /* Milky Way background – milkyway_doubled2.png, continuous vertical scroll; overflow to avoid left-edge artefact */
-        .milkyway-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            width: 100%;
-            min-width: 100vw;
-            z-index: 0;
-            overflow: hidden;
-            pointer-events: none;
-        }
-        .milkyway-track {
-            position: absolute;
-            left: -1px;
-            width: calc(100% + 2px);
-            height: 300vh;
-            will-change: transform;
-        }
-        .milkyway-tile {
-            position: absolute;
-            left: -1px;
-            width: calc(100% + 2px);
-            height: 100vh;
-            background-color: var(--bg);
-            background-image: url("images/milkyway_doubled2.png");
-            background-size: cover;
-            background-position: center;
-        }
-        .milkyway-tile:nth-child(1) { top: 0; }
-        .milkyway-tile:nth-child(2) { top: 100vh; }
-        .milkyway-tile:nth-child(3) { top: 200vh; }
-        
-        .wrap {
-            position: relative;
-            z-index: 2;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-        .hero .wrap { max-width: 1040px; }
-        .how-it-works .wrap { max-width: 1020px; }
-        
-        /* Language switcher */
-        .lang-bar {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            justify-content: flex-end;
-            padding: 16px 24px;
-            gap: 8px;
-        }
-        .lang-bar button {
-            background: transparent;
-            border: 1px solid var(--border);
-            color: var(--muted);
-            padding: 8px 14px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: color 0.2s, border-color 0.2s, background 0.2s;
-        }
-        .lang-bar button:hover {
-            color: var(--text);
-            border-color: var(--muted);
-        }
-        .lang-bar button.active {
-            background: var(--card);
-            color: var(--text);
-            border-color: var(--accent);
-        }
-        
-        /* Brand: logo left, language switcher right */
-        .site-header {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 16px;
-            padding: 16px 24px;
-        }
-        .header-left {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 12px;
-        }
-        .brand-logo {
-            display: block;
-            height: 32px;
-            width: auto;
-        }
-        .brand-logo img {
-            height: 100%;
-            width: auto;
-            display: block;
-        }
-        /* Content by language */
-        [data-lang="de"] { display: none; }
-        [data-lang="en"] { display: block; }
-        body.lang-de [data-lang="en"] { display: none; }
-        body.lang-de [data-lang="de"] { display: block; }
-        
-        /* ----- Hero ----- */
-        .hero {
-            min-height: 85vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 60px 0 80px;
-        }
-        
-        .hero h1 {
-            font-size: clamp(1.75rem, 5vw, 2.75rem);
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 16px;
-            letter-spacing: -0.02em;
-        }
-        
-        .hero .subheadline {
-            font-size: clamp(1rem, 2.5vw, 1.25rem);
-            color: var(--muted);
-            max-width: 520px;
-            margin-left: auto;
-            margin-right: auto;
-            margin-bottom: 40px;
-            text-align: center;
-        }
-        
-        .cta-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            justify-content: center;
-            align-items: stretch;
-        }
-        
-        /* One row: [phone] | [column of stacks: button → QR] */
-        .cta-block {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-            gap: 28px 36px;
-            margin-top: 20px;
-        }
-        .cta-phone {
-            flex: 0 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        /* +40% then +10% vs original hero phone size */
-        .cta-phone img {
-            display: block;
-            width: clamp(289px, 30.8vw, 358px);
-            height: auto;
-            max-height: min(751px, calc(100vh - 200px));
-            object-fit: contain;
-            border-radius: clamp(24px, 4.4vw, 40px);
-            box-shadow: 0 24px 48px rgba(0,0,0,0.4);
-        }
-        /* Right column: vertical stacks (button, then QR below) */
-        .cta-downloads {
-            flex: 0 1 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            min-width: 0;
-            max-width: 320px;
-        }
-        .cta-store-row {
-            display: flex;
-            flex-direction: column;
-            flex-wrap: nowrap;
-            align-items: center;
-            justify-content: flex-start;
-            gap: 12px;
-            width: 100%;
-            max-width: 280px;
-        }
-        .cta-qr-item {
-            flex: 0 0 auto;
-            width: 168px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-        .cta-qr-label {
-            margin: 0 0 10px 0;
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--text);
-            line-height: 1.25;
-            max-width: 168px;
-        }
-        .cta-qr-label-sub {
-            display: block;
-            margin-top: 3px;
-            font-size: 0.7rem;
-            font-weight: 500;
-            color: var(--muted);
-        }
-        .cta-qr {
-            flex-shrink: 0;
-            position: relative;
-            width: 160px;
-            height: 160px;
-            background: #fff;
-            border-radius: 16px;
-            padding: 12px;
-            box-sizing: border-box;
-        }
-        .cta-qr img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            display: block;
-        }
-        .cta-store-row .btn-store-gplay,
-        .cta-store-row .btn-appstore {
-            flex: 0 0 auto;
-            width: 100%;
-            max-width: 280px;
-            justify-content: flex-start;
-        }
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 14px 24px;
-            border-radius: 12px;
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: transform 0.2s, box-shadow 0.2s;
-            border: none;
-            cursor: pointer;
-            min-height: 52px;
-            box-sizing: border-box;
-        }
-        
-        .btn:hover { transform: translateY(-2px); }
-        
-        .btn-primary {
-            background: var(--accent);
-            color: white;
-            box-shadow: 0 4px 20px var(--accent-glow);
-        }
-        
-        .btn-primary:hover { box-shadow: 0 6px 28px var(--accent-glow); }
-        
-        /* App Store badge – same brightness as Google Play button */
-        .btn-appstore {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px 18px 10px 14px;
-            min-height: 52px;
-            background: #1f1a36;
-            color: #fff;
-            border: 1px solid rgba(148, 130, 220, 0.4);
-            border-radius: 12px;
-            text-decoration: none;
-            transition: transform 0.2s, opacity 0.2s;
-            box-sizing: border-box;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-        .btn-appstore:hover { transform: translateY(-2px); opacity: 0.95; }
-        .btn-appstore .apple-logo {
-            width: 28px;
-            height: 28px;
-            flex-shrink: 0;
-            display: block;
-        }
-        .btn-appstore .apple-logo path {
-            fill: #fff;
-        }
-        .btn-appstore .appstore-text {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            line-height: 1.2;
-        }
-        .btn-appstore .appstore-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
-        
-        .btn-secondary {
-            background: var(--card);
-            color: var(--text);
-            border: 1px solid var(--border);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-        }
-        
-        .btn-secondary:hover { border-color: var(--muted); background: var(--surface); }
-        
-        /* Google Play store-style button */
-        .btn-store-gplay {
-            background: #1f1a36;
-            color: #fff;
-            border: 1px solid rgba(148, 130, 220, 0.4);
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px 18px 10px 14px;
-            border-radius: 12px;
-            font-family: inherit;
-            min-height: 52px;
-            box-sizing: border-box;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-            text-decoration: none;
-            cursor: pointer;
-            transition: transform 0.2s, opacity 0.2s;
-        }
-        a.btn-store-gplay:hover {
-            transform: translateY(-2px);
-            opacity: 0.95;
-        }
-        .btn-store-gplay .gplay-icon {
-            width: 28px;
-            height: 28px;
-            flex-shrink: 0;
-            display: block;
-            transform: rotate(180deg);
-        }
-        .btn-store-gplay .gplay-text {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            line-height: 1.2;
-        }
-        .btn-store-gplay .gplay-title {
-            font-size: 1.15rem;
-            font-weight: 600;
-        }
-        /* ----- Section common ----- */
-        section {
-            padding: 72px 0;
-        }
-        
-        section h2 {
-            font-size: clamp(1.5rem, 4vw, 2rem);
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 24px;
-            letter-spacing: -0.02em;
-        }
-        
-        section .lead {
-            text-align: center;
-            color: var(--muted);
-            max-width: 560px;
-            margin: 0 auto 40px;
-            font-size: 1.1rem;
-        }
-        
-        /* ----- Problem ----- */
-        .problem ul {
-            list-style: none;
-            max-width: 480px;
-            margin: 0 auto;
-        }
-        
-        .problem li {
-            padding: 14px 0;
-            padding-left: 36px;
-            position: relative;
-            color: var(--muted);
-            font-size: clamp(1rem, 2.5vw, 1.25rem);
-        }
-        
-        .problem li::before {
-            content: "✕";
-            position: absolute;
-            left: 0;
-            color: #ef4444;
-            font-weight: bold;
-        }
-        
-        .problem .then {
-            text-align: center;
-            margin-top: 32px;
-            font-size: 1.15rem;
-            font-weight: 600;
-            color: var(--text);
-        }
-        
-        /* ----- How it works (3 steps) ----- */
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 28px;
-            margin-top: 40px;
-        }
-        
-        .step {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 28px;
-            text-align: center;
-        }
-        
-        .step .icon {
-            font-size: 2.5rem;
-            margin-bottom: 12px;
-        }
-        
-        .step h3 {
-            font-size: 1.05rem;
-            margin-bottom: 8px;
-            white-space: nowrap;
-        }
-        
-        .step p {
-            color: var(--muted);
-            font-size: 0.95rem;
-        }
-        
-        .step-cta .step-button {
-            margin-top: 16px;
-            display: inline-flex;
-        }
-        .step-cta .btn-appstore .apple-logo { width: 22px; height: 22px; }
-        .step-cta .btn-appstore .appstore-title { font-size: 1rem; }
-        .step-cta .btn-appstore { padding: 8px 14px 8px 12px; min-height: 44px; }
-        
-        /* ----- Final CTA (download) ----- */
-        .final-cta {
-            background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
-            border-top: 1px solid var(--border);
-        }
-        
-        .final-cta h2 { margin-bottom: 24px; }
-        
-        .final-cta-store-row {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: stretch;
-            gap: 12px;
-            max-width: 560px;
-            margin: 0 auto;
-        }
-        
-        .final-cta-store-row .btn-store-gplay,
-        .final-cta-store-row .btn-appstore {
-            flex: 1 1 240px;
-            min-width: 0;
-            justify-content: flex-start;
-        }
-        
-        /* Footer */
-        footer {
-            padding: 32px 24px;
-            text-align: center;
-            color: var(--muted);
-            font-size: 0.9rem;
-            border-top: 1px solid var(--border);
-        }
-        footer .wrap {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 0 1rem;
-        }
-        footer a {
-            color: var(--muted);
-            text-decoration: none;
-        }
-        footer a:hover { color: var(--text); }
-        
-        /* Phone + store column stay ONE ROW on mobile (left | right); scaled to fit narrow viewports */
-        @media (max-width: 767px) {
-            .hero .wrap {
-                padding-left: max(12px, env(safe-area-inset-left));
-                padding-right: max(12px, env(safe-area-inset-right));
-            }
-            .cta-block {
-                flex-direction: row;
-                flex-wrap: nowrap;
-                align-items: center;
-                justify-content: center;
-                gap: 10px 12px;
-                width: 100%;
-                max-width: 100%;
-            }
-            .cta-phone {
-                flex: 0 0 auto;
-            }
-            .cta-phone img {
-                width: clamp(154px, 43vw, 231px);
-                max-width: 42%;
-                max-height: min(585px, 64vh);
-            }
-            .cta-downloads {
-                flex: 1 1 0;
-                min-width: 0;
-                max-width: none;
-                align-items: center;
-                gap: 10px;
-            }
-            .cta-store-row {
-                flex-direction: column;
-                align-items: center;
-                justify-content: flex-start;
-                gap: 8px;
-                max-width: min(280px, 48vw);
-            }
-            .cta-qr-item {
-                width: auto;
-                flex: 0 0 auto;
-                max-width: 104px;
-            }
-            .cta-qr-label {
-                font-size: 0.62rem;
-                margin-bottom: 4px;
-                max-width: 104px;
-            }
-            .cta-qr-label-sub {
-                font-size: 0.58rem;
-            }
-            .cta-qr {
-                width: 92px;
-                height: 92px;
-                padding: 6px;
-                border-radius: 10px;
-            }
-            .cta-store-row .btn-store-gplay,
-            .cta-store-row .btn-appstore {
-                flex: 1 1 0;
-                min-width: 0;
-                max-width: none;
-                padding: 8px 6px;
-                min-height: 44px;
-                font-size: 0.78rem;
-                gap: 6px;
-            }
-            .cta-store-row .btn-store-gplay .gplay-icon,
-            .cta-store-row .btn-appstore .apple-logo {
-                width: 22px;
-                height: 22px;
-            }
-            .cta-store-row .btn-appstore .appstore-title {
-                font-size: 0.95rem;
-            }
-            .cta-store-row .btn-store-gplay .gplay-title {
-                font-size: 0.9rem;
-            }
-        }
-        @media (min-width: 768px) {
-            .cta-block {
-                flex-wrap: nowrap;
-                align-items: center;
-                gap: 32px clamp(28px, 4vw, 48px);
-            }
-        }
-        @media (max-width: 640px) {
-            .hero { min-height: 80vh; padding: 40px 0 60px; }
-            section { padding: 56px 0; }
-            .steps { grid-template-columns: 1fr; }
-            .step h3 { white-space: normal; }
-        }
-        /* Only on very narrow screens fall back to stacked CTA */
-        @media (max-width: 340px) {
-            .cta-block {
-                flex-direction: column;
-                flex-wrap: wrap;
-                gap: 20px;
-            }
-            .cta-phone img {
-                max-width: min(242px, 88vw);
-                width: auto;
-            }
-            .cta-downloads {
-                align-items: center;
-            }
-            .cta-store-row {
-                justify-content: center;
-            }
-        }
-    </style>
-</head>
-<body>
-    <script>
-      (function(){
-        var h = window.location.hash;
-        if (h && h.indexOf('access_token=') !== -1 && h.indexOf('type=recovery') !== -1) {
-          window.location.replace('/password-reset-web.html' + h);
-        }
-      })();
-    </script>
-    <div class="milkyway-bg" aria-hidden="true">
-        <div class="milkyway-track">
-            <div class="milkyway-tile"></div>
-            <div class="milkyway-tile"></div>
-            <div class="milkyway-tile"></div>
-        </div>
-    </div>
-    
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ForFuture — Ausgaben im Griff. Ziele im Blick.</title>
+    <meta
+      name="description"
+      content="Budget- und Ziel-App ohne Bank-Anbindung. Ausgaben in Sekunden erfassen, Sparziele verfolgen, Monate abschließen."
+    />
+    <meta property="og:title" content="ForFuture — Ausgaben im Griff. Ziele im Blick." />
+    <meta
+      property="og:description"
+      content="Erfasse Ausgaben in Sekunden und sieh, wie dein Budget dich Monat für Monat deinen Zielen näher bringt."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://forfuture.app/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" href="assets/images/newLogo2.png" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/images/newLogo2.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="landing.css" />
+  </head>
+  <body>
     <header class="site-header">
-        <div class="header-left">
-            <a href="/" class="brand-logo" aria-label="ForFuture home">
-                <img src="images/logo_bg.png" alt="ForFuture" width="160" height="32">
-            </a>
-        </div>
-        <nav class="lang-bar" aria-label="Language">
-            <button type="button" id="lang-de" aria-pressed="false">Deutsch</button>
-            <button type="button" id="lang-en" class="active" aria-pressed="true">English</button>
+      <div class="container header-inner">
+        <a href="#" class="logo" aria-label="ForFuture Startseite">
+          <img
+            src="assets/images/forfuture-wordmark-dark.png"
+            alt="ForFuture"
+            class="logo-wordmark-header"
+            width="200"
+            height="32"
+          />
+        </a>
+        <nav class="nav-desktop" aria-label="Hauptnavigation">
+          <a href="#download">App holen</a>
+          <a href="#warum">Warum ForFuture</a>
+          <a href="#ziele">Ziele</a>
+          <a href="#erfassen">Erfassen</a>
+          <a href="#monats-review">Monats-Review</a>
+          <a href="#faq">FAQ</a>
         </nav>
-    </header>
-    
-    <main>
-        <!-- 1. HERO -->
-        <section class="hero">
-            <div class="wrap">
-                <h1 data-lang="en">Complete Financial Missions</h1>
-                <h1 data-lang="de">Finanz-Missionen erfüllen</h1>
-                <p class="subheadline" data-lang="en">ForFuture turns saving and investing into a space journey toward your next life goal</p>
-                <p class="subheadline" data-lang="de">ForFuture macht Sparen und Investieren zur Weltraumreise zu deinem nächsten Lebensziel</p>
-                <div class="cta-block">
-                    <div class="cta-phone">
-                        <img src="/images/phone-app.png" alt="ForFuture app – income, expenses and budget overview" width="240" height="480">
-                    </div>
-                    <div class="cta-downloads" role="group" aria-label="Download app">
-                        <div class="cta-store-row" aria-label="Google Play">
-                            <a href="https://play.google.com/store/apps/details?id=com.forfuture" class="btn btn-store-gplay" target="_blank" rel="noopener noreferrer" aria-label="Get ForFuture on Google Play">
-                                <svg class="gplay-icon" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill="#00A651" d="M2 12L15 12 22 2 2 12z"/>
-                                    <path fill="#5AC8FA" d="M2 12L15 12 22 22 2 12z"/>
-                                    <path fill="#EA4335" d="M15 12L22 12 22 22 15 12z"/>
-                                    <path fill="#FBBC04" d="M15 12L22 2 22 12 15 12z"/>
-                                </svg>
-                                <span class="gplay-text">
-                                    <span class="gplay-title">Google Play</span>
-                                </span>
-                            </a>
-                            <div class="cta-qr-item">
-                                <div class="cta-qr-label" id="hero-qr-gplay-label">
-                                    <span data-lang="en">Google Play</span><span data-lang="de">Google Play</span>
-                                    <span class="cta-qr-label-sub"><span data-lang="en">Scan for Android</span><span data-lang="de">Scannen für Android</span></span>
-                                </div>
-                                <div class="cta-qr" aria-labelledby="hero-qr-gplay-label">
-                                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&amp;data=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.forfuture" alt="QR code: open ForFuture on Google Play" width="136" height="136">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="cta-store-row" aria-label="App Store">
-                            <a href="https://apps.apple.com/app/forfuture/id6757244689" class="btn btn-appstore" aria-label="Download on the App Store">
-                                <svg class="apple-logo" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision"><path fill="#ffffff" d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-                                <span class="appstore-text">
-                                    <span class="appstore-title"><span data-lang="en">App Store</span><span data-lang="de">App Store</span></span>
-                                </span>
-                            </a>
-                            <div class="cta-qr-item">
-                                <div class="cta-qr-label" id="hero-qr-appstore-label">
-                                    <span data-lang="en">App Store</span><span data-lang="de">App Store</span>
-                                    <span class="cta-qr-label-sub"><span data-lang="en">Scan for iPhone &amp; iPad</span><span data-lang="de">Scannen für iPhone &amp; iPad</span></span>
-                                </div>
-                                <div class="cta-qr" aria-labelledby="hero-qr-appstore-label">
-                                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&amp;data=https%3A%2F%2Fapps.apple.com%2Fapp%2Fforfuture%2Fid6757244689" alt="QR code: open ForFuture on the App Store" width="136" height="136">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- 2. PROBLEM -->
-        <section class="problem">
-            <div class="wrap">
-                <h2 data-lang="en">Most finance apps make you feel behind</h2>
-                <h2 data-lang="de">Die meisten Finanz-Apps lassen dich zurück</h2>
-                <ul>
-                    <li data-lang="en">No long-term vision</li>
-                    <li data-lang="de">Keine langfristige Vision</li>
-                    <li data-lang="en">No motivation</li>
-                    <li data-lang="de">Keine Motivation</li>
-                    <li data-lang="en">No progress feeling</li>
-                    <li data-lang="de">Kein Fortschrittsgefühl</li>
-                </ul>
-            </div>
-        </section>
-        
-        <!-- 3. HOW IT WORKS (3 steps – no Lumars; goal identification as differentiator) -->
-        <section class="how-it-works">
-            <div class="wrap">
-                <h2 data-lang="en">How it works</h2>
-                <h2 data-lang="de">So funktioniert es</h2>
-                <p class="lead" data-lang="en">Three steps from scattered money to a clear mission</p>
-                <p class="lead" data-lang="de">Drei Schritte von verstreutem Geld zu einer klaren Mission</p>
-                <div class="steps">
-                    <div class="step">
-                        <div class="icon">🎯</div>
-                        <h3 data-lang="en">Discover Your Real Goal</h3>
-                        <h3 data-lang="de">Entdecke dein echtes Ziel</h3>
-                        <p data-lang="en">The app helps you recognize your real financial goal and supports you in implementing it long term.</p>
-                        <p data-lang="de">Die App hilft dir, dein echtes finanzielles Ziel zu erkennen und unterstützt dich dabei, es langfristig umzusetzen.</p>
-                    </div>
-                    <div class="step">
-                        <div class="icon">📊</div>
-                        <h3 data-lang="en">Overview of Your Finances</h3>
-                        <h3 data-lang="de">Überblick über deine Finanzen</h3>
-                        <p data-lang="en">Track your income, expenses, and budgets. See exactly where your money goes and spot opportunities to save or invest.</p>
-                        <p data-lang="de">Erfasse deine Einnahmen, Ausgaben und Budgets. Sieh genau, wohin dein Geld fließt und erkenne Chancen zum Sparen oder Investieren.</p>
-                    </div>
-                    <div class="step step-cta">
-                        <div class="icon">🚀</div>
-                        <h3 data-lang="en">Put Your Plan Into Action</h3>
-                        <h3 data-lang="de">Setze deinen Plan um</h3>
-                        <p data-lang="en">Time to execute: Use the app to turn your priorities into concrete steps, adjust budgets, and actively reach your financial goals.</p>
-                        <p data-lang="de">Nutze die App, um deine Prioritäten in konkrete Schritte zu verwandeln, Budgets anzupassen und deine finanziellen Ziele aktiv zu erreichen.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- 4. FINAL CTA (App Store + Google Play) -->
-        <section class="final-cta" id="download">
-            <div class="wrap">
-                <h2 data-lang="en">Start Your Financial Mission Today</h2>
-                <h2 data-lang="de">Starte heute deine Finanz-Mission</h2>
-                <div class="final-cta-store-row">
-                    <a href="https://play.google.com/store/apps/details?id=com.forfuture" class="btn btn-store-gplay" target="_blank" rel="noopener noreferrer" aria-label="Get ForFuture on Google Play">
-                        <svg class="gplay-icon" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                            <path fill="#00A651" d="M2 12L15 12 22 2 2 12z"/>
-                            <path fill="#5AC8FA" d="M2 12L15 12 22 22 2 12z"/>
-                            <path fill="#EA4335" d="M15 12L22 12 22 22 15 12z"/>
-                            <path fill="#FBBC04" d="M15 12L22 2 22 12 15 12z"/>
-                        </svg>
-                        <span class="gplay-text">
-                            <span class="gplay-title">Google Play</span>
-                        </span>
-                    </a>
-                    <a href="https://apps.apple.com/app/forfuture/id6757244689" class="btn btn-appstore" aria-label="Download on the App Store">
-                        <svg class="apple-logo" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision"><path fill="#ffffff" d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-                        <span class="appstore-text">
-                            <span class="appstore-title"><span data-lang="en">App Store</span><span data-lang="de">App Store</span></span>
-                        </span>
-                    </a>
-                </div>
-            </div>
-        </section>
-    </main>
-    
-    <footer>
-        <div class="wrap">
-            <a href="https://forfuture.app/privacy-policy.html"><span data-lang="en">Privacy Policy</span><span data-lang="de">Datenschutz</span></a>
-            <a href="https://forfuture.app/terms-of-service.html"><span data-lang="en">Terms of Service</span><span data-lang="de">Nutzungsbedingungen</span></a>
-            <a href="https://forfuture.app/impressum.html">Impressum</a>
+        <div class="header-actions">
+          <a href="#download" class="btn btn-primary btn-sm">App holen</a>
+          <button
+            class="nav-toggle"
+            type="button"
+            aria-label="Menü öffnen"
+            aria-expanded="false"
+            aria-controls="nav-mobile"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </div>
+      </div>
+      <nav id="nav-mobile" class="nav-mobile" aria-label="Mobile Navigation">
+        <a href="#download">App holen</a>
+        <a href="#warum">Warum ForFuture</a>
+        <a href="#ziele">Ziele</a>
+        <a href="#erfassen">Erfassen</a>
+        <a href="#monats-review">Monats-Review</a>
+        <a href="#faq">FAQ</a>
+        <a href="#download" class="btn btn-primary" style="margin-top: 16px; text-align: center">App holen</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="hero" id="download">
+        <div class="container">
+          <div class="hero-intro">
+            <span class="hero-eyebrow">Budget-App · Keine Bank-Anbindung</span>
+            <h1 class="hero-title">Ausgaben im Griff. Ziele im Blick.</h1>
+            <p class="hero-sub">
+              Erfasse Ausgaben in Sekunden und sieh, wie dein Budget dich Monat für Monat deinen
+              Zielen näher bringt.
+            </p>
+          </div>
+
+          <div class="hero-media-row">
+            <figure class="hero-phone">
+              <img
+                src="forfuture-redirect/images/phone-ff2.png"
+                alt="ForFuture App — Monatsübersicht auf dem Smartphone"
+                class="hero-phone-img"
+                width="300"
+                height="612"
+                loading="eager"
+                decoding="async"
+              />
+            </figure>
+            <div class="hero-store-col">
+              <div class="store-badges hero-store-badges hero-store-badges--inline">
+                <a
+                  href="#download"
+                  class="store-badge store-badge--dark"
+                  data-store="ios"
+                  aria-label="Im App Store laden"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="135" height="40" viewBox="0 0 135 40" role="img">
+                    <title>Download on the App Store</title>
+                    <rect width="135" height="40" rx="6" fill="#111318" />
+                    <text x="44" y="14" fill="#ffffff" font-family="Manrope, sans-serif" font-size="8" font-weight="400">Download on the</text>
+                    <text x="44" y="28" fill="#ffffff" font-family="Manrope, sans-serif" font-size="14" font-weight="600">App Store</text>
+                    <path d="M24 20c0-2.2 1.3-4.1 3.2-5-.2-.8-.5-1.6-1-2.3-.9-1.2-2.4-2-3.9-1.9-.1 1.1-.3 2.2.4 3.2.6.9 1.6 1.5 2.7 1.6-.7 1.8-2.2 3.1-4 3.4-.3 0-.6 0-.9-.1.3 1.5 1.4 2.8 2.9 3.3 1.5.5 3.2.1 4.3-1 .9-1 1.3-2.4 1.2-3.8-.1-1.4-.7-2.7-1.6-3.8z" fill="#ffffff" transform="translate(2, 6) scale(0.9)" />
+                  </svg>
+                </a>
+                <a
+                  href="#download"
+                  class="store-badge store-badge--dark"
+                  data-store="android"
+                  aria-label="Bei Google Play laden"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="135" height="40" viewBox="0 0 135 40" role="img">
+                    <title>Get it on Google Play</title>
+                    <rect width="135" height="40" rx="6" fill="#111318" />
+                    <text x="44" y="14" fill="#ffffff" font-family="Manrope, sans-serif" font-size="8" font-weight="400">GET IT ON</text>
+                    <text x="44" y="28" fill="#ffffff" font-family="Manrope, sans-serif" font-size="14" font-weight="600">Google Play</text>
+                    <path d="M8 8l12 7-12 7V8z" fill="#34A853" transform="translate(6, 6) scale(0.7)" />
+                    <path d="M20 15l4 2.5L8 28V22l12-7z" fill="#FBBC04" transform="translate(6, 6) scale(0.7)" />
+                    <path d="M20 15l4-2.5v5L20 15z" fill="#4285F4" transform="translate(6, 6) scale(0.7)" />
+                    <path d="M20 20l4 2.5L8 8v6l12 6z" fill="#EA4335" transform="translate(6, 6) scale(0.7)" />
+                  </svg>
+                </a>
+              </div>
+              <a href="#warum" class="hero-learn-more">So funktioniert's</a>
+            </div>
+          </div>
+
+          <div class="trust-pills hero-trust-pills">
+            <span class="trust-pill">In Sekunden erfasst</span>
+            <span class="trust-pill">Ziele statt nur Ausgaben</span>
+            <span class="trust-pill">Daten bleiben auf deinem Gerät</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Trust Bar -->
+      <div class="trust-bar">
+        <div class="container">
+          <p>
+            Keine Bank · Kein Tracking · Local-first · Optional EU-Cloud · Volle Kontrolle
+          </p>
+        </div>
+      </div>
+
+      <!-- 3. Why ForFuture -->
+      <section class="section" id="warum">
+        <div class="container">
+          <header class="section-header section-header--center">
+            <span class="section-label">Warum ForFuture</span>
+            <h2 class="section-title">Warum ForFuture anders ist</h2>
+            <p class="section-sub section-sub--center">
+              Andere Apps zeigen dir, was du ausgegeben hast.<br />
+              ForFuture zeigt dir, wie nah du deinen Zielen bist.
+            </p>
+          </header>
+          <div class="comparison">
+            <div class="comparison-card">
+              <h3>Typische Budget-Apps</h3>
+              <ul>
+                <li>Charts ohne Kontext</li>
+                <li>Kein echter Zielfortschritt</li>
+                <li>Bank-Anbindung erforderlich</li>
+              </ul>
+            </div>
+            <div class="comparison-card comparison-card--highlight">
+              <h3>ForFuture</h3>
+              <ul>
+                <li>Budget-Konstruktor mit klarem Plan</li>
+                <li>Fortschritt auf bis zu 3 Ziele</li>
+                <li>Sprechen, tippen oder Auto-Erfassung — in Sekunden notiert, leicht dranbleiben</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Goals System -->
+      <section class="section section--subtle" id="ziele">
+        <div class="container">
+          <header class="section-header">
+            <span class="section-label">Finanzziele</span>
+            <h2 class="section-title">Ziele, die sichtbar werden</h2>
+            <p class="section-sub">
+              Setze bis zu 3 finanzielle Ziele und sieh deinen echten Fortschritt jeden Monat.
+            </p>
+          </header>
+
+          <div class="goals-showcase">
+            <div class="goals-dash-card">
+            <div class="goals-dash-row" role="list" aria-label="Beispiel Sparziele">
+              <article class="goal-dash" role="listitem" data-progress="68" data-r-out="65" style="--goal-accent: #3B82F6; --goal-soft: #DBEAFE">
+                <p class="goal-dash-amount">1.632 € / 2.400 €</p>
+                <div class="goal-dash-ring-wrap">
+                  <svg class="goal-dash-svg" viewBox="0 0 154 146" aria-hidden="true">
+                    <path class="goal-dash-track" d="M 9 79 A 65 65 0 0 1 139 79" />
+                    <path class="goal-dash-progress" d="M 9 79 A 65 65 0 0 1 139 79" />
+                    <circle class="goal-dash-inner" cx="74" cy="79" r="52" />
+                    <circle class="goal-dash-inner-ring" cx="74" cy="79" r="52" />
+                    <line class="goal-dash-midline" x1="22" y1="79" x2="126" y2="79" />
+                  </svg>
+                  <div class="goal-dash-face">
+                    <span class="goal-dash-pct">68%</span>
+                    <span class="goal-dash-days">94 Tage</span>
+                  </div>
+                </div>
+                <h4 class="goal-dash-title">Urlaub</h4>
+              </article>
+
+              <article class="goal-dash" role="listitem" data-progress="41" data-r-out="65" style="--goal-accent: #DC2626; --goal-soft: #FEE2E2">
+                <p class="goal-dash-amount">2.050 € / 5.000 €</p>
+                <div class="goal-dash-ring-wrap">
+                  <svg class="goal-dash-svg" viewBox="0 0 154 146" aria-hidden="true">
+                    <path class="goal-dash-track" d="M 9 79 A 65 65 0 0 1 139 79" />
+                    <path class="goal-dash-progress" d="M 9 79 A 65 65 0 0 1 139 79" />
+                    <circle class="goal-dash-inner" cx="74" cy="79" r="52" />
+                    <circle class="goal-dash-inner-ring" cx="74" cy="79" r="52" />
+                    <line class="goal-dash-midline" x1="22" y1="79" x2="126" y2="79" />
+                  </svg>
+                  <div class="goal-dash-face">
+                    <span class="goal-dash-pct">41%</span>
+                    <span class="goal-dash-days">185 Tage</span>
+                  </div>
+                </div>
+                <h4 class="goal-dash-title">Notgroschen</h4>
+              </article>
+
+              <article class="goal-dash" role="listitem" data-progress="25" data-r-out="65" style="--goal-accent: #EAB308; --goal-soft: #FEF9C3">
+                <p class="goal-dash-amount">2.000 € / 8.000 €</p>
+                <div class="goal-dash-ring-wrap">
+                  <svg class="goal-dash-svg" viewBox="0 0 154 146" aria-hidden="true">
+                    <path class="goal-dash-track" d="M 9 79 A 65 65 0 0 1 139 79" />
+                    <path class="goal-dash-progress" d="M 9 79 A 65 65 0 0 1 139 79" />
+                    <circle class="goal-dash-inner" cx="74" cy="79" r="52" />
+                    <circle class="goal-dash-inner-ring" cx="74" cy="79" r="52" />
+                    <line class="goal-dash-midline" x1="22" y1="79" x2="126" y2="79" />
+                  </svg>
+                  <div class="goal-dash-face">
+                    <span class="goal-dash-pct">25%</span>
+                    <span class="goal-dash-days">376 Tage</span>
+                  </div>
+                </div>
+                <h4 class="goal-dash-title">Schuldentilgung</h4>
+              </article>
+            </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. Easy Tracking -->
+      <section class="section" id="erfassen">
+        <div class="container">
+          <header class="section-header section-header--center">
+            <span class="section-label">Erfassen</span>
+            <h2 class="section-title">Ausgaben erfassen ohne Aufwand</h2>
+            <p class="section-sub section-sub--center">
+              Drei Wege. Ein Prinzip: Vorschlagen → bestätigen → fertig.
+            </p>
+          </header>
+
+          <div class="methods-grid">
+            <article class="method-card">
+              <span class="method-num">1</span>
+              <h3>Sprechen</h3>
+              <p>Sag, was du ausgegeben hast — ForFuture parst Betrag, Datum und Kategorie.</p>
+              <div class="method-demo">
+                <strong>„Mittagessen 12 €"</strong>
+              </div>
+              <p class="method-arrow">→ automatische Erkennung</p>
+            </article>
+
+            <article class="method-card">
+              <span class="method-num">2</span>
+              <h3>Wallet-Hinweis</h3>
+              <p>PayPal, Google Pay oder Apple Pay — ForFuture liest den Hinweis und füllt die Buchung vor.</p>
+              <div class="method-demo">
+                <strong>Zahlungsbenachrichtigung</strong> → vorausgefüllter Eintrag
+              </div>
+              <p class="method-arrow">→ du prüfst und speicherst</p>
+            </article>
+
+            <article class="method-card">
+              <span class="method-num">3</span>
+              <h3>Tippen</h3>
+              <p>Betrag, Kategorie, fertig — oder Zahlungstext aus der Zwischenablage einfügen.</p>
+              <div class="method-demo">
+                <strong>Schnelleingabe</strong> — keine langen Formulare
+              </div>
+              <p class="method-arrow">→ Kategorie-Vorschläge inklusive</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. Monthly Progress Loop -->
+      <section class="section section--subtle" id="monats-review">
+        <div class="container">
+          <header class="section-header section-header--center">
+            <span class="section-label">Monats-Review</span>
+            <h2 class="section-title">Der Moment, der alles verbindet</h2>
+            <p class="section-sub section-sub--center">
+              Tracking tagsüber. Ein bewusster Abschluss am Monatsende. Das ist der Unterschied.
+            </p>
+          </header>
+
+          <div class="loop-steps">
+            <div class="loop-step">
+              <span class="loop-step-num">1</span>
+              <div>
+                <h3>Monat läuft</h3>
+                <p>Du erfasst Ausgaben, wenn sie passieren — schnell und ohne Umwege.</p>
+              </div>
+            </div>
+            <div class="loop-step">
+              <span class="loop-step-num">2</span>
+              <div>
+                <h3>Daten werden gesammelt</h3>
+                <p>Budget, Fixkosten und variable Ausgaben bleiben den Monat über im Blick.</p>
+              </div>
+            </div>
+            <div class="loop-step">
+              <span class="loop-step-num">3</span>
+              <div>
+                <h3>Monat wird abgeschlossen</h3>
+                <p>Du fixierst den Stand und erhältst deinen Monats-Review — klar und übersichtlich.</p>
+              </div>
+            </div>
+            <div class="loop-step">
+              <span class="loop-step-num">4</span>
+              <div>
+                <h3>Ziele aktualisieren sich</h3>
+                <p>Dein Sparfortschritt wächst — aus deinem Plan, nicht aus Schätzungen.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. Feature Grid -->
+      <section class="section" id="features">
+        <div class="container">
+          <header class="section-header section-header--center">
+            <span class="section-label">Features</span>
+            <h2 class="section-title">Alles, was du brauchst</h2>
+          </header>
+
+          <div class="feature-grid feature-grid--3">
+            <article class="feature-card">
+              <div class="feature-card-icon" aria-hidden="true">▬</div>
+              <h3>Budget-Konstruktor</h3>
+              <p>Fixkosten und variables Budget — du baust den Plan aktiv auf.</p>
+            </article>
+            <article class="feature-card">
+              <div class="feature-card-icon" aria-hidden="true">◉</div>
+              <h3>Gemerkte Händler</h3>
+              <p>Einmal zuordnen, künftig automatisch vorgeschlagen.</p>
+            </article>
+            <article class="feature-card">
+              <div class="feature-card-icon" aria-hidden="true">▦</div>
+              <h3>Quartal &amp; Jahresansicht</h3>
+              <p>Muster über alle abgeschlossenen Monate hinweg.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. Trust & Privacy -->
+      <section class="section section--subtle" id="vertrauen">
+        <div class="container">
+          <header class="section-header">
+            <span class="section-label">Datenschutz</span>
+            <h2 class="section-title">Deine Daten gehören dir</h2>
+            <p class="section-sub">
+              ForFuture ist keine Bank und keine Finanzberatung. Du erfasst selbst. Deine Daten
+              liegen standardmäßig auf deinem Gerät.
+            </p>
+          </header>
+
+          <div class="trust-grid">
+            <div class="trust-point">
+              <h3>Kein Bankzugriff</h3>
+              <p>Kein Kontozugriff, kein PSD2, keine Drittanbieter-APIs für deine Kontodaten.</p>
+            </div>
+            <div class="trust-point">
+              <h3>Local-first Speicherung</h3>
+              <p>Ausgaben, Budgets und Ziele starten auf deinem Gerät — nicht in der Cloud.</p>
+            </div>
+            <div class="trust-point">
+              <h3>EU-Cloud optional</h3>
+              <p>Sicherung auf EU-Servern, wenn du sie aktivieren möchtest.</p>
+            </div>
+            <div class="trust-point">
+              <h3>Kein Tracking / Analytics SDKs</h3>
+              <p>Keine Analytics- oder Crash-SDKs in der App. Siehe
+                <a href="privacy-policy.html">Datenschutzerklärung</a>.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="section section--subtle" id="faq">
+        <div class="container">
+          <header class="section-header section-header--center">
+            <h2 class="section-title">Häufige Fragen</h2>
+          </header>
+
+          <div class="faq-list">
+            <div class="faq-item">
+              <button class="faq-question" type="button" aria-expanded="false">
+                Ist ForFuture eine Bank?
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-answer">
+                Nein. Du erfasst Ausgaben selbst. ForFuture ist keine Finanzberatung und verbindet
+                sich nicht mit deinem Girokonto.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" type="button" aria-expanded="false">
+                Wie funktionieren Sparziele?
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-answer">
+                Du legst bis zu drei Ziele mit Betrag und Datum fest. Beim Monats-Review wird der
+                Fortschritt aus deinem Budget aktualisiert.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" type="button" aria-expanded="false">
+                Muss ich Auto-Erfassung nutzen?
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-answer">
+                Nein. Sprechen, Tippen und Einfügen funktionieren immer. Auto-Erfassung aus
+                Wallet-Hinweisen ist optional.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" type="button" aria-expanded="false">
+                Was bedeutet Monats-Review?
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-answer">
+                Du schließt den Monat ab, erhältst einen Bericht und deine Sparziele werden
+                aktualisiert. Quartal- und Jahresübersichten bauen darauf auf.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 11. Final CTA -->
+      <section class="final-cta" id="cta-bottom">
+        <div class="container">
+          <h2 class="section-title">Dein Geld verdient einen Plan.</h2>
+          <p class="section-sub section-sub--center">
+            Starte jetzt und sieh, wie deine Ausgaben zu Fortschritt werden.
+          </p>
+          <div class="store-badges" style="justify-content: center; margin-bottom: 8px">
+            <a
+              href="#download"
+              class="store-badge"
+              data-store="ios"
+              aria-label="Im App Store laden"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="135" height="40" viewBox="0 0 135 40" role="img">
+                <title>Download on the App Store</title>
+                <rect width="135" height="40" rx="6" fill="#fff" />
+                <text x="44" y="14" fill="#111318" font-family="Manrope, sans-serif" font-size="8" font-weight="400">Download on the</text>
+                <text x="44" y="28" fill="#111318" font-family="Manrope, sans-serif" font-size="14" font-weight="600">App Store</text>
+                <path d="M24 20c0-2.2 1.3-4.1 3.2-5-.2-.8-.5-1.6-1-2.3-.9-1.2-2.4-2-3.9-1.9-.1 1.1-.3 2.2.4 3.2.6.9 1.6 1.5 2.7 1.6-.7 1.8-2.2 3.1-4 3.4-.3 0-.6 0-.9-.1.3 1.5 1.4 2.8 2.9 3.3 1.5.5 3.2.1 4.3-1 .9-1 1.3-2.4 1.2-3.8-.1-1.4-.7-2.7-1.6-3.8z" fill="#111318" transform="translate(2, 6) scale(0.9)" />
+              </svg>
+            </a>
+            <a
+              href="#download"
+              class="store-badge"
+              data-store="android"
+              aria-label="Bei Google Play laden"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="135" height="40" viewBox="0 0 135 40" role="img">
+                <title>Get it on Google Play</title>
+                <rect width="135" height="40" rx="6" fill="#fff" />
+                <text x="44" y="14" fill="#111318" font-family="Manrope, sans-serif" font-size="8" font-weight="400">GET IT ON</text>
+                <text x="44" y="28" fill="#111318" font-family="Manrope, sans-serif" font-size="14" font-weight="600">Google Play</text>
+                <path d="M8 8l12 7-12 7V8z" fill="#34A853" transform="translate(6, 6) scale(0.7)" />
+                <path d="M20 15l4 2.5L8 28V22l12-7z" fill="#FBBC04" transform="translate(6, 6) scale(0.7)" />
+                <path d="M20 15l4-2.5v5L20 15z" fill="#4285F4" transform="translate(6, 6) scale(0.7)" />
+                <path d="M20 20l4 2.5L8 8v6l12 6z" fill="#EA4335" transform="translate(6, 6) scale(0.7)" />
+              </svg>
+            </a>
+          </div>
+          <p class="final-cta-note">Keine Bank · iOS &amp; Android</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <span class="logo-wordmark-wrap footer-wordmark-wrap">
+              <img
+                src="assets/images/forfuture-wordmark-dark.png"
+                alt="ForFuture"
+                class="logo-wordmark"
+                width="140"
+                height="24"
+              />
+            </span>
+            <p>Ausgaben im Griff. Ziele im Blick.</p>
+          </div>
+          <div class="footer-col">
+            <h4>Rechtliches</h4>
+            <a href="privacy-policy.html">Datenschutz</a>
+            <a href="terms-of-service.html">AGB</a>
+            <a href="third-party-notices.html">Open Source</a>
+          </div>
+          <div class="footer-col">
+            <h4>App</h4>
+            <a href="#faq">FAQ</a>
+            <a href="#download">Download</a>
+          </div>
+        </div>
+        <p class="footer-bottom">© 2026 ForFuture. Alle Rechte vorbehalten.</p>
+      </div>
     </footer>
-    
-    <script>
-        (function() {
-            var storageKey = 'forfuture-lang';
-            var lang = localStorage.getItem(storageKey) || (navigator.language && navigator.language.toLowerCase().startsWith('de') ? 'de' : 'en');
-            
-            function setLang(l) {
-                lang = l;
-                document.body.classList.toggle('lang-de', l === 'de');
-                document.body.classList.toggle('lang-en', l === 'en');
-                document.documentElement.lang = l === 'de' ? 'de' : 'en';
-                document.getElementById('lang-de').setAttribute('aria-pressed', l === 'de' ? 'true' : 'false');
-                document.getElementById('lang-en').setAttribute('aria-pressed', l === 'en' ? 'true' : 'false');
-                document.querySelector('.lang-bar .active') && document.querySelector('.lang-bar .active').classList.remove('active');
-                document.getElementById('lang-' + l).classList.add('active');
-                localStorage.setItem(storageKey, l);
-            }
-            
-            document.getElementById('lang-de').addEventListener('click', function() { setLang('de'); });
-            document.getElementById('lang-en').addEventListener('click', function() { setLang('en'); });
-            setLang(lang);
-        })();
-        (function() {
-            var track = document.querySelector('.milkyway-track');
-            if (!track) return;
-            var factor = 3;
-            function updateParallax() {
-                var y = -window.scrollY * factor;
-                track.style.transform = 'translateY(' + y + 'px)';
-            }
-            window.addEventListener('scroll', function() { requestAnimationFrame(updateParallax); }, { passive: true });
-            updateParallax();
-        })();
-    </script>
-</body>
+
+    <div class="mobile-cta-bar">
+      <a href="#download" class="btn btn-primary">App holen</a>
+    </div>
+
+    <script src="landing.js"></script>
+  </body>
 </html>
