@@ -111,6 +111,7 @@
   }
 
   initNav();
+  if (window.ForFutureI18n) window.ForFutureI18n.initI18n();
   initGoalRings();
   initFaq();
   initStoreLinks();
