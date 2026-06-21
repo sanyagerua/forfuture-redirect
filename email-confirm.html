@@ -9,66 +9,18 @@
       Allow-list in Supabase → Authentication → Redirect URLs (exact string).
       Used for sign-up confirmation and password-recovery links from the app.
     -->
-    <style>
-      :root {
-        font-family:
-          system-ui,
-          -apple-system,
-          Segoe UI,
-          Roboto,
-          sans-serif;
-        line-height: 1.45;
-        color: #111827;
-        background: #f9fafb;
-      }
-      body {
-        margin: 0;
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 24px;
-      }
-      .card {
-        max-width: 420px;
-        width: 100%;
-        background: #fff;
-        border-radius: 16px;
-        padding: 28px 24px;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-        border: 1px solid #e5e7eb;
-      }
-      h1 {
-        font-size: 1.25rem;
-        margin: 0 0 12px;
-      }
-      p {
-        margin: 0 0 12px;
-        color: #4b5563;
-        font-size: 0.95rem;
-      }
-      .err {
-        color: #b91c1c;
-      }
-      a.btn {
-        display: inline-block;
-        margin-top: 16px;
-        padding: 12px 20px;
-        border-radius: 999px;
-        background: #111827;
-        color: #fff;
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 0.95rem;
-      }
-      .muted {
-        font-size: 0.85rem;
-        color: #6b7280;
-        margin-top: 20px;
-      }
-    </style>
+    <link rel="icon" href="images/favicon.png" type="image/png" sizes="32x32" />
+    <link rel="icon" href="images/favicon-512.png" type="image/png" sizes="512x512" />
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png" sizes="180x180" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="auth-page.css" />
   </head>
   <body>
+    <a href="index.html" class="auth-logo" aria-label="ForFuture">
+      <img src="images/forfuture-wordmark-dark.png" alt="ForFuture" width="160" height="26" />
+    </a>
     <div class="card" id="card">
       <h1 id="headline">…</h1>
       <p id="msg"></p>
