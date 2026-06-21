@@ -549,6 +549,29 @@ ul {
   width: 100%;
 }
 
+.hero-download-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.hero-video-wrap {
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.hero-video {
+  display: block;
+  width: min(160px, 38vw);
+  height: auto;
+  border-radius: 20px;
+  background: #111318;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border);
+}
+
 @media (max-width: 520px) {
   .store-download-grid {
     flex-wrap: wrap;
@@ -617,6 +640,10 @@ ul {
     flex: 1;
     min-width: 0;
     justify-content: center;
+  }
+
+  .hero-video {
+    width: 180px;
   }
 }
 
