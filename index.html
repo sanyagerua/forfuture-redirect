@@ -29,7 +29,7 @@
   <body>
     <header class="site-header">
       <div class="container header-inner">
-        <a href="#" class="logo" aria-label="ForFuture Startseite">
+        <a href="#" class="logo" data-i18n-aria="logo.aria" aria-label="ForFuture Startseite">
           <img
             src="images/forfuture-wordmark-dark.png"
             alt="ForFuture"
@@ -38,19 +38,24 @@
             height="32"
           />
         </a>
-        <nav class="nav-desktop" aria-label="Hauptnavigation">
-          <a href="#download">App holen</a>
-          <a href="#warum">Warum ForFuture</a>
-          <a href="#ziele">Ziele</a>
-          <a href="#erfassen">Erfassen</a>
-          <a href="#monats-review">Monats-Review</a>
-          <a href="#faq">FAQ</a>
+        <nav class="nav-desktop" data-i18n-aria="nav.aria" aria-label="Hauptnavigation">
+          <a href="#download" data-i18n="nav.download">App holen</a>
+          <a href="#warum" data-i18n="nav.why">Warum ForFuture</a>
+          <a href="#ziele" data-i18n="nav.goals">Ziele</a>
+          <a href="#erfassen" data-i18n="nav.capture">Erfassen</a>
+          <a href="#monats-review" data-i18n="nav.review">Monats-Review</a>
+          <a href="#faq" data-i18n="nav.faq">FAQ</a>
         </nav>
         <div class="header-actions">
-          <a href="#download" class="btn btn-primary btn-sm">App holen</a>
+          <div class="lang-switch" role="group" data-i18n-aria="lang.switch.aria" aria-label="Sprache wählen">
+            <button type="button" class="lang-switch-btn is-active" data-lang="de" aria-pressed="true">DE</button>
+            <button type="button" class="lang-switch-btn" data-lang="en" aria-pressed="false">EN</button>
+          </div>
+          <a href="#download" class="btn btn-primary btn-sm" data-i18n="nav.download">App holen</a>
           <button
             class="nav-toggle"
             type="button"
+            data-i18n-aria="nav.menu"
             aria-label="Menü öffnen"
             aria-expanded="false"
             aria-controls="nav-mobile"
@@ -61,14 +66,14 @@
           </button>
         </div>
       </div>
-      <nav id="nav-mobile" class="nav-mobile" aria-label="Mobile Navigation">
-        <a href="#download">App holen</a>
-        <a href="#warum">Warum ForFuture</a>
-        <a href="#ziele">Ziele</a>
-        <a href="#erfassen">Erfassen</a>
-        <a href="#monats-review">Monats-Review</a>
-        <a href="#faq">FAQ</a>
-        <a href="#download" class="btn btn-primary" style="margin-top: 16px; text-align: center">App holen</a>
+      <nav id="nav-mobile" class="nav-mobile" data-i18n-aria="nav.mobile.aria" aria-label="Mobile Navigation">
+        <a href="#download" data-i18n="nav.download">App holen</a>
+        <a href="#warum" data-i18n="nav.why">Warum ForFuture</a>
+        <a href="#ziele" data-i18n="nav.goals">Ziele</a>
+        <a href="#erfassen" data-i18n="nav.capture">Erfassen</a>
+        <a href="#monats-review" data-i18n="nav.review">Monats-Review</a>
+        <a href="#faq" data-i18n="nav.faq">FAQ</a>
+        <a href="#download" class="btn btn-primary" style="margin-top: 16px; text-align: center" data-i18n="nav.download">App holen</a>
       </nav>
     </header>
 
@@ -77,9 +82,9 @@
       <section class="hero" id="download">
         <div class="container">
           <div class="hero-intro">
-            <span class="hero-eyebrow">Budget-App · Keine Bank-Anbindung</span>
-            <h1 class="hero-title">Ausgaben im Griff. Ziele im Blick.</h1>
-            <p class="hero-sub">
+            <span class="hero-eyebrow" data-i18n="hero.eyebrow">Budget-App · Keine Bank-Anbindung</span>
+            <h1 class="hero-title" data-i18n="hero.title">Ausgaben im Griff. Ziele im Blick.</h1>
+            <p class="hero-sub" data-i18n="hero.sub">
               Erfasse Ausgaben in Sekunden und sieh, wie dein Budget dich Monat für Monat deinen
               Zielen näher bringt.
             </p>
@@ -89,6 +94,7 @@
             <figure class="hero-phone">
               <img
                 src="images/phone-ff2.png"
+                data-i18n-alt="hero.phone.alt"
                 alt="ForFuture App — Monatsübersicht auf dem Smartphone"
                 class="hero-phone-img"
                 width="300"
@@ -106,9 +112,11 @@
                     data-store="ios"
                     target="_blank"
                     rel="noopener noreferrer"
+                    data-i18n-aria="store.ios.aria"
                     aria-label="Im App Store laden">
                     <img
                       src="images/app-store-de.svg"
+                      data-i18n-alt="store.ios.alt"
                       alt="Laden im App Store"
                       class="store-badge-img"
                       width="140"
@@ -121,6 +129,7 @@
                     data-store="ios"
                     target="_blank"
                     rel="noopener noreferrer"
+                    data-i18n-aria="store.qr.ios.aria"
                     aria-label="QR-Code App Store">
                     <img
                       src="images/app-store.png"
@@ -140,9 +149,11 @@
                     data-store="android"
                     target="_blank"
                     rel="noopener noreferrer"
+                    data-i18n-aria="store.android.aria"
                     aria-label="Bei Google Play laden">
                     <img
                       src="images/google-play-de.svg"
+                      data-i18n-alt="store.android.alt"
                       alt="Jetzt bei Google Play"
                       class="store-badge-img"
                       width="140"
@@ -155,6 +166,7 @@
                     data-store="android"
                     target="_blank"
                     rel="noopener noreferrer"
+                    data-i18n-aria="store.qr.android.aria"
                     aria-label="QR-Code Google Play">
                     <img
                       src="images/google-play.png"
@@ -168,14 +180,13 @@
                   <span class="store-qr-label">Android</span>
                 </div>
               </div>
-              <a href="#warum" class="hero-learn-more">So funktioniert's</a>
             </div>
           </div>
 
           <div class="trust-pills hero-trust-pills">
-            <span class="trust-pill">In Sekunden erfasst</span>
-            <span class="trust-pill">Ziele statt nur Ausgaben</span>
-            <span class="trust-pill">Daten bleiben auf deinem Gerät</span>
+            <span class="trust-pill" data-i18n="trust.pill1">In Sekunden erfasst</span>
+            <span class="trust-pill" data-i18n="trust.pill2">Ziele statt nur Ausgaben</span>
+            <span class="trust-pill" data-i18n="trust.pill3">Daten bleiben auf deinem Gerät</span>
           </div>
         </div>
       </section>
@@ -183,7 +194,7 @@
       <!-- Trust Bar -->
       <div class="trust-bar">
         <div class="container">
-          <p>
+          <p data-i18n="trust.bar">
             Keine Bank · Kein Tracking · Local-first · Optional EU-Cloud · Volle Kontrolle
           </p>
         </div>
@@ -193,28 +204,28 @@
       <section class="section" id="warum">
         <div class="container">
           <header class="section-header section-header--center">
-            <span class="section-label">Warum ForFuture</span>
-            <h2 class="section-title">Warum ForFuture anders ist</h2>
-            <p class="section-sub section-sub--center">
+            <span class="section-label" data-i18n="why.label">Warum ForFuture</span>
+            <h2 class="section-title" data-i18n="why.title">Warum ForFuture anders ist</h2>
+            <p class="section-sub section-sub--center" data-i18n-html="why.sub">
               Andere Apps zeigen dir, was du ausgegeben hast.<br />
               ForFuture zeigt dir, wie nah du deinen Zielen bist.
             </p>
           </header>
           <div class="comparison">
             <div class="comparison-card">
-              <h3>Typische Budget-Apps</h3>
+              <h3 data-i18n="why.other.title">Typische Budget-Apps</h3>
               <ul>
-                <li>Charts ohne Kontext</li>
-                <li>Kein echter Zielfortschritt</li>
-                <li>Bank-Anbindung erforderlich</li>
+                <li data-i18n="why.other.l1">Charts ohne Kontext</li>
+                <li data-i18n="why.other.l2">Kein echter Zielfortschritt</li>
+                <li data-i18n="why.other.l3">Bank-Anbindung erforderlich</li>
               </ul>
             </div>
             <div class="comparison-card comparison-card--highlight">
-              <h3>ForFuture</h3>
+              <h3 data-i18n="why.ff.title">ForFuture</h3>
               <ul>
-                <li>Budget-Konstruktor mit klarem Plan</li>
-                <li>Fortschritt auf bis zu 3 Ziele</li>
-                <li>Sprechen, tippen oder Auto-Erfassung — in Sekunden notiert, leicht dranbleiben</li>
+                <li data-i18n="why.ff.l1">Budget-Konstruktor mit klarem Plan</li>
+                <li data-i18n="why.ff.l2">Fortschritt auf bis zu 3 Ziele</li>
+                <li data-i18n="why.ff.l3">Sprechen, tippen oder Auto-Erfassung — in Sekunden notiert, leicht dranbleiben</li>
               </ul>
             </div>
           </div>
@@ -225,16 +236,16 @@
       <section class="section section--subtle" id="ziele">
         <div class="container">
           <header class="section-header">
-            <span class="section-label">Finanzziele</span>
-            <h2 class="section-title">Ziele, die sichtbar werden</h2>
-            <p class="section-sub">
+            <span class="section-label" data-i18n="goals.label">Finanzziele</span>
+            <h2 class="section-title" data-i18n="goals.title">Ziele, die sichtbar werden</h2>
+            <p class="section-sub" data-i18n="goals.sub">
               Setze bis zu 3 finanzielle Ziele und sieh deinen echten Fortschritt jeden Monat.
             </p>
           </header>
 
           <div class="goals-showcase">
             <div class="goals-dash-card">
-            <div class="goals-dash-row" role="list" aria-label="Beispiel Sparziele">
+            <div class="goals-dash-row" role="list" data-i18n-aria="goals.aria" aria-label="Beispiel Sparziele">
               <article class="goal-dash" role="listitem" data-progress="68" data-r-out="65" style="--goal-accent: #3B82F6; --goal-soft: #DBEAFE">
                 <p class="goal-dash-amount">1.632 € / 2.400 €</p>
                 <div class="goal-dash-ring-wrap">
@@ -254,10 +265,10 @@
                   </svg>
                   <div class="goal-dash-face">
                     <span class="goal-dash-pct">68%</span>
-                    <span class="goal-dash-days">94 Tage</span>
+                    <span class="goal-dash-days" data-i18n="goal.days1">94 Tage</span>
                   </div>
                 </div>
-                <h4 class="goal-dash-title">Urlaub</h4>
+                <h4 class="goal-dash-title" data-i18n="goal.vacation">Urlaub</h4>
               </article>
 
               <article class="goal-dash" role="listitem" data-progress="41" data-r-out="65" style="--goal-accent: #DC2626; --goal-soft: #FEE2E2">
@@ -279,10 +290,10 @@
                   </svg>
                   <div class="goal-dash-face">
                     <span class="goal-dash-pct">41%</span>
-                    <span class="goal-dash-days">185 Tage</span>
+                    <span class="goal-dash-days" data-i18n="goal.days2">185 Tage</span>
                   </div>
                 </div>
-                <h4 class="goal-dash-title">Notgroschen</h4>
+                <h4 class="goal-dash-title" data-i18n="goal.emergency">Notgroschen</h4>
               </article>
 
               <article class="goal-dash" role="listitem" data-progress="25" data-r-out="65" style="--goal-accent: #EAB308; --goal-soft: #FEF9C3">
@@ -304,10 +315,10 @@
                   </svg>
                   <div class="goal-dash-face">
                     <span class="goal-dash-pct">25%</span>
-                    <span class="goal-dash-days">376 Tage</span>
+                    <span class="goal-dash-days" data-i18n="goal.days3">376 Tage</span>
                   </div>
                 </div>
-                <h4 class="goal-dash-title">Schuldentilgung</h4>
+                <h4 class="goal-dash-title" data-i18n="goal.debt">Schuldentilgung</h4>
               </article>
             </div>
             </div>
@@ -319,9 +330,9 @@
       <section class="section" id="erfassen">
         <div class="container">
           <header class="section-header section-header--center">
-            <span class="section-label">Erfassen</span>
-            <h2 class="section-title">Ausgaben erfassen ohne Aufwand</h2>
-            <p class="section-sub section-sub--center">
+            <span class="section-label" data-i18n="capture.label">Erfassen</span>
+            <h2 class="section-title" data-i18n="capture.title">Ausgaben erfassen ohne Aufwand</h2>
+            <p class="section-sub section-sub--center" data-i18n="capture.sub">
               Drei Wege. Ein Prinzip: Vorschlagen → bestätigen → fertig.
             </p>
           </header>
@@ -329,32 +340,32 @@
           <div class="methods-grid">
             <article class="method-card">
               <span class="method-num">1</span>
-              <h3>Sprechen</h3>
-              <p>Sag, was du ausgegeben hast — ForFuture parst Betrag, Datum und Kategorie.</p>
+              <h3 data-i18n="method1.title">Sprechen</h3>
+              <p data-i18n="method1.p">Sag, was du ausgegeben hast — ForFuture parst Betrag, Datum und Kategorie.</p>
               <div class="method-demo">
-                <strong>„Mittagessen 12 €"</strong>
+                <strong data-i18n="method1.demo">„Mittagessen 12 €"</strong>
               </div>
-              <p class="method-arrow">→ automatische Erkennung</p>
+              <p class="method-arrow" data-i18n="method1.arrow">→ automatische Erkennung</p>
             </article>
 
             <article class="method-card">
               <span class="method-num">2</span>
-              <h3>Wallet-Hinweis</h3>
-              <p>PayPal, Google Pay oder Apple Pay — ForFuture liest den Hinweis und füllt die Buchung vor.</p>
+              <h3 data-i18n="method2.title">Wallet-Hinweis</h3>
+              <p data-i18n="method2.p">PayPal, Google Pay oder Apple Pay — ForFuture liest den Hinweis und füllt die Buchung vor.</p>
               <div class="method-demo">
-                <strong>Zahlungsbenachrichtigung</strong> → vorausgefüllter Eintrag
+                <strong data-i18n="method2.demo">Zahlungsbenachrichtigung → vorausgefüllter Eintrag</strong>
               </div>
-              <p class="method-arrow">→ du prüfst und speicherst</p>
+              <p class="method-arrow" data-i18n="method2.arrow">→ du prüfst und speicherst</p>
             </article>
 
             <article class="method-card">
               <span class="method-num">3</span>
-              <h3>Tippen</h3>
-              <p>Betrag, Kategorie, fertig — oder Zahlungstext aus der Zwischenablage einfügen.</p>
+              <h3 data-i18n="method3.title">Tippen</h3>
+              <p data-i18n="method3.p">Betrag, Kategorie, fertig — oder Zahlungstext aus der Zwischenablage einfügen.</p>
               <div class="method-demo">
-                <strong>Schnelleingabe</strong> — keine langen Formulare
+                <strong data-i18n="method3.demo">Schnelleingabe — keine langen Formulare</strong>
               </div>
-              <p class="method-arrow">→ Kategorie-Vorschläge inklusive</p>
+              <p class="method-arrow" data-i18n="method3.arrow">→ Kategorie-Vorschläge inklusive</p>
             </article>
           </div>
         </div>
@@ -364,9 +375,9 @@
       <section class="section section--subtle" id="monats-review">
         <div class="container">
           <header class="section-header section-header--center">
-            <span class="section-label">Monats-Review</span>
-            <h2 class="section-title">Der Moment, der alles verbindet</h2>
-            <p class="section-sub section-sub--center">
+            <span class="section-label" data-i18n="review.label">Monats-Review</span>
+            <h2 class="section-title" data-i18n="review.title">Der Moment, der alles verbindet</h2>
+            <p class="section-sub section-sub--center" data-i18n="review.sub">
               Tracking tagsüber. Ein bewusster Abschluss am Monatsende. Das ist der Unterschied.
             </p>
           </header>
@@ -375,29 +386,29 @@
             <div class="loop-step">
               <span class="loop-step-num">1</span>
               <div>
-                <h3>Monat läuft</h3>
-                <p>Du erfasst Ausgaben, wenn sie passieren — schnell und ohne Umwege.</p>
+                <h3 data-i18n="loop1.title">Monat läuft</h3>
+                <p data-i18n="loop1.p">Du erfasst Ausgaben, wenn sie passieren — schnell und ohne Umwege.</p>
               </div>
             </div>
             <div class="loop-step">
               <span class="loop-step-num">2</span>
               <div>
-                <h3>Daten werden gesammelt</h3>
-                <p>Budget, Fixkosten und variable Ausgaben bleiben den Monat über im Blick.</p>
+                <h3 data-i18n="loop2.title">Daten werden gesammelt</h3>
+                <p data-i18n="loop2.p">Budget, Fixkosten und variable Ausgaben bleiben den Monat über im Blick.</p>
               </div>
             </div>
             <div class="loop-step">
               <span class="loop-step-num">3</span>
               <div>
-                <h3>Monat wird abgeschlossen</h3>
-                <p>Du fixierst den Stand und erhältst deinen Monats-Review — klar und übersichtlich.</p>
+                <h3 data-i18n="loop3.title">Monat wird abgeschlossen</h3>
+                <p data-i18n="loop3.p">Du fixierst den Stand und erhältst deinen Monats-Review — klar und übersichtlich.</p>
               </div>
             </div>
             <div class="loop-step">
               <span class="loop-step-num">4</span>
               <div>
-                <h3>Ziele aktualisieren sich</h3>
-                <p>Dein Sparfortschritt wächst — aus deinem Plan, nicht aus Schätzungen.</p>
+                <h3 data-i18n="loop4.title">Ziele aktualisieren sich</h3>
+                <p data-i18n="loop4.p">Dein Sparfortschritt wächst — aus deinem Plan, nicht aus Schätzungen.</p>
               </div>
             </div>
           </div>
@@ -408,25 +419,25 @@
       <section class="section" id="features">
         <div class="container">
           <header class="section-header section-header--center">
-            <span class="section-label">Features</span>
-            <h2 class="section-title">Alles, was du brauchst</h2>
+            <span class="section-label" data-i18n="feat.label">Features</span>
+            <h2 class="section-title" data-i18n="feat.title">Alles, was du brauchst</h2>
           </header>
 
           <div class="feature-grid feature-grid--3">
             <article class="feature-card">
               <div class="feature-card-icon" aria-hidden="true">▬</div>
-              <h3>Budget-Konstruktor</h3>
-              <p>Fixkosten und variables Budget — du baust den Plan aktiv auf.</p>
+              <h3 data-i18n="feat1.title">Budget-Konstruktor</h3>
+              <p data-i18n="feat1.p">Fixkosten und variables Budget — du baust den Plan aktiv auf.</p>
             </article>
             <article class="feature-card">
               <div class="feature-card-icon" aria-hidden="true">◉</div>
-              <h3>Gemerkte Händler</h3>
-              <p>Einmal zuordnen, künftig automatisch vorgeschlagen.</p>
+              <h3 data-i18n="feat2.title">Gemerkte Händler</h3>
+              <p data-i18n="feat2.p">Einmal zuordnen, künftig automatisch vorgeschlagen.</p>
             </article>
             <article class="feature-card">
               <div class="feature-card-icon" aria-hidden="true">▦</div>
-              <h3>Quartal &amp; Jahresansicht</h3>
-              <p>Muster über alle abgeschlossenen Monate hinweg.</p>
+              <h3 data-i18n="feat3.title">Quartal &amp; Jahresansicht</h3>
+              <p data-i18n="feat3.p">Muster über alle abgeschlossenen Monate hinweg.</p>
             </article>
           </div>
         </div>
@@ -436,9 +447,9 @@
       <section class="section section--subtle" id="vertrauen">
         <div class="container">
           <header class="section-header">
-            <span class="section-label">Datenschutz</span>
-            <h2 class="section-title">Deine Daten gehören dir</h2>
-            <p class="section-sub">
+            <span class="section-label" data-i18n="privacy.label">Datenschutz</span>
+            <h2 class="section-title" data-i18n="privacy.title">Deine Daten gehören dir</h2>
+            <p class="section-sub" data-i18n="privacy.sub">
               ForFuture ist keine Bank und keine Finanzberatung. Du erfasst selbst. Deine Daten
               liegen standardmäßig auf deinem Gerät.
             </p>
@@ -446,20 +457,20 @@
 
           <div class="trust-grid">
             <div class="trust-point">
-              <h3>Kein Bankzugriff</h3>
-              <p>Kein Kontozugriff, kein PSD2, keine Drittanbieter-APIs für deine Kontodaten.</p>
+              <h3 data-i18n="priv1.title">Kein Bankzugriff</h3>
+              <p data-i18n="priv1.p">Kein Kontozugriff, kein PSD2, keine Drittanbieter-APIs für deine Kontodaten.</p>
             </div>
             <div class="trust-point">
-              <h3>Local-first Speicherung</h3>
-              <p>Ausgaben, Budgets und Ziele starten auf deinem Gerät — nicht in der Cloud.</p>
+              <h3 data-i18n="priv2.title">Local-first Speicherung</h3>
+              <p data-i18n="priv2.p">Ausgaben, Budgets und Ziele starten auf deinem Gerät — nicht in der Cloud.</p>
             </div>
             <div class="trust-point">
-              <h3>EU-Cloud optional</h3>
-              <p>Sicherung auf EU-Servern, wenn du sie aktivieren möchtest.</p>
+              <h3 data-i18n="priv3.title">EU-Cloud optional</h3>
+              <p data-i18n="priv3.p">Sicherung auf EU-Servern, wenn du sie aktivieren möchtest.</p>
             </div>
             <div class="trust-point">
-              <h3>Kein Tracking / Analytics SDKs</h3>
-              <p>Keine Analytics- oder Crash-SDKs in der App. Siehe
+              <h3 data-i18n="priv4.title">Kein Tracking / Analytics SDKs</h3>
+              <p data-i18n-html="priv4.p">Keine Analytics- oder Crash-SDKs in der App. Siehe
                 <a href="privacy-policy.html">Datenschutzerklärung</a>.</p>
             </div>
           </div>
@@ -470,46 +481,46 @@
       <section class="section section--subtle" id="faq">
         <div class="container">
           <header class="section-header section-header--center">
-            <h2 class="section-title">Häufige Fragen</h2>
+            <h2 class="section-title" data-i18n="faq.title">Häufige Fragen</h2>
           </header>
 
           <div class="faq-list">
             <div class="faq-item">
               <button class="faq-question" type="button" aria-expanded="false">
-                Ist ForFuture eine Bank?
+                <span data-i18n="faq1.q">Ist ForFuture eine Bank?</span>
                 <span class="faq-icon" aria-hidden="true">+</span>
               </button>
-              <div class="faq-answer">
+              <div class="faq-answer" data-i18n="faq1.a">
                 Nein. Du erfasst Ausgaben selbst. ForFuture ist keine Finanzberatung und verbindet
                 sich nicht mit deinem Girokonto.
               </div>
             </div>
             <div class="faq-item">
               <button class="faq-question" type="button" aria-expanded="false">
-                Wie funktionieren Sparziele?
+                <span data-i18n="faq2.q">Wie funktionieren Sparziele?</span>
                 <span class="faq-icon" aria-hidden="true">+</span>
               </button>
-              <div class="faq-answer">
+              <div class="faq-answer" data-i18n="faq2.a">
                 Du legst bis zu drei Ziele mit Betrag und Datum fest. Beim Monats-Review wird der
                 Fortschritt aus deinem Budget aktualisiert.
               </div>
             </div>
             <div class="faq-item">
               <button class="faq-question" type="button" aria-expanded="false">
-                Muss ich Auto-Erfassung nutzen?
+                <span data-i18n="faq3.q">Muss ich Auto-Erfassung nutzen?</span>
                 <span class="faq-icon" aria-hidden="true">+</span>
               </button>
-              <div class="faq-answer">
+              <div class="faq-answer" data-i18n="faq3.a">
                 Nein. Sprechen, Tippen und Einfügen funktionieren immer. Auto-Erfassung aus
                 Wallet-Hinweisen ist optional.
               </div>
             </div>
             <div class="faq-item">
               <button class="faq-question" type="button" aria-expanded="false">
-                Was bedeutet Monats-Review?
+                <span data-i18n="faq4.q">Was bedeutet Monats-Review?</span>
                 <span class="faq-icon" aria-hidden="true">+</span>
               </button>
-              <div class="faq-answer">
+              <div class="faq-answer" data-i18n="faq4.a">
                 Du schließt den Monat ab, erhältst einen Bericht und deine Sparziele werden
                 aktualisiert. Quartal- und Jahresübersichten bauen darauf auf.
               </div>
@@ -521,8 +532,8 @@
       <!-- 11. Final CTA -->
       <section class="final-cta" id="cta-bottom">
         <div class="container">
-          <h2 class="section-title">Dein Geld verdient einen Plan.</h2>
-          <p class="section-sub section-sub--center">
+          <h2 class="section-title" data-i18n="cta.title">Dein Geld verdient einen Plan.</h2>
+          <p class="section-sub section-sub--center" data-i18n="cta.sub">
             Starte jetzt und sieh, wie deine Ausgaben zu Fortschritt werden.
           </p>
           <div class="store-download-grid store-download-grid--center">
@@ -533,9 +544,11 @@
                 data-store="ios"
                 target="_blank"
                 rel="noopener noreferrer"
+                data-i18n-aria="store.ios.aria"
                 aria-label="Im App Store laden">
                 <img
                   src="images/app-store-de-white.svg"
+                  data-i18n-alt="store.ios.alt"
                   alt="Laden im App Store"
                   class="store-badge-img"
                   width="140"
@@ -548,6 +561,7 @@
                 data-store="ios"
                 target="_blank"
                 rel="noopener noreferrer"
+                data-i18n-aria="store.qr.ios.aria"
                 aria-label="QR-Code App Store">
                 <img src="images/app-store.png" alt="QR-Code App Store" class="store-qr" width="112" height="112" loading="lazy" />
               </a>
@@ -560,9 +574,11 @@
                 data-store="android"
                 target="_blank"
                 rel="noopener noreferrer"
+                data-i18n-aria="store.android.aria"
                 aria-label="Bei Google Play laden">
                 <img
                   src="images/google-play-de-white.svg"
+                  data-i18n-alt="store.android.alt"
                   alt="Jetzt bei Google Play"
                   class="store-badge-img"
                   width="140"
@@ -575,13 +591,14 @@
                 data-store="android"
                 target="_blank"
                 rel="noopener noreferrer"
+                data-i18n-aria="store.qr.android.aria"
                 aria-label="QR-Code Google Play">
                 <img src="images/google-play.png" alt="QR-Code Google Play" class="store-qr" width="112" height="112" loading="lazy" />
               </a>
               <span class="store-qr-label">Android</span>
             </div>
           </div>
-          <p class="final-cta-note">Keine Bank · iOS &amp; Android</p>
+          <p class="final-cta-note" data-i18n="cta.note">Keine Bank · iOS &amp; Android</p>
         </div>
       </section>
     </main>
@@ -599,31 +616,32 @@
                 height="24"
               />
             </span>
-            <p>Ausgaben im Griff. Ziele im Blick.</p>
+            <p data-i18n="footer.tagline">Ausgaben im Griff. Ziele im Blick.</p>
           </div>
           <div class="footer-col">
-            <h4>Rechtliches</h4>
-            <a href="privacy-policy.html">Datenschutz</a>
-            <a href="terms-of-service.html">AGB</a>
-            <a href="impressum.html">Impressum</a>
-            <a href="delete-account.html">Konto löschen</a>
-            <a href="third-party-notices.html">Open Source</a>
+            <h4 data-i18n="footer.legal">Rechtliches</h4>
+            <a href="privacy-policy.html" data-i18n="footer.privacy">Datenschutz</a>
+            <a href="terms-of-service.html" data-i18n="footer.terms">AGB</a>
+            <a href="impressum.html" data-i18n="footer.imprint">Impressum</a>
+            <a href="delete-account.html" data-i18n="footer.delete">Konto löschen</a>
+            <a href="third-party-notices.html" data-i18n="footer.opensource">Open Source</a>
           </div>
           <div class="footer-col">
-            <h4>App</h4>
-            <a href="support.html">Support</a>
-            <a href="#faq">FAQ</a>
-            <a href="#download">Download</a>
+            <h4 data-i18n="footer.app">App</h4>
+            <a href="support.html" data-i18n="footer.support">Support</a>
+            <a href="#faq" data-i18n="footer.faq">FAQ</a>
+            <a href="#download" data-i18n="footer.download">Download</a>
           </div>
         </div>
-        <p class="footer-bottom">© 2026 ForFuture. Alle Rechte vorbehalten.</p>
+        <p class="footer-bottom" data-i18n="footer.copyright">© 2026 ForFuture. Alle Rechte vorbehalten.</p>
       </div>
     </footer>
 
     <div class="mobile-cta-bar">
-      <a href="#download" class="btn btn-primary">App holen</a>
+      <a href="#download" class="btn btn-primary" data-i18n="nav.download">App holen</a>
     </div>
 
+    <script src="landing-i18n.js"></script>
     <script src="landing.js"></script>
   </body>
 </html>
