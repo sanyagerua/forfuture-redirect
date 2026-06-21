@@ -24,6 +24,7 @@
       'hero.sub':
         'Erfasse Ausgaben in Sekunden und sieh, wie dein Budget dich Monat für Monat deinen Zielen näher bringt.',
       'hero.phone.alt': 'ForFuture App — Monatsübersicht auf dem Smartphone',
+      'hero.video.aria': 'ForFuture App — Kurzdemo',
       'store.ios.aria': 'Im App Store laden',
       'store.ios.alt': 'Laden im App Store',
       'store.android.aria': 'Bei Google Play laden',
@@ -153,6 +154,7 @@
       'hero.sub':
         'Log expenses in seconds and watch your budget move you closer to your goals month by month.',
       'hero.phone.alt': 'ForFuture app — monthly overview on a smartphone',
+      'hero.video.aria': 'ForFuture app — short demo',
       'store.ios.aria': 'Download on the App Store',
       'store.ios.alt': 'Download on the App Store',
       'store.android.aria': 'Get it on Google Play',
