@@ -110,9 +110,21 @@
     });
   }
 
+  function initHeroVideo() {
+    var video = document.querySelector('.hero-video');
+    if (!video) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      video.removeAttribute('autoplay');
+      video.pause();
+      return;
+    }
+    video.play().catch(function () {});
+  }
+
   initNav();
   if (window.ForFutureI18n) window.ForFutureI18n.initI18n();
   initGoalRings();
   initFaq();
   initStoreLinks();
+  initHeroVideo();
 })();
