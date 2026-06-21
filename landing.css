@@ -566,7 +566,7 @@ ul {
   display: block;
   width: min(160px, 38vw);
   height: auto;
-  border-radius: 20px;
+  border-radius: 10px;
   background: #111318;
   box-shadow: var(--shadow-lg);
   border: 1px solid var(--border);
