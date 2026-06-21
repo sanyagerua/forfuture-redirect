@@ -17,8 +17,8 @@
     <meta property="og:url" content="https://forfuture.app/" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="icon" href="assets/images/newLogo2.png" type="image/png" />
-    <link rel="apple-touch-icon" href="assets/images/newLogo2.png" />
+    <link rel="icon" href="images/app-icon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="images/app-icon.png" />
     <link
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap"
       rel="stylesheet"
@@ -30,7 +30,7 @@
       <div class="container header-inner">
         <a href="#" class="logo" aria-label="ForFuture Startseite">
           <img
-            src="assets/images/forfuture-wordmark-dark.png"
+            src="images/forfuture-wordmark-dark.png"
             alt="ForFuture"
             class="logo-wordmark-header"
             width="200"
@@ -87,7 +87,7 @@
           <div class="hero-media-row">
             <figure class="hero-phone">
               <img
-                src="forfuture-redirect/images/phone-ff2.png"
+                src="images/phone-ff2.png"
                 alt="ForFuture App — Monatsübersicht auf dem Smartphone"
                 class="hero-phone-img"
                 width="300"
@@ -97,38 +97,51 @@
               />
             </figure>
             <div class="hero-store-col">
-              <div class="store-badges hero-store-badges hero-store-badges--inline">
-                <a
-                  href="#download"
-                  class="store-badge store-badge--dark"
-                  data-store="ios"
-                  aria-label="Im App Store laden"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="135" height="40" viewBox="0 0 135 40" role="img">
-                    <title>Download on the App Store</title>
-                    <rect width="135" height="40" rx="6" fill="#111318" />
-                    <text x="44" y="14" fill="#ffffff" font-family="Manrope, sans-serif" font-size="8" font-weight="400">Download on the</text>
-                    <text x="44" y="28" fill="#ffffff" font-family="Manrope, sans-serif" font-size="14" font-weight="600">App Store</text>
-                    <path d="M24 20c0-2.2 1.3-4.1 3.2-5-.2-.8-.5-1.6-1-2.3-.9-1.2-2.4-2-3.9-1.9-.1 1.1-.3 2.2.4 3.2.6.9 1.6 1.5 2.7 1.6-.7 1.8-2.2 3.1-4 3.4-.3 0-.6 0-.9-.1.3 1.5 1.4 2.8 2.9 3.3 1.5.5 3.2.1 4.3-1 .9-1 1.3-2.4 1.2-3.8-.1-1.4-.7-2.7-1.6-3.8z" fill="#ffffff" transform="translate(2, 6) scale(0.9)" />
-                  </svg>
-                </a>
-                <a
-                  href="#download"
-                  class="store-badge store-badge--dark"
-                  data-store="android"
-                  aria-label="Bei Google Play laden"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="135" height="40" viewBox="0 0 135 40" role="img">
-                    <title>Get it on Google Play</title>
-                    <rect width="135" height="40" rx="6" fill="#111318" />
-                    <text x="44" y="14" fill="#ffffff" font-family="Manrope, sans-serif" font-size="8" font-weight="400">GET IT ON</text>
-                    <text x="44" y="28" fill="#ffffff" font-family="Manrope, sans-serif" font-size="14" font-weight="600">Google Play</text>
-                    <path d="M8 8l12 7-12 7V8z" fill="#34A853" transform="translate(6, 6) scale(0.7)" />
-                    <path d="M20 15l4 2.5L8 28V22l12-7z" fill="#FBBC04" transform="translate(6, 6) scale(0.7)" />
-                    <path d="M20 15l4-2.5v5L20 15z" fill="#4285F4" transform="translate(6, 6) scale(0.7)" />
-                    <path d="M20 20l4 2.5L8 8v6l12 6z" fill="#EA4335" transform="translate(6, 6) scale(0.7)" />
-                  </svg>
-                </a>
+              <div class="store-download-grid">
+                <div class="store-download-card">
+                  <a href="#download" class="store-badge-link" data-store="ios" aria-label="Im App Store laden">
+                    <img
+                      src="images/app-store-de.svg"
+                      alt="Laden im App Store"
+                      class="store-badge-img"
+                      width="140"
+                      height="42"
+                    />
+                  </a>
+                  <a href="#download" class="store-qr-link" data-store="ios" aria-label="QR-Code App Store">
+                    <img
+                      src="images/app-store.png"
+                      alt=""
+                      class="store-qr"
+                      width="112"
+                      height="112"
+                      loading="lazy"
+                    />
+                  </a>
+                  <span class="store-qr-label">iPhone &amp; iPad</span>
+                </div>
+                <div class="store-download-card">
+                  <a href="#download" class="store-badge-link" data-store="android" aria-label="Bei Google Play laden">
+                    <img
+                      src="images/google-play-de.svg"
+                      alt="Jetzt bei Google Play"
+                      class="store-badge-img"
+                      width="140"
+                      height="42"
+                    />
+                  </a>
+                  <a href="#download" class="store-qr-link" data-store="android" aria-label="QR-Code Google Play">
+                    <img
+                      src="images/google-play.png"
+                      alt=""
+                      class="store-qr"
+                      width="112"
+                      height="112"
+                      loading="lazy"
+                    />
+                  </a>
+                  <span class="store-qr-label">Android</span>
+                </div>
               </div>
               <a href="#warum" class="hero-learn-more">So funktioniert's</a>
             </div>
@@ -202,7 +215,14 @@
                 <div class="goal-dash-ring-wrap">
                   <svg class="goal-dash-svg" viewBox="0 0 154 146" aria-hidden="true">
                     <path class="goal-dash-track" d="M 9 79 A 65 65 0 0 1 139 79" />
-                    <path class="goal-dash-progress" d="M 9 79 A 65 65 0 0 1 139 79" />
+                    <path
+                      class="goal-dash-progress"
+                      d="M 9 79 A 65 65 0 0 1 139 79"
+                      stroke="#3B82F6"
+                      pathLength="100"
+                      stroke-dasharray="100"
+                      stroke-dashoffset="32"
+                    />
                     <circle class="goal-dash-inner" cx="74" cy="79" r="52" />
                     <circle class="goal-dash-inner-ring" cx="74" cy="79" r="52" />
                     <line class="goal-dash-midline" x1="22" y1="79" x2="126" y2="79" />
@@ -220,7 +240,14 @@
                 <div class="goal-dash-ring-wrap">
                   <svg class="goal-dash-svg" viewBox="0 0 154 146" aria-hidden="true">
                     <path class="goal-dash-track" d="M 9 79 A 65 65 0 0 1 139 79" />
-                    <path class="goal-dash-progress" d="M 9 79 A 65 65 0 0 1 139 79" />
+                    <path
+                      class="goal-dash-progress"
+                      d="M 9 79 A 65 65 0 0 1 139 79"
+                      stroke="#DC2626"
+                      pathLength="100"
+                      stroke-dasharray="100"
+                      stroke-dashoffset="59"
+                    />
                     <circle class="goal-dash-inner" cx="74" cy="79" r="52" />
                     <circle class="goal-dash-inner-ring" cx="74" cy="79" r="52" />
                     <line class="goal-dash-midline" x1="22" y1="79" x2="126" y2="79" />
@@ -238,7 +265,14 @@
                 <div class="goal-dash-ring-wrap">
                   <svg class="goal-dash-svg" viewBox="0 0 154 146" aria-hidden="true">
                     <path class="goal-dash-track" d="M 9 79 A 65 65 0 0 1 139 79" />
-                    <path class="goal-dash-progress" d="M 9 79 A 65 65 0 0 1 139 79" />
+                    <path
+                      class="goal-dash-progress"
+                      d="M 9 79 A 65 65 0 0 1 139 79"
+                      stroke="#EAB308"
+                      pathLength="100"
+                      stroke-dasharray="100"
+                      stroke-dashoffset="75"
+                    />
                     <circle class="goal-dash-inner" cx="74" cy="79" r="52" />
                     <circle class="goal-dash-inner-ring" cx="74" cy="79" r="52" />
                     <line class="goal-dash-midline" x1="22" y1="79" x2="126" y2="79" />
@@ -466,38 +500,37 @@
           <p class="section-sub section-sub--center">
             Starte jetzt und sieh, wie deine Ausgaben zu Fortschritt werden.
           </p>
-          <div class="store-badges" style="justify-content: center; margin-bottom: 8px">
-            <a
-              href="#download"
-              class="store-badge"
-              data-store="ios"
-              aria-label="Im App Store laden"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="135" height="40" viewBox="0 0 135 40" role="img">
-                <title>Download on the App Store</title>
-                <rect width="135" height="40" rx="6" fill="#fff" />
-                <text x="44" y="14" fill="#111318" font-family="Manrope, sans-serif" font-size="8" font-weight="400">Download on the</text>
-                <text x="44" y="28" fill="#111318" font-family="Manrope, sans-serif" font-size="14" font-weight="600">App Store</text>
-                <path d="M24 20c0-2.2 1.3-4.1 3.2-5-.2-.8-.5-1.6-1-2.3-.9-1.2-2.4-2-3.9-1.9-.1 1.1-.3 2.2.4 3.2.6.9 1.6 1.5 2.7 1.6-.7 1.8-2.2 3.1-4 3.4-.3 0-.6 0-.9-.1.3 1.5 1.4 2.8 2.9 3.3 1.5.5 3.2.1 4.3-1 .9-1 1.3-2.4 1.2-3.8-.1-1.4-.7-2.7-1.6-3.8z" fill="#111318" transform="translate(2, 6) scale(0.9)" />
-              </svg>
-            </a>
-            <a
-              href="#download"
-              class="store-badge"
-              data-store="android"
-              aria-label="Bei Google Play laden"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="135" height="40" viewBox="0 0 135 40" role="img">
-                <title>Get it on Google Play</title>
-                <rect width="135" height="40" rx="6" fill="#fff" />
-                <text x="44" y="14" fill="#111318" font-family="Manrope, sans-serif" font-size="8" font-weight="400">GET IT ON</text>
-                <text x="44" y="28" fill="#111318" font-family="Manrope, sans-serif" font-size="14" font-weight="600">Google Play</text>
-                <path d="M8 8l12 7-12 7V8z" fill="#34A853" transform="translate(6, 6) scale(0.7)" />
-                <path d="M20 15l4 2.5L8 28V22l12-7z" fill="#FBBC04" transform="translate(6, 6) scale(0.7)" />
-                <path d="M20 15l4-2.5v5L20 15z" fill="#4285F4" transform="translate(6, 6) scale(0.7)" />
-                <path d="M20 20l4 2.5L8 8v6l12 6z" fill="#EA4335" transform="translate(6, 6) scale(0.7)" />
-              </svg>
-            </a>
+          <div class="store-download-grid store-download-grid--center">
+            <div class="store-download-card">
+              <a href="#download" class="store-badge-link" data-store="ios" aria-label="Im App Store laden">
+                <img
+                  src="images/app-store-de-white.svg"
+                  alt="Laden im App Store"
+                  class="store-badge-img"
+                  width="140"
+                  height="42"
+                />
+              </a>
+              <a href="#download" class="store-qr-link" data-store="ios" aria-label="QR-Code App Store">
+                <img src="images/app-store.png" alt="" class="store-qr" width="112" height="112" loading="lazy" />
+              </a>
+              <span class="store-qr-label">iPhone &amp; iPad</span>
+            </div>
+            <div class="store-download-card">
+              <a href="#download" class="store-badge-link" data-store="android" aria-label="Bei Google Play laden">
+                <img
+                  src="images/google-play-de-white.svg"
+                  alt="Jetzt bei Google Play"
+                  class="store-badge-img"
+                  width="140"
+                  height="42"
+                />
+              </a>
+              <a href="#download" class="store-qr-link" data-store="android" aria-label="QR-Code Google Play">
+                <img src="images/google-play.png" alt="" class="store-qr" width="112" height="112" loading="lazy" />
+              </a>
+              <span class="store-qr-label">Android</span>
+            </div>
           </div>
           <p class="final-cta-note">Keine Bank · iOS &amp; Android</p>
         </div>
@@ -510,7 +543,7 @@
           <div class="footer-brand">
             <span class="logo-wordmark-wrap footer-wordmark-wrap">
               <img
-                src="assets/images/forfuture-wordmark-dark.png"
+                src="images/forfuture-wordmark-dark.png"
                 alt="ForFuture"
                 class="logo-wordmark"
                 width="140"
