@@ -1,10 +1,10 @@
 (function () {
   'use strict';
 
-  // Update with live store URLs when published
+  // Update with live store URLs when published (also regenerate assets/qr/*.png if URLs change)
   var STORE_LINKS = {
-    ios: '#download',
-    android: '#download',
+    ios: 'https://apps.apple.com/de/app/forfuture/id6757244689',
+    android: 'https://play.google.com/store/apps/details?id=com.forfuture',
   };
 
   function initNav() {
@@ -47,13 +47,20 @@
   }
 
   function animateGoalDash(el) {
-    var progress = parseFloat(el.getAttribute('data-progress')) || 0;
-    var rOut = parseFloat(el.getAttribute('data-r-out')) || 65;
-    var arcLen = Math.PI * rOut;
-    var filled = (progress / 100) * arcLen;
-    el.style.setProperty('--arc-length', String(arcLen));
-    el.style.setProperty('--arc-filled', String(filled));
+    var progress = Math.max(0, Math.min(100, parseFloat(el.getAttribute('data-progress')) || 0));
+    var path = el.querySelector('.goal-dash-progress');
+    if (!path) return;
+    var arcLen = path.hasAttribute('pathLength') ? 100 : path.getTotalLength();
+    if (!path.hasAttribute('pathLength')) {
+      path.setAttribute('pathLength', String(arcLen));
+    }
+    var targetOffset = arcLen * (1 - progress / 100);
+    path.style.strokeDasharray = String(arcLen);
+    path.style.strokeDashoffset = String(arcLen);
     el.classList.add('is-visible');
+    requestAnimationFrame(function () {
+      path.style.strokeDashoffset = String(targetOffset);
+    });
   }
 
   function initGoalRings() {
