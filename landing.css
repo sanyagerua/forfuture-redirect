@@ -525,14 +525,20 @@ ul {
 .hero-phone {
   margin: 0;
   flex-shrink: 0;
+  background: transparent;
 }
 
 .hero-phone-img {
   display: block;
   width: min(280px, 78vw);
   height: auto;
-  border-radius: 28px;
-  box-shadow: var(--shadow-lg);
+  border: none;
+  outline: none;
+  box-shadow: none;
+  border-radius: 0;
+  background: transparent;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .hero-store-col {
