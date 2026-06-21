@@ -1,111 +1,27 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="ForFuture Terms of Service - Financial Planning and Budgeting App" />
-  <title>Terms of Service - ForFuture</title>
-  <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  line-height: 1.6;
-  color: #FFFFFF;
-  background: #0A0B1F;
-  padding: 20px;
-  min-height: 100vh;
-}
-.logo-container { text-align: center; margin-bottom: 30px; padding-top: 20px; }
-.logo-container img { max-width: 240px; height: auto; }
-.container {
-  max-width: 900px;
-  margin: 0 auto;
-  background: #181A20;
-  padding: 40px;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-}
-h1 { color: #FFFFFF; margin-bottom: 10px; font-size: 2em; }
-.subtitle { color: #999; margin-bottom: 30px; font-size: 0.9em; }
-.language-selector {
-  margin-bottom: 30px;
-  padding: 15px;
-  background: #1E1F26;
-  border-radius: 6px;
-  border: 1px solid #333;
-}
-.language-selector button {
-  background: #2A2B35;
-  color: white;
-  border: 1px solid #444;
-  padding: 8px 16px;
-  margin: 5px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.9em;
-  transition: all 0.3s;
-}
-.language-selector button:hover { background: #3A3B45; border-color: #555; }
-.language-selector button.active { background: #000; border-color: #000; font-weight: bold; }
-.policy-content { display: none; }
-.policy-content.active { display: block; }
-.policy-content h2 {
-  color: #FFFFFF;
-  margin-top: 30px;
-  margin-bottom: 15px;
-  font-size: 1.5em;
-  border-bottom: 2px solid #000;
-  padding-bottom: 10px;
-}
-.policy-content h2:first-child { margin-top: 0; }
-.policy-content h3 { color: #FFFFFF; margin-top: 20px; margin-bottom: 10px; font-size: 1.2em; }
-.policy-content p { margin-bottom: 15px; text-align: justify; color: #DDD; }
-.policy-content ul, .policy-content ol { margin-left: 20px; margin-bottom: 15px; }
-.policy-content li { margin-bottom: 8px; color: #DDD; }
-.policy-content a { color: #FFFFFF; text-decoration: underline; }
-.policy-content a:hover { color: #CCC; }
-.policy-content strong { color: #FFFFFF; }
-.info-box {
-  background: #1E1F26;
-  padding: 16px 18px;
-  border-radius: 6px;
-  margin: 16px 0 24px;
-  border: 1px solid #333;
-  border-left: 4px solid #666;
-}
-.info-box p { margin-bottom: 8px; }
-.info-box p:last-child { margin-bottom: 0; }
-.contact-info {
-  background: #1E1F26;
-  padding: 20px;
-  border-radius: 6px;
-  margin-top: 30px;
-  border-left: 4px solid #000;
-  border: 1px solid #333;
-}
-.contact-info strong { color: #FFFFFF; }
-.contact-info p { color: #DDD; }
-.last-updated {
-  color: #999;
-  font-size: 0.9em;
-  margin-top: 30px;
-  padding-top: 20px;
-  border-top: 1px solid #333;
-}
-@media (max-width: 768px) {
-  .container { padding: 20px; }
-  h1 { font-size: 1.5em; }
-  .policy-content h2 { font-size: 1.3em; }
-}
-  </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="ForFuture Terms of Service — Budget app without bank connection" />
+  <title>Terms of Service — ForFuture</title>
+  <link rel="icon" href="images/favicon.png" type="image/png" sizes="32x32" />
+  <link rel="icon" href="images/favicon-512.png" type="image/png" sizes="512x512" />
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png" sizes="180x180" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="legal-template-styles.css" />
 </head>
 <body>
-  <div class="logo-container">
-    <img src="https://raw.githubusercontent.com/sanyagerua/ForFuture/main/assets/images/logo_bg.png" alt="ForFuture Logo" onerror="this.style.display='none'" />
+  <div class="page-logo">
+    <a href="index.html" aria-label="ForFuture home">
+      <img src="images/forfuture-wordmark-dark.png" alt="ForFuture" width="200" height="32" />
+    </a>
   </div>
   <div class="container">
-    <h1>Terms of Service - ForFuture</h1>
-    <p class="subtitle">Financial Planning and Budgeting App</p>
+    <h1>Terms of Service — ForFuture</h1>
+    <p class="subtitle">Budget app · No bank connection</p>
 
     <div class="language-selector">
       <button onclick="showLanguage('en')" class="active" id="btn-en">English</button>
@@ -140,7 +56,7 @@ h1 { color: #FFFFFF; margin-bottom: 10px; font-size: 2em; }
       <ul>
         <li><strong>Not a bank or payment institution:</strong> There is no connection to bank accounts or cards. You enter all amounts yourself or confirm suggestions.</li>
         <li><strong>No financial, tax, or legal advice:</strong> Content is for information and organisation only. You make all decisions on your own.</li>
-        <li><strong>Local-first:</strong> Certain data (e.g. monthly income, closed months) stays on your device. Optional cloud backup can be enabled in Settings.</li>
+        <li><strong>Local-first:</strong> Financial data stays on your device by default. Optional cloud backup in Settings can sync selected data (including monthly income and closed months) to EU servers.</li>
       </ul>
 
       <h2>3. Registration and Account</h2>
@@ -276,7 +192,7 @@ h1 { color: #FFFFFF; margin-bottom: 10px; font-size: 2em; }
 
       <div class="contact-info">
         <p><strong>Contact:</strong> <a href="mailto:diana.iglizn@gmail.com">diana.iglizn@gmail.com</a></p>
-        <p style="margin-top: 12px;"><strong>Related:</strong> <a href="privacy-policy.html">Privacy Policy</a> · <a href="https://forfuture.app/impressum.html">Impressum</a> · <a href="https://forfuture.app/">forfuture.app</a></p>
+        <p style="margin-top: 12px;"><strong>Related:</strong> <a href="privacy-policy.html">Privacy Policy</a> · <a href="impressum.html">Impressum</a> · <a href="index.html">forfuture.app</a></p>
       </div>
 
       <div class="last-updated">
@@ -313,7 +229,7 @@ h1 { color: #FFFFFF; margin-bottom: 10px; font-size: 2em; }
       <ul>
         <li><strong>Keine Bank, kein Zahlungsinstitut:</strong> Es gibt keine Anbindung an Bankkonten oder Karten. Alle Beträge geben Sie selbst ein oder bestätigen Vorschläge.</li>
         <li><strong>Keine Finanz-, Steuer- oder Rechtsberatung:</strong> Inhalte dienen nur der Information und Organisation. Entscheidungen treffen Sie allein.</li>
-        <li><strong>Lokal zuerst:</strong> Bestimmte Daten (z.&nbsp;B. Monatseinkommen, abgeschlossene Monate) bleiben auf dem Gerät. Optionale Cloud-Sicherung ist in den Einstellungen aktivierbar.</li>
+        <li><strong>Lokal zuerst:</strong> Finanzdaten bleiben standardmäßig auf dem Gerät. Optionale Cloud-Sicherung in den Einstellungen kann ausgewählte Daten (u.&nbsp;a. Monatseinkommen und abgeschlossene Monate) auf EU-Server synchronisieren.</li>
       </ul>
 
       <h2>3. Registrierung und Konto</h2>
@@ -449,7 +365,7 @@ h1 { color: #FFFFFF; margin-bottom: 10px; font-size: 2em; }
 
       <div class="contact-info">
         <p><strong>Kontakt:</strong> <a href="mailto:diana.iglizn@gmail.com">diana.iglizn@gmail.com</a></p>
-        <p style="margin-top: 12px;"><strong>Siehe auch:</strong> <a href="privacy-policy.html">Datenschutzerklärung</a> · <a href="https://forfuture.app/impressum.html">Impressum</a> · <a href="https://forfuture.app/">forfuture.app</a></p>
+        <p style="margin-top: 12px;"><strong>Siehe auch:</strong> <a href="privacy-policy.html">Datenschutzerklärung</a> · <a href="impressum.html">Impressum</a> · <a href="index.html">forfuture.app</a></p>
       </div>
 
       <div class="last-updated">
@@ -623,12 +539,19 @@ h1 { color: #FFFFFF; margin-bottom: 10px; font-size: 2em; }
 
       <div class="contact-info">
         <p><strong>Contacto:</strong> <a href="mailto:diana.iglizn@gmail.com">diana.iglizn@gmail.com</a></p>
-        <p style="margin-top: 12px;"><strong>Consulte también:</strong> <a href="privacy-policy.html">Política de privacidad</a> · <a href="https://forfuture.app/impressum.html">Impressum</a> · <a href="https://forfuture.app/">forfuture.app</a></p>
+        <p style="margin-top: 12px;"><strong>Consulte también:</strong> <a href="privacy-policy.html">Política de privacidad</a> · <a href="impressum.html">Impressum</a> · <a href="index.html">forfuture.app</a></p>
       </div>
 
       <div class="last-updated">
         <p><strong>Última actualización:</strong> 20 de mayo de 2026</p>
       </div>
+    </div>
+
+    <div class="footer-links">
+      <a href="index.html">Startseite</a> ·
+      <a href="privacy-policy.html">Datenschutz</a> ·
+      <a href="impressum.html">Impressum</a> ·
+      <a href="support.html">Support</a>
     </div>
   </div>
 
