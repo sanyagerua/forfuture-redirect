@@ -314,6 +314,67 @@ ul {
   align-items: center;
 }
 
+.store-download-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.store-download-grid--center {
+  justify-content: center;
+  margin: 0 auto 8px;
+}
+
+.store-download-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.store-badge-link,
+.store-qr-link {
+  display: block;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.store-badge-link:hover,
+.store-qr-link:hover {
+  opacity: 0.88;
+}
+
+.store-badge-link:active,
+.store-qr-link:active {
+  transform: scale(0.98);
+}
+
+.store-badge-img {
+  display: block;
+  width: 140px;
+  height: 42px;
+}
+
+.store-qr {
+  display: block;
+  width: 112px;
+  height: 112px;
+  padding: 8px;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.store-qr-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
 .store-badge {
   display: block;
   height: 48px;
@@ -448,21 +509,11 @@ ul {
   width: 100%;
 }
 
-.hero-store-badges {
-  margin-bottom: 0;
-}
-
-.hero-store-badges--inline {
-  flex-wrap: nowrap;
-  gap: 10px;
-}
-
-.hero-store-badges--inline .store-badge {
-  flex: 0 0 auto;
-}
-
-.hero-store-badges--inline .store-badge svg {
-  height: 44px;
+@media (max-width: 520px) {
+  .store-download-grid {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
 
 .hero-learn-more {
@@ -679,15 +730,8 @@ ul {
 
 .goal-dash-progress {
   fill: none;
-  stroke: var(--goal-accent, var(--brand));
   stroke-width: 10.4;
   stroke-linecap: round;
-  stroke-dasharray: 0 var(--arc-length);
-  transition: stroke-dasharray 0.85s ease-out;
-}
-
-.goal-dash.is-visible .goal-dash-progress {
-  stroke-dasharray: var(--arc-filled) var(--arc-length);
 }
 
 .goal-dash-inner {
@@ -1140,8 +1184,13 @@ ul {
   color: rgba(255, 255, 255, 0.55);
 }
 
-.final-cta .store-badge svg rect {
-  fill: #fff;
+.final-cta .store-qr {
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: none;
+}
+
+.final-cta .store-qr-label {
+  color: rgba(255, 255, 255, 0.65);
 }
 
 /* Footer */
