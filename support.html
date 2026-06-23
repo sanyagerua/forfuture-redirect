@@ -11,57 +11,67 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="legal-template-styles.css" />
+  <link rel="stylesheet" href="legal-page.css" />
 </head>
-<body>
-  <div class="page-logo">
-    <a href="index.html" aria-label="ForFuture Startseite">
-      <img src="images/forfuture-wordmark-dark.png" alt="ForFuture" width="200" height="32" />
-    </a>
-  </div>
-
-  <div class="container">
-    <h1>ForFuture Support</h1>
-    <p class="subtitle">Budget-App · Keine Bank-Anbindung · Ausgaben im Griff. Ziele im Blick.</p>
-
-    <div class="support-section">
-      <h2>Kontakt</h2>
-      <p>Bei Fragen, Problemen oder Feedback zu ForFuture helfen wir gerne weiter.</p>
-      <div class="contact-info">
-        <p><strong>E-Mail</strong></p>
-        <a href="mailto:diana.iglizn@gmail.com" class="btn-primary">diana.iglizn@gmail.com</a>
-        <p style="margin-top: 16px"><strong>Antwortzeit:</strong> In der Regel innerhalb von 24–48 Stunden.</p>
+<body data-title-key="support.title">
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo" data-i18n-aria="logo.aria" aria-label="ForFuture Startseite">
+        <img src="images/forfuture-wordmark-dark.png" alt="ForFuture" class="logo-wordmark-header" width="200" height="32" />
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch" role="group" data-i18n-aria="lang.switch.aria" aria-label="Sprache wählen">
+          <button type="button" class="lang-switch-btn is-active" data-lang="de" aria-pressed="true">DE</button>
+          <button type="button" class="lang-switch-btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
       </div>
     </div>
+  </header>
+  <main class="subpage-main">
+    <div class="container">
+      <h1 data-i18n="support.title">ForFuture Support</h1>
+      <p class="subtitle" data-i18n="support.subtitle">Budget-App · Keine Bank-Anbindung · Ausgaben im Griff. Ziele im Blick.</p>
 
-    <div class="support-section">
-      <h2>Häufige Fragen</h2>
-      <p><strong>Passwort vergessen?</strong></p>
-      <p>Nutze „Passwort vergessen“ auf dem Anmeldebildschirm. Du erhältst eine E-Mail mit einem Link zum Zurücksetzen.</p>
+      <div class="support-section">
+        <h2 data-i18n="support.contact.title">Kontakt</h2>
+        <p data-i18n="support.contact.intro">Bei Fragen, Problemen oder Feedback zu ForFuture helfen wir gerne weiter.</p>
+        <div class="contact-info">
+          <p><strong data-i18n="support.contact.email">E-Mail</strong></p>
+          <a href="mailto:diana.iglizn@gmail.com" class="btn-primary">diana.iglizn@gmail.com</a>
+          <p style="margin-top: 16px"><strong data-i18n="support.contact.response">Antwortzeit:</strong> <span data-i18n="support.contact.responseTime">In der Regel innerhalb von 24–48 Stunden.</span></p>
+        </div>
+      </div>
 
-      <p><strong>Konto löschen?</strong></p>
-      <p>Profil → Persönliche Informationen → Konto löschen. Details findest du auf der Seite <a href="delete-account.html">Konto löschen</a>.</p>
+      <div class="support-section">
+        <h2 data-i18n="support.faq.title">Häufige Fragen</h2>
+        <p><strong data-i18n="support.faq.password.q">Passwort vergessen?</strong></p>
+        <p data-i18n="support.faq.password.a">Nutze „Passwort vergessen“ auf dem Anmeldebildschirm. Du erhältst eine E-Mail mit einem Link zum Zurücksetzen.</p>
 
-      <p><strong>Verbindet sich die App mit meiner Bank?</strong></p>
-      <p>Nein. ForFuture hat keine Bank-Anbindung. Du erfasst Ausgaben selbst — schnell per Tippen, Sprache oder Zahlungsbenachrichtigung (optional).</p>
+        <p><strong data-i18n="support.faq.delete.q">Konto löschen?</strong></p>
+        <p data-i18n-html="support.faq.delete.a">Profil → Persönliche Informationen → Konto löschen. Details auf der Seite <a href="delete-account.html">Konto löschen</a>.</p>
 
-      <p><strong>Was kostet ForFuture?</strong></p>
-      <p>Nach einer kostenlosen Testwoche ist ein Premium-Abo nötig, um die App weiter zu nutzen. Details stehen in den <a href="terms-of-service.html">AGB</a>.</p>
+        <p><strong data-i18n="support.faq.bank.q">Verbindet sich die App mit meiner Bank?</strong></p>
+        <p data-i18n="support.faq.bank.a">Nein. ForFuture hat keine Bank-Anbindung. Du erfasst Ausgaben selbst — schnell per Tippen, Sprache oder Zahlungsbenachrichtigung (optional).</p>
+
+        <p><strong data-i18n="support.faq.price.q">Was kostet ForFuture?</strong></p>
+        <p data-i18n-html="support.faq.price.a">Nach einer kostenlosen Testwoche ist ein Premium-Abo nötig. Details in den <a href="terms-of-service.html">AGB</a>.</p>
+      </div>
+
+      <div class="support-section">
+        <h2 data-i18n="support.legal.title">Rechtliches</h2>
+        <p>
+          <a href="privacy-policy.html" data-i18n="footer.privacy">Datenschutz</a> ·
+          <a href="terms-of-service.html" data-i18n="footer.terms">AGB</a> ·
+          <a href="impressum.html" data-i18n="footer.imprint">Impressum</a> ·
+          <a href="third-party-notices.html" data-i18n="footer.opensource">Open Source</a>
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <a href="index.html" data-i18n="footer.home">← Zur Startseite</a>
+      </div>
     </div>
-
-    <div class="support-section">
-      <h2>Rechtliches</h2>
-      <p>
-        <a href="privacy-policy.html">Datenschutzerklärung</a> ·
-        <a href="terms-of-service.html">AGB</a> ·
-        <a href="impressum.html">Impressum</a> ·
-        <a href="third-party-notices.html">Open Source</a>
-      </p>
-    </div>
-
-    <div class="footer-links">
-      <a href="index.html">← Zur Startseite</a>
-    </div>
-  </div>
+  </main>
+  <script src="legal-page.js"></script>
 </body>
 </html>
