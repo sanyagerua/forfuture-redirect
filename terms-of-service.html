@@ -11,23 +11,27 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="legal-template-styles.css" />
+  <link rel="stylesheet" href="legal-page.css" />
 </head>
-<body>
-  <div class="page-logo">
-    <a href="index.html" aria-label="ForFuture home">
-      <img src="images/forfuture-wordmark-dark.png" alt="ForFuture" width="200" height="32" />
-    </a>
-  </div>
-  <div class="container">
-    <h1>Terms of Service — ForFuture</h1>
-    <p class="subtitle">Budget app · No bank connection</p>
-
-    <div class="language-selector">
-      <button onclick="showLanguage('en')" class="active" id="btn-en">English</button>
-      <button onclick="showLanguage('de')" id="btn-de">Deutsch</button>
-      <button onclick="showLanguage('es')" id="btn-es">Español</button>
+<body data-content-prefix="policy" data-title-key="terms.title">
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo" data-i18n-aria="logo.aria" aria-label="ForFuture Startseite">
+        <img src="images/forfuture-wordmark-dark.png" alt="ForFuture" class="logo-wordmark-header" width="200" height="32" />
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch" role="group" data-i18n-aria="lang.switch.aria" aria-label="Sprache wählen">
+          <button type="button" class="lang-switch-btn is-active" data-lang="de" aria-pressed="true">DE</button>
+          <button type="button" class="lang-switch-btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+      </div>
     </div>
+  </header>
+  <main class="subpage-main">
+<div class="container">
+    <h1 data-i18n="terms.title">Terms of Service — ForFuture</h1>
+    <p class="subtitle" data-i18n="terms.subtitle">Budget app · No bank connection</p>
+
 
     <!-- English -->
     <div id="policy-en" class="policy-content active">
@@ -374,178 +378,6 @@
     </div>
 
     <!-- Spanish -->
-    <div id="policy-es" class="policy-content">
-      <div class="info-box">
-        <p><strong>Importante:</strong> Al instalar, registrarse o utilizar la aplicación ForFuture,
-        acepta estos Términos de servicio. Lea también nuestra
-        <a href="privacy-policy.html">Política de privacidad</a>.</p>
-      </div>
-
-      <h2>1. Parte contratante y ámbito de aplicación</h2>
-      <p>
-        La proveedora de la aplicación <strong>ForFuture</strong> es <strong>Diana Barkova</strong>,
-        Kastanienstraße 18, 40699 Erkrath, Alemania («nosotros», «nos»).
-        Usuario («usted») es toda persona física que utilice la aplicación.
-      </p>
-      <p>
-        Se aplican exclusivamente estos Términos en su versión vigente y la Política de privacidad.
-        No aceptamos condiciones contradictorias propuestas por el usuario.
-      </p>
-
-      <h2>2. Descripción del servicio</h2>
-      <p>
-        ForFuture es una <strong>herramienta de planificación financiera manual</strong>:
-        registro de ingresos y gastos, categorías de presupuesto, costes fijos, objetivos de ahorro (hasta tres),
-        cierre mensual, estadísticas, entrada de voz opcional y (en Android) sugerencias opcionales
-        a partir de notificaciones de pago.
-      </p>
-      <ul>
-        <li><strong>No es un banco ni entidad de pago:</strong> No hay conexión con cuentas bancarias ni tarjetas. Usted introduce todos los importes o confirma las sugerencias.</li>
-        <li><strong>Sin asesoramiento financiero, fiscal o jurídico:</strong> El contenido sirve solo para información y organización. Usted toma todas las decisiones.</li>
-        <li><strong>Local primero:</strong> Ciertos datos (p. ej. ingresos mensuales, meses cerrados) permanecen en el dispositivo. La copia en la nube opcional se activa en Ajustes.</li>
-      </ul>
-
-      <h2>3. Registro y cuenta</h2>
-      <p>
-        Es necesaria una cuenta de usuario. Debe proporcionar información veraz,
-        mantener su contraseña en secreto e informarnos de inmediato en caso de uso indebido.
-        Edad mínima: <strong>16 años</strong> (o la edad mínima superior según la legislación nacional aplicable).
-      </p>
-
-      <h2>4. Período de prueba gratuito y suscripción de pago (Premium)</h2>
-      <h3>4.1 Período de prueba</h3>
-      <p>
-        Las cuentas nuevas reciben un <strong>período de prueba gratuito de 7 días naturales</strong> desde el primer uso
-        («período de prueba»). Durante la prueba, todas las funciones de la aplicación están disponibles sin restricciones.
-      </p>
-      <h3>4.2 Suscripción Premium</h3>
-      <p>
-        Tras el período de prueba, el uso continuado solo es posible con una <strong>suscripción Premium</strong> activa.
-        Planes y precios disponibles (a mayo de 2026):
-      </p>
-      <ul>
-        <li><strong>Mensual:</strong> 2,99&nbsp;€ al mes</li>
-        <li><strong>Anual:</strong> 24,99&nbsp;€ al año</li>
-      </ul>
-      <p>
-        En App Store o Google Play pueden mostrarse precios y impuestos específicos del país;
-        prevalece el precio indicado en la tienda en el momento de la compra.
-      </p>
-      <h3>4.3 Facturación a través de Apple / Google</h3>
-      <p>
-        La compra, renovación, cancelación y reembolsos se gestionan a través de
-        <strong>Apple App Store</strong> (iOS) o <strong>Google Play Store</strong> (Android).
-        Apple o Google es la parte contratante del procesamiento de pagos; sus condiciones se aplican adicionalmente.
-        Las suscripciones se renuevan automáticamente salvo que cancele en la tienda al menos 24 horas antes del fin del período vigente.
-      </p>
-      <h3>4.4 Restaurar compras</h3>
-      <p>
-        En un dispositivo nuevo o tras reinstalar, puede reactivar una suscripción existente mediante
-        «Restaurar compras», siempre que esté vinculada a la misma cuenta de la tienda.
-      </p>
-      <h3>4.5 Sin derecho de desistimiento frente a nosotros en compras de la tienda</h3>
-      <p>
-        Para contenidos digitales adquiridos a través de Apple o Google, los derechos de desistimiento y reembolso
-        se rigen principalmente por las normas de la tienda correspondiente y la legislación de consumo aplicable;
-        contacte con el soporte de la tienda para reembolsos.
-      </p>
-
-      <h2>5. Obligaciones del usuario</h2>
-      <ul>
-        <li>Utilizar la aplicación de forma lícita y con fines personales (sin redistribución comercial).</li>
-        <li>No manipular mecanismos de suscripción o seguridad.</li>
-        <li>No realizar ingeniería inversa ni accesos automatizados masivos a nuestros sistemas.</li>
-        <li>Mantener copias de seguridad propias de datos importantes, especialmente si la copia en la nube está desactivada.</li>
-      </ul>
-
-      <h2>6. Disponibilidad y cambios</h2>
-      <p>
-        Nos esforzamos por ofrecer alta disponibilidad, pero no la garantizamos. El mantenimiento, las actualizaciones
-        o la fuerza mayor pueden causar interrupciones. Las funciones pueden desarrollarse o discontinuarse; los cambios
-        sustanciales se anunciarán en la aplicación cuando sea posible.
-      </p>
-
-      <h2>7. Responsabilidad</h2>
-      <p>
-        Respondemos sin limitación por dolo y negligencia grave y por daños derivados de lesiones a la vida,
-        integridad física o salud. Por negligencia leve, solo respondemos por incumplimiento de obligaciones
-        contractuales esenciales, limitado al daño previsible y típico.
-      </p>
-      <p>
-        <strong>Sin responsabilidad</strong> por decisiones financieras, pérdida de datos por falta de copia local,
-        errores en datos introducidos manualmente o interrupciones de terceros (tiendas, operadores de red, Supabase).
-      </p>
-      <p>
-        En la medida permitida, la responsabilidad total se limita al importe pagado por la suscripción Premium
-        en los últimos 12 meses a través de nosotros o las tiendas (si solo utilizó el período de prueba: 0&nbsp;€).
-      </p>
-
-      <h2>8. Privacidad</h2>
-      <p>
-        El tratamiento de datos personales se rige por nuestra
-        <a href="privacy-policy.html">Política de privacidad</a> (incluida la eliminación de cuenta y los derechos del interesado).
-        No existe una «política de eliminación» separada; la eliminación se describe allí y en la aplicación.
-      </p>
-
-      <h2>9. Propiedad intelectual</h2>
-      <p>
-        La aplicación, el diseño, las marcas y el código siguen siendo de nuestra propiedad. Usted recibe una licencia
-        simple, intransferible y revocable para uso personal. El contenido que introduce sigue siendo suyo;
-        nos concede los derechos de tratamiento necesarios para prestar la aplicación.
-      </p>
-
-      <h2>10. Resolución y eliminación de cuenta</h2>
-      <p>
-        Puede eliminar su cuenta en cualquier momento en la aplicación (Ajustes → Información personal).
-        Esto pone fin al uso de nuestros servicios en servidor. Una suscripción activa en la tienda debe cancelarse
-        por separado en App Store / Play Store.
-      </p>
-      <p>
-        Podemos suspender o eliminar cuentas por infracciones graves de estos Términos.
-      </p>
-
-      <h2>11. Cambios de estos Términos</h2>
-      <p>
-        Podemos modificar estos Términos. Le informaremos de cambios sustanciales en la aplicación o por correo electrónico.
-        Si no se opone en un plazo de 30 días y sigue utilizando la aplicación, se considerarán aceptados los nuevos Términos.
-      </p>
-
-      <h2>12. Ley aplicable y jurisdicción</h2>
-      <p>
-        Se aplica la ley alemana, con exclusión de la Convención de las Naciones Unidas sobre contratos de compraventa internacional.
-        Las normas imperativas de protección al consumidor de su país de residencia (UE) permanecen intactas.
-        Para comerciantes, el fuero es Erkrath; para consumidores, el fuero legal.
-      </p>
-
-      <h2>13. Resolución de conflictos</h2>
-      <p>
-        La Comisión Europea ofrece una plataforma de resolución de conflictos en línea:
-        <a href="https://ec.europa.eu/consumers/odr" rel="noopener">https://ec.europa.eu/consumers/odr</a>.
-        No estamos obligados ni dispuestos a participar en procedimientos de resolución de conflictos ante una
-        junta arbitral de consumo, salvo que la ley lo exija.
-      </p>
-
-      <h2>14. Contacto</h2>
-      <p>
-        Diana Barkova · Kastanienstraße 18 · 40699 Erkrath · Alemania<br />
-        Correo electrónico: <a href="mailto:diana.iglizn@gmail.com">diana.iglizn@gmail.com</a>
-      </p>
-
-      <h2>15. Disposiciones finales</h2>
-      <p>
-        Si alguna disposición fuera inválida, el resto del acuerdo seguirá siendo válido.
-        Estos Términos y la Política de privacidad constituyen el acuerdo completo entre usted y nosotros respecto al uso de la aplicación.
-      </p>
-
-      <div class="contact-info">
-        <p><strong>Contacto:</strong> <a href="mailto:diana.iglizn@gmail.com">diana.iglizn@gmail.com</a></p>
-        <p style="margin-top: 12px;"><strong>Consulte también:</strong> <a href="privacy-policy.html">Política de privacidad</a> · <a href="impressum.html">Impressum</a> · <a href="index.html">forfuture.app</a></p>
-      </div>
-
-      <div class="last-updated">
-        <p><strong>Última actualización:</strong> 20 de mayo de 2026</p>
-      </div>
-    </div>
 
     <div class="footer-links">
       <a href="index.html">Startseite</a> ·
@@ -555,17 +387,7 @@
     </div>
   </div>
 
-  <script>
-    function showLanguage(lang) {
-      document.querySelectorAll('.policy-content').forEach(function (content) {
-        content.classList.remove('active');
-      });
-      document.querySelectorAll('.language-selector button').forEach(function (btn) {
-        btn.classList.remove('active');
-      });
-      document.getElementById('policy-' + lang).classList.add('active');
-      document.getElementById('btn-' + lang).classList.add('active');
-    }
-  </script>
+  <script src="legal-page.js"></script>
+  </main>
 </body>
 </html>
