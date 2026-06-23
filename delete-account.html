@@ -11,24 +11,27 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="legal-template-styles.css" />
+  <link rel="stylesheet" href="legal-page.css" />
 </head>
-<body>
-  <div class="page-logo">
-    <a href="index.html" aria-label="ForFuture Startseite">
-      <img src="images/forfuture-wordmark-dark.png" alt="ForFuture" width="200" height="32" />
-    </a>
-  </div>
-
-  <div class="container">
-    <h1>Account &amp; Data Deletion</h1>
-    <p class="subtitle">Budget app · No bank connection · Ausgaben im Griff. Ziele im Blick.</p>
-
-    <div class="language-selector">
-      <button type="button" onclick="showLanguage('en')" class="active" id="btn-en">English</button>
-      <button type="button" onclick="showLanguage('de')" id="btn-de">Deutsch</button>
-      <button type="button" onclick="showLanguage('uk')" id="btn-uk">Українська</button>
+<body data-content-prefix="content" data-title-key="delete.title">
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo" data-i18n-aria="logo.aria" aria-label="ForFuture Startseite">
+        <img src="images/forfuture-wordmark-dark.png" alt="ForFuture" class="logo-wordmark-header" width="200" height="32" />
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch" role="group" data-i18n-aria="lang.switch.aria" aria-label="Sprache wählen">
+          <button type="button" class="lang-switch-btn is-active" data-lang="de" aria-pressed="true">DE</button>
+          <button type="button" class="lang-switch-btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+      </div>
     </div>
+  </header>
+  <main class="subpage-main">
+<div class="container">
+    <h1 data-i18n="delete.title">Account &amp; Data Deletion</h1>
+    <p class="subtitle" data-i18n="delete.subtitle">Budget app · No bank connection · Expenses under control. Goals in sight.</p>
+
 
     <div id="content-en" class="content active" lang="en">
       <div class="info-box">
@@ -156,52 +159,6 @@
       </div>
     </div>
 
-    <div id="content-uk" class="content" lang="uk">
-      <div class="info-box">
-        <p><strong>Розробниця:</strong> <span class="developer-name">Діана Баркова</span></p>
-        <p><strong>Додаток:</strong> <span class="app-name">ForFuture</span></p>
-        <p><strong>Контакт:</strong> <a href="mailto:diana.iglizn@gmail.com">diana.iglizn@gmail.com</a></p>
-      </div>
-
-      <h2>Як видалити обліковий запис</h2>
-      <p>Ви можете видалити обліковий запис <span class="app-name">ForFuture</span> і всі пов’язані дані будь-коли. Це остаточно і не може бути скасовано.</p>
-
-      <div class="step-box">
-        <h3><span class="step-number">1</span>У додатку (рекомендовано)</h3>
-        <ol>
-          <li>Відкрийте <span class="app-name">ForFuture</span></li>
-          <li><strong>Профіль</strong> → <strong>Особиста інформація</strong> → <strong>Видалити обліковий запис</strong></li>
-          <li>Підтвердіть видалення</li>
-        </ol>
-      </div>
-
-      <div class="step-box">
-        <h3><span class="step-number">2</span>Запит електронною поштою</h3>
-        <ol>
-          <li>Напишіть на <a href="mailto:diana.iglizn@gmail.com">diana.iglizn@gmail.com</a></li>
-          <li>Тема: <em>Запит на видалення — ForFuture</em></li>
-          <li>Вкажіть зареєстровану адресу e-mail</li>
-        </ol>
-      </div>
-
-      <h2>Які дані видаляються?</h2>
-      <ul>
-        <li><strong>Обліковий запис:</strong> E-mail, хеш пароля, мова, валюта, статус підписки, налаштування</li>
-        <li><strong>Фінансові дані:</strong> Дохід, витрати, бюджети, цілі, закриті місяці, звіти</li>
-        <li><strong>Ваш контент:</strong> Категорії, нотатки, запам’ятовані отримувачі, правила категорій</li>
-        <li><strong>Хмарне резервне копіювання</strong> (якщо було увімкнено)</li>
-      </ul>
-
-      <div class="warning-box">
-        <p><strong>Важливо:</strong> Видалення остаточне. Відновити дані неможливо.</p>
-      </div>
-
-      <div class="contact-info">
-        <h3>Контакт</h3>
-        <p><a href="mailto:diana.iglizn@gmail.com">diana.iglizn@gmail.com</a></p>
-        <p><a href="privacy-policy.html">Політика конфіденційності</a></p>
-      </div>
-    </div>
 
     <div class="footer-links">
       <a href="index.html">Startseite</a> ·
@@ -211,17 +168,7 @@
     </div>
   </div>
 
-  <script>
-    function showLanguage(lang) {
-      document.querySelectorAll('.content').forEach(function (el) {
-        el.classList.remove('active');
-      });
-      document.querySelectorAll('.language-selector button').forEach(function (btn) {
-        btn.classList.remove('active');
-      });
-      document.getElementById('content-' + lang).classList.add('active');
-      document.getElementById('btn-' + lang).classList.add('active');
-    }
-  </script>
+  <script src="legal-page.js"></script>
+  </main>
 </body>
 </html>
