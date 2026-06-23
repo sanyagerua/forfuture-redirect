@@ -11,53 +11,63 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="legal-template-styles.css" />
+  <link rel="stylesheet" href="legal-page.css" />
 </head>
-<body>
-  <div class="page-logo">
-    <a href="index.html" aria-label="ForFuture Startseite">
-      <img src="images/forfuture-wordmark-dark.png" alt="ForFuture" width="200" height="32" />
-    </a>
-  </div>
-
-  <div class="container">
-    <h1>Impressum</h1>
-    <p class="subtitle">Angaben gemäß § 5 TMG / § 18 MStV</p>
-
-    <div class="support-section">
-      <h2>Anbieter / Diensteanbieter</h2>
-      <p><strong>ForFuture</strong> (App &amp; Website)</p>
-      <p>
-        Verantwortlich: Diana Barkova<br />
-        Kastanienstraße 18<br />
-        40699 Erkrath<br />
-        Deutschland
-      </p>
-
-      <h2>Kontakt</h2>
-      <p>E-Mail: <a href="mailto:diana.iglizn@gmail.com">diana.iglizn@gmail.com</a></p>
-
-      <h2>Haftungsausschluss</h2>
-      <p>
-        Die Inhalte dieser Website und der ForFuture-App dienen der allgemeinen Information.
-        Wir übernehmen keine Gewähr für Vollständigkeit, Richtigkeit und Aktualität.
-        Für Inhalte verlinkter externer Seiten sind deren Betreiber verantwortlich.
-        ForFuture ist keine Finanzberatung und ersetzt keine professionelle Beratung.
-      </p>
-
-      <h2>Urheberrecht</h2>
-      <p>
-        Alle Inhalte dieser Website und der App unterliegen dem Urheberrecht.
-        Vervielfältigung oder Nutzung bedarf der Zustimmung der Anbieterin.
-      </p>
+<body data-title-key="impressum.title">
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo" data-i18n-aria="logo.aria" aria-label="ForFuture Startseite">
+        <img src="images/forfuture-wordmark-dark.png" alt="ForFuture" class="logo-wordmark-header" width="200" height="32" />
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch" role="group" data-i18n-aria="lang.switch.aria" aria-label="Sprache wählen">
+          <button type="button" class="lang-switch-btn is-active" data-lang="de" aria-pressed="true">DE</button>
+          <button type="button" class="lang-switch-btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+      </div>
     </div>
+  </header>
+  <main class="subpage-main">
+    <div class="container">
+      <h1 data-i18n="impressum.title">Impressum</h1>
+      <p class="subtitle" data-i18n="impressum.subtitle">Angaben gemäß § 5 TMG / § 18 MStV</p>
 
-    <div class="footer-links">
-      <a href="index.html">Startseite</a> ·
-      <a href="privacy-policy.html">Datenschutz</a> ·
-      <a href="terms-of-service.html">AGB</a> ·
-      <a href="support.html">Support</a>
+      <div class="support-section">
+        <h2 data-i18n="impressum.provider.title">Anbieter / Diensteanbieter</h2>
+        <p><strong data-i18n="impressum.provider.app">ForFuture (App &amp; Website)</strong></p>
+        <p>
+          <span data-i18n="impressum.provider.person">Verantwortlich: Diana Barkova</span><br />
+          Kastanienstraße 18<br />
+          40699 Erkrath<br />
+          Deutschland
+        </p>
+
+        <h2 data-i18n="impressum.contact.title">Kontakt</h2>
+        <p>E-Mail: <a href="mailto:diana.iglizn@gmail.com">diana.iglizn@gmail.com</a></p>
+
+        <h2 data-i18n="impressum.disclaimer.title">Haftungsausschluss</h2>
+        <p data-i18n="impressum.disclaimer.text">
+          Die Inhalte dieser Website und der ForFuture-App dienen der allgemeinen Information.
+          Wir übernehmen keine Gewähr für Vollständigkeit, Richtigkeit und Aktualität.
+          Für Inhalte verlinkter externer Seiten sind deren Betreiber verantwortlich.
+          ForFuture ist keine Finanzberatung und ersetzt keine professionelle Beratung.
+        </p>
+
+        <h2 data-i18n="impressum.copyright.title">Urheberrecht</h2>
+        <p data-i18n="impressum.copyright.text">
+          Alle Inhalte dieser Website und der App unterliegen dem Urheberrecht.
+          Vervielfältigung oder Nutzung bedarf der Zustimmung der Anbieterin.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <a href="index.html" data-i18n="footer.home">Startseite</a> ·
+        <a href="privacy-policy.html" data-i18n="footer.privacy">Datenschutz</a> ·
+        <a href="terms-of-service.html" data-i18n="footer.terms">AGB</a> ·
+        <a href="support.html" data-i18n="footer.support">Support</a>
+      </div>
     </div>
-  </div>
+  </main>
+  <script src="legal-page.js"></script>
 </body>
 </html>
