@@ -29,7 +29,7 @@
   <body>
     <header class="site-header">
       <div class="container header-inner">
-        <a href="#" class="logo" data-i18n-aria="logo.aria" aria-label="ForFuture Startseite">
+        <a href="index.html" class="logo" data-i18n-aria="logo.aria" aria-label="ForFuture Startseite">
           <img
             src="images/forfuture-wordmark-dark.png"
             alt="ForFuture"
@@ -67,6 +67,10 @@
         </div>
       </div>
       <nav id="nav-mobile" class="nav-mobile" data-i18n-aria="nav.mobile.aria" aria-label="Mobile Navigation">
+        <div class="lang-switch lang-switch--mobile" role="group" data-i18n-aria="lang.switch.aria" aria-label="Sprache wählen">
+          <button type="button" class="lang-switch-btn is-active" data-lang="de" aria-pressed="true">DE</button>
+          <button type="button" class="lang-switch-btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
         <a href="#download" data-i18n="nav.download">App holen</a>
         <a href="#warum" data-i18n="nav.why">Warum ForFuture</a>
         <a href="#ziele" data-i18n="nav.goals">Ziele</a>
@@ -658,7 +662,6 @@
       <a href="#download" class="btn btn-primary" data-i18n="nav.download">App holen</a>
     </div>
 
-    <script src="landing-i18n.js"></script>
     <script src="landing.js"></script>
   </body>
 </html>
