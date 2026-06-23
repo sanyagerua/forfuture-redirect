@@ -10,24 +10,27 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="legal-template-styles.css" />
+  <link rel="stylesheet" href="legal-page.css" />
 </head>
-<body>
-  <div class="page-logo">
-    <a href="index.html" aria-label="ForFuture home">
-      <img src="images/forfuture-wordmark-dark.png" alt="ForFuture" width="200" height="32" />
-    </a>
-  </div>
-
-  <div class="container">
-    <h1>Privacy Policy — ForFuture</h1>
-    <p class="subtitle">Budget app · No bank connection · Expenses under control. Goals in sight.</p>
-
-    <div class="language-selector">
-      <button type="button" id="btn-en" class="active" onclick="showLanguage('en')">English</button>
-      <button type="button" id="btn-de" onclick="showLanguage('de')">Deutsch</button>
-      <button type="button" id="btn-es" onclick="showLanguage('es')">Español</button>
+<body data-content-prefix="policy" data-title-key="privacy.title">
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo" data-i18n-aria="logo.aria" aria-label="ForFuture Startseite">
+        <img src="images/forfuture-wordmark-dark.png" alt="ForFuture" class="logo-wordmark-header" width="200" height="32" />
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch" role="group" data-i18n-aria="lang.switch.aria" aria-label="Sprache wählen">
+          <button type="button" class="lang-switch-btn is-active" data-lang="de" aria-pressed="true">DE</button>
+          <button type="button" class="lang-switch-btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+      </div>
     </div>
+  </header>
+  <main class="subpage-main">
+<div class="container">
+    <h1 data-i18n="privacy.title">Privacy Policy — ForFuture</h1>
+    <p class="subtitle" data-i18n="privacy.subtitle">Budget app · No bank connection · Expenses under control. Goals in sight.</p>
+
 
     <!-- ─── ENGLISH ─── -->
     <div id="policy-en" class="policy-content active" lang="en">
@@ -531,257 +534,6 @@
       <div class="last-updated">Zuletzt aktualisiert: 20. Mai 2026</div>
     </div>
 
-    <!-- ─── ESPAÑOL ─── -->
-    <div id="policy-es" class="policy-content" lang="es">
-
-      <h2>1. Responsable del tratamiento</h2>
-      <p>
-        <strong>ForFuture</strong> (aplicación móvil y sitio web)<br />
-        Responsable según el art.&nbsp;4.7 del RGPD:<br />
-        <strong>Diana Barkova</strong><br />
-        Kastanienstraße 18<br />
-        40699 Erkrath<br />
-        Alemania
-      </p>
-      <p>
-        No se ha designado delegado de protección de datos (art.&nbsp;37 RGPD no exigido).
-        Consultas de privacidad: <a href="mailto:diana.iglizn@gmail.com">diana.iglizn@gmail.com</a>
-      </p>
-
-      <h2>2. Resumen</h2>
-      <p>
-        ForFuture le ayuda a registrar gastos, presupuestos y metas de ahorro y cerrar meses.
-        <strong>No es un banco, un servicio de pago ni asesoramiento financiero.</strong>
-        <strong>No hay conexión</strong> con cuentas bancarias; usted introduce los datos manualmente.
-      </p>
-      <div class="info-box">
-        <p>
-          <strong>Local primero:</strong> Los ingresos mensuales y los informes de meses cerrados permanecen
-          <strong>por defecto solo en su dispositivo</strong>. Opcionalmente puede activar una
-          <strong>copia de seguridad en la nube</strong>; entonces los datos seleccionados (p.&nbsp;ej. transacciones,
-          categorías, metas, beneficiarios aprendidos) se almacenan cifrados en servidores de la UE.
-          Sin copia en la nube, esos datos también permanecen locales.
-        </p>
-      </div>
-
-      <h2>3. Categorías de datos personales</h2>
-      <table>
-        <thead>
-          <tr><th>Categoría</th><th>Ejemplos</th><th>Dónde se almacena</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Cuenta y perfil</strong></td>
-            <td>Correo, hash de contraseña, idioma, moneda, tipo de usuario (onboarding), estado de suscripción, fin de prueba, ajustes</td>
-            <td>Supabase (UE), si utiliza una cuenta</td>
-          </tr>
-          <tr>
-            <td><strong>Datos financieros (nube opcional)</strong></td>
-            <td>Transacciones, categorías de presupuesto, costes fijos, metas de ahorro, progreso, comercios/beneficiarios aprendidos</td>
-            <td>Principalmente <strong>local</strong> en el dispositivo; con copia en nube activada, también Supabase (UE)</td>
-          </tr>
-          <tr>
-            <td><strong>Solo local (no en la nube)</strong></td>
-            <td>Ingresos mensuales, informes/estadísticas de meses cerrados</td>
-            <td>Solo dispositivo (AsyncStorage, etc.)</td>
-          </tr>
-          <tr>
-            <td><strong>Comentarios</strong></td>
-            <td>Texto libre, marca temporal, ID de usuario</td>
-            <td>Supabase (UE), si envía comentarios</td>
-          </tr>
-          <tr>
-            <td><strong>Suscripción y pago</strong></td>
-            <td>ID de producto, fecha de caducidad, tienda (App Store / Google Play), referencia de transacción (sin números de tarjeta en nuestros sistemas)</td>
-            <td>Supabase (UE); pago a través de Apple/Google</td>
-          </tr>
-          <tr>
-            <td><strong>Auto-captura (opcional, Android)</strong></td>
-            <td>Texto de notificaciones de cartera/pago (p.&nbsp;ej. importe, beneficiario), solo si activa la función</td>
-            <td>Procesado <strong>localmente</strong>; no se sube a nuestros servidores</td>
-          </tr>
-          <tr>
-            <td><strong>Entrada por voz (opcional)</strong></td>
-            <td>Grabación de voz → transcripción en el dispositivo (servicio del sistema operativo)</td>
-            <td>Local; no subimos el audio de forma permanente</td>
-          </tr>
-          <tr>
-            <td><strong>Dispositivo y ajustes de la app</strong></td>
-            <td>Idioma, visualización, interruptor de copia en nube, opciones de auto-captura</td>
-            <td>Local; indicadores de suscripción/perfil pueden estar en Supabase</td>
-          </tr>
-          <tr>
-            <td><strong>Avisos locales (Android, opcional)</strong></td>
-            <td>Notificación en el dispositivo cuando la auto-captura detecta un pago (no push remoto de marketing)</td>
-            <td>Procesado localmente; no enviamos push remoto desde nuestros servidores</td>
-          </tr>
-          <tr>
-            <td><strong>Registros técnicos</strong></td>
-            <td>IP, marca temporal, errores de API (registros del servidor)</td>
-            <td>Supabase / alojamiento, retención limitada</td>
-          </tr>
-        </tbody>
-      </table>
-      <p>
-        <strong>No</strong> tratamos <strong>categorías especiales</strong> de datos personales del art.&nbsp;9 RGPD
-        (p.&nbsp;ej. salud o religión) salvo que usted los introduzca voluntariamente en campos de texto libre.
-      </p>
-      <p>
-        La <strong>app móvil</strong> <strong>no</strong> integra SDK de <strong>analítica</strong> ni de
-        <strong>informes de fallos</strong> de terceros (p.&nbsp;ej. Firebase Analytics, Sentry). Los interruptores de
-        recordatorios en Ajustes se guardan solo en el dispositivo; no enviamos notificaciones push remotas de marketing
-        desde nuestros servidores.
-      </p>
-
-      <h2>4. Finalidades y bases jurídicas (art.&nbsp;6 RGPD)</h2>
-      <ul>
-        <li><strong>Contrato / medidas precontractuales (art.&nbsp;6.1.b):</strong> Cuenta, funciones de la app, gestión de suscripción, soporte.</li>
-        <li><strong>Consentimiento (art.&nbsp;6.1.a):</strong> Acceso a notificaciones (auto-captura), avisos locales de confirmación (Android, opcional), micrófono (voz), copia en nube opcional (activable en Ajustes). Revocable en cualquier momento con efectos futuros.</li>
-        <li><strong>Interés legítimo (art.&nbsp;6.1.f):</strong> Seguridad informática, prevención de abusos, análisis de errores en registros, aplicación de derechos de suscripción — respetando sus intereses (minimización de datos).</li>
-        <li><strong>Obligación legal (art.&nbsp;6.1.c):</strong> Conservación según derecho mercantil/fiscal cuando corresponda.</li>
-      </ul>
-      <p><strong>No</strong> realizamos <strong>decisiones automatizadas</strong> en el sentido del art.&nbsp;22 RGPD.</p>
-
-      <h2>5. Suscripción (Premium) y procesamiento de pagos</h2>
-      <p>
-        Tras un <strong>periodo de prueba gratuito de 7 días</strong>, el uso continuado de la app requiere una suscripción de pago:
-      </p>
-      <ul>
-        <li><strong>Mensual:</strong> 2,99&nbsp;€ (el precio puede mostrarse en moneda local en la tienda)</li>
-        <li><strong>Anual:</strong> 24,99&nbsp;€</li>
-      </ul>
-      <p>
-        La compra, renovación y cancelación se gestionan a través de la <strong>App Store de Apple</strong> o
-        <strong>Google Play Store</strong>. Apple o Google es el encargado del pago;
-        <strong>no</strong> recibimos los datos completos de tarjeta o cuenta bancaria de las tiendas, sino
-        información de transacción y estado de suscripción para activar Premium cuando corresponda.
-      </p>
-      <p>
-        Guardamos el estado y la fecha de caducidad de la suscripción en su perfil (en el servidor, protegido contra manipulación).
-        Cancelación y reembolsos se rigen por las
-        <a href="https://www.apple.com/legal/internet-services/itunes/es/terms.html" rel="noopener">Condiciones de Apple Media Services</a>
-        y las
-        <a href="https://play.google.com/intl/es_es/about/play-terms/" rel="noopener">Condiciones de Google Play</a>.
-      </p>
-
-      <h2>6. Copia de seguridad en la nube (opcional)</h2>
-      <p>
-        Si activa «Copia en la nube», sincronizamos los datos financieros seleccionados con su cuenta en Supabase
-        (región <strong>Fráncfort / UE</strong>). Puede desactivar la función en cualquier momento;
-        los datos ya subidos pueden eliminarse mediante la <strong>eliminación de la cuenta</strong>.
-      </p>
-      <p><strong>Nunca se suben:</strong> Ingresos mensuales, informes de meses cerrados.</p>
-
-      <h2>7. Auto-captura de pagos (Android, opcional)</h2>
-      <p>
-        Si activa esta función, leemos <strong>localmente en su dispositivo</strong> el texto de notificaciones de apps seleccionadas
-        (p.&nbsp;ej. Google Pay, PayPal) para detectar importes y sugerir registrar un gasto. Usted confirma cada entrada.
-        El texto de la notificación <strong>no</strong> se transmite a nuestros servidores. Puede revocar el acceso en los ajustes de Android
-        («Acceso a notificaciones») en cualquier momento.
-      </p>
-
-      <h2>8. Entrada por voz (opcional)</h2>
-      <p>
-        Para la entrada por voz utilizamos el reconocimiento de voz de su dispositivo (p.&nbsp;ej. Apple Speech / Android Speech).
-        El procesamiento puede realizarse también en servidores de Apple/Google según el sistema operativo; no almacenamos el audio de forma permanente.
-        Usamos la transcripción reconocida solo para rellenar campos en la app hasta que guarde o descarte.
-      </p>
-
-      <h2>9. Destinatarios y encargados del tratamiento (art.&nbsp;28 RGPD)</h2>
-      <ul>
-        <li><strong>Supabase Inc.</strong> — Autenticación, base de datos, edge functions (centro de datos UE Fráncfort); cifrado en tránsito y en reposo.</li>
-        <li><strong>Apple Inc.</strong> — App Store, compras in-app (iOS), reconocimiento de voz opcional en el dispositivo.</li>
-        <li><strong>Google Ireland Ltd.</strong> — Google Play, compras in-app (Android), reconocimiento de voz opcional en el dispositivo.</li>
-        <li><strong>Expo / proveedores de alojamiento</strong> — Infraestructura de compilación de la app (sin acceso a su contenido financiero en funcionamiento normal).</li>
-      </ul>
-      <p>
-        Existen contratos art.&nbsp;28 RGPD con los encargados. Las transferencias a terceros países (especialmente EE.&nbsp;UU.)
-        se basan en <strong>cláusulas contractuales tipo</strong> (art.&nbsp;46 RGPD) y medidas técnicas/organizativas adicionales.
-        Copias disponibles bajo solicitud.
-      </p>
-
-      <h2>10. Conservación y eliminación</h2>
-      <ul>
-        <li><strong>Cuenta y datos en la nube:</strong> Hasta que elimine su cuenta en Ajustes o bajo solicitud.</li>
-        <li><strong>Datos locales:</strong> Hasta que desinstale la app o elimine datos en la app.</li>
-        <li><strong>Registros de suscripción:</strong> Según obligaciones legales y políticas de la tienda; metadatos de suscripción en el perfil hasta eliminación de la cuenta.</li>
-        <li><strong>Comentarios:</strong> Hasta resolución, normalmente máx. 12 meses salvo obligación más larga.</li>
-        <li><strong>Registros del servidor:</strong> Normalmente 30–90 días (estándar Supabase), después eliminación/sobrescritura.</li>
-      </ul>
-
-      <h3>Eliminación de la cuenta (art.&nbsp;17 RGPD)</h3>
-      <p>
-        Puede eliminar permanentemente su cuenta en la app en
-        <strong>Ajustes → Información personal → Eliminar cuenta</strong>.
-        Esto elimina sus datos en el servidor (perfil, datos financieros en la nube, comentarios vinculados a su cuenta) mediante una
-        función segura del servidor y desactiva su acceso. Elimine los datos locales desinstalando la app.
-      </p>
-      <p>
-        <strong>No hay una política de eliminación separada</strong>; la eliminación de la cuenta y la supresión de datos se describen aquí y en la app.
-      </p>
-
-      <h2>11. Permisos de la aplicación</h2>
-      <p>
-        Según el uso, la app puede solicitar: Internet, almacenamiento local, notificaciones, micrófono (voz),
-        acceso a notificaciones (auto-captura en Android) y, opcionalmente, portapapeles (enlace profundo desde texto de pago copiado).
-        Sin permisos concedidos, algunas funciones no estarán disponibles.
-      </p>
-
-      <h2>12. Sus derechos</h2>
-      <p>Con sujeción a los requisitos legales, usted tiene los siguientes derechos:</p>
-      <ul>
-        <li>Acceso (art.&nbsp;15 RGPD)</li>
-        <li>Rectificación (art.&nbsp;16 RGPD)</li>
-        <li>Supresión (art.&nbsp;17 RGPD)</li>
-        <li>Limitación del tratamiento (art.&nbsp;18 RGPD)</li>
-        <li>Portabilidad de datos (art.&nbsp;20 RGPD)</li>
-        <li>Oposición al tratamiento basado en el art.&nbsp;6.1.f RGPD (art.&nbsp;21 RGPD)</li>
-        <li>Retirada del consentimiento otorgado (art.&nbsp;7.3 RGPD)</li>
-      </ul>
-      <p>
-        Contacto: <a href="mailto:diana.iglizn@gmail.com">diana.iglizn@gmail.com</a>.
-        Puede presentar una reclamación ante una autoridad de control, p.&nbsp;ej. el
-        <strong>Comisionado estatal de protección de datos e información de Renania del Norte-Westfalia (LDI NRW)</strong>,
-        Kavalleriestraße 2–4, 40213 Düsseldorf, Alemania (art.&nbsp;77 RGPD).
-      </p>
-
-      <h2>13. Seguridad</h2>
-      <p>
-        Cifrado TLS, control de acceso a nivel de base de datos (Row Level Security), almacenamiento separado de campos sensibles de suscripción,
-        sin almacenamiento de contraseñas en texto plano. Revisión periódica de medidas técnicas y organizativas.
-      </p>
-
-      <h2>14. Menores</h2>
-      <p>
-        La app está dirigida a personas de <strong>16 años o más</strong>. No recopilamos conscientemente datos de menores de 16 años.
-      </p>
-
-      <h2>15. Sitio web y cookies</h2>
-      <p>
-        En <a href="https://forfuture.app">forfuture.app</a> pueden utilizarse cookies estrictamente necesarias.
-        Cookies analíticas/de marketing opcionales solo con consentimiento mediante el banner de cookies.
-      </p>
-
-      <h2>16. Cambios</h2>
-      <p>
-        Actualizamos esta política cuando cambian las funciones, requisitos legales o proveedores de servicios.
-        La versión vigente está disponible en la app y en esta URL. En cambios importantes le informaremos en la app
-        o por correo electrónico si disponemos de su dirección.
-      </p>
-
-      <div class="contact-info">
-        <p><strong>Contacto</strong></p>
-        <p>
-          Diana Barkova · Kastanienstraße 18 · 40699 Erkrath · Alemania<br />
-          Privacidad: <a href="mailto:diana.iglizn@gmail.com">diana.iglizn@gmail.com</a><br />
-          <a href="terms-of-service.html">Condiciones de uso</a> ·
-          <a href="third-party-notices.html">Licencias de código abierto</a>
-        </p>
-      </div>
-
-      <div class="last-updated">Última actualización: 20 de mayo de 2026</div>
-    </div>
-
     <div class="footer-links">
       <a href="index.html">Startseite</a> ·
       <a href="terms-of-service.html">AGB</a> ·
@@ -791,20 +543,7 @@
     </div>
   </div>
 
-  <script>
-    function showLanguage(lang) {
-      var contents = document.querySelectorAll('.policy-content');
-      var buttons = document.querySelectorAll('.language-selector button');
-      for (var i = 0; i < contents.length; i++) {
-        contents[i].classList.remove('active');
-      }
-      for (var j = 0; j < buttons.length; j++) {
-        buttons[j].classList.remove('active');
-      }
-      document.getElementById('policy-' + lang).classList.add('active');
-      document.getElementById('btn-' + lang).classList.add('active');
-      document.documentElement.lang = lang === 'de' ? 'de' : (lang === 'es' ? 'es' : 'en');
-    }
-  </script>
+  <script src="legal-page.js"></script>
+  </main>
 </body>
 </html>
