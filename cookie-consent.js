@@ -1,183 +1,131 @@
-(function () {
-  'use strict';
+/* Cookie bar — slim bottom strip (TTDSG / GDPR) */
+.cookie-banner {
+  position: fixed;
+  inset: auto 0 0 0;
+  z-index: 10000;
+  background: #fff;
+  border-top: 1px solid #e5e7eb;
+  box-shadow: 0 -4px 24px rgba(17, 19, 24, 0.08);
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 15px;
+  line-height: 1.45;
+  color: #374151;
+}
 
-  var STORAGE_KEY = 'ff-cookie-consent';
-  var LANG_KEY = 'ff-lang';
-  var CONSENT_VERSION = 1;
-  var FONT_HREF =
-    'https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap';
+.cookie-banner[hidden] {
+  display: none !important;
+}
 
-  var STRINGS = {
-    de: {
-      title: 'Cookies & Datenschutz',
-      text:
-        'Wir verwenden technisch notwendige Speicher (z.\u00a0B. Sprache und Ihre Cookie-Wahl). ' +
-        'Optional können Schriftarten von Google Fonts geladen werden — dabei kann Ihre IP-Adresse an Google übermittelt werden. ' +
-        'Details in der <a href="privacy-policy.html#cookies">Datenschutzerklärung</a>.',
-      accept: 'Alle akzeptieren',
-      decline: 'Nur notwendige',
-      settings: 'Cookie-Einstellungen',
-    },
-    en: {
-      title: 'Cookies & privacy',
-      text:
-        'We use strictly necessary storage (e.g. language and your cookie choice). ' +
-        'Optionally, fonts may be loaded from Google Fonts — your IP address may be sent to Google. ' +
-        'See our <a href="privacy-policy.html#cookies">Privacy Policy</a> for details.',
-      accept: 'Accept all',
-      decline: 'Only necessary',
-      settings: 'Cookie settings',
-    },
-  };
+.cookie-banner__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 14px 24px;
+}
 
-  function detectLang() {
-    var stored = localStorage.getItem(LANG_KEY);
-    if (stored === 'de' || stored === 'en') return stored;
-    return navigator.language && navigator.language.toLowerCase().startsWith('de') ? 'de' : 'en';
+.cookie-banner__message {
+  margin: 0;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.cookie-banner__text {
+  color: #374151;
+}
+
+.cookie-banner__learn {
+  margin-left: 6px;
+  color: #111318;
+  text-decoration: underline;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.cookie-banner__learn:hover {
+  color: #00a8cc;
+}
+
+.cookie-banner__actions {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 10px;
+}
+
+.cookie-banner__btn {
+  min-height: 40px;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.cookie-banner__btn--decline {
+  background: #fff;
+  color: #111318;
+  border: 1px solid #d1d5db;
+}
+
+.cookie-banner__btn--decline:hover {
+  background: #f9fafb;
+  border-color: #9ca3af;
+}
+
+.cookie-banner__btn--accept {
+  background: #111318;
+  color: #fff;
+  border: 1px solid #111318;
+}
+
+.cookie-banner__btn--accept:hover {
+  background: #2a2f36;
+  border-color: #2a2f36;
+}
+
+.cookie-settings-link {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.cookie-settings-link:hover {
+  color: #00a8cc;
+}
+
+body.has-cookie-banner {
+  padding-bottom: 72px;
+}
+
+@media (max-width: 640px) {
+  body.has-cookie-banner {
+    padding-bottom: 120px;
   }
 
-  function t(key) {
-    var lang = detectLang();
-    var bucket = STRINGS[lang] || STRINGS.de;
-    return bucket[key] != null ? bucket[key] : STRINGS.de[key] || '';
+  .cookie-banner__inner {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 14px 16px;
+    gap: 14px;
   }
 
-  function readConsent() {
-    try {
-      var raw = localStorage.getItem(STORAGE_KEY);
-      if (!raw) return null;
-      var data = JSON.parse(raw);
-      if (!data || data.v !== CONSENT_VERSION) return null;
-      if (data.choice !== 'accepted' && data.choice !== 'declined') return null;
-      return data;
-    } catch (e) {
-      return null;
-    }
+  .cookie-banner__actions {
+    justify-content: flex-end;
   }
 
-  function saveConsent(choice) {
-    localStorage.setItem(
-      STORAGE_KEY,
-      JSON.stringify({
-        v: CONSENT_VERSION,
-        choice: choice,
-        ts: new Date().toISOString(),
-      })
-    );
+  .cookie-banner__btn {
+    flex: 1 1 0;
   }
-
-  function loadGoogleFonts() {
-    if (document.getElementById('ff-google-fonts')) return;
-    var pre1 = document.createElement('link');
-    pre1.rel = 'preconnect';
-    pre1.href = 'https://fonts.googleapis.com';
-    document.head.appendChild(pre1);
-    var pre2 = document.createElement('link');
-    pre2.rel = 'preconnect';
-    pre2.href = 'https://fonts.gstatic.com';
-    pre2.crossOrigin = 'anonymous';
-    document.head.appendChild(pre2);
-    var link = document.createElement('link');
-    link.id = 'ff-google-fonts';
-    link.rel = 'stylesheet';
-    link.href = FONT_HREF;
-    document.head.appendChild(link);
-  }
-
-  function hideBanner() {
-    var banner = document.getElementById('cookie-banner');
-    if (banner) banner.hidden = true;
-  }
-
-  function showBanner() {
-    var banner = document.getElementById('cookie-banner');
-    if (!banner) return;
-    banner.querySelector('.cookie-banner__title').textContent = t('title');
-    banner.querySelector('.cookie-banner__text').innerHTML = t('text');
-    banner.querySelector('[data-cookie-accept]').textContent = t('accept');
-    banner.querySelector('[data-cookie-decline]').textContent = t('decline');
-    banner.hidden = false;
-  }
-
-  function applyChoice(choice, showUi) {
-    saveConsent(choice);
-    if (choice === 'accepted') loadGoogleFonts();
-    if (showUi !== false) hideBanner();
-    document.dispatchEvent(
-      new CustomEvent('ff-cookie-consent', { detail: { choice: choice } })
-    );
-  }
-
-  function bindSettingsLinks() {
-    document.querySelectorAll('[data-cookie-settings]').forEach(function (el) {
-      if (el.getAttribute('data-cookie-bound') === '1') return;
-      el.setAttribute('data-cookie-bound', '1');
-      if (el.tagName === 'BUTTON') {
-        el.textContent = t('settings');
-      } else {
-        el.textContent = t('settings');
-      }
-      el.addEventListener('click', function (e) {
-        e.preventDefault();
-        showBanner();
-      });
-    });
-  }
-
-  function createBanner() {
-    if (document.getElementById('cookie-banner')) return;
-    var banner = document.createElement('div');
-    banner.id = 'cookie-banner';
-    banner.className = 'cookie-banner';
-    banner.setAttribute('role', 'dialog');
-    banner.setAttribute('aria-live', 'polite');
-    banner.setAttribute('aria-label', t('title'));
-    banner.innerHTML =
-      '<div class="cookie-banner__inner">' +
-      '<p class="cookie-banner__title"></p>' +
-      '<p class="cookie-banner__text"></p>' +
-      '<div class="cookie-banner__actions">' +
-      '<button type="button" class="cookie-banner__btn cookie-banner__btn--decline" data-cookie-decline></button>' +
-      '<button type="button" class="cookie-banner__btn cookie-banner__btn--accept" data-cookie-accept></button>' +
-      '</div></div>';
-    document.body.appendChild(banner);
-
-    banner.querySelector('[data-cookie-accept]').addEventListener('click', function () {
-      applyChoice('accepted');
-    });
-    banner.querySelector('[data-cookie-decline]').addEventListener('click', function () {
-      applyChoice('declined');
-    });
-  }
-
-  function init() {
-    createBanner();
-    bindSettingsLinks();
-
-    var consent = readConsent();
-    if (consent) {
-      if (consent.choice === 'accepted') loadGoogleFonts();
-      hideBanner();
-      return;
-    }
-
-    showBanner();
-  }
-
-  window.ForFutureCookieConsent = {
-    readConsent: readConsent,
-    openSettings: showBanner,
-    accept: function () {
-      applyChoice('accepted');
-    },
-    decline: function () {
-      applyChoice('declined');
-    },
-  };
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
-})();
+}
