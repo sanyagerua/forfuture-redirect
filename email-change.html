@@ -22,17 +22,31 @@
     <link rel="stylesheet" href="auth-page.css" />
   </head>
   <body>
-    <a href="index.html" class="auth-logo" aria-label="ForFuture">
-      <img src="images/forfuture-wordmark-dark.png" alt="ForFuture" width="160" height="26" />
-    </a>
-    <div class="card" id="card">
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="index.html" class="logo" aria-label="ForFuture">
+          <img src="images/forfuture-wordmark-dark.png" alt="ForFuture" class="logo-wordmark-header" width="200" height="32" />
+        </a>
+        <div class="header-actions">
+          <div class="lang-switch" role="group" aria-label="Sprache wählen">
+            <button type="button" class="lang-switch-btn is-active" data-lang="de" aria-pressed="true">DE</button>
+            <button type="button" class="lang-switch-btn" data-lang="en" aria-pressed="false">EN</button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="auth-main">
+      <div class="auth-card" id="card">
       <h1 id="headline">ForFuture</h1>
       <p id="msg"></p>
-      <div id="actions"></div>
+      <div id="actions" class="auth-actions" hidden></div>
       <p class="muted" id="hint"></p>
-    </div>
+      </div>
+    </main>
+    <script src="auth-page.js"></script>
     <script type="module">
-      const de = navigator.language.toLowerCase().startsWith('de');
+      const lang = window.ForFutureAuth?.detectLang?.() ?? (navigator.language.toLowerCase().startsWith('de') ? 'de' : 'en');
+      const de = lang === 'de';
       const $ = (id) => document.getElementById(id);
 
       /** Public anon keys — safe to embed; must match the Supabase project that sent the email. */
@@ -49,11 +63,13 @@
       const hint = $('hint');
 
       function addOpenAppButton() {
+        actions.innerHTML = '';
         const open = document.createElement('a');
         open.href = 'forfuture2://';
         open.className = 'btn';
         open.textContent = de ? 'App öffnen' : 'Open app';
         actions.appendChild(open);
+        actions.hidden = false;
       }
 
       function showError(title, body, foot) {
