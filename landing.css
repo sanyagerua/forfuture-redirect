@@ -285,6 +285,26 @@ ul {
   border-bottom: 1px solid var(--border);
 }
 
+.lang-switch--mobile {
+  align-self: flex-start;
+  margin-bottom: 8px;
+  background: rgba(17, 19, 24, 0.06);
+  border-color: var(--border);
+}
+
+.lang-switch--mobile .lang-switch-btn {
+  color: var(--text-secondary);
+}
+
+.lang-switch--mobile .lang-switch-btn:hover {
+  color: var(--text);
+}
+
+.lang-switch--mobile .lang-switch-btn.is-active {
+  background: var(--cta);
+  color: #fff;
+}
+
 @media (min-width: 900px) {
   .nav-desktop {
     display: flex;
