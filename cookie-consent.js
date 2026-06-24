@@ -91,6 +91,16 @@
     );
   }
 
+  function removeGoogleFonts() {
+    document
+      .querySelectorAll(
+        'link[href*="fonts.googleapis.com"], link[href*="fonts.gstatic.com"]'
+      )
+      .forEach(function (link) {
+        link.parentNode.removeChild(link);
+      });
+  }
+
   function loadGoogleFonts() {
     if (document.getElementById('ff-google-fonts')) return;
     var pre1 = document.createElement('link');
@@ -183,11 +193,16 @@
 
     var consent = readConsent();
     if (consent) {
-      if (consent.choice === 'accepted') loadGoogleFonts();
+      if (consent.choice === 'accepted') {
+        loadGoogleFonts();
+      } else {
+        removeGoogleFonts();
+      }
       hideBanner();
       return;
     }
 
+    removeGoogleFonts();
     showBanner();
   }
 
