@@ -15,16 +15,11 @@
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://forfuture.app/" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="icon" href="images/favicon.png" type="image/png" sizes="32x32" />
     <link rel="icon" href="images/favicon-512.png" type="image/png" sizes="512x512" />
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png" sizes="180x180" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
     <link rel="stylesheet" href="landing.css" />
+    <link rel="stylesheet" href="cookie-consent.css" />
   </head>
   <body>
     <header class="site-header">
@@ -646,6 +641,7 @@
             <a href="impressum.html" data-i18n="footer.imprint">Impressum</a>
             <a href="delete-account.html" data-i18n="footer.delete">Konto löschen</a>
             <a href="third-party-notices.html" data-i18n="footer.opensource">Open Source</a>
+            <button type="button" class="cookie-settings-link" data-cookie-settings data-i18n="footer.cookies">Cookie-Einstellungen</button>
           </div>
           <div class="footer-col">
             <h4 data-i18n="footer.app">App</h4>
@@ -661,7 +657,7 @@
     <div class="mobile-cta-bar">
       <a href="#download" class="btn btn-primary" data-i18n="nav.download">App holen</a>
     </div>
-
+    <script src="cookie-consent.js"></script>
     <script src="landing.js"></script>
   </body>
 </html>
