@@ -1,6 +1,13 @@
 (function () {
   'use strict';
 
+  if (!window.ForFutureCookieConsent) {
+    var cookieScript = document.createElement('script');
+    cookieScript.src = 'cookie-consent.js';
+    cookieScript.async = false;
+    (document.head || document.documentElement).appendChild(cookieScript);
+  }
+
   var STORAGE_KEY = 'ff-lang';
 
   var STRINGS = {
@@ -133,6 +140,7 @@
       'footer.faq': 'FAQ',
       'footer.download': 'Download',
       'footer.copyright': '© 2026 ForFuture. Alle Rechte vorbehalten.',
+      'footer.cookies': 'Cookie-Einstellungen',
     },
     en: {
       'meta.title': 'ForFuture — Expenses under control. Goals in sight.',
@@ -262,6 +270,7 @@
       'footer.faq': 'FAQ',
       'footer.download': 'Download',
       'footer.copyright': '© 2026 ForFuture. All rights reserved.',
+      'footer.cookies': 'Cookie settings',
     },
   };
 
