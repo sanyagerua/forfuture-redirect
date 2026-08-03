@@ -9,6 +9,7 @@
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png" sizes="180x180" />
   <link rel="stylesheet" href="legal-page.css" />
   <link rel="stylesheet" href="cookie-consent.css" />
+    <script src="cookie-consent.js"></script>
 </head>
 <body data-content-prefix="policy" data-title-key="privacy.title">
   <header class="site-header">
@@ -109,6 +110,11 @@
             <td>Processed locally; we do not send remote push from our servers</td>
           </tr>
           <tr>
+            <td><strong>Usage analytics (optional)</strong></td>
+            <td>Anonymous app usage events (e.g.&nbsp;screens, feature use); app instance ID</td>
+            <td>Google Firebase Analytics — only after opt-in; not budget amounts or bank data</td>
+          </tr>
+          <tr>
             <td><strong>Technical logs</strong></td>
             <td>IP, timestamp, API errors (server logs)</td>
             <td>Supabase / hosting, limited retention</td>
@@ -120,15 +126,20 @@
         (e.g.&nbsp;health or religion data) unless you voluntarily enter them in free-text fields.
       </p>
       <p>
-        The <strong>mobile app</strong> does <strong>not</strong> integrate third-party <strong>analytics</strong> or
-        <strong>crash reporting</strong> SDKs (e.g.&nbsp;Firebase Analytics, Sentry). Settings toggles for future
-        budget reminders are stored locally only; we do not send remote marketing push notifications from our servers.
+        The <strong>mobile app</strong> may use <strong>Firebase Analytics</strong> (Google) only after you
+        <strong>opt in</strong> (soft prompt about 24 hours after registration, or later under
+        Settings → Help → Legal &amp; policies). Collection is <strong>off by default</strong>.
+        Analytics covers anonymous usage events (e.g.&nbsp;screens opened, feature use) to improve the product.
+        We do <strong>not</strong> send bank credentials, transaction amounts, or budget figures to Analytics.
+        You can withdraw consent anytime via the same Settings toggle. We do <strong>not</strong> currently
+        integrate a separate crash-reporting SDK (e.g.&nbsp;Sentry). Local reminder toggles stay on-device;
+        we do not send remote marketing push notifications from our servers.
       </p>
 
       <h2>4. Purposes and legal bases (Art.&nbsp;6 GDPR)</h2>
       <ul>
         <li><strong>Contract / pre-contractual measures (Art.&nbsp;6(1)(b)):</strong> Account, app features, subscription management, support.</li>
-        <li><strong>Consent (Art.&nbsp;6(1)(a)):</strong> Notification access (auto-capture), optional local confirmation alerts (Android), microphone (voice), optional cloud backup (enable in Settings). Withdraw consent at any time with future effect.</li>
+        <li><strong>Consent (Art.&nbsp;6(1)(a)):</strong> Notification access (auto-capture), optional local confirmation alerts (Android), microphone (voice), optional cloud backup (enable in Settings), optional usage analytics (Firebase Analytics). Withdraw consent at any time with future effect.</li>
         <li><strong>Legitimate interest (Art.&nbsp;6(1)(f)):</strong> IT security, abuse prevention, error analysis in logs, enforcement of subscription rights — while respecting your interests (data minimisation).</li>
         <li><strong>Legal obligation (Art.&nbsp;6(1)(c)):</strong> Retention under commercial/tax law where applicable.</li>
       </ul>
@@ -186,7 +197,7 @@
       <ul>
         <li><strong>Supabase Inc.</strong> — Authentication, database, edge functions (EU data centre Frankfurt); encryption in transit and at rest.</li>
         <li><strong>Apple Inc.</strong> — App Store, in-app purchases (iOS), optional on-device speech recognition.</li>
-        <li><strong>Google Ireland Ltd.</strong> — Google Play, in-app purchases (Android), optional on-device speech recognition.</li>
+        <li><strong>Google Ireland Ltd. / Google LLC</strong> — Google Play, in-app purchases (Android), optional on-device speech recognition; if you opt in, <strong>Firebase Analytics</strong> (usage events; processing may involve Google infrastructure including outside the EU under SCCs).</li>
         <li><strong>Expo / hosting providers</strong> — App build infrastructure (no access to your financial content in normal operation).</li>
       </ul>
       <p>
@@ -254,7 +265,9 @@
       <h2 id="cookies">15. Website &amp; cookies</h2>
       <p>
         On <a href="https://forfuture.app">forfuture.app</a>, strictly necessary cookies may be used.
-        Optional analytics/marketing cookies only with consent via the cookie banner.
+        The website cookie banner currently gates optional Google Fonts loading. We do <strong>not</strong>
+        currently run third-party website analytics on forfuture.app. If that changes, optional analytics
+        cookies would load only with consent via the cookie banner.
       </p>
 
       <h2>16. Changes</h2>
@@ -274,7 +287,7 @@
         </p>
       </div>
 
-      <div class="last-updated">Last updated: 20 May 2026</div>
+      <div class="last-updated">Last updated: 3 August 2026</div>
     </div>
 
     <!-- ─── DEUTSCH ─── -->
@@ -357,6 +370,11 @@
             <td>Lokal verarbeitet; kein Push von unseren Servern</td>
           </tr>
           <tr>
+            <td><strong>Nutzungsanalyse (optional)</strong></td>
+            <td>Anonyme App-Nutzungsereignisse (z.&nbsp;B. Bildschirme, Funktionsnutzung); App-Instanz-ID</td>
+            <td>Google Firebase Analytics — nur nach Einwilligung; keine Budgetbeträge oder Bankdaten</td>
+          </tr>
+          <tr>
             <td><strong>Technische Protokolle</strong></td>
             <td>IP, Zeitstempel, Fehler bei API-Aufrufen (Server-Logs)</td>
             <td>Supabase / Hosting, begrenzte Aufbewahrung</td>
@@ -369,15 +387,20 @@
         Freitextfeldern eingeben.
       </p>
       <p>
-        Die <strong>mobile App</strong> bindet <strong>keine</strong> Drittanbieter-<strong>Analytics-</strong> oder
-        <strong>Crash-Reporting-SDKs</strong> ein (z.&nbsp;B. Firebase Analytics, Sentry). Erinnerungs-Schalter in den
-        Einstellungen werden nur lokal gespeichert; wir versenden keinen Remote-Marketing-Push von unseren Servern.
+        Die <strong>mobile App</strong> kann <strong>Firebase Analytics</strong> (Google) nutzen, jedoch nur nach
+        Ihrer <strong>Einwilligung</strong> (Hinweis ca.&nbsp;24 Stunden nach Registrierung oder später unter
+        Einstellungen → Hilfe → Rechtliches). Die Erfassung ist <strong>standardmäßig aus</strong>.
+        Analytics umfasst anonyme Nutzungsereignisse (z.&nbsp;B. geöffnete Bildschirme, Funktionsnutzung) zur
+        Produktverbesserung. Bankzugangsdaten, Transaktionsbeträge oder Budgetzahlen werden <strong>nicht</strong>
+        an Analytics gesendet. Sie können die Einwilligung jederzeit über denselben Schalter widerrufen.
+        Ein separates Crash-Reporting-SDK (z.&nbsp;B. Sentry) ist derzeit <strong>nicht</strong> integriert.
+        Erinnerungs-Schalter bleiben lokal; wir versenden keinen Remote-Marketing-Push von unseren Servern.
       </p>
 
       <h2>4. Zwecke und Rechtsgrundlagen (Art.&nbsp;6 DSGVO)</h2>
       <ul>
         <li><strong>Vertrag / vorvertragliche Maßnahmen (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;b):</strong> Konto, App-Funktionen, Abo-Verwaltung, Support.</li>
-        <li><strong>Einwilligung (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;a):</strong> Zugriff auf Benachrichtigungen (Auto-Erfassung), optionale lokale Bestätigungshinweise (Android), Sprachmikrofon, optionale Cloud-Sicherung (aktivierbar in den Einstellungen). Widerruf jederzeit mit Wirkung für die Zukunft.</li>
+        <li><strong>Einwilligung (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;a):</strong> Zugriff auf Benachrichtigungen (Auto-Erfassung), optionale lokale Bestätigungshinweise (Android), Sprachmikrofon, optionale Cloud-Sicherung (aktivierbar in den Einstellungen), optionale Nutzungsanalyse (Firebase Analytics). Widerruf jederzeit mit Wirkung für die Zukunft.</li>
         <li><strong>Berechtigtes Interesse (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;f):</strong> IT-Sicherheit, Missbrauchsprävention, Fehleranalyse in Protokollen, Durchsetzung von Abo-Rechten — unter Wahrung Ihrer Interessen (Datenminimierung).</li>
         <li><strong>Rechtspflicht (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;c):</strong> Aufbewahrung nach Handels-/Steuerrecht, soweit anwendbar.</li>
       </ul>
@@ -439,7 +462,7 @@
       <ul>
         <li><strong>Supabase Inc.</strong> — Authentifizierung, Datenbank, Edge Functions (EU-Rechenzentrum Frankfurt); Verschlüsselung in Transit und at Rest.</li>
         <li><strong>Apple Inc.</strong> — App Store, In-App-Käufe (iOS), optionale Spracherkennung auf dem Gerät.</li>
-        <li><strong>Google Ireland Ltd.</strong> — Google Play, In-App-Käufe (Android), optionale Spracherkennung auf dem Gerät.</li>
+        <li><strong>Google Ireland Ltd. / Google LLC</strong> — Google Play, In-App-Käufe (Android), optionale Spracherkennung auf dem Gerät; bei Einwilligung zusätzlich <strong>Firebase Analytics</strong> (Nutzungsereignisse; Verarbeitung kann Google-Infrastruktur auch außerhalb der EU unter SCCs umfassen).</li>
         <li><strong>Expo / Hosting-Anbieter</strong> — App-Build-Infrastruktur (kein Zugriff auf Ihre Finanzinhalte im Normalbetrieb).</li>
       </ul>
       <p>
@@ -509,7 +532,9 @@
       <h2 id="cookies">15. Website &amp; Cookies</h2>
       <p>
         Auf <a href="https://forfuture.app">forfuture.app</a> können technisch notwendige Cookies eingesetzt werden.
-        Optionale Analyse-/Marketing-Cookies nur mit Einwilligung über das Cookie-Banner.
+        Das Cookie-Banner steuert derzeit das optionale Laden von Google Fonts. Wir betreiben derzeit
+        <strong>keine</strong> Drittanbieter-Website-Analyse auf forfuture.app. Falls sich das ändert, würden
+        optionale Analyse-Cookies nur mit Einwilligung über das Cookie-Banner geladen.
       </p>
 
       <h2>16. Änderungen</h2>
@@ -529,7 +554,7 @@
         </p>
       </div>
 
-      <div class="last-updated">Zuletzt aktualisiert: 20. Mai 2026</div>
+      <div class="last-updated">Zuletzt aktualisiert: 3. August 2026</div>
     </div>
 
     <div class="footer-links">
@@ -540,7 +565,6 @@
       <a href="delete-account.html">Konto löschen</a> · <button type="button" class="cookie-settings-link" data-cookie-settings data-i18n="footer.cookies">Cookie-Einstellungen</button>
     </div>
   </main>
-  <script src="cookie-consent.js"></script>
-  <script src="legal-page.js"></script>
+<script src="legal-page.js"></script>
 </body>
 </html>
