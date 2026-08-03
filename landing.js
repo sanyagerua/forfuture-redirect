@@ -41,7 +41,7 @@
       'trust.pill1': 'In Sekunden erfasst',
       'trust.pill2': 'Ziele statt nur Ausgaben',
       'trust.pill3': 'Daten bleiben auf deinem Gerät',
-      'trust.bar': 'Keine Bank · Kein Tracking · Local-first · Optional EU-Cloud · Volle Kontrolle',
+      'trust.bar': 'Keine Bank · Opt-in Analytics · Local-first · Optional EU-Cloud · Volle Kontrolle',
       'why.label': 'Warum ForFuture',
       'why.title': 'Warum ForFuture anders ist',
       'why.sub':
@@ -109,9 +109,9 @@
       'priv2.p': 'Ausgaben, Budgets und Ziele starten auf deinem Gerät — nicht in der Cloud.',
       'priv3.title': 'EU-Cloud optional',
       'priv3.p': 'Sicherung auf EU-Servern, wenn du sie aktivieren möchtest.',
-      'priv4.title': 'Kein Tracking / Analytics SDKs',
+      'priv4.title': 'Optionale Nutzungsanalyse',
       'priv4.p':
-        'Keine Analytics- oder Crash-SDKs in der App. Siehe <a href="privacy-policy.html">Datenschutzerklärung</a>.',
+        'Firebase Analytics nur nach Ihrer Zustimmung — standardmäßig aus. Details in der <a href="privacy-policy.html">Datenschutzerklärung</a>.',
       'faq.title': 'Häufige Fragen',
       'faq1.q': 'Ist ForFuture eine Bank?',
       'faq1.a':
@@ -172,7 +172,7 @@
       'trust.pill1': 'Logged in seconds',
       'trust.pill2': 'Goals, not just spending',
       'trust.pill3': 'Data stays on your device',
-      'trust.bar': 'No bank · No tracking · Local-first · Optional EU cloud · Full control',
+      'trust.bar': 'No bank · Opt-in analytics · Local-first · Optional EU cloud · Full control',
       'why.label': 'Why ForFuture',
       'why.title': 'Why ForFuture is different',
       'why.sub':
@@ -239,9 +239,9 @@
       'priv2.p': 'Expenses, budgets, and goals start on your device — not in the cloud.',
       'priv3.title': 'Optional EU cloud',
       'priv3.p': 'Backup on EU servers if you choose to enable it.',
-      'priv4.title': 'No tracking / analytics SDKs',
+      'priv4.title': 'Optional usage analytics',
       'priv4.p':
-        'No analytics or crash SDKs in the app. See our <a href="privacy-policy.html">Privacy Policy</a>.',
+        'Firebase Analytics only with your consent — off by default. See our <a href="privacy-policy.html">Privacy Policy</a>.',
       'faq.title': 'Frequently asked questions',
       'faq1.q': 'Is ForFuture a bank?',
       'faq1.a':
