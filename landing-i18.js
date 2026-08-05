@@ -135,7 +135,7 @@
       'footer.copyright': '© 2026 ForFuture. Alle Rechte vorbehalten.',
     },
     en: {
-      'meta.title': 'ForFuture — Expenses under control. Goals in sight.',
+      'meta.title': 'ForFuture — Take control of your spending. Keep your goals in sight.',
       'meta.description':
         'Budget and goals app with no bank connection. Log expenses in seconds, track savings goals, close months.',
       'logo.aria': 'ForFuture home',
@@ -150,7 +150,7 @@
       'nav.review': 'Month review',
       'nav.faq': 'FAQ',
       'hero.eyebrow': 'Budget app · No bank connection',
-      'hero.title': 'Expenses under control. Goals in sight.',
+      'hero.title': 'Take control of your spending. Keep your goals in sight',
       'hero.sub':
         'Log expenses in seconds and watch your budget move you closer to your goals month by month.',
       'hero.phone.alt': 'ForFuture app — monthly overview on a smartphone',
