@@ -8,10 +8,9 @@
   <link rel="icon" href="images/favicon.png" type="image/png" sizes="32x32" />
   <link rel="icon" href="images/favicon-512.png" type="image/png" sizes="512x512" />
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png" sizes="180x180" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="legal-page.css" />
+  <link rel="stylesheet" href="cookie-consent.css" />
+    <script src="cookie-consent.js"></script>
 </head>
 <body data-content-prefix="content" data-title-key="delete.title">
   <header class="site-header">
@@ -70,7 +69,7 @@
         <li><strong>Account:</strong> Email, password hash, language, currency, subscription status, trial dates, settings</li>
         <li><strong>Financial data:</strong> Income, expenses, budgets, fixed costs, savings goals, closed months, monthly reports</li>
         <li><strong>Your content:</strong> Custom categories, transaction notes, remembered payees, merchant–category rules</li>
-        <li><strong>Cloud backup:</strong> Any data synced to our EU servers (if cloud backup was enabled)</li>
+        <li><strong>Cloud backup:</strong> Any financial data synced to our EU servers (cloud backup is on by default for accounts unless you turned it off)</li>
         <li><strong>Other account-linked data</strong> stored for your user ID</li>
       </ul>
 
@@ -133,7 +132,7 @@
         <li><strong>Konto:</strong> E-Mail, Passwort-Hash, Sprache, Währung, Abo-Status, Testphase, Einstellungen</li>
         <li><strong>Finanzdaten:</strong> Einkommen, Ausgaben, Budgets, Fixkosten, Sparziele, abgeschlossene Monate, Monatsberichte</li>
         <li><strong>Eigene Inhalte:</strong> Kategorien, Notizen, gemerkte Zahlungspartner, Händler–Kategorie-Zuordnungen</li>
-        <li><strong>Cloud-Backup:</strong> Daten auf EU-Servern (falls Cloud-Backup aktiv war)</li>
+        <li><strong>Cloud-Backup:</strong> Finanzdaten auf EU-Servern (Cloud-Sicherung ist für Konten standardmäßig an, sofern Sie sie nicht ausgeschaltet haben)</li>
         <li><strong>Weitere kontobezogene Daten</strong> zu Ihrer Nutzer-ID</li>
       </ul>
 
@@ -164,11 +163,9 @@
       <a href="index.html">Startseite</a> ·
       <a href="privacy-policy.html">Datenschutz</a> ·
       <a href="terms-of-service.html">AGB</a> ·
-      <a href="support.html">Support</a>
+      <a href="support.html">Support</a> · <button type="button" class="cookie-settings-link" data-cookie-settings data-i18n="footer.cookies">Cookie-Einstellungen</button>
     </div>
-  </div>
-
-  <script src="legal-page.js"></script>
   </main>
+<script src="legal-page.js"></script>
 </body>
 </html>
