@@ -56,10 +56,12 @@
       </p>
       <div class="info-box">
         <p>
-          <strong>Local-first:</strong> Financial data stays
-          <strong>on your device by default</strong>. You may optionally enable
-          <strong>cloud backup</strong>; then selected data (e.g.&nbsp;transactions, categories, goals, learned payees,
-          monthly income, closed month reports) is stored on servers in the EU. Without cloud backup, that data remains local.
+          <strong>Local + EU account backup:</strong> Financial data is stored
+          <strong>on your device</strong> and, for signed-in accounts,
+          <strong>cloud backup to EU servers is on by default</strong>
+          (transactions, categories, goals, learned payees, monthly income, closed month reports).
+          You can turn cloud backup off in Settings; then that data remains only on the device
+          (and may be lost if you uninstall the app or clear storage).
         </p>
       </div>
 
@@ -75,9 +77,9 @@
             <td>Supabase (EU), when you use an account</td>
           </tr>
           <tr>
-            <td><strong>Financial data (optional cloud)</strong></td>
+            <td><strong>Financial data (cloud backup)</strong></td>
             <td>Transactions, budget categories, fixed costs, savings goals, progress, learned merchants/payees, monthly income, closed month reports</td>
-            <td>Primarily <strong>local</strong> on device; with cloud backup enabled, also Supabase (EU)</td>
+            <td>On device <strong>and</strong> Supabase (EU) while cloud backup is on (default for accounts); device-only if you disable backup</td>
           </tr>
           <tr>
             <td><strong>Feedback</strong></td>
@@ -138,8 +140,8 @@
 
       <h2>4. Purposes and legal bases (Art.&nbsp;6 GDPR)</h2>
       <ul>
-        <li><strong>Contract / pre-contractual measures (Art.&nbsp;6(1)(b)):</strong> Account, app features, subscription management, support.</li>
-        <li><strong>Consent (Art.&nbsp;6(1)(a)):</strong> Notification access (auto-capture), optional local confirmation alerts (Android), microphone (voice), optional cloud backup (enable in Settings), optional usage analytics (Firebase Analytics). Withdraw consent at any time with future effect.</li>
+        <li><strong>Contract / pre-contractual measures (Art.&nbsp;6(1)(b)):</strong> Account, app features, subscription management, support, and <strong>cloud backup of your financial data</strong> for your signed-in account (default on; you may disable it in Settings).</li>
+        <li><strong>Consent (Art.&nbsp;6(1)(a)):</strong> Notification access (auto-capture), optional local confirmation alerts (Android), microphone (voice), optional usage analytics (Firebase Analytics). Withdraw consent at any time with future effect.</li>
         <li><strong>Legitimate interest (Art.&nbsp;6(1)(f)):</strong> IT security, abuse prevention, error analysis in logs, enforcement of subscription rights — while respecting your interests (data minimisation).</li>
         <li><strong>Legal obligation (Art.&nbsp;6(1)(c)):</strong> Retention under commercial/tax law where applicable.</li>
       </ul>
@@ -167,10 +169,12 @@
         <a href="https://play.google.com/intl/en_us/about/play-terms/" rel="noopener">Google Play Terms of Service</a>.
       </p>
 
-      <h2>6. Cloud backup (optional)</h2>
+      <h2>6. Cloud backup (default for accounts)</h2>
       <p>
-        If you enable “Cloud backup”, we sync your selected financial data with your account on Supabase
-        (region <strong>Frankfurt / EU</strong>). You can disable this at any time;
+        When you use a ForFuture account, <strong>cloud backup is enabled by default</strong>.
+        We sync your selected financial data with your account on Supabase
+        (region <strong>Frankfurt / EU</strong>) so you do not lose it after reinstalling the app
+        or clearing device storage. You can disable cloud backup at any time in Settings;
         data already uploaded can be removed by <strong>account deletion</strong>.
       </p>
       <p>
@@ -315,11 +319,13 @@
       </p>
       <div class="info-box">
         <p>
-          <strong>Lokal zuerst:</strong> Finanzdaten bleiben
-          <strong>standardmäßig auf Ihrem Gerät</strong>. Optional können Sie eine
-          <strong>Cloud-Sicherung</strong> aktivieren; dann werden ausgewählte Daten (z.&nbsp;B. Transaktionen,
-          Kategorien, Ziele, gelernte Zahlungsempfänger, Monatseinkommen, abgeschlossene Monatsberichte)
-          auf Servern in der EU gespeichert. Ohne Cloud-Sicherung verbleiben diese Daten lokal.
+          <strong>Lokal + EU-Konto-Sicherung:</strong> Finanzdaten werden
+          <strong>auf Ihrem Gerät</strong> gespeichert und für angemeldete Konten
+          standardmäßig zusätzlich als <strong>Cloud-Sicherung auf EU-Servern</strong>
+          (Transaktionen, Kategorien, Ziele, gelernte Zahlungsempfänger, Monatseinkommen,
+          abgeschlossene Monatsberichte). Sie können die Cloud-Sicherung in den Einstellungen
+          ausschalten; dann verbleiben diese Daten nur auf dem Gerät (und können bei
+          Deinstallation oder Speicherlöschen verloren gehen).
         </p>
       </div>
 
@@ -335,9 +341,9 @@
             <td>Supabase (EU), wenn Sie ein Konto nutzen</td>
           </tr>
           <tr>
-            <td><strong>Finanzdaten (optional Cloud)</strong></td>
+            <td><strong>Finanzdaten (Cloud-Sicherung)</strong></td>
             <td>Transaktionen, Budgetkategorien, Fixkosten, Sparziele, Fortschritt, gelernte Händler/Zahlungsempfänger, Monatseinkommen, abgeschlossene Monatsberichte</td>
-            <td>Primär <strong>lokal</strong> auf dem Gerät; bei aktivierter Cloud-Sicherung zusätzlich Supabase (EU)</td>
+            <td>Auf dem Gerät <strong>und</strong> bei aktivierter Cloud-Sicherung (Standard für Konten) zusätzlich Supabase (EU); nur lokal, wenn Sie die Sicherung ausschalten</td>
           </tr>
           <tr>
             <td><strong>Feedback</strong></td>
@@ -399,8 +405,8 @@
 
       <h2>4. Zwecke und Rechtsgrundlagen (Art.&nbsp;6 DSGVO)</h2>
       <ul>
-        <li><strong>Vertrag / vorvertragliche Maßnahmen (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;b):</strong> Konto, App-Funktionen, Abo-Verwaltung, Support.</li>
-        <li><strong>Einwilligung (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;a):</strong> Zugriff auf Benachrichtigungen (Auto-Erfassung), optionale lokale Bestätigungshinweise (Android), Sprachmikrofon, optionale Cloud-Sicherung (aktivierbar in den Einstellungen), optionale Nutzungsanalyse (Firebase Analytics). Widerruf jederzeit mit Wirkung für die Zukunft.</li>
+        <li><strong>Vertrag / vorvertragliche Maßnahmen (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;b):</strong> Konto, App-Funktionen, Abo-Verwaltung, Support sowie <strong>Cloud-Sicherung Ihrer Finanzdaten</strong> für Ihr angemeldetes Konto (standardmäßig an; in den Einstellungen abschaltbar).</li>
+        <li><strong>Einwilligung (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;a):</strong> Zugriff auf Benachrichtigungen (Auto-Erfassung), optionale lokale Bestätigungshinweise (Android), Sprachmikrofon, optionale Nutzungsanalyse (Firebase Analytics). Widerruf jederzeit mit Wirkung für die Zukunft.</li>
         <li><strong>Berechtigtes Interesse (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;f):</strong> IT-Sicherheit, Missbrauchsprävention, Fehleranalyse in Protokollen, Durchsetzung von Abo-Rechten — unter Wahrung Ihrer Interessen (Datenminimierung).</li>
         <li><strong>Rechtspflicht (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;c):</strong> Aufbewahrung nach Handels-/Steuerrecht, soweit anwendbar.</li>
       </ul>
@@ -429,10 +435,12 @@
         <a href="https://play.google.com/intl/de_de/about/play-terms/" rel="noopener">Google-Play-Nutzungsbedingungen</a>.
       </p>
 
-      <h2>6. Cloud-Sicherung (optional)</h2>
+      <h2>6. Cloud-Sicherung (Standard für Konten)</h2>
       <p>
-        Wenn Sie „Cloud-Sicherung“ aktivieren, synchronisieren wir die von Ihnen gewählten Finanzdaten mit Ihrem
-        Konto auf Supabase (Region <strong>Frankfurt / EU</strong>). Sie können die Funktion jederzeit deaktivieren;
+        Wenn Sie ein ForFuture-Konto nutzen, ist die <strong>Cloud-Sicherung standardmäßig aktiv</strong>.
+        Wir synchronisieren die von Ihnen gewählten Finanzdaten mit Ihrem Konto auf Supabase
+        (Region <strong>Frankfurt / EU</strong>), damit sie nach Neuinstallation oder Löschen des App-Speichers
+        nicht verloren gehen. Sie können die Cloud-Sicherung jederzeit in den Einstellungen deaktivieren;
         bereits hochgeladene Daten können Sie durch <strong>Kontolöschung</strong> entfernen lassen.
       </p>
       <p>
