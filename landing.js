@@ -40,8 +40,8 @@
       'store.qr.android.aria': 'QR-Code Google Play',
       'trust.pill1': 'In Sekunden erfasst',
       'trust.pill2': 'Ziele statt nur Ausgaben',
-      'trust.pill3': 'Daten bleiben auf deinem Gerät',
-      'trust.bar': 'Keine Bank · Opt-in Analytics · Local-first · Optional EU-Cloud · Volle Kontrolle',
+      'trust.pill3': 'Gerät + EU-Sicherung',
+      'trust.bar': 'Keine Bank · Opt-in Analytics · Gerät + EU-Cloud-Sicherung · Volle Kontrolle',
       'why.label': 'Warum ForFuture',
       'why.title': 'Warum ForFuture anders ist',
       'why.sub':
@@ -102,13 +102,14 @@
       'privacy.label': 'Datenschutz',
       'privacy.title': 'Deine Daten gehören dir',
       'privacy.sub':
-        'ForFuture ist keine Bank und keine Finanzberatung. Du erfasst selbst. Deine Daten liegen standardmäßig auf deinem Gerät.',
+        'ForFuture ist keine Bank und keine Finanzberatung. Du erfasst selbst. Mit Konto sichern wir dein Budget standardmäßig in der EU — abschaltbar.',
       'priv1.title': 'Kein Bankzugriff',
       'priv1.p': 'Kein Kontozugriff, kein PSD2, keine Drittanbieter-APIs für deine Kontodaten.',
-      'priv2.title': 'Local-first Speicherung',
-      'priv2.p': 'Ausgaben, Budgets und Ziele starten auf deinem Gerät — nicht in der Cloud.',
-      'priv3.title': 'EU-Cloud optional',
-      'priv3.p': 'Sicherung auf EU-Servern, wenn du sie aktivieren möchtest.',
+      'priv2.title': 'Auf dem Gerät',
+      'priv2.p': 'Ausgaben, Budgets und Ziele liegen auf deinem Gerät — schnell und offline nutzbar.',
+      'priv3.title': 'EU-Cloud-Sicherung',
+      'priv3.p':
+        'Für Konten standardmäßig an (EU-Server), damit Daten nach Neuinstallation nicht verloren gehen — in den Einstellungen abschaltbar.',
       'priv4.title': 'Optionale Nutzungsanalyse',
       'priv4.p':
         'Firebase Analytics nur nach Ihrer Zustimmung — standardmäßig aus. Details in der <a href="privacy-policy.html">Datenschutzerklärung</a>.',
@@ -171,8 +172,8 @@
       'store.qr.android.aria': 'Google Play QR code',
       'trust.pill1': 'Logged in seconds',
       'trust.pill2': 'Goals, not just spending',
-      'trust.pill3': 'Data stays on your device',
-      'trust.bar': 'No bank · Opt-in analytics · Local-first · Optional EU cloud · Full control',
+      'trust.pill3': 'Device + EU backup',
+      'trust.bar': 'No bank · Opt-in analytics · Device + EU cloud backup · Full control',
       'why.label': 'Why ForFuture',
       'why.title': 'Why ForFuture is different',
       'why.sub':
@@ -232,13 +233,14 @@
       'privacy.label': 'Privacy',
       'privacy.title': 'Your data belongs to you',
       'privacy.sub':
-        'ForFuture is not a bank or financial advice. You log yourself. Data stays on your device by default.',
+        'ForFuture is not a bank or financial advice. You log yourself. With an account, your budget is backed up in the EU by default — you can turn that off.',
       'priv1.title': 'No bank access',
       'priv1.p': 'No account access, no PSD2, no third-party APIs for your bank data.',
-      'priv2.title': 'Local-first storage',
-      'priv2.p': 'Expenses, budgets, and goals start on your device — not in the cloud.',
-      'priv3.title': 'Optional EU cloud',
-      'priv3.p': 'Backup on EU servers if you choose to enable it.',
+      'priv2.title': 'On your device',
+      'priv2.p': 'Expenses, budgets, and goals live on your device — fast and usable offline.',
+      'priv3.title': 'EU cloud backup',
+      'priv3.p':
+        'On by default for accounts (EU servers) so data survives reinstall — turn off anytime in Settings.',
       'priv4.title': 'Optional usage analytics',
       'priv4.p':
         'Firebase Analytics only with your consent — off by default. See our <a href="privacy-policy.html">Privacy Policy</a>.',
