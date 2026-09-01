@@ -8,10 +8,9 @@
   <link rel="icon" href="images/favicon.png" type="image/png" sizes="32x32" />
   <link rel="icon" href="images/favicon-512.png" type="image/png" sizes="512x512" />
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png" sizes="180x180" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="legal-page.css" />
+  <link rel="stylesheet" href="cookie-consent.css" />
+    <script src="cookie-consent.js"></script>
 </head>
 <body data-title-key="support.title">
   <header class="site-header">
@@ -53,6 +52,9 @@
         <p><strong data-i18n="support.faq.bank.q">Verbindet sich die App mit meiner Bank?</strong></p>
         <p data-i18n="support.faq.bank.a">Nein. ForFuture hat keine Bank-Anbindung. Du erfasst Ausgaben selbst — schnell per Tippen, Sprache oder Zahlungsbenachrichtigung (optional).</p>
 
+        <p><strong data-i18n="support.faq.cloud.q">Wo werden meine Finanzdaten gespeichert?</strong></p>
+        <p data-i18n="support.faq.cloud.a">Mit Konto werden Ausgaben, Budgets und Ziele standardmäßig auf EU-Servern gesichert. Die App nutzt dein Gerät für Tempo und Offline-Nutzung. Cloud-Sicherung kannst du unter Profil → Persönliche Informationen abschalten.</p>
+
         <p><strong data-i18n="support.faq.price.q">Was kostet ForFuture?</strong></p>
         <p data-i18n-html="support.faq.price.a">Nach einer kostenlosen Testwoche ist ein Premium-Abo nötig. Details in den <a href="terms-of-service.html">AGB</a>.</p>
       </div>
@@ -68,10 +70,10 @@
       </div>
 
       <div class="footer-links">
-        <a href="index.html" data-i18n="footer.home">← Zur Startseite</a>
-      </div>
+        <a href="index.html" data-i18n="footer.home">← Zur Startseite</a> · <button type="button" class="cookie-settings-link" data-cookie-settings data-i18n="footer.cookies">Cookie-Einstellungen</button>
+    </div>
     </div>
   </main>
-  <script src="legal-page.js"></script>
+<script src="legal-page.js"></script>
 </body>
 </html>
