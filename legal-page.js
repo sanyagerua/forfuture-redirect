@@ -31,6 +31,9 @@
       'support.faq.bank.q': 'Verbindet sich die App mit meiner Bank?',
       'support.faq.bank.a':
         'Nein. ForFuture hat keine Bank-Anbindung. Du erfasst Ausgaben selbst — schnell per Tippen, Sprache oder Zahlungsbenachrichtigung (optional).',
+      'support.faq.cloud.q': 'Wo werden meine Finanzdaten gespeichert?',
+      'support.faq.cloud.a':
+        'Mit Konto werden Ausgaben, Budgets und Ziele standardmäßig auf EU-Servern gesichert. Die App nutzt dein Gerät für Tempo und Offline-Nutzung. Cloud-Sicherung kannst du unter Profil → Persönliche Informationen abschalten.',
       'support.faq.price.q': 'Was kostet ForFuture?',
       'support.faq.price.a':
         'Nach einer kostenlosen Testwoche ist ein Premium-Abo nötig. Details in den <a href="terms-of-service.html">AGB</a>.',
@@ -55,6 +58,7 @@
         'Schriftarten: Manrope über Google Fonts und @expo-google-fonts/manrope — SIL Open Font License 1.1 (OFL-1.1).',
       'delete.title': 'Konto & Daten löschen',
       'delete.subtitle': 'Budget-App · Keine Bank-Anbindung · Ausgaben im Griff. Ziele im Blick.',
+      'footer.cookies': 'Cookie-Einstellungen',
       'privacy.title': 'Datenschutzerklärung — ForFuture',
       'privacy.subtitle': 'Budget-App · Keine Bank-Anbindung · Ausgaben im Griff. Ziele im Blick.',
       'terms.title': 'AGB — ForFuture',
@@ -87,6 +91,9 @@
       'support.faq.bank.q': 'Does the app connect to my bank?',
       'support.faq.bank.a':
         'No. ForFuture has no bank connection. You log expenses yourself — quickly by typing, voice, or payment notification (optional).',
+      'support.faq.cloud.q': 'Where is my financial data stored?',
+      'support.faq.cloud.a':
+        'With an account, expenses, budgets, and goals are backed up to EU servers by default. The app uses your device for speed and offline use. You can turn off cloud backup under Profile → Personal information.',
       'support.faq.price.q': 'What does ForFuture cost?',
       'support.faq.price.a':
         'After a free trial week, a premium subscription is required. See the <a href="terms-of-service.html">Terms of Service</a> for details.',
@@ -111,6 +118,7 @@
         'Fonts: Manrope via Google Fonts and @expo-google-fonts/manrope — SIL Open Font License 1.1 (OFL-1.1).',
       'delete.title': 'Account & Data Deletion',
       'delete.subtitle': 'Budget app · No bank connection · Expenses under control. Goals in sight.',
+      'footer.cookies': 'Cookie settings',
       'privacy.title': 'Privacy Policy — ForFuture',
       'privacy.subtitle': 'Budget app · No bank connection · Expenses under control. Goals in sight.',
       'terms.title': 'Terms of Service — ForFuture',
