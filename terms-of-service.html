@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="ForFuture Terms of Service — Budget app without bank connection" />
-  <title>Terms of Service — ForFuture</title>
+  <title>Privacy Policy — ForFuture</title>
   <link rel="icon" href="images/favicon.png" type="image/png" sizes="32x32" />
   <link rel="icon" href="images/favicon-512.png" type="image/png" sizes="512x512" />
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png" sizes="180x180" />
@@ -12,7 +11,7 @@
   <link rel="stylesheet" href="cookie-consent.css" />
     <script src="cookie-consent.js"></script>
 </head>
-<body data-content-prefix="policy" data-title-key="terms.title">
+<body data-content-prefix="policy" data-title-key="privacy.title">
   <header class="site-header">
     <div class="header-inner">
       <a href="index.html" class="logo" data-i18n-aria="logo.aria" aria-label="ForFuture Startseite">
@@ -28,361 +27,550 @@
   </header>
   <main class="subpage-main">
 <div class="container">
-    <h1 data-i18n="terms.title">Terms of Service — ForFuture</h1>
-    <p class="subtitle" data-i18n="terms.subtitle">Budget app · No bank connection</p>
+    <h1 data-i18n="privacy.title">Privacy Policy — ForFuture</h1>
+    <p class="subtitle" data-i18n="privacy.subtitle">Budget app · No bank connection · Expenses under control. Goals in sight.</p>
 
 
-    <!-- English -->
-    <div id="policy-en" class="policy-content active">
+    <!-- ─── ENGLISH ─── -->
+    <div id="policy-en" class="policy-content active" lang="en">
+
+      <h2>1. Controller</h2>
+      <p>
+        <strong>ForFuture</strong> (mobile app and website)<br />
+        Controller under Art.&nbsp;4(7) GDPR:<br />
+        <strong>Diana Barkova</strong><br />
+        Kastanienstraße 18<br />
+        40699 Erkrath<br />
+        Germany
+      </p>
+      <p>
+        No data protection officer has been appointed (Art.&nbsp;37 GDPR not required).
+        Privacy enquiries: <a href="mailto:diana.iglizn@gmail.com">diana.iglizn@gmail.com</a>
+      </p>
+
+      <h2>2. Overview</h2>
+      <p>
+        ForFuture helps you track expenses, budgets, and savings goals and close months.
+        <strong>It is not a bank, payment service, or financial advisor.</strong>
+        There is <strong>no connection</strong> to bank accounts; you enter data yourself.
+      </p>
       <div class="info-box">
-        <p><strong>Important:</strong> By installing, registering for, or using the ForFuture app, you accept these Terms of Service. Please also read our <a href="privacy-policy.html">Privacy Policy</a>.</p>
+        <p>
+          <strong>EU account backup (default):</strong> For signed-in accounts,
+          <strong>cloud backup to EU servers is on by default</strong>
+          (transactions, categories, goals, learned payees, monthly income, closed month reports).
+          The app also keeps a copy on your device for speed and offline use.
+          You can turn cloud backup off in Settings; then that data remains only on the device
+          (and may be lost if you uninstall the app or clear storage).
+        </p>
       </div>
 
-      <h2>1. Contracting Party and Scope</h2>
+      <h2>3. Categories of personal data</h2>
+      <table>
+        <thead>
+          <tr><th>Category</th><th>Examples</th><th>Where stored</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Account &amp; profile data</strong></td>
+            <td>Email, password hash, language, currency, user type (onboarding), subscription status, trial end, settings</td>
+            <td>Supabase (EU), when you use an account</td>
+          </tr>
+          <tr>
+            <td><strong>Financial data (cloud backup)</strong></td>
+            <td>Transactions, budget categories, fixed costs, savings goals, progress, learned merchants/payees, monthly income, closed month reports</td>
+            <td>On device <strong>and</strong> Supabase (EU) while cloud backup is on (default for accounts); device-only if you disable backup</td>
+          </tr>
+          <tr>
+            <td><strong>Feedback</strong></td>
+            <td>Free text, timestamp, user ID</td>
+            <td>Supabase (EU), when you send feedback</td>
+          </tr>
+          <tr>
+            <td><strong>Subscription &amp; payment</strong></td>
+            <td>Product ID, expiry date, store (App Store / Google Play), transaction reference (no card numbers with us)</td>
+            <td>Supabase (EU); payment via Apple/Google</td>
+          </tr>
+          <tr>
+            <td><strong>Auto-capture (optional, Android)</strong></td>
+            <td>Text from wallet/payment notifications (e.g.&nbsp;amount, payee), only if you enable the feature</td>
+            <td>Processed <strong>locally</strong>; not uploaded to our servers</td>
+          </tr>
+          <tr>
+            <td><strong>Voice input (optional)</strong></td>
+            <td>Voice recording → transcript on device (OS speech service)</td>
+            <td>Local; we do not permanently upload audio</td>
+          </tr>
+          <tr>
+            <td><strong>Device &amp; app settings</strong></td>
+            <td>Language, display, cloud backup toggle, auto-capture options</td>
+            <td>Local; subscription/profile flags may be in Supabase</td>
+          </tr>
+          <tr>
+            <td><strong>Local alerts (Android, optional)</strong></td>
+            <td>On-device notification shown when payment auto-capture detects a transaction (not remote marketing push)</td>
+            <td>Processed locally; we do not send remote push from our servers</td>
+          </tr>
+          <tr>
+            <td><strong>Usage analytics (optional)</strong></td>
+            <td>Anonymous app usage events (e.g.&nbsp;screens, feature use); app instance ID</td>
+            <td>Google Firebase Analytics — only after opt-in; not budget amounts or bank data</td>
+          </tr>
+          <tr>
+            <td><strong>Technical logs</strong></td>
+            <td>IP, timestamp, API errors (server logs)</td>
+            <td>Supabase / hosting, limited retention</td>
+          </tr>
+        </tbody>
+      </table>
       <p>
-        The provider of the <strong>ForFuture</strong> app is <strong>Diana Barkova</strong>,
-        Kastanienstraße 18, 40699 Erkrath, Germany (“we”, “us”).
-        A user (“you”) is any natural person who uses the app.
+        We do <strong>not</strong> process <strong>special categories</strong> of personal data under Art.&nbsp;9 GDPR
+        (e.g.&nbsp;health or religion data) unless you voluntarily enter them in free-text fields.
       </p>
       <p>
-        These Terms in their current version and the Privacy Policy apply exclusively.
-        We do not accept any conflicting terms proposed by the user.
+        The <strong>mobile app</strong> may use <strong>Firebase Analytics</strong> (Google) only after you
+        <strong>opt in</strong> (soft prompt about 24 hours after registration, or later under
+        Settings → Help → Legal &amp; policies). Collection is <strong>off by default</strong>.
+        Analytics covers anonymous usage events (e.g.&nbsp;screens opened, feature use) to improve the product.
+        We do <strong>not</strong> send bank credentials, transaction amounts, or budget figures to Analytics.
+        You can withdraw consent anytime via the same Settings toggle. We do <strong>not</strong> currently
+        integrate a separate crash-reporting SDK (e.g.&nbsp;Sentry). Local reminder toggles stay on-device;
+        we do not send remote marketing push notifications from our servers.
       </p>
 
-      <h2>2. Description of Services</h2>
+      <h2>4. Purposes and legal bases (Art.&nbsp;6 GDPR)</h2>
+      <ul>
+        <li><strong>Contract / pre-contractual measures (Art.&nbsp;6(1)(b)):</strong> Account, app features, subscription management, support, and <strong>cloud backup of your financial data</strong> for your signed-in account (default on; you may disable it in Settings).</li>
+        <li><strong>Consent (Art.&nbsp;6(1)(a)):</strong> Notification access (auto-capture), optional local confirmation alerts (Android), microphone (voice), optional usage analytics (Firebase Analytics). Withdraw consent at any time with future effect.</li>
+        <li><strong>Legitimate interest (Art.&nbsp;6(1)(f)):</strong> IT security, abuse prevention, error analysis in logs, enforcement of subscription rights — while respecting your interests (data minimisation).</li>
+        <li><strong>Legal obligation (Art.&nbsp;6(1)(c)):</strong> Retention under commercial/tax law where applicable.</li>
+      </ul>
+      <p>We do <strong>not</strong> carry out <strong>automated decision-making</strong> within the meaning of Art.&nbsp;22 GDPR.</p>
+
+      <h2>5. Subscription (Premium) and payment processing</h2>
       <p>
-        ForFuture is a <strong>manual financial planning tool</strong>:
-        recording income and expenses, budget categories, fixed costs, savings goals (up to three),
-        month-end closing, statistics, optional voice input, and (on Android) optional
-        suggestions from payment notifications.
+        After a <strong>7-day free trial</strong>, continued use of the app requires a paid subscription:
       </p>
       <ul>
-        <li><strong>Not a bank or payment institution:</strong> There is no connection to bank accounts or cards. You enter all amounts yourself or confirm suggestions.</li>
-        <li><strong>No financial, tax, or legal advice:</strong> Content is for information and organisation only. You make all decisions on your own.</li>
-        <li><strong>Local + EU backup:</strong> Financial data is stored on your device and, for signed-in accounts, backed up to EU servers by default (including monthly income and closed months). You can turn cloud backup off in Settings.</li>
+        <li><strong>Monthly:</strong> €2.99 (price may be shown in your local currency in the store)</li>
+        <li><strong>Annual:</strong> €24.99</li>
       </ul>
-
-      <h2>3. Registration and Account</h2>
       <p>
-        A user account is required to use the app. You must provide accurate information,
-        keep your password confidential, and notify us promptly of any misuse.
-        Minimum age: <strong>16 years</strong> (or a higher minimum age under applicable national law).
+        Purchase, renewal, and cancellation are handled via the <strong>Apple App Store</strong> or
+        <strong>Google Play Store</strong>. Apple or Google is the payment processor;
+        we do <strong>not</strong> receive your full card or bank account details from the stores, only
+        transaction and subscription status information to unlock Premium where applicable.
+      </p>
+      <p>
+        We store subscription status and expiry in your profile (server-side, protected against tampering).
+        Cancellation and refund details follow
+        <a href="https://www.apple.com/legal/internet-services/itunes/us/terms.html" rel="noopener">Apple Media Services Terms</a>
+        and
+        <a href="https://play.google.com/intl/en_us/about/play-terms/" rel="noopener">Google Play Terms of Service</a>.
       </p>
 
-      <h2>4. Free Trial and Paid Subscription (Premium)</h2>
-      <h3>4.1 Trial Period</h3>
+      <h2>6. Cloud backup (default for accounts)</h2>
       <p>
-        New accounts receive a <strong>free trial of 7 calendar days</strong> from first use
-        (“trial period”). During the trial, all app features are available without restriction.
+        When you use a ForFuture account, <strong>cloud backup is enabled by default</strong>.
+        We sync your selected financial data with your account on Supabase
+        (region <strong>Frankfurt / EU</strong>) so you do not lose it after reinstalling the app
+        or clearing device storage. You can disable cloud backup at any time in Settings;
+        data already uploaded can be removed by <strong>account deletion</strong>.
       </p>
-      <h3>4.2 Premium Subscription</h3>
       <p>
-        After the trial expires, continued use is only possible with an active <strong>Premium subscription</strong>.
-        Available plans and prices (as of May 2026):
+        With cloud backup enabled, monthly income (<code>user_profiles.income</code>) and closed month reports
+        (<code>period_reports</code>) are synced to your account. Auto-capture notification text is never uploaded.
       </p>
+
+      <h2>7. Auto-capture of payments (Android, optional)</h2>
+      <p>
+        If you enable this feature, we read <strong>locally on your device</strong> notification text from selected apps
+        (e.g.&nbsp;Google Pay, PayPal) to detect amounts and suggest creating an expense. You confirm each entry yourself.
+        Notification text is <strong>not</strong> transmitted to our servers. You can revoke access in Android settings
+        (“Notification access”) at any time.
+      </p>
+
+      <h2>8. Voice input (optional)</h2>
+      <p>
+        For voice input we use your device’s speech recognition (e.g.&nbsp;Apple Speech / Android Speech).
+        Processing may also occur on Apple/Google servers depending on the OS; we do not permanently store audio.
+        We use the recognised transcript only to pre-fill fields in the app until you save or discard.
+      </p>
+
+      <h2>9. Recipients and processors (Art.&nbsp;28 GDPR)</h2>
       <ul>
-        <li><strong>Monthly:</strong> €2.99 per month</li>
-        <li><strong>Annual:</strong> €24.99 per year</li>
+        <li><strong>Supabase Inc.</strong> — Authentication, database, edge functions (EU data centre Frankfurt); encryption in transit and at rest.</li>
+        <li><strong>Apple Inc.</strong> — App Store, in-app purchases (iOS), optional on-device speech recognition.</li>
+        <li><strong>Google Ireland Ltd. / Google LLC</strong> — Google Play, in-app purchases (Android), optional on-device speech recognition; if you opt in, <strong>Firebase Analytics</strong> (usage events; processing may involve Google infrastructure including outside the EU under SCCs).</li>
+        <li><strong>Expo / hosting providers</strong> — App build infrastructure (no access to your financial content in normal operation).</li>
       </ul>
       <p>
-        The App Store or Google Play may display different country-specific prices and taxes;
-        the price shown in the store at the time of purchase applies.
-      </p>
-      <h3>4.3 Billing via Apple / Google</h3>
-      <p>
-        Purchase, renewal, cancellation, and refunds are handled through the
-        <strong>Apple App Store</strong> (iOS) or <strong>Google Play Store</strong> (Android).
-        Apple or Google is the contracting party for payment processing; their terms apply in addition.
-        Subscriptions renew automatically unless you cancel in the store at least 24 hours before the end of the current period.
-      </p>
-      <h3>4.4 Restore Purchases</h3>
-      <p>
-        On a new device or after reinstalling, you can reactivate an existing subscription via
-        “Restore purchases”, provided it is linked to the same store account.
-      </p>
-      <h3>4.5 No Right of Withdrawal Against Us for Store Purchases</h3>
-      <p>
-        For digital content purchased through Apple or Google, withdrawal and refund claims are primarily
-        governed by the respective store’s rules and applicable consumer law; contact store support for refunds.
+        We have Art.&nbsp;28 GDPR contracts with processors. Transfers to third countries (especially the USA)
+        rely on <strong>Standard Contractual Clauses</strong> (Art.&nbsp;46 GDPR) and additional technical/organisational measures.
+        Copies can be provided on request.
       </p>
 
-      <h2>5. User Obligations</h2>
+      <h2>10. Retention and deletion</h2>
       <ul>
-        <li>Use the app lawfully and for personal purposes only (no commercial redistribution).</li>
-        <li>Do not manipulate subscription or security mechanisms.</li>
-        <li>No reverse engineering or automated mass access to our systems.</li>
-        <li>Maintain your own backups of important data if you disable cloud backup (reinstalling the app without backup can erase local data).</li>
+        <li><strong>Account and cloud data:</strong> Until you delete your account in Settings or on request.</li>
+        <li><strong>Local data:</strong> Until you uninstall the app or delete data in the app.</li>
+        <li><strong>Subscription records:</strong> As required by law and store policies; subscription metadata in profile until account deletion.</li>
+        <li><strong>Feedback:</strong> Until resolved, typically max.&nbsp;12 months unless a longer obligation applies.</li>
+        <li><strong>Server logs:</strong> Typically 30–90 days (Supabase default), then deletion/overwriting.</li>
       </ul>
 
-      <h2>6. Availability and Changes</h2>
+      <h3>Account deletion (Art.&nbsp;17 GDPR)</h3>
       <p>
-        We strive for high availability but do not guarantee it. Maintenance, updates, or force majeure
-        may cause interruptions. Features may be developed further or discontinued; material changes
-        will be announced in the app where possible.
+        You can permanently delete your account in the app under
+        <strong>Settings → Personal information → Delete account</strong>.
+        This removes your server-side data (profile, cloud financial data, feedback linked to your account) via a secured
+        server function and disables your login. Remove local data on the device by uninstalling the app.
+      </p>
+      <p>
+        There is <strong>no separate deletion policy</strong>; account deletion and data removal are described here and in the app.
       </p>
 
-      <h2>7. Liability</h2>
+      <h2>11. App permissions</h2>
       <p>
-        We are fully liable for intent and gross negligence and for damage resulting from injury to life,
-        body, or health. For slight negligence, we are liable only for breach of essential contractual
-        obligations (cardinal duties), limited to foreseeable, typical damage.
-      </p>
-      <p>
-        <strong>No liability</strong> for financial decisions, data loss due to missing local backups,
-        errors in manually entered data, or disruptions caused by third parties (stores, network providers, Supabase).
-      </p>
-      <p>
-        Where permitted, total liability is limited to the amount you paid for the Premium subscription
-        in the last 12 months through us or the stores (if you used only the trial period: €0).
+        Depending on use, the app may request: Internet, local storage, notifications, microphone (voice),
+        notification access (Android auto-capture), and optionally clipboard (deep link from copied payment text).
+        Without granted permissions, individual features are unavailable.
       </p>
 
-      <h2>8. Privacy</h2>
+      <h2>12. Your rights</h2>
+      <p>Subject to legal requirements, you have the following rights:</p>
+      <ul>
+        <li>Access (Art.&nbsp;15 GDPR)</li>
+        <li>Rectification (Art.&nbsp;16 GDPR)</li>
+        <li>Erasure (Art.&nbsp;17 GDPR)</li>
+        <li>Restriction of processing (Art.&nbsp;18 GDPR)</li>
+        <li>Data portability (Art.&nbsp;20 GDPR)</li>
+        <li>Object to processing based on Art.&nbsp;6(1)(f) GDPR (Art.&nbsp;21 GDPR)</li>
+        <li>Withdraw consent given (Art.&nbsp;7(3) GDPR)</li>
+      </ul>
       <p>
-        Processing of personal data is governed by our
-        <a href="privacy-policy.html">Privacy Policy</a> (including account deletion and data subject rights).
-        There is no separate “deletion policy”; deletion is described there and in the app.
+        Contact: <a href="mailto:diana.iglizn@gmail.com">diana.iglizn@gmail.com</a>.
+        You may lodge a complaint with a supervisory authority, e.g.&nbsp;the
+        <strong>State Commissioner for Data Protection and Freedom of Information of North Rhine-Westphalia (LDI NRW)</strong>,
+        Kavalleriestraße 2–4, 40213 Düsseldorf, Germany (Art.&nbsp;77 GDPR).
       </p>
 
-      <h2>9. Intellectual Property</h2>
+      <h2>13. Security</h2>
       <p>
-        The app, design, trademarks, and code remain our property. You receive a simple, non-transferable,
-        revocable licence for personal use. Content you enter remains yours; you grant us the processing
-        rights necessary to provide the app.
+        TLS encryption, database-level access control (Row Level Security), separate storage of sensitive subscription fields,
+        no plain-text password storage. Regular review of technical and organisational measures.
       </p>
 
-      <h2>10. Termination and Account Deletion</h2>
+      <h2>14. Minors</h2>
       <p>
-        You may delete your account at any time in the app (Settings → Personal information).
-        This ends use of our server services. An active store subscription must be cancelled separately
-        in the App Store / Play Store.
-      </p>
-      <p>
-        We may suspend or delete accounts for serious violations of these Terms.
+        The app is intended for users aged <strong>16 and over</strong>. We do not knowingly collect data from children under 16.
       </p>
 
-      <h2>11. Changes to These Terms</h2>
+      <h2 id="cookies">15. Website &amp; cookies</h2>
       <p>
-        We may amend these Terms. We will inform you of material changes in the app or by email.
-        If you do not object within 30 days and continue using the app, the new Terms are deemed accepted.
+        On <a href="https://forfuture.app">forfuture.app</a>, strictly necessary cookies may be used.
+        The website cookie banner currently gates optional Google Fonts loading. We do <strong>not</strong>
+        currently run third-party website analytics on forfuture.app. If that changes, optional analytics
+        cookies would load only with consent via the cookie banner.
       </p>
 
-      <h2>12. Applicable Law and Jurisdiction</h2>
+      <h2>16. Changes</h2>
       <p>
-        German law applies, excluding the UN Convention on Contracts for the International Sale of Goods.
-        Mandatory consumer protection rules of your country of residence (EU) remain unaffected.
-        For merchants, the place of jurisdiction is Erkrath; for consumers, the statutory place of jurisdiction applies.
-      </p>
-
-      <h2>13. Dispute Resolution</h2>
-      <p>
-        The European Commission provides a platform for online dispute resolution:
-        <a href="https://ec.europa.eu/consumers/odr" rel="noopener">https://ec.europa.eu/consumers/odr</a>.
-        We are neither obliged nor willing to participate in dispute resolution proceedings before a consumer
-        arbitration board, unless legally required.
-      </p>
-
-      <h2>14. Contact</h2>
-      <p>
-        Diana Barkova · Kastanienstraße 18 · 40699 Erkrath · Germany<br />
-        Email: <a href="mailto:diana.iglizn@gmail.com">diana.iglizn@gmail.com</a>
-      </p>
-
-      <h2>15. Final Provisions</h2>
-      <p>
-        If individual provisions are invalid, the remainder of the agreement remains effective.
-        These Terms and the Privacy Policy constitute the entire agreement between you and us regarding use of the app.
+        We update this policy when features, legal requirements, or service providers change.
+        The current version is available in the app and at this URL. For material changes we will inform you in the app
+        or by email if we have your address.
       </p>
 
       <div class="contact-info">
-        <p><strong>Contact:</strong> <a href="mailto:diana.iglizn@gmail.com">diana.iglizn@gmail.com</a></p>
-        <p style="margin-top: 12px;"><strong>Related:</strong> <a href="privacy-policy.html">Privacy Policy</a> · <a href="impressum.html">Impressum</a> · <a href="index.html">forfuture.app</a></p>
+        <p><strong>Contact</strong></p>
+        <p>
+          Diana Barkova · Kastanienstraße 18 · 40699 Erkrath · Germany<br />
+          Privacy: <a href="mailto:diana.iglizn@gmail.com">diana.iglizn@gmail.com</a><br />
+          <a href="terms-of-service.html">Terms of Service</a> ·
+          <a href="third-party-notices.html">Open source licenses</a>
+        </p>
       </div>
 
-      <div class="last-updated">
-        <p><strong>Last updated:</strong> 20 May 2026</p>
-      </div>
+      <div class="last-updated">Last updated: 3 August 2026</div>
     </div>
 
-    <!-- German -->
-    <div id="policy-de" class="policy-content">
+    <!-- ─── DEUTSCH ─── -->
+    <div id="policy-de" class="policy-content" lang="de">
+
+      <h2>1. Verantwortliche Stelle</h2>
+      <p>
+        <strong>ForFuture</strong> (mobile App und Website)<br />
+        Verantwortlich i.&nbsp;S.&nbsp;d. Art.&nbsp;4 Nr.&nbsp;7 DSGVO:<br />
+        <strong>Diana Barkova</strong><br />
+        Kastanienstraße 18<br />
+        40699 Erkrath<br />
+        Deutschland
+      </p>
+      <p>
+        Es ist kein betrieblicher Datenschutzbeauftragter bestellt (Art.&nbsp;37 DSGVO nicht erforderlich).
+        Datenschutzanfragen: <a href="mailto:diana.iglizn@gmail.com">diana.iglizn@gmail.com</a>
+      </p>
+
+      <h2>2. Kurzüberblick</h2>
+      <p>
+        ForFuture hilft Ihnen, Ausgaben, Budgets und Sparziele zu erfassen und Monate abzuschließen.
+        <strong>Es handelt sich nicht um eine Bank, keinen Zahlungsdienst und keine Finanzberatung.</strong>
+        Es besteht <strong>keine Anbindung</strong> an Bankkonten; Sie geben Daten selbst ein.
+      </p>
       <div class="info-box">
-        <p><strong>Wichtig:</strong> Mit Installation, Registrierung oder Nutzung der ForFuture-App
-        akzeptieren Sie diese Nutzungsbedingungen. Bitte lesen Sie auch unsere
-        <a href="privacy-policy.html">Datenschutzerklärung</a>.</p>
+        <p>
+          <strong>EU-Konto-Sicherung (Standard):</strong> Für angemeldete Konten ist die
+          <strong>Cloud-Sicherung auf EU-Servern standardmäßig aktiv</strong>
+          (Transaktionen, Kategorien, Ziele, gelernte Zahlungsempfänger, Monatseinkommen,
+          abgeschlossene Monatsberichte). Die App hält zusätzlich eine Kopie auf Ihrem Gerät
+          für Tempo und Offline-Nutzung. Sie können die Cloud-Sicherung in den Einstellungen
+          ausschalten; dann verbleiben diese Daten nur auf dem Gerät (und können bei
+          Deinstallation oder Speicherlöschen verloren gehen).
+        </p>
       </div>
 
-      <h2>1. Vertragspartner und Geltung</h2>
+      <h2>3. Kategorien personenbezogener Daten</h2>
+      <table>
+        <thead>
+          <tr><th>Kategorie</th><th>Beispiele</th><th>Wo gespeichert</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Konto- &amp; Profildaten</strong></td>
+            <td>E-Mail, Passwort-Hash, Sprache, Währung, Nutzertyp (Onboarding), Abo-Status, Testphase-Ende, Einstellungen</td>
+            <td>Supabase (EU), wenn Sie ein Konto nutzen</td>
+          </tr>
+          <tr>
+            <td><strong>Finanzdaten (Cloud-Sicherung)</strong></td>
+            <td>Transaktionen, Budgetkategorien, Fixkosten, Sparziele, Fortschritt, gelernte Händler/Zahlungsempfänger, Monatseinkommen, abgeschlossene Monatsberichte</td>
+            <td>Auf dem Gerät <strong>und</strong> bei aktivierter Cloud-Sicherung (Standard für Konten) zusätzlich Supabase (EU); nur lokal, wenn Sie die Sicherung ausschalten</td>
+          </tr>
+          <tr>
+            <td><strong>Feedback</strong></td>
+            <td>Freitext, Zeitstempel, Nutzer-ID</td>
+            <td>Supabase (EU), wenn Sie Feedback senden</td>
+          </tr>
+          <tr>
+            <td><strong>Abo &amp; Zahlung</strong></td>
+            <td>Produkt-ID, Ablaufdatum, Store (App Store / Google Play), Transaktionsreferenz (keine Kartennummern bei uns)</td>
+            <td>Supabase (EU); Zahlung selbst über Apple/Google</td>
+          </tr>
+          <tr>
+            <td><strong>Auto-Erfassung (optional, Android)</strong></td>
+            <td>Text aus Wallet-/Pay-Benachrichtigungen (z.&nbsp;B. Betrag, Empfänger), nur wenn Sie die Funktion aktivieren</td>
+            <td><strong>Lokal</strong> verarbeitet; nicht an unsere Server hochgeladen</td>
+          </tr>
+          <tr>
+            <td><strong>Spracheingabe (optional)</strong></td>
+            <td>Sprachaufnahme → Transkript auf dem Gerät (Betriebssystem-Dienst)</td>
+            <td>Lokal; kein dauerhafter Upload des Audios durch uns</td>
+          </tr>
+          <tr>
+            <td><strong>Geräte &amp; App-Einstellungen</strong></td>
+            <td>Sprache, Darstellung, Cloud-Sicherung-Schalter, Auto-Erfassung-Optionen</td>
+            <td>Lokal; Abo-/Profilflags ggf. Supabase</td>
+          </tr>
+          <tr>
+            <td><strong>Lokale Hinweise (Android, optional)</strong></td>
+            <td>On-Device-Benachrichtigung bei erkanntem Zahlungsvorgang (kein Remote-Marketing-Push)</td>
+            <td>Lokal verarbeitet; kein Push von unseren Servern</td>
+          </tr>
+          <tr>
+            <td><strong>Nutzungsanalyse (optional)</strong></td>
+            <td>Anonyme App-Nutzungsereignisse (z.&nbsp;B. Bildschirme, Funktionsnutzung); App-Instanz-ID</td>
+            <td>Google Firebase Analytics — nur nach Einwilligung; keine Budgetbeträge oder Bankdaten</td>
+          </tr>
+          <tr>
+            <td><strong>Technische Protokolle</strong></td>
+            <td>IP, Zeitstempel, Fehler bei API-Aufrufen (Server-Logs)</td>
+            <td>Supabase / Hosting, begrenzte Aufbewahrung</td>
+          </tr>
+        </tbody>
+      </table>
       <p>
-        Anbieterin der App <strong>ForFuture</strong> ist <strong>Diana Barkova</strong>,
-        Kastanienstraße 18, 40699 Erkrath, Deutschland („wir“, „uns“).
-        Nutzer („Sie“) ist jede natürliche Person, die die App verwendet.
+        Wir verarbeiten <strong>keine besonderen Kategorien</strong> personenbezogener Daten i.&nbsp;S.&nbsp;d.
+        Art.&nbsp;9 DSGVO (z.&nbsp;B. Gesundheits- oder Religiondaten), sofern Sie diese nicht freiwillig in
+        Freitextfeldern eingeben.
       </p>
       <p>
-        Es gelten ausschließlich diese Bedingungen in der jeweils aktuellen Fassung sowie die
-        Datenschutzerklärung. Entgegenstehende Bedingungen des Nutzers erkennen wir nicht an.
+        Die <strong>mobile App</strong> kann <strong>Firebase Analytics</strong> (Google) nutzen, jedoch nur nach
+        Ihrer <strong>Einwilligung</strong> (Hinweis ca.&nbsp;24 Stunden nach Registrierung oder später unter
+        Einstellungen → Hilfe → Rechtliches). Die Erfassung ist <strong>standardmäßig aus</strong>.
+        Analytics umfasst anonyme Nutzungsereignisse (z.&nbsp;B. geöffnete Bildschirme, Funktionsnutzung) zur
+        Produktverbesserung. Bankzugangsdaten, Transaktionsbeträge oder Budgetzahlen werden <strong>nicht</strong>
+        an Analytics gesendet. Sie können die Einwilligung jederzeit über denselben Schalter widerrufen.
+        Ein separates Crash-Reporting-SDK (z.&nbsp;B. Sentry) ist derzeit <strong>nicht</strong> integriert.
+        Erinnerungs-Schalter bleiben lokal; wir versenden keinen Remote-Marketing-Push von unseren Servern.
       </p>
 
-      <h2>2. Leistungsbeschreibung</h2>
+      <h2>4. Zwecke und Rechtsgrundlagen (Art.&nbsp;6 DSGVO)</h2>
+      <ul>
+        <li><strong>Vertrag / vorvertragliche Maßnahmen (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;b):</strong> Konto, App-Funktionen, Abo-Verwaltung, Support sowie <strong>Cloud-Sicherung Ihrer Finanzdaten</strong> für Ihr angemeldetes Konto (standardmäßig an; in den Einstellungen abschaltbar).</li>
+        <li><strong>Einwilligung (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;a):</strong> Zugriff auf Benachrichtigungen (Auto-Erfassung), optionale lokale Bestätigungshinweise (Android), Sprachmikrofon, optionale Nutzungsanalyse (Firebase Analytics). Widerruf jederzeit mit Wirkung für die Zukunft.</li>
+        <li><strong>Berechtigtes Interesse (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;f):</strong> IT-Sicherheit, Missbrauchsprävention, Fehleranalyse in Protokollen, Durchsetzung von Abo-Rechten — unter Wahrung Ihrer Interessen (Datenminimierung).</li>
+        <li><strong>Rechtspflicht (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;c):</strong> Aufbewahrung nach Handels-/Steuerrecht, soweit anwendbar.</li>
+      </ul>
+      <p>Es findet <strong>keine automatisierte Entscheidungsfindung</strong> i.&nbsp;S.&nbsp;d. Art.&nbsp;22 DSGVO statt.</p>
+
+      <h2>5. Abonnement (Premium) und Zahlungsabwicklung</h2>
       <p>
-        ForFuture ist ein <strong>Hilfsmittel zur manuellen Finanzplanung</strong>:
-        Erfassung von Ausgaben und Einnahmen, Budgetkategorien, Fixkosten, Sparziele (bis zu drei),
-        Monatsabschlüsse, Statistiken, optionale Spracheingabe und (auf Android) optionale
-        Vorschläge aus Zahlungsbenachrichtigungen.
+        Nach einer <strong>kostenlosen Testphase von 7 Tagen</strong> ist die weitere Nutzung der App nur mit einem
+        kostenpflichtigen Abo möglich:
       </p>
       <ul>
-        <li><strong>Keine Bank, kein Zahlungsinstitut:</strong> Es gibt keine Anbindung an Bankkonten oder Karten. Alle Beträge geben Sie selbst ein oder bestätigen Vorschläge.</li>
-        <li><strong>Keine Finanz-, Steuer- oder Rechtsberatung:</strong> Inhalte dienen nur der Information und Organisation. Entscheidungen treffen Sie allein.</li>
-        <li><strong>Lokal + EU-Sicherung:</strong> Finanzdaten werden auf dem Gerät gespeichert und für angemeldete Konten standardmäßig auf EU-Servern gesichert (u.&nbsp;a. Monatseinkommen und abgeschlossene Monate). Die Cloud-Sicherung können Sie in den Einstellungen ausschalten.</li>
+        <li><strong>Monatlich:</strong> 2,99&nbsp;€ (Preis kann im Store in Ihrer Landeswährung angezeigt werden)</li>
+        <li><strong>Jährlich:</strong> 24,99&nbsp;€</li>
       </ul>
-
-      <h2>3. Registrierung und Konto</h2>
       <p>
-        Für die Nutzung ist ein Nutzerkonto erforderlich. Sie müssen wahrheitsgemäße Angaben machen,
-        Ihr Passwort geheim halten und uns unverzüglich bei Missbrauch informieren.
-        Mindestalter: <strong>16 Jahre</strong> (oder höheres Mindestalter nach nationalem Recht).
+        Der Kauf, die Verlängerung und die Kündigung erfolgen über den <strong>Apple App Store</strong> bzw.
+        <strong>Google Play Store</strong>. Vertragspartner für die Zahlungsabwicklung ist Apple bzw. Google;
+        wir erhalten von den Stores <strong>keine vollständigen Zahlungskarten- oder Kontodaten</strong>, sondern
+        ggf. Transaktions- und Abo-Statusinformationen zur Freischaltung von Premium.
+      </p>
+      <p>
+        Abo-Status und Ablaufdatum speichern wir in Ihrem Profil (serverseitig, geschützt vor Manipulation durch
+        technische Sicherheitsmaßnahmen). Details zu Kündigung und Erstattung richten sich nach den
+        <a href="https://www.apple.com/legal/internet-services/itunes/de/terms.html" rel="noopener">Apple-Media-Services-Bedingungen</a>
+        bzw. den
+        <a href="https://play.google.com/intl/de_de/about/play-terms/" rel="noopener">Google-Play-Nutzungsbedingungen</a>.
       </p>
 
-      <h2>4. Kostenlose Testphase und kostenpflichtiges Abonnement (Premium)</h2>
-      <h3>4.1 Testphase</h3>
+      <h2>6. Cloud-Sicherung (Standard für Konten)</h2>
       <p>
-        Neue Konten erhalten eine <strong>kostenlose Nutzungsphase von 7 Kalendertagen</strong> ab Erstnutzung
-        („Testphase“). Während der Testphase stehen die App-Funktionen uneingeschränkt zur Verfügung.
+        Wenn Sie ein ForFuture-Konto nutzen, ist die <strong>Cloud-Sicherung standardmäßig aktiv</strong>.
+        Wir synchronisieren die von Ihnen gewählten Finanzdaten mit Ihrem Konto auf Supabase
+        (Region <strong>Frankfurt / EU</strong>), damit sie nach Neuinstallation oder Löschen des App-Speichers
+        nicht verloren gehen. Sie können die Cloud-Sicherung jederzeit in den Einstellungen deaktivieren;
+        bereits hochgeladene Daten können Sie durch <strong>Kontolöschung</strong> entfernen lassen.
       </p>
-      <h3>4.2 Premium-Abo</h3>
       <p>
-        Nach Ablauf der Testphase ist die weitere Nutzung nur mit einem aktiven <strong>Premium-Abonnement</strong>
-        möglich. Angebotene Laufzeiten und Preise (Stand Mai 2026):
+        Bei aktivierter Cloud-Sicherung werden Monatseinkommen (<code>user_profiles.income</code>) und
+        abgeschlossene Monatsberichte (<code>period_reports</code>) mit Ihrem Konto synchronisiert.
+        Benachrichtigungstexte der Auto-Erfassung werden nicht hochgeladen.
       </p>
+
+      <h2>7. Auto-Erfassung von Zahlungen (Android, optional)</h2>
+      <p>
+        Wenn Sie diese Funktion aktivieren, lesen wir <strong>lokal auf Ihrem Gerät</strong> Benachrichtigungstexte
+        ausgewählter Apps (z.&nbsp;B. Google Pay, PayPal), um Beträge zu erkennen und Ihnen das Anlegen einer
+        Ausgabe vorzuschlagen. Sie bestätigen jede Buchung selbst. Der Benachrichtigungstext wird
+        <strong>nicht</strong> an unsere Server übertragen. Sie können den Zugriff in den Android-Einstellungen
+        („Benachrichtigungszugriff“) jederzeit widerrufen.
+      </p>
+
+      <h2>8. Spracheingabe (optional)</h2>
+      <p>
+        Für die Spracheingabe nutzen wir die Spracherkennung Ihres Geräts (z.&nbsp;B. Apple Speech / Android Speech).
+        Die Verarbeitung kann je nach Betriebssystem auch serverseitig durch Apple/Google erfolgen; wir speichern
+        die Audioaufnahme nicht dauerhaft. Das erkannte Transkript verwenden wir nur, um Felder in der App
+        vorzufüllen, bis Sie speichern oder verwerfen.
+      </p>
+
+      <h2>9. Empfänger und Auftragsverarbeiter (Art.&nbsp;28 DSGVO)</h2>
       <ul>
-        <li><strong>Monatsabo:</strong> 2,99&nbsp;€ pro Monat</li>
-        <li><strong>Jahresabo:</strong> 24,99&nbsp;€ pro Jahr</li>
+        <li><strong>Supabase Inc.</strong> — Authentifizierung, Datenbank, Edge Functions (EU-Rechenzentrum Frankfurt); Verschlüsselung in Transit und at Rest.</li>
+        <li><strong>Apple Inc.</strong> — App Store, In-App-Käufe (iOS), optionale Spracherkennung auf dem Gerät.</li>
+        <li><strong>Google Ireland Ltd. / Google LLC</strong> — Google Play, In-App-Käufe (Android), optionale Spracherkennung auf dem Gerät; bei Einwilligung zusätzlich <strong>Firebase Analytics</strong> (Nutzungsereignisse; Verarbeitung kann Google-Infrastruktur auch außerhalb der EU unter SCCs umfassen).</li>
+        <li><strong>Expo / Hosting-Anbieter</strong> — App-Build-Infrastruktur (kein Zugriff auf Ihre Finanzinhalte im Normalbetrieb).</li>
       </ul>
       <p>
-        Im App Store bzw. Google Play können abweichende, länderspezifische Preise und Steuern angezeigt werden;
-        maßgeblich ist der im Store ausgewiesene Preis zum Zeitpunkt des Kaufs.
-      </p>
-      <h3>4.3 Abwicklung über Apple / Google</h3>
-      <p>
-        Der Kauf, die Verlängerung, Kündigung und Erstattung erfolgen über den
-        <strong>Apple App Store</strong> (iOS) oder <strong>Google Play Store</strong> (Android).
-        Vertragspartner für die Zahlungsabwicklung ist Apple bzw. Google; es gelten deren Bedingungen zusätzlich.
-        Abos verlängern sich automatisch, sofern Sie nicht mindestens 24 Stunden vor Periodenende im Store kündigen.
-      </p>
-      <h3>4.4 Wiederherstellen von Käufen</h3>
-      <p>
-        Auf einem neuen Gerät oder nach Neuinstallation können Sie über „Käufe wiederherstellen“ ein bestehendes
-        Abo reaktivieren, sofern es demselben Store-Konto zugeordnet ist.
-      </p>
-      <h3>4.5 Kein Widerrufsrecht gegenüber uns bei Store-Käufen</h3>
-      <p>
-        Bei digitalen Inhalten, die über Apple oder Google erworben werden, richten sich Widerrufs- und
-        Erstattungsansprüche primär nach den Regeln des jeweiligen Stores und des anwendbaren Verbraucherrechts;
-        wenden Sie sich bei Erstattungen an den Store-Support.
+        Mit Auftragsverarbeitern bestehen Verträge gem. Art.&nbsp;28 DSGVO. Übermittlungen in Drittländer (insb. USA)
+        erfolgen auf Grundlage von <strong>Standardvertragsklauseln</strong> (Art.&nbsp;46 DSGVO) und ergänzender
+        technischer/organisatorischer Maßnahmen. Kopien können auf Anfrage bereitgestellt werden.
       </p>
 
-      <h2>5. Pflichten des Nutzers</h2>
+      <h2>10. Speicherdauer und Löschung</h2>
       <ul>
-        <li>Die App nur rechtmäßig und für private Zwecke nutzen (keine kommerzielle Weitergabe).</li>
-        <li>Keine Manipulation von Abo- oder Sicherheitsmechanismen.</li>
-        <li>Kein Reverse Engineering, keine automatisierten Massenzugriffe auf unsere Systeme.</li>
-        <li>Eigene Backups wichtiger Daten, wenn Sie die Cloud-Sicherung ausschalten (Neuinstallation ohne Sicherung kann lokale Daten löschen).</li>
+        <li><strong>Konto und Cloud-Daten:</strong> bis zur Löschung Ihres Kontos in den Einstellungen oder auf Anfrage.</li>
+        <li><strong>Lokale Daten:</strong> bis Sie die App deinstallieren oder Daten in der App löschen.</li>
+        <li><strong>Abo-Nachweise:</strong> gemäß gesetzlicher Aufbewahrung und Store-Richtlinien; Abo-Metadaten im Profil bis Kontolöschung.</li>
+        <li><strong>Feedback:</strong> bis zur Erledigung, in der Regel max. 12 Monate, sofern keine längere Pflicht besteht.</li>
+        <li><strong>Server-Logs:</strong> typischerweise 30–90 Tage (Supabase-Standard), danach Löschung/Überschreibung.</li>
       </ul>
 
-      <h2>6. Verfügbarkeit und Änderungen</h2>
+      <h3>Kontolöschung (Art.&nbsp;17 DSGVO)</h3>
       <p>
-        Wir bemühen uns um hohe Verfügbarkeit, garantieren diese aber nicht. Wartung, Updates oder höhere Gewalt
-        können zu Unterbrechungen führen. Funktionen können weiterentwickelt oder eingestellt werden; wesentliche
-        Änderungen werden nach Möglichkeit in der App angekündigt.
+        Sie können Ihr Konto in der App unter <strong>Einstellungen → Persönliche Daten → Konto löschen</strong>
+        unwiderruflich löschen. Dabei werden Ihre serverseitigen Daten (Profil, Cloud-Finanzdaten, Feedback zu
+        Ihrem Konto) über eine gesicherte Serverfunktion entfernt und Ihr Login deaktiviert. Lokale Daten auf dem
+        Gerät sollten Sie durch Deinstallation der App entfernen.
+      </p>
+      <p>
+        Es gibt <strong>keine separate Löschrichtlinie</strong>; Kontolöschung und Datenentfernung sind hier und in der App beschrieben.
       </p>
 
-      <h2>7. Haftung</h2>
+      <h2>11. App-Berechtigungen</h2>
       <p>
-        Wir haften unbeschränkt bei Vorsatz und grober Fahrlässigkeit sowie bei Schäden aus der Verletzung von
-        Leben, Körper oder Gesundheit. Bei leichter Fahrlässigkeit haften wir nur bei Verletzung wesentlicher
-        Vertragspflichten (Kardinalpflichten), begrenzt auf den vorhersehbaren, typischen Schaden.
-      </p>
-      <p>
-        <strong>Keine Haftung</strong> für finanzielle Entscheidungen, Datenverluste durch fehlende lokale Sicherung,
-        Fehler in manuell eingegebenen Daten oder Störungen Dritter (Stores, Netzbetreiber, Supabase).
-      </p>
-      <p>
-        Soweit zulässig, ist die Gesamthaftung auf den Betrag begrenzt, den Sie in den letzten 12 Monaten für das
-        Premium-Abo an uns bzw. über die Stores gezahlt haben (bei Nutzung nur in der Testphase: 0&nbsp;€).
+        Je nach Nutzung kann die App anfordern: Internet, lokaler Speicher, Benachrichtigungen, Mikrofon (Sprache),
+        Benachrichtigungszugriff (Android Auto-Erfassung), ggf. Zwischenablage (Deep-Link aus kopiertem Zahlungstext).
+        Ohne erteilte Berechtigungen stehen einzelne Funktionen nicht zur Verfügung.
       </p>
 
-      <h2>8. Datenschutz</h2>
+      <h2>12. Ihre Rechte</h2>
+      <p>Sie haben gegenüber uns folgende Rechte, soweit die gesetzlichen Voraussetzungen erfüllt sind:</p>
+      <ul>
+        <li>Auskunft (Art.&nbsp;15 DSGVO)</li>
+        <li>Berichtigung (Art.&nbsp;16 DSGVO)</li>
+        <li>Löschung (Art.&nbsp;17 DSGVO)</li>
+        <li>Einschränkung der Verarbeitung (Art.&nbsp;18 DSGVO)</li>
+        <li>Datenübertragbarkeit (Art.&nbsp;20 DSGVO)</li>
+        <li>Widerspruch gegen Verarbeitung auf Grundlage von Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;f DSGVO (Art.&nbsp;21 DSGVO)</li>
+        <li>Widerruf erteilter Einwilligungen (Art.&nbsp;7 Abs.&nbsp;3 DSGVO)</li>
+      </ul>
       <p>
-        Die Verarbeitung personenbezogener Daten regelt unsere
-        <a href="privacy-policy.html">Datenschutzerklärung</a> (einschließlich Kontolöschung und Betroffenenrechte).
-        Es gibt keine separate „Löschrichtlinie“; Löschung ist dort und in der App beschrieben.
+        Anfragen an: <a href="mailto:diana.iglizn@gmail.com">diana.iglizn@gmail.com</a>.
+        Beschwerderecht bei einer Aufsichtsbehörde, z.&nbsp;B. dem
+        <strong>Landesbeauftragten für Datenschutz und Informationsfreiheit Nordrhein-Westfalen (LDI NRW)</strong>,
+        Kavalleriestraße 2–4, 40213 Düsseldorf (Art.&nbsp;77 DSGVO).
       </p>
 
-      <h2>9. Geistiges Eigentum</h2>
+      <h2>13. Sicherheit</h2>
       <p>
-        App, Design, Marken und Code bleiben unser Eigentum. Sie erhalten ein einfaches, nicht übertragbares,
-        widerrufliches Nutzungsrecht für private Zwecke. Ihre selbst eingegebenen Inhalte bleiben Ihr Eigentum;
-        Sie räumen uns die zur Bereitstellung der App erforderlichen Verarbeitungsrechte ein.
+        TLS-Verschlüsselung, Zugriffskontrolle auf Datenbankebene (Row Level Security), getrennte Speicherung
+        sensibler Abo-Felder, keine Speicherung von Passwörtern im Klartext. Regelmäßige Überprüfung der
+        technischen und organisatorischen Maßnahmen.
       </p>
 
-      <h2>10. Kündigung und Kontolöschung</h2>
+      <h2>14. Minderjährige</h2>
       <p>
-        Sie können Ihr Konto jederzeit in der App löschen (Einstellungen → Persönliche Daten). Das beendet die
-        Nutzung unserer Server-Dienste. Ein laufendes Store-Abo müssen Sie zusätzlich im App Store / Play Store kündigen.
-      </p>
-      <p>
-        Wir können Konten bei schweren Verstößen gegen diese Bedingungen sperren oder löschen.
+        Die App richtet sich an Personen ab <strong>16 Jahren</strong>. Wir erheben wissentlich keine Daten von
+        Kindern unter 16 Jahren.
       </p>
 
-      <h2>11. Änderungen der Bedingungen</h2>
+      <h2 id="cookies">15. Website &amp; Cookies</h2>
       <p>
-        Wir können diese Bedingungen anpassen. Über wesentliche Änderungen informieren wir in der App oder per E-Mail.
-        Widersprechen Sie nicht innerhalb von 30 Tagen und nutzen die App weiter, gelten die neuen Bedingungen als angenommen.
+        Auf <a href="https://forfuture.app">forfuture.app</a> können technisch notwendige Cookies eingesetzt werden.
+        Das Cookie-Banner steuert derzeit das optionale Laden von Google Fonts. Wir betreiben derzeit
+        <strong>keine</strong> Drittanbieter-Website-Analyse auf forfuture.app. Falls sich das ändert, würden
+        optionale Analyse-Cookies nur mit Einwilligung über das Cookie-Banner geladen.
       </p>
 
-      <h2>12. Anwendbares Recht und Gerichtsstand</h2>
+      <h2>16. Änderungen</h2>
       <p>
-        Es gilt deutsches Recht unter Ausschluss des UN-Kaufrechts. Zwingende Verbraucherschutzvorschriften Ihres
-        Aufenthaltsstaates (EU) bleiben unberührt. Gerichtsstand für Kaufleute ist Erkrath; für Verbraucher gilt
-        der gesetzliche Gerichtsstand.
-      </p>
-
-      <h2>13. Streitbeilegung</h2>
-      <p>
-        Die EU-Kommission stellt eine Plattform zur Online-Streitbeilegung bereit:
-        <a href="https://ec.europa.eu/consumers/odr" rel="noopener">https://ec.europa.eu/consumers/odr</a>.
-        Wir sind nicht verpflichtet und nicht bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen,
-        sofern nicht gesetzlich zwingend.
-      </p>
-
-      <h2>14. Kontakt</h2>
-      <p>
-        Diana Barkova · Kastanienstraße 18 · 40699 Erkrath · Deutschland<br />
-        E-Mail: <a href="mailto:diana.iglizn@gmail.com">diana.iglizn@gmail.com</a>
-      </p>
-
-      <h2>15. Schlussbestimmungen</h2>
-      <p>
-        Sollten einzelne Bestimmungen unwirksam sein, bleibt der Vertrag im Übrigen wirksam. Diese Bedingungen und
-        die Datenschutzerklärung bilden die gesamte Vereinbarung zwischen Ihnen und uns zur App-Nutzung.
+        Wir passen diese Erklärung an, wenn sich Funktionen, Rechtslage oder Dienstleister ändern. Die aktuelle
+        Fassung ist in der App und unter dieser URL abrufbar. Bei wesentlichen Änderungen informieren wir in der App
+        oder per E-Mail, sofern wir Ihre Adresse haben.
       </p>
 
       <div class="contact-info">
-        <p><strong>Kontakt:</strong> <a href="mailto:diana.iglizn@gmail.com">diana.iglizn@gmail.com</a></p>
-        <p style="margin-top: 12px;"><strong>Siehe auch:</strong> <a href="privacy-policy.html">Datenschutzerklärung</a> · <a href="impressum.html">Impressum</a> · <a href="index.html">forfuture.app</a></p>
+        <p><strong>Kontakt</strong></p>
+        <p>
+          Diana Barkova · Kastanienstraße 18 · 40699 Erkrath · Deutschland<br />
+          Datenschutz: <a href="mailto:diana.iglizn@gmail.com">diana.iglizn@gmail.com</a><br />
+          <a href="terms-of-service.html">Nutzungsbedingungen</a> ·
+          <a href="third-party-notices.html">Open-Source-Lizenzen</a>
+        </p>
       </div>
 
-      <div class="last-updated">
-        <p><strong>Zuletzt aktualisiert:</strong> 20. Mai 2026</p>
-      </div>
+      <div class="last-updated">Zuletzt aktualisiert: 3. August 2026</div>
     </div>
-
-    <!-- Spanish -->
 
     <div class="footer-links">
       <a href="index.html">Startseite</a> ·
-      <a href="privacy-policy.html">Datenschutz</a> ·
+      <a href="terms-of-service.html">AGB</a> ·
       <a href="impressum.html">Impressum</a> ·
-      <a href="support.html">Support</a> · <button type="button" class="cookie-settings-link" data-cookie-settings data-i18n="footer.cookies">Cookie-Einstellungen</button>
+      <a href="support.html">Support</a> ·
+      <a href="delete-account.html">Konto löschen</a> · <button type="button" class="cookie-settings-link" data-cookie-settings data-i18n="footer.cookies">Cookie-Einstellungen</button>
     </div>
   </main>
 <script src="legal-page.js"></script>
