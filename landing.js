@@ -40,8 +40,8 @@
       'store.qr.android.aria': 'QR-Code Google Play',
       'trust.pill1': 'In Sekunden erfasst',
       'trust.pill2': 'Ziele statt nur Ausgaben',
-      'trust.pill3': 'Gerät + EU-Sicherung',
-      'trust.bar': 'Keine Bank · Opt-in Analytics · Gerät + EU-Cloud-Sicherung · Volle Kontrolle',
+      'trust.pill3': 'EU-Sicherung standardmäßig',
+      'trust.bar': 'Keine Bank · Opt-in Analytics · EU-Cloud-Sicherung standardmäßig · Volle Kontrolle',
       'why.label': 'Warum ForFuture',
       'why.title': 'Warum ForFuture anders ist',
       'why.sub':
@@ -105,11 +105,12 @@
         'ForFuture ist keine Bank und keine Finanzberatung. Du erfasst selbst. Mit Konto sichern wir dein Budget standardmäßig in der EU — abschaltbar.',
       'priv1.title': 'Kein Bankzugriff',
       'priv1.p': 'Kein Kontozugriff, kein PSD2, keine Drittanbieter-APIs für deine Kontodaten.',
-      'priv2.title': 'Auf dem Gerät',
-      'priv2.p': 'Ausgaben, Budgets und Ziele liegen auf deinem Gerät — schnell und offline nutzbar.',
+      'priv2.title': 'Schnell & offline',
+      'priv2.p':
+        'Die App nutzt dein Gerät für Tempo und Offline-Nutzung. Mit Konto werden Änderungen automatisch auf EU-Servern gesichert.',
       'priv3.title': 'EU-Cloud-Sicherung',
       'priv3.p':
-        'Für Konten standardmäßig an (EU-Server), damit Daten nach Neuinstallation nicht verloren gehen — in den Einstellungen abschaltbar.',
+        'Für angemeldete Konten standardmäßig aktiv (EU-Server) — dein Budget überlebt Gerätewechsel und Neuinstallation. Jederzeit in den Einstellungen abschaltbar.',
       'priv4.title': 'Optionale Nutzungsanalyse',
       'priv4.p':
         'Firebase Analytics nur nach Ihrer Zustimmung — standardmäßig aus. Details in der <a href="privacy-policy.html">Datenschutzerklärung</a>.',
@@ -126,6 +127,9 @@
       'faq4.q': 'Was bedeutet Monats-Review?',
       'faq4.a':
         'Du schließt den Monat ab, erhältst einen Bericht und deine Sparziele werden aktualisiert. Quartal- und Jahresübersichten bauen darauf auf.',
+      'faq5.q': 'Wo werden meine Finanzdaten gespeichert?',
+      'faq5.a':
+        'Mit Konto werden Ausgaben, Budgets und Ziele standardmäßig auf EU-Servern gesichert. Die App nutzt dein Gerät für Tempo und Offline-Nutzung. Cloud-Sicherung kannst du jederzeit in den Einstellungen abschalten.',
       'cta.title': 'Dein Geld verdient einen Plan.',
       'cta.sub': 'Starte jetzt und sieh, wie deine Ausgaben zu Fortschritt werden.',
       'cta.note': 'Keine Bank · iOS & Android',
@@ -172,8 +176,8 @@
       'store.qr.android.aria': 'Google Play QR code',
       'trust.pill1': 'Logged in seconds',
       'trust.pill2': 'Goals, not just spending',
-      'trust.pill3': 'Device + EU backup',
-      'trust.bar': 'No bank · Opt-in analytics · Device + EU cloud backup · Full control',
+      'trust.pill3': 'EU backup by default',
+      'trust.bar': 'No bank · Opt-in analytics · EU cloud backup by default · Full control',
       'why.label': 'Why ForFuture',
       'why.title': 'Why ForFuture is different',
       'why.sub':
@@ -236,11 +240,12 @@
         'ForFuture is not a bank or financial advice. You log yourself. With an account, your budget is backed up in the EU by default — you can turn that off.',
       'priv1.title': 'No bank access',
       'priv1.p': 'No account access, no PSD2, no third-party APIs for your bank data.',
-      'priv2.title': 'On your device',
-      'priv2.p': 'Expenses, budgets, and goals live on your device — fast and usable offline.',
+      'priv2.title': 'Fast & offline',
+      'priv2.p':
+        'The app uses your device for speed and offline use. With an account, changes are backed up to EU servers automatically.',
       'priv3.title': 'EU cloud backup',
       'priv3.p':
-        'On by default for accounts (EU servers) so data survives reinstall — turn off anytime in Settings.',
+        'On by default for signed-in accounts (EU servers) — your budget survives device changes and reinstall. Turn off anytime in Settings.',
       'priv4.title': 'Optional usage analytics',
       'priv4.p':
         'Firebase Analytics only with your consent — off by default. See our <a href="privacy-policy.html">Privacy Policy</a>.',
@@ -257,6 +262,9 @@
       'faq4.q': 'What is a month review?',
       'faq4.a':
         'You close the month, get a report, and your savings goals update. Quarter and year views build on that.',
+      'faq5.q': 'Where is my financial data stored?',
+      'faq5.a':
+        'With an account, expenses, budgets, and goals are backed up to EU servers by default. The app uses your device for speed and offline use. You can turn off cloud backup anytime in Settings.',
       'cta.title': 'Your money deserves a plan.',
       'cta.sub': 'Start now and turn spending into progress.',
       'cta.note': 'No bank · iOS & Android',
