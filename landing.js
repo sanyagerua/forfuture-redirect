@@ -12,9 +12,9 @@
 
   var STRINGS = {
     de: {
-      'meta.title': 'ForFuture — Ausgaben im Griff. Ziele im Blick.',
+      'meta.title': 'Haushaltsbuch App ForFuture — digital Geld sparen ohne Excel',
       'meta.description':
-        'Budget- und Ziel-App ohne Bank-Anbindung. Ausgaben in Sekunden erfassen, Sparziele verfolgen, Monate abschließen.',
+        'ForFuture ist die digitale Haushaltsbuch-App für monatliche Ausgaben und Sparziele — ohne Excel, ohne Bank-Anbindung. Ausgaben-App mit App-Haushaltsplan für iOS & Android.',
       'logo.aria': 'ForFuture Startseite',
       'lang.switch.aria': 'Sprache wählen',
       'nav.aria': 'Hauptnavigation',
@@ -26,10 +26,10 @@
       'nav.capture': 'Erfassen',
       'nav.review': 'Monats-Review',
       'nav.faq': 'FAQ',
-      'hero.eyebrow': 'Budget-App · Keine Bank-Anbindung',
-      'hero.title': 'Ausgaben im Griff. Ziele im Blick.',
+      'hero.eyebrow': 'Haushaltsbuch-App · Keine Bank-Anbindung',
+      'hero.title': 'Digitales Haushaltsbuch. Ziele im Blick.',
       'hero.sub':
-        'Erfasse Ausgaben in Sekunden und sieh, wie dein Budget dich Monat für Monat deinen Zielen näher bringt.',
+        'Die Ausgaben-App für monatliche Ausgaben und Sparziele — ohne Excel, ohne Vorlage, ohne Bank-Login. So sparst du Geld mit einem klaren App-Haushaltsplan.',
       'hero.phone.alt': 'ForFuture App — Monatsübersicht auf dem Smartphone',
       'hero.video.aria': 'ForFuture App — Kurzdemo',
       'store.ios.aria': 'Im App Store laden',
@@ -130,10 +130,32 @@
       'faq5.q': 'Wo werden meine Finanzdaten gespeichert?',
       'faq5.a':
         'Mit Konto werden Ausgaben, Budgets und Ziele standardmäßig auf EU-Servern gesichert. Die App nutzt dein Gerät für Tempo und Offline-Nutzung. Cloud-Sicherung kannst du jederzeit in den Einstellungen abschalten.',
+      'faq6.q': 'Ist ForFuture eine kostenlose Haushaltsbuch-App?',
+      'faq6.a':
+        'Du kannst ForFuture herunterladen und starten. Premium-Funktionen und Testzeitraum findest du in der App bzw. im Store — ohne Bank-Anbindung und ohne Excel.',
+      'faq7.q': 'Brauche ich Excel oder eine Haushaltsbuch-Vorlage?',
+      'faq7.a':
+        'Nein. ForFuture ersetzt Excel-Haushaltsbücher und Papier-Vorlagen durch ein digitales Haushaltsbuch mit App-Haushaltsplan — Ausgaben erfassen und monatlich abschließen.',
+      'faq8.q': 'Wie hilft ForFuture beim Geld sparen?',
+      'faq8.a':
+        'Du siehst monatliche Ausgaben klar, setzt Sparziele und schließt den Monat bewusst ab. So wird aus „Wie kann man Geld sparen?“ ein wiederholbarer Plan — nicht nur Charts.',
+      'seo.label': 'Haushaltsbuch App',
+      'seo.title': 'Digitales Haushaltsbuch statt Excel & Vorlage',
+      'seo.sub':
+        'Viele suchen eine Haushaltsbuch-App, eine Vorlage oder Excel — und wollen einfach Geld sparen. ForFuture ist die digitale Alternative: Ausgaben-App und App-Haushaltsplan in einem.',
+      'seo1.title': 'Haushaltsbuch ohne Excel',
+      'seo1.p':
+        'Kein Tabellenchaos: Erfasse Ausgaben per Sprache, Tippen oder Wallet-Hinweis. Dein digitales Haushaltsbuch bleibt auf dem Handy — ideal für monatliche Ausgaben.',
+      'seo2.title': 'Geld sparen mit Plan',
+      'seo2.p':
+        'Wer fragt „Wie kann man Geld sparen?“ braucht Überblick und Ziele. ForFuture verbindet Ausgaben-Tracking mit bis zu drei Sparzielen — eine echte Geld-sparen-App.',
+      'seo3.title': 'App-Haushaltsplan statt Papier',
+      'seo3.p':
+        'Fixkosten und variables Budget baust du aktiv auf. So wird aus dem klassischen Haushaltsbuch ein lebendiger Haushaltsplan — ohne Bank-Anbindung, mit EU-Sicherung nach Wahl.',
       'cta.title': 'Dein Geld verdient einen Plan.',
       'cta.sub': 'Starte jetzt und sieh, wie deine Ausgaben zu Fortschritt werden.',
       'cta.note': 'Keine Bank · iOS & Android',
-      'footer.tagline': 'Ausgaben im Griff. Ziele im Blick.',
+      'footer.tagline': 'Digitales Haushaltsbuch. Ziele im Blick.',
       'footer.legal': 'Rechtliches',
       'footer.privacy': 'Datenschutz',
       'footer.terms': 'AGB',
@@ -142,15 +164,16 @@
       'footer.opensource': 'Open Source',
       'footer.app': 'App',
       'footer.support': 'Support',
+      'footer.seo': 'Haushaltsbuch App',
       'footer.faq': 'FAQ',
       'footer.download': 'Download',
       'footer.copyright': '© 2026 ForFuture. Alle Rechte vorbehalten.',
       'footer.cookies': 'Cookie-Einstellungen',
     },
     en: {
-      'meta.title': 'ForFuture — Expenses under control. Goals in sight.',
+      'meta.title': 'ForFuture budget app — track spending & savings goals',
       'meta.description':
-        'Budget and goals app with no bank connection. Log expenses in seconds, track savings goals, close months.',
+        'ForFuture is a digital household budget app for monthly spending and savings goals — no Excel, no bank login. Expense tracker with a clear plan for iOS & Android.',
       'logo.aria': 'ForFuture home',
       'lang.switch.aria': 'Choose language',
       'nav.aria': 'Main navigation',
@@ -163,9 +186,9 @@
       'nav.review': 'Month review',
       'nav.faq': 'FAQ',
       'hero.eyebrow': 'Budget app · No bank connection',
-      'hero.title': 'Expenses under control. Goals in sight.',
+      'hero.title': 'Digital budget book. Goals in sight.',
       'hero.sub':
-        'Log expenses in seconds and watch your budget move you closer to your goals month by month.',
+        'The expense app for monthly spending and savings goals — no Excel, no spreadsheet template, no bank login. Save money with a clear in-app household plan.',
       'hero.phone.alt': 'ForFuture app — monthly overview on a smartphone',
       'hero.video.aria': 'ForFuture app — short demo',
       'store.ios.aria': 'Download on the App Store',
@@ -265,10 +288,32 @@
       'faq5.q': 'Where is my financial data stored?',
       'faq5.a':
         'With an account, expenses, budgets, and goals are backed up to EU servers by default. The app uses your device for speed and offline use. You can turn off cloud backup anytime in Settings.',
+      'faq6.q': 'Is ForFuture a free household budget app?',
+      'faq6.a':
+        'You can download and start ForFuture. Premium features and trial details are in the app or store — no bank connection and no Excel.',
+      'faq7.q': 'Do I need Excel or a budget spreadsheet template?',
+      'faq7.a':
+        'No. ForFuture replaces Excel budget books and paper templates with a digital household budget and in-app plan — log spending and close each month.',
+      'faq8.q': 'How does ForFuture help me save money?',
+      'faq8.a':
+        'You see monthly spending clearly, set savings goals, and close the month deliberately — a repeatable plan, not just charts.',
+      'seo.label': 'Budget app',
+      'seo.title': 'Digital household budget instead of Excel & templates',
+      'seo.sub':
+        'Many people search for a budget app, a template, or Excel — and simply want to save money. ForFuture is the digital alternative: expense tracker and household plan in one.',
+      'seo1.title': 'Budget book without Excel',
+      'seo1.p':
+        'No spreadsheet chaos: log expenses by voice, typing, or wallet alert. Your digital household budget stays on your phone — ideal for monthly spending.',
+      'seo2.title': 'Save money with a plan',
+      'seo2.p':
+        'If you ask how to save money, you need overview and goals. ForFuture connects expense tracking with up to three savings goals — a real money-saving app.',
+      'seo3.title': 'In-app household plan, not paper',
+      'seo3.p':
+        'Build fixed costs and variable budget actively. Your classic household book becomes a living plan — no bank connection, optional EU backup.',
       'cta.title': 'Your money deserves a plan.',
       'cta.sub': 'Start now and turn spending into progress.',
       'cta.note': 'No bank · iOS & Android',
-      'footer.tagline': 'Expenses under control. Goals in sight.',
+      'footer.tagline': 'Digital budget book. Goals in sight.',
       'footer.legal': 'Legal',
       'footer.privacy': 'Privacy',
       'footer.terms': 'Terms',
@@ -277,6 +322,7 @@
       'footer.opensource': 'Open source',
       'footer.app': 'App',
       'footer.support': 'Support',
+      'footer.seo': 'Budget app',
       'footer.faq': 'FAQ',
       'footer.download': 'Download',
       'footer.copyright': '© 2026 ForFuture. All rights reserved.',
@@ -319,6 +365,14 @@
     document.title = t(lang, 'meta.title');
     var metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) metaDesc.setAttribute('content', t(lang, 'meta.description'));
+    var ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) ogTitle.setAttribute('content', t(lang, 'meta.title'));
+    var ogDesc = document.querySelector('meta[property="og:description"]');
+    if (ogDesc) ogDesc.setAttribute('content', t(lang, 'meta.description'));
+    var twTitle = document.querySelector('meta[name="twitter:title"]');
+    if (twTitle) twTitle.setAttribute('content', t(lang, 'meta.title'));
+    var twDesc = document.querySelector('meta[name="twitter:description"]');
+    if (twDesc) twDesc.setAttribute('content', t(lang, 'meta.description'));
 
     document.querySelectorAll('.lang-switch-btn').forEach(function (btn) {
       var active = btn.getAttribute('data-lang') === lang;

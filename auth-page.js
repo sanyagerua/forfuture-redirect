@@ -32,9 +32,41 @@
     });
   }
 
+  function supabaseHostFromJwt(token) {
+    try {
+      var payload = JSON.parse(
+        atob(token.split('.')[1].replace(/-/g, '+').replace(/_/g, '/')),
+      );
+      var iss = payload.iss || '';
+      var match = iss.match(/^https:\/\/([^.]+\.supabase\.co)\/auth\/v1$/);
+      return match ? match[1] : null;
+    } catch (_e) {
+      return null;
+    }
+  }
+
+  /**
+   * Reads anon keys from web/supabase-public-config.js (gitignored on deploy host).
+   * Copy supabase-public-config.example.js → supabase-public-config.js locally.
+   */
+  function resolveSupabasePublicConfig(accessToken) {
+    var cfg = window.ForFutureSupabasePublicConfig;
+    if (!cfg || !cfg.anonByHost) return null;
+
+    var host = accessToken ? supabaseHostFromJwt(accessToken) : null;
+    var defaultHost = cfg.defaultHost || 'lulnjwqvpwsxyylzjybp.supabase.co';
+    var resolvedHost = host && cfg.anonByHost[host] ? host : defaultHost;
+    var anon = cfg.anonByHost[resolvedHost];
+    if (!anon || String(anon).indexOf('your-') !== -1) return null;
+
+    return { url: 'https://' + resolvedHost, anon: anon };
+  }
+
   window.ForFutureAuth = {
     detectLang: detectLang,
     initAuthHeader: initAuthHeader,
+    supabaseHostFromJwt: supabaseHostFromJwt,
+    resolveSupabasePublicConfig: resolveSupabasePublicConfig,
   };
 
   initAuthHeader();
