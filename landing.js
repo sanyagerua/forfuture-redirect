@@ -123,7 +123,10 @@
         'Du legst bis zu drei Ziele mit Betrag und Datum fest. Beim Monats-Review wird der Fortschritt aus deinem Budget aktualisiert.',
       'faq3.q': 'Muss ich Auto-Erfassung nutzen?',
       'faq3.a':
-        'Nein. Sprechen, Tippen und Einfügen funktionieren immer. Auto-Erfassung aus Wallet-Hinweisen ist optional.',
+        'Nein. Sprechen, Tippen und Einfügen funktionieren immer. Optional: auf Android Mitteilungen von PayPal/Google Pay; auf dem iPhone Apple Pay an der Kasse über eine einmalige Kurzbefehle-Automation (ForFuture – Wallet payment). Du prüfst und speicherst jede Ausgabe selbst.',
+      'faq3b.q': 'Wie funktioniert Apple Pay mit ForFuture?',
+      'faq3b.a':
+        'Nur NFC an der Kasse (nicht online). In den Einstellungen Auto-Erfassung und Apple Pay aktivieren, dann in Kurzbefehle einmal: Wallet/Transaktion → Karte → Sofort ausführen an → Aktion „ForFuture – Wallet payment“ mit Betrag und Händler aus Kurzbefehl-Eingabe. Danach kann jede Tap-Zahlung die Ausgabe vorbefüllen.',
       'faq4.q': 'Was bedeutet Monats-Review?',
       'faq4.a':
         'Du schließt den Monat ab, erhältst einen Bericht und deine Sparziele werden aktualisiert. Quartal- und Jahresübersichten bauen darauf auf.',
@@ -281,7 +284,10 @@
         'Set up to three goals with amount and date. At month review, progress updates from your budget.',
       'faq3.q': 'Do I have to use auto-capture?',
       'faq3.a':
-        'No. Speak, type, and paste always work. Auto-capture from wallet alerts is optional.',
+        'No. Speak, type, and paste always work. Optional: on Android, PayPal/Google Pay notifications; on iPhone, in-store Apple Pay via a one-time Shortcuts automation (ForFuture – Wallet payment). You always review and save each expense yourself.',
+      'faq3b.q': 'How does Apple Pay work with ForFuture?',
+      'faq3b.a':
+        'In-store NFC only (not online). Enable Auto-capture and Apple Pay in Settings, then in Shortcuts once: Wallet/Transaction → your card → Run Immediately on → action “ForFuture – Wallet payment” with Amount and Merchant from Shortcut Input. Each tap-to-pay can then pre-fill the expense.',
       'faq4.q': 'What is a month review?',
       'faq4.a':
         'You close the month, get a report, and your savings goals update. Quarter and year views build on that.',
