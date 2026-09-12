@@ -36,9 +36,9 @@
 
       <h2>1. Controller</h2>
       <p>
-        <strong>ForFuture</strong> (mobile app and website)<br />
+        ForFuture (mobile app and website)<br />
         Controller under Art.&nbsp;4(7) GDPR:<br />
-        <strong>Diana Barkova</strong><br />
+        Diana Barkova<br />
         Kastanienstraße 18<br />
         40699 Erkrath<br />
         Germany
@@ -51,13 +51,13 @@
       <h2>2. Overview</h2>
       <p>
         ForFuture helps you track expenses, budgets, and savings goals and close months.
-        <strong>It is not a bank, payment service, or financial advisor.</strong>
-        There is <strong>no connection</strong> to bank accounts; you enter data yourself.
+        It is not a bank, payment service, or financial advisor.
+        There is no connection to bank accounts; you enter data yourself.
       </p>
       <div class="info-box">
         <p>
-          <strong>EU account backup (default):</strong> For signed-in accounts,
-          <strong>cloud backup to EU servers is on by default</strong>
+          EU account backup (default): For signed-in accounts,
+          cloud backup to EU servers is on by default
           (transactions, categories, goals, learned payees, monthly income, closed month reports).
           The app also keeps a copy on your device for speed and offline use.
           You can turn cloud backup off in Settings; then that data remains only on the device
@@ -72,93 +72,97 @@
         </thead>
         <tbody>
           <tr>
-            <td><strong>Account &amp; profile data</strong></td>
+            <td>Account &amp; profile data</td>
             <td>Email, password hash, language, currency, user type (onboarding), subscription status, trial end, settings</td>
             <td>Supabase (EU), when you use an account</td>
           </tr>
           <tr>
-            <td><strong>Financial data (cloud backup)</strong></td>
+            <td>Financial data (cloud backup)</td>
             <td>Transactions, budget categories, fixed costs, savings goals, progress, learned merchants/payees, monthly income, closed month reports</td>
-            <td>On device <strong>and</strong> Supabase (EU) while cloud backup is on (default for accounts); device-only if you disable backup</td>
+            <td>On device and Supabase (EU) while cloud backup is on (default for accounts); device-only if you disable backup</td>
           </tr>
           <tr>
-            <td><strong>Feedback</strong></td>
+            <td>Feedback</td>
             <td>Free text, timestamp, user ID</td>
             <td>Supabase (EU), when you send feedback</td>
           </tr>
           <tr>
-            <td><strong>Subscription &amp; payment</strong></td>
+            <td>Subscription &amp; payment</td>
             <td>Product ID, expiry date, store (App Store / Google Play), transaction reference (no card numbers with us)</td>
             <td>Supabase (EU); payment via Apple/Google</td>
           </tr>
           <tr>
-            <td><strong>Auto-capture (optional, Android)</strong></td>
+            <td>Auto-capture (optional, Android)</td>
             <td>Text from wallet/payment notifications (e.g.&nbsp;amount, payee), only if you enable the feature</td>
-            <td>Processed <strong>locally</strong>; not uploaded to our servers</td>
+            <td>Processed locally; not uploaded to our servers</td>
           </tr>
           <tr>
-            <td><strong>Voice input (optional)</strong></td>
+            <td>Voice input (optional)</td>
             <td>Voice recording → transcript on device (OS speech service)</td>
             <td>Local; we do not permanently upload audio</td>
           </tr>
           <tr>
-            <td><strong>Device &amp; app settings</strong></td>
+            <td>Device &amp; app settings</td>
             <td>Language, display, cloud backup toggle, auto-capture options</td>
             <td>Local; subscription/profile flags may be in Supabase</td>
           </tr>
           <tr>
-            <td><strong>Local alerts (Android, optional)</strong></td>
+            <td>Local alerts (Android, optional)</td>
             <td>On-device notification shown when payment auto-capture detects a transaction (not remote marketing push)</td>
             <td>Processed locally; we do not send remote push from our servers</td>
           </tr>
           <tr>
-            <td><strong>Usage analytics (optional)</strong></td>
-            <td>Anonymous app usage events (e.g.&nbsp;screens, feature use); app instance ID</td>
-            <td>Google Firebase Analytics — only after opt-in; not budget amounts or bank data</td>
+            <td>Usage analytics (optional)</td>
+            <td>App: anonymous usage events (e.g.&nbsp;screens, feature use), app instance ID. Website: page views, approximate device/browser info, interaction events (e.g.&nbsp;store-button clicks), Analytics client ID / cookies</td>
+            <td>Google Firebase Analytics / Google Analytics&nbsp;4 — only after opt-in (app) or cookie-banner accept (website); no budget amounts or bank data</td>
           </tr>
           <tr>
-            <td><strong>Technical logs</strong></td>
+            <td>Technical logs</td>
             <td>IP, timestamp, API errors (server logs)</td>
             <td>Supabase / hosting, limited retention</td>
           </tr>
         </tbody>
       </table>
       <p>
-        We do <strong>not</strong> process <strong>special categories</strong> of personal data under Art.&nbsp;9 GDPR
+        We do not process special categories of personal data under Art.&nbsp;9 GDPR
         (e.g.&nbsp;health or religion data) unless you voluntarily enter them in free-text fields.
       </p>
       <p>
-        The <strong>mobile app</strong> may use <strong>Firebase Analytics</strong> (Google) only after you
-        <strong>opt in</strong> (soft prompt about 24 hours after registration, or later under
-        Settings → Help → Legal &amp; policies). Collection is <strong>off by default</strong>.
+        The mobile app may use Firebase Analytics (Google) only after you
+        opt in (soft prompt about 24 hours after registration, or later under
+        Settings → Help → Legal &amp; policies). Collection is off by default.
         Analytics covers anonymous usage events (e.g.&nbsp;screens opened, feature use) to improve the product.
-        We do <strong>not</strong> send bank credentials, transaction amounts, or budget figures to Analytics.
-        You can withdraw consent anytime via the same Settings toggle. We do <strong>not</strong> currently
+        We do not send bank credentials, transaction amounts, or budget figures to Analytics.
+        You can withdraw consent anytime via the same Settings toggle.
+      </p>
+      <p>
+        The website forfuture.app may use Firebase Analytics / Google Analytics&nbsp;4 only after you accept
+        optional cookies via the cookie banner. Details are in section&nbsp;15. We do not currently
         integrate a separate crash-reporting SDK (e.g.&nbsp;Sentry). Local reminder toggles stay on-device;
         we do not send remote marketing push notifications from our servers.
       </p>
 
       <h2>4. Purposes and legal bases (Art.&nbsp;6 GDPR)</h2>
       <ul>
-        <li><strong>Contract / pre-contractual measures (Art.&nbsp;6(1)(b)):</strong> Account, app features, subscription management, support, and <strong>cloud backup of your financial data</strong> for your signed-in account (default on; you may disable it in Settings).</li>
-        <li><strong>Consent (Art.&nbsp;6(1)(a)):</strong> Notification access (auto-capture), optional local confirmation alerts (Android), microphone (voice), optional usage analytics (Firebase Analytics). Withdraw consent at any time with future effect.</li>
-        <li><strong>Legitimate interest (Art.&nbsp;6(1)(f)):</strong> IT security, abuse prevention, error analysis in logs, enforcement of subscription rights — while respecting your interests (data minimisation).</li>
-        <li><strong>Legal obligation (Art.&nbsp;6(1)(c)):</strong> Retention under commercial/tax law where applicable.</li>
+        <li>Contract / pre-contractual measures (Art.&nbsp;6(1)(b)): Account, app features, subscription management, support, and cloud backup of your financial data for your signed-in account (default on; you may disable it in Settings).</li>
+        <li>Consent (Art.&nbsp;6(1)(a)): Notification access (auto-capture), optional local confirmation alerts (Android), microphone (voice), optional usage analytics in the app (Firebase Analytics), and optional website cookies (Google Fonts and Firebase Analytics / Google Analytics&nbsp;4 via the cookie banner). Withdraw consent at any time with future effect.</li>
+        <li>Legitimate interest (Art.&nbsp;6(1)(f)): IT security, abuse prevention, error analysis in logs, enforcement of subscription rights — while respecting your interests (data minimisation).</li>
+        <li>Legal obligation (Art.&nbsp;6(1)(c)): Retention under commercial/tax law where applicable.</li>
       </ul>
-      <p>We do <strong>not</strong> carry out <strong>automated decision-making</strong> within the meaning of Art.&nbsp;22 GDPR.</p>
+      <p>We do not carry out automated decision-making within the meaning of Art.&nbsp;22 GDPR.</p>
 
       <h2>5. Subscription (Premium) and payment processing</h2>
       <p>
-        After a <strong>7-day free trial</strong>, continued use of the app requires a paid subscription:
+        After a 7-day free trial, continued use of the app requires a paid subscription:
       </p>
       <ul>
-        <li><strong>Monthly:</strong> €2.99 (price may be shown in your local currency in the store)</li>
-        <li><strong>Annual:</strong> €24.99</li>
+        <li>Monthly: €2.99 (price may be shown in your local currency in the store)</li>
+        <li>Annual: €24.99</li>
       </ul>
       <p>
-        Purchase, renewal, and cancellation are handled via the <strong>Apple App Store</strong> or
-        <strong>Google Play Store</strong>. Apple or Google is the payment processor;
-        we do <strong>not</strong> receive your full card or bank account details from the stores, only
+        Purchase, renewal, and cancellation are handled via the Apple App Store or
+        Google Play Store. Apple or Google is the payment processor;
+        we do not receive your full card or bank account details from the stores, only
         transaction and subscription status information to unlock Premium where applicable.
       </p>
       <p>
@@ -171,11 +175,11 @@
 
       <h2>6. Cloud backup (default for accounts)</h2>
       <p>
-        When you use a ForFuture account, <strong>cloud backup is enabled by default</strong>.
+        When you use a ForFuture account, cloud backup is enabled by default.
         We sync your selected financial data with your account on Supabase
-        (region <strong>Frankfurt / EU</strong>) so you do not lose it after reinstalling the app
+        (region Frankfurt / EU) so you do not lose it after reinstalling the app
         or clearing device storage. You can disable cloud backup at any time in Settings;
-        data already uploaded can be removed by <strong>account deletion</strong>.
+        data already uploaded can be removed by account deletion.
       </p>
       <p>
         With cloud backup enabled, monthly income (<code>user_profiles.income</code>) and closed month reports
@@ -184,9 +188,9 @@
 
       <h2>7. Auto-capture of payments (Android, optional)</h2>
       <p>
-        If you enable this feature, we read <strong>locally on your device</strong> notification text from selected apps
+        If you enable this feature, we read locally on your device notification text from selected apps
         (e.g.&nbsp;Google Pay, PayPal) to detect amounts and suggest creating an expense. You confirm each entry yourself.
-        Notification text is <strong>not</strong> transmitted to our servers. You can revoke access in Android settings
+        Notification text is not transmitted to our servers. You can revoke access in Android settings
         (“Notification access”) at any time.
       </p>
 
@@ -199,35 +203,37 @@
 
       <h2>9. Recipients and processors (Art.&nbsp;28 GDPR)</h2>
       <ul>
-        <li><strong>Supabase Inc.</strong> — Authentication, database, edge functions (EU data centre Frankfurt); encryption in transit and at rest.</li>
-        <li><strong>Apple Inc.</strong> — App Store, in-app purchases (iOS), optional on-device speech recognition.</li>
-        <li><strong>Google Ireland Ltd. / Google LLC</strong> — Google Play, in-app purchases (Android), optional on-device speech recognition; if you opt in, <strong>Firebase Analytics</strong> (usage events; processing may involve Google infrastructure including outside the EU under SCCs).</li>
-        <li><strong>Expo / hosting providers</strong> — App build infrastructure (no access to your financial content in normal operation).</li>
+        <li>Supabase Inc. — Authentication, database, edge functions (EU data centre Frankfurt); encryption in transit and at rest.</li>
+        <li>Apple Inc. — App Store, in-app purchases (iOS), optional on-device speech recognition.</li>
+        <li>Google Ireland Ltd. / Google LLC — Google Play, in-app purchases (Android), optional on-device speech recognition; if you opt in (app) or accept cookies (website), Firebase Analytics / Google Analytics&nbsp;4 (usage events; processing may involve Google infrastructure including outside the EU under SCCs). Google Fonts may load on the website after cookie consent.</li>
+        <li>Expo / hosting providers — App build infrastructure (no access to your financial content in normal operation).</li>
+        <li>Website hosting (e.g.&nbsp;GitHub Pages / CDN) — delivery of forfuture.app static pages; server logs may include IP addresses for a limited time.</li>
       </ul>
       <p>
         We have Art.&nbsp;28 GDPR contracts with processors. Transfers to third countries (especially the USA)
-        rely on <strong>Standard Contractual Clauses</strong> (Art.&nbsp;46 GDPR) and additional technical/organisational measures.
+        rely on Standard Contractual Clauses (Art.&nbsp;46 GDPR) and additional technical/organisational measures.
         Copies can be provided on request.
       </p>
 
       <h2>10. Retention and deletion</h2>
       <ul>
-        <li><strong>Account and cloud data:</strong> Until you delete your account in Settings or on request.</li>
-        <li><strong>Local data:</strong> Until you uninstall the app or delete data in the app.</li>
-        <li><strong>Subscription records:</strong> As required by law and store policies; subscription metadata in profile until account deletion.</li>
-        <li><strong>Feedback:</strong> Until resolved, typically max.&nbsp;12 months unless a longer obligation applies.</li>
-        <li><strong>Server logs:</strong> Typically 30–90 days (Supabase default), then deletion/overwriting.</li>
+        <li>Account and cloud data: Until you delete your account in Settings or on request.</li>
+        <li>Local data: Until you uninstall the app or delete data in the app.</li>
+        <li>Subscription records: As required by law and store policies; subscription metadata in profile until account deletion.</li>
+        <li>Feedback: Until resolved, typically max.&nbsp;12 months unless a longer obligation applies.</li>
+        <li>Server logs: Typically 30–90 days (Supabase default), then deletion/overwriting.</li>
+        <li>Website analytics (if consented): per Google Analytics&nbsp;4 / Firebase retention for the property (often up to 14 months); cookie preference in local storage until changed or cleared.</li>
       </ul>
 
       <h3>Account deletion (Art.&nbsp;17 GDPR)</h3>
       <p>
         You can permanently delete your account in the app under
-        <strong>Settings → Personal information → Delete account</strong>.
+        Settings → Personal information → Delete account.
         This removes your server-side data (profile, cloud financial data, feedback linked to your account) via a secured
         server function and disables your login. Remove local data on the device by uninstalling the app.
       </p>
       <p>
-        There is <strong>no separate deletion policy</strong>; account deletion and data removal are described here and in the app.
+        There is no separate deletion policy; account deletion and data removal are described here and in the app.
       </p>
 
       <h2>11. App permissions</h2>
@@ -251,7 +257,7 @@
       <p>
         Contact: <a href="mailto:diana.iglizn@gmail.com">diana.iglizn@gmail.com</a>.
         You may lodge a complaint with a supervisory authority, e.g.&nbsp;the
-        <strong>State Commissioner for Data Protection and Freedom of Information of North Rhine-Westphalia (LDI NRW)</strong>,
+        State Commissioner for Data Protection and Freedom of Information of North Rhine-Westphalia (LDI NRW),
         Kavalleriestraße 2–4, 40213 Düsseldorf, Germany (Art.&nbsp;77 GDPR).
       </p>
 
@@ -263,18 +269,53 @@
 
       <h2>14. Minors</h2>
       <p>
-        The app is intended for users aged <strong>16 and over</strong>. We do not knowingly collect data from children under 16.
+        The app is intended for users aged 16 and over. We do not knowingly collect data from children under 16.
       </p>
 
       <h2 id="cookies">15. Website &amp; cookies</h2>
       <p>
-        On <a href="https://forfuture.app">forfuture.app</a>, strictly necessary cookies may be used.
-        Optional cookies load only after you accept via the cookie banner: Google Fonts and anonymous
-        website usage analytics via <strong>Firebase Analytics / Google Analytics&nbsp;4</strong>
-        (measurement ID linked to our Firebase project). Analytics may include page views and
-        interaction events (for example store-button clicks). If you decline or withdraw consent,
-        these optional cookies are not loaded / collection is disabled. You can change your choice
-        anytime via “Cookie settings” in the footer.
+        This section applies to the public website
+        <a href="https://forfuture.app">https://forfuture.app</a>
+        (and related static pages such as this privacy policy). It is separate from optional
+        Firebase Analytics in the mobile app (see section&nbsp;3).
+      </p>
+      <h3>15.1 Strictly necessary storage</h3>
+      <p>
+        We may use local storage that is required for basic site functions, for example remembering
+        your language choice (DE/EN) and your cookie-banner decision. These are not used for advertising.
+        Legal basis: Art.&nbsp;6(1)(f) GDPR (legitimate interest in a working, language-aware website) and,
+        where applicable, §&nbsp;25(2) TTDSG.
+      </p>
+      <h3>15.2 Optional cookies / similar technologies (consent)</h3>
+      <p>
+        Optional technologies load only after you choose “Accept” on the cookie banner. Legal basis:
+        Art.&nbsp;6(1)(a) GDPR and §&nbsp;25(1) TTDSG. If you choose “Decline”, they are not loaded.
+        You can change your choice anytime via “Cookie settings” in the footer (future effect).
+      </p>
+      <p>Optional items:</p>
+      <ul>
+        <li>
+          Google Fonts (fonts.googleapis.com / fonts.gstatic.com) — loads the Manrope typeface for
+          consistent typography. Your browser may contact Google servers; this can involve transmission
+          of technical data such as IP address.
+        </li>
+        <li>
+          Firebase Analytics / Google Analytics&nbsp;4 (Google) — anonymous website usage statistics for
+          our Firebase project forfuture-ca143 (web measurement ID G-19SJ3FVRX1). Typical data:
+          page views, approximate device/browser information, referral URL, and interaction events
+          (for example App Store / Google Play button clicks). Google may set or read Analytics cookies
+          or similar identifiers. We do not send budget amounts, account passwords, or bank data from
+          the website to Analytics. Processing may involve Google infrastructure including outside the EU
+          under Standard Contractual Clauses (Art.&nbsp;46 GDPR).
+        </li>
+      </ul>
+      <h3>15.3 Retention and withdrawal</h3>
+      <p>
+        Cookie-banner and language preferences remain in local storage until you clear them or change
+        the setting. Analytics identifiers follow Google’s retention settings for the linked GA4 /
+        Firebase property (typically up to 14 months unless configured shorter). Withdrawal: use
+        “Cookie settings” → Decline, and/or clear site data in your browser. Already collected data
+        may remain for the retention period unless erasure is required by law.
       </p>
 
       <h2>16. Changes</h2>
@@ -285,7 +326,7 @@
       </p>
 
       <div class="contact-info">
-        <p><strong>Contact</strong></p>
+        <p>Contact</p>
         <p>
           Diana Barkova · Kastanienstraße 18 · 40699 Erkrath · Germany<br />
           Privacy: <a href="mailto:diana.iglizn@gmail.com">diana.iglizn@gmail.com</a><br />
@@ -302,9 +343,9 @@
 
       <h2>1. Verantwortliche Stelle</h2>
       <p>
-        <strong>ForFuture</strong> (mobile App und Website)<br />
+        ForFuture (mobile App und Website)<br />
         Verantwortlich i.&nbsp;S.&nbsp;d. Art.&nbsp;4 Nr.&nbsp;7 DSGVO:<br />
-        <strong>Diana Barkova</strong><br />
+        Diana Barkova<br />
         Kastanienstraße 18<br />
         40699 Erkrath<br />
         Deutschland
@@ -317,13 +358,13 @@
       <h2>2. Kurzüberblick</h2>
       <p>
         ForFuture hilft Ihnen, Ausgaben, Budgets und Sparziele zu erfassen und Monate abzuschließen.
-        <strong>Es handelt sich nicht um eine Bank, keinen Zahlungsdienst und keine Finanzberatung.</strong>
-        Es besteht <strong>keine Anbindung</strong> an Bankkonten; Sie geben Daten selbst ein.
+        Es handelt sich nicht um eine Bank, keinen Zahlungsdienst und keine Finanzberatung.
+        Es besteht keine Anbindung an Bankkonten; Sie geben Daten selbst ein.
       </p>
       <div class="info-box">
         <p>
-          <strong>EU-Konto-Sicherung (Standard):</strong> Für angemeldete Konten ist die
-          <strong>Cloud-Sicherung auf EU-Servern standardmäßig aktiv</strong>
+          EU-Konto-Sicherung (Standard): Für angemeldete Konten ist die
+          Cloud-Sicherung auf EU-Servern standardmäßig aktiv
           (Transaktionen, Kategorien, Ziele, gelernte Zahlungsempfänger, Monatseinkommen,
           abgeschlossene Monatsberichte). Die App hält zusätzlich eine Kopie auf Ihrem Gerät
           für Tempo und Offline-Nutzung. Sie können die Cloud-Sicherung in den Einstellungen
@@ -339,95 +380,99 @@
         </thead>
         <tbody>
           <tr>
-            <td><strong>Konto- &amp; Profildaten</strong></td>
+            <td>Konto- &amp; Profildaten</td>
             <td>E-Mail, Passwort-Hash, Sprache, Währung, Nutzertyp (Onboarding), Abo-Status, Testphase-Ende, Einstellungen</td>
             <td>Supabase (EU), wenn Sie ein Konto nutzen</td>
           </tr>
           <tr>
-            <td><strong>Finanzdaten (Cloud-Sicherung)</strong></td>
+            <td>Finanzdaten (Cloud-Sicherung)</td>
             <td>Transaktionen, Budgetkategorien, Fixkosten, Sparziele, Fortschritt, gelernte Händler/Zahlungsempfänger, Monatseinkommen, abgeschlossene Monatsberichte</td>
-            <td>Auf dem Gerät <strong>und</strong> bei aktivierter Cloud-Sicherung (Standard für Konten) zusätzlich Supabase (EU); nur lokal, wenn Sie die Sicherung ausschalten</td>
+            <td>Auf dem Gerät und bei aktivierter Cloud-Sicherung (Standard für Konten) zusätzlich Supabase (EU); nur lokal, wenn Sie die Sicherung ausschalten</td>
           </tr>
           <tr>
-            <td><strong>Feedback</strong></td>
+            <td>Feedback</td>
             <td>Freitext, Zeitstempel, Nutzer-ID</td>
             <td>Supabase (EU), wenn Sie Feedback senden</td>
           </tr>
           <tr>
-            <td><strong>Abo &amp; Zahlung</strong></td>
+            <td>Abo &amp; Zahlung</td>
             <td>Produkt-ID, Ablaufdatum, Store (App Store / Google Play), Transaktionsreferenz (keine Kartennummern bei uns)</td>
             <td>Supabase (EU); Zahlung selbst über Apple/Google</td>
           </tr>
           <tr>
-            <td><strong>Auto-Erfassung (optional, Android)</strong></td>
+            <td>Auto-Erfassung (optional, Android)</td>
             <td>Text aus Wallet-/Pay-Benachrichtigungen (z.&nbsp;B. Betrag, Empfänger), nur wenn Sie die Funktion aktivieren</td>
-            <td><strong>Lokal</strong> verarbeitet; nicht an unsere Server hochgeladen</td>
+            <td>Lokal verarbeitet; nicht an unsere Server hochgeladen</td>
           </tr>
           <tr>
-            <td><strong>Spracheingabe (optional)</strong></td>
+            <td>Spracheingabe (optional)</td>
             <td>Sprachaufnahme → Transkript auf dem Gerät (Betriebssystem-Dienst)</td>
             <td>Lokal; kein dauerhafter Upload des Audios durch uns</td>
           </tr>
           <tr>
-            <td><strong>Geräte &amp; App-Einstellungen</strong></td>
+            <td>Geräte &amp; App-Einstellungen</td>
             <td>Sprache, Darstellung, Cloud-Sicherung-Schalter, Auto-Erfassung-Optionen</td>
             <td>Lokal; Abo-/Profilflags ggf. Supabase</td>
           </tr>
           <tr>
-            <td><strong>Lokale Hinweise (Android, optional)</strong></td>
+            <td>Lokale Hinweise (Android, optional)</td>
             <td>On-Device-Benachrichtigung bei erkanntem Zahlungsvorgang (kein Remote-Marketing-Push)</td>
             <td>Lokal verarbeitet; kein Push von unseren Servern</td>
           </tr>
           <tr>
-            <td><strong>Nutzungsanalyse (optional)</strong></td>
-            <td>Anonyme App-Nutzungsereignisse (z.&nbsp;B. Bildschirme, Funktionsnutzung); App-Instanz-ID</td>
-            <td>Google Firebase Analytics — nur nach Einwilligung; keine Budgetbeträge oder Bankdaten</td>
+            <td>Nutzungsanalyse (optional)</td>
+            <td>App: anonyme Nutzungsereignisse (z.&nbsp;B. Bildschirme, Funktionsnutzung), App-Instanz-ID. Website: Seitenaufrufe, ungefähre Geräte-/Browserdaten, Interaktionen (z.&nbsp;B. Klicks auf Store-Buttons), Analytics-Client-ID / Cookies</td>
+            <td>Google Firebase Analytics / Google Analytics&nbsp;4 — nur nach Opt-in (App) bzw. Cookie-Banner-Zustimmung (Website); keine Budgetbeträge oder Bankdaten</td>
           </tr>
           <tr>
-            <td><strong>Technische Protokolle</strong></td>
+            <td>Technische Protokolle</td>
             <td>IP, Zeitstempel, Fehler bei API-Aufrufen (Server-Logs)</td>
             <td>Supabase / Hosting, begrenzte Aufbewahrung</td>
           </tr>
         </tbody>
       </table>
       <p>
-        Wir verarbeiten <strong>keine besonderen Kategorien</strong> personenbezogener Daten i.&nbsp;S.&nbsp;d.
+        Wir verarbeiten keine besonderen Kategorien personenbezogener Daten i.&nbsp;S.&nbsp;d.
         Art.&nbsp;9 DSGVO (z.&nbsp;B. Gesundheits- oder Religiondaten), sofern Sie diese nicht freiwillig in
         Freitextfeldern eingeben.
       </p>
       <p>
-        Die <strong>mobile App</strong> kann <strong>Firebase Analytics</strong> (Google) nutzen, jedoch nur nach
-        Ihrer <strong>Einwilligung</strong> (Hinweis ca.&nbsp;24 Stunden nach Registrierung oder später unter
-        Einstellungen → Hilfe → Rechtliches). Die Erfassung ist <strong>standardmäßig aus</strong>.
+        Die mobile App kann Firebase Analytics (Google) nutzen, jedoch nur nach
+        Ihrer Einwilligung (Hinweis ca.&nbsp;24 Stunden nach Registrierung oder später unter
+        Einstellungen → Hilfe → Rechtliches). Die Erfassung ist standardmäßig aus.
         Analytics umfasst anonyme Nutzungsereignisse (z.&nbsp;B. geöffnete Bildschirme, Funktionsnutzung) zur
-        Produktverbesserung. Bankzugangsdaten, Transaktionsbeträge oder Budgetzahlen werden <strong>nicht</strong>
+        Produktverbesserung. Bankzugangsdaten, Transaktionsbeträge oder Budgetzahlen werden nicht
         an Analytics gesendet. Sie können die Einwilligung jederzeit über denselben Schalter widerrufen.
-        Ein separates Crash-Reporting-SDK (z.&nbsp;B. Sentry) ist derzeit <strong>nicht</strong> integriert.
+      </p>
+      <p>
+        Die Website forfuture.app kann Firebase Analytics / Google Analytics&nbsp;4 nur nach Ihrer Zustimmung
+        zu optionalen Cookies über das Cookie-Banner nutzen. Einzelheiten stehen in Abschnitt&nbsp;15.
+        Ein separates Crash-Reporting-SDK (z.&nbsp;B. Sentry) ist derzeit nicht integriert.
         Erinnerungs-Schalter bleiben lokal; wir versenden keinen Remote-Marketing-Push von unseren Servern.
       </p>
 
       <h2>4. Zwecke und Rechtsgrundlagen (Art.&nbsp;6 DSGVO)</h2>
       <ul>
-        <li><strong>Vertrag / vorvertragliche Maßnahmen (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;b):</strong> Konto, App-Funktionen, Abo-Verwaltung, Support sowie <strong>Cloud-Sicherung Ihrer Finanzdaten</strong> für Ihr angemeldetes Konto (standardmäßig an; in den Einstellungen abschaltbar).</li>
-        <li><strong>Einwilligung (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;a):</strong> Zugriff auf Benachrichtigungen (Auto-Erfassung), optionale lokale Bestätigungshinweise (Android), Sprachmikrofon, optionale Nutzungsanalyse (Firebase Analytics). Widerruf jederzeit mit Wirkung für die Zukunft.</li>
-        <li><strong>Berechtigtes Interesse (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;f):</strong> IT-Sicherheit, Missbrauchsprävention, Fehleranalyse in Protokollen, Durchsetzung von Abo-Rechten — unter Wahrung Ihrer Interessen (Datenminimierung).</li>
-        <li><strong>Rechtspflicht (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;c):</strong> Aufbewahrung nach Handels-/Steuerrecht, soweit anwendbar.</li>
+        <li>Vertrag / vorvertragliche Maßnahmen (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;b): Konto, App-Funktionen, Abo-Verwaltung, Support sowie Cloud-Sicherung Ihrer Finanzdaten für Ihr angemeldetes Konto (standardmäßig an; in den Einstellungen abschaltbar).</li>
+        <li>Einwilligung (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;a): Zugriff auf Benachrichtigungen (Auto-Erfassung), optionale lokale Bestätigungshinweise (Android), Sprachmikrofon, optionale Nutzungsanalyse in der App (Firebase Analytics) sowie optionale Website-Cookies (Google Fonts und Firebase Analytics / Google Analytics&nbsp;4 über das Cookie-Banner). Widerruf jederzeit mit Wirkung für die Zukunft.</li>
+        <li>Berechtigtes Interesse (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;f): IT-Sicherheit, Missbrauchsprävention, Fehleranalyse in Protokollen, Durchsetzung von Abo-Rechten — unter Wahrung Ihrer Interessen (Datenminimierung).</li>
+        <li>Rechtspflicht (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;c): Aufbewahrung nach Handels-/Steuerrecht, soweit anwendbar.</li>
       </ul>
-      <p>Es findet <strong>keine automatisierte Entscheidungsfindung</strong> i.&nbsp;S.&nbsp;d. Art.&nbsp;22 DSGVO statt.</p>
+      <p>Es findet keine automatisierte Entscheidungsfindung i.&nbsp;S.&nbsp;d. Art.&nbsp;22 DSGVO statt.</p>
 
       <h2>5. Abonnement (Premium) und Zahlungsabwicklung</h2>
       <p>
-        Nach einer <strong>kostenlosen Testphase von 7 Tagen</strong> ist die weitere Nutzung der App nur mit einem
+        Nach einer kostenlosen Testphase von 7 Tagen ist die weitere Nutzung der App nur mit einem
         kostenpflichtigen Abo möglich:
       </p>
       <ul>
-        <li><strong>Monatlich:</strong> 2,99&nbsp;€ (Preis kann im Store in Ihrer Landeswährung angezeigt werden)</li>
-        <li><strong>Jährlich:</strong> 24,99&nbsp;€</li>
+        <li>Monatlich: 2,99&nbsp;€ (Preis kann im Store in Ihrer Landeswährung angezeigt werden)</li>
+        <li>Jährlich: 24,99&nbsp;€</li>
       </ul>
       <p>
-        Der Kauf, die Verlängerung und die Kündigung erfolgen über den <strong>Apple App Store</strong> bzw.
-        <strong>Google Play Store</strong>. Vertragspartner für die Zahlungsabwicklung ist Apple bzw. Google;
-        wir erhalten von den Stores <strong>keine vollständigen Zahlungskarten- oder Kontodaten</strong>, sondern
+        Der Kauf, die Verlängerung und die Kündigung erfolgen über den Apple App Store bzw.
+        Google Play Store. Vertragspartner für die Zahlungsabwicklung ist Apple bzw. Google;
+        wir erhalten von den Stores keine vollständigen Zahlungskarten- oder Kontodaten, sondern
         ggf. Transaktions- und Abo-Statusinformationen zur Freischaltung von Premium.
       </p>
       <p>
@@ -440,11 +485,11 @@
 
       <h2>6. Cloud-Sicherung (Standard für Konten)</h2>
       <p>
-        Wenn Sie ein ForFuture-Konto nutzen, ist die <strong>Cloud-Sicherung standardmäßig aktiv</strong>.
+        Wenn Sie ein ForFuture-Konto nutzen, ist die Cloud-Sicherung standardmäßig aktiv.
         Wir synchronisieren die von Ihnen gewählten Finanzdaten mit Ihrem Konto auf Supabase
-        (Region <strong>Frankfurt / EU</strong>), damit sie nach Neuinstallation oder Löschen des App-Speichers
+        (Region Frankfurt / EU), damit sie nach Neuinstallation oder Löschen des App-Speichers
         nicht verloren gehen. Sie können die Cloud-Sicherung jederzeit in den Einstellungen deaktivieren;
-        bereits hochgeladene Daten können Sie durch <strong>Kontolöschung</strong> entfernen lassen.
+        bereits hochgeladene Daten können Sie durch Kontolöschung entfernen lassen.
       </p>
       <p>
         Bei aktivierter Cloud-Sicherung werden Monatseinkommen (<code>user_profiles.income</code>) und
@@ -454,10 +499,10 @@
 
       <h2>7. Auto-Erfassung von Zahlungen (Android, optional)</h2>
       <p>
-        Wenn Sie diese Funktion aktivieren, lesen wir <strong>lokal auf Ihrem Gerät</strong> Benachrichtigungstexte
+        Wenn Sie diese Funktion aktivieren, lesen wir lokal auf Ihrem Gerät Benachrichtigungstexte
         ausgewählter Apps (z.&nbsp;B. Google Pay, PayPal), um Beträge zu erkennen und Ihnen das Anlegen einer
         Ausgabe vorzuschlagen. Sie bestätigen jede Buchung selbst. Der Benachrichtigungstext wird
-        <strong>nicht</strong> an unsere Server übertragen. Sie können den Zugriff in den Android-Einstellungen
+        nicht an unsere Server übertragen. Sie können den Zugriff in den Android-Einstellungen
         („Benachrichtigungszugriff“) jederzeit widerrufen.
       </p>
 
@@ -471,35 +516,37 @@
 
       <h2>9. Empfänger und Auftragsverarbeiter (Art.&nbsp;28 DSGVO)</h2>
       <ul>
-        <li><strong>Supabase Inc.</strong> — Authentifizierung, Datenbank, Edge Functions (EU-Rechenzentrum Frankfurt); Verschlüsselung in Transit und at Rest.</li>
-        <li><strong>Apple Inc.</strong> — App Store, In-App-Käufe (iOS), optionale Spracherkennung auf dem Gerät.</li>
-        <li><strong>Google Ireland Ltd. / Google LLC</strong> — Google Play, In-App-Käufe (Android), optionale Spracherkennung auf dem Gerät; bei Einwilligung zusätzlich <strong>Firebase Analytics</strong> (Nutzungsereignisse; Verarbeitung kann Google-Infrastruktur auch außerhalb der EU unter SCCs umfassen).</li>
-        <li><strong>Expo / Hosting-Anbieter</strong> — App-Build-Infrastruktur (kein Zugriff auf Ihre Finanzinhalte im Normalbetrieb).</li>
+        <li>Supabase Inc. — Authentifizierung, Datenbank, Edge Functions (EU-Rechenzentrum Frankfurt); Verschlüsselung in Transit und at Rest.</li>
+        <li>Apple Inc. — App Store, In-App-Käufe (iOS), optionale Spracherkennung auf dem Gerät.</li>
+        <li>Google Ireland Ltd. / Google LLC — Google Play, In-App-Käufe (Android), optionale Spracherkennung auf dem Gerät; bei Einwilligung (App) bzw. Cookie-Zustimmung (Website) zusätzlich Firebase Analytics / Google Analytics&nbsp;4 (Nutzungsereignisse; Verarbeitung kann Google-Infrastruktur auch außerhalb der EU unter SCCs umfassen). Google Fonts können auf der Website nach Cookie-Zustimmung geladen werden.</li>
+        <li>Expo / Hosting-Anbieter — App-Build-Infrastruktur (kein Zugriff auf Ihre Finanzinhalte im Normalbetrieb).</li>
+        <li>Website-Hosting (z.&nbsp;B. GitHub Pages / CDN) — Auslieferung der statischen Seiten von forfuture.app; Server-Logs können zeitlich begrenzt IP-Adressen enthalten.</li>
       </ul>
       <p>
         Mit Auftragsverarbeitern bestehen Verträge gem. Art.&nbsp;28 DSGVO. Übermittlungen in Drittländer (insb. USA)
-        erfolgen auf Grundlage von <strong>Standardvertragsklauseln</strong> (Art.&nbsp;46 DSGVO) und ergänzender
+        erfolgen auf Grundlage von Standardvertragsklauseln (Art.&nbsp;46 DSGVO) und ergänzender
         technischer/organisatorischer Maßnahmen. Kopien können auf Anfrage bereitgestellt werden.
       </p>
 
       <h2>10. Speicherdauer und Löschung</h2>
       <ul>
-        <li><strong>Konto und Cloud-Daten:</strong> bis zur Löschung Ihres Kontos in den Einstellungen oder auf Anfrage.</li>
-        <li><strong>Lokale Daten:</strong> bis Sie die App deinstallieren oder Daten in der App löschen.</li>
-        <li><strong>Abo-Nachweise:</strong> gemäß gesetzlicher Aufbewahrung und Store-Richtlinien; Abo-Metadaten im Profil bis Kontolöschung.</li>
-        <li><strong>Feedback:</strong> bis zur Erledigung, in der Regel max. 12 Monate, sofern keine längere Pflicht besteht.</li>
-        <li><strong>Server-Logs:</strong> typischerweise 30–90 Tage (Supabase-Standard), danach Löschung/Überschreibung.</li>
+        <li>Konto und Cloud-Daten: bis zur Löschung Ihres Kontos in den Einstellungen oder auf Anfrage.</li>
+        <li>Lokale Daten: bis Sie die App deinstallieren oder Daten in der App löschen.</li>
+        <li>Abo-Nachweise: gemäß gesetzlicher Aufbewahrung und Store-Richtlinien; Abo-Metadaten im Profil bis Kontolöschung.</li>
+        <li>Feedback: bis zur Erledigung, in der Regel max. 12 Monate, sofern keine längere Pflicht besteht.</li>
+        <li>Server-Logs: typischerweise 30–90 Tage (Supabase-Standard), danach Löschung/Überschreibung.</li>
+        <li>Website-Analyse (bei Einwilligung): gemäß Aufbewahrung von Google Analytics&nbsp;4 / Firebase für die Property (häufig bis zu 14 Monate); Cookie-Präferenz im Local Storage bis zur Änderung oder Löschung.</li>
       </ul>
 
       <h3>Kontolöschung (Art.&nbsp;17 DSGVO)</h3>
       <p>
-        Sie können Ihr Konto in der App unter <strong>Einstellungen → Persönliche Daten → Konto löschen</strong>
+        Sie können Ihr Konto in der App unter Einstellungen → Persönliche Daten → Konto löschen
         unwiderruflich löschen. Dabei werden Ihre serverseitigen Daten (Profil, Cloud-Finanzdaten, Feedback zu
         Ihrem Konto) über eine gesicherte Serverfunktion entfernt und Ihr Login deaktiviert. Lokale Daten auf dem
         Gerät sollten Sie durch Deinstallation der App entfernen.
       </p>
       <p>
-        Es gibt <strong>keine separate Löschrichtlinie</strong>; Kontolöschung und Datenentfernung sind hier und in der App beschrieben.
+        Es gibt keine separate Löschrichtlinie; Kontolöschung und Datenentfernung sind hier und in der App beschrieben.
       </p>
 
       <h2>11. App-Berechtigungen</h2>
@@ -523,7 +570,7 @@
       <p>
         Anfragen an: <a href="mailto:diana.iglizn@gmail.com">diana.iglizn@gmail.com</a>.
         Beschwerderecht bei einer Aufsichtsbehörde, z.&nbsp;B. dem
-        <strong>Landesbeauftragten für Datenschutz und Informationsfreiheit Nordrhein-Westfalen (LDI NRW)</strong>,
+        Landesbeauftragten für Datenschutz und Informationsfreiheit Nordrhein-Westfalen (LDI NRW),
         Kavalleriestraße 2–4, 40213 Düsseldorf (Art.&nbsp;77 DSGVO).
       </p>
 
@@ -536,19 +583,57 @@
 
       <h2>14. Minderjährige</h2>
       <p>
-        Die App richtet sich an Personen ab <strong>16 Jahren</strong>. Wir erheben wissentlich keine Daten von
+        Die App richtet sich an Personen ab 16 Jahren. Wir erheben wissentlich keine Daten von
         Kindern unter 16 Jahren.
       </p>
 
-      <h2 id="cookies">15. Website &amp; Cookies</h2>
+      <h2 id="cookies-de">15. Website &amp; Cookies</h2>
       <p>
-        Auf <a href="https://forfuture.app">forfuture.app</a> können technisch notwendige Cookies eingesetzt werden.
-        Optionale Cookies werden erst nach Zustimmung über das Cookie-Banner geladen: Google Fonts sowie
-        anonyme Website-Nutzungsstatistik über <strong>Firebase Analytics / Google Analytics&nbsp;4</strong>
-        (mit unserem Firebase-Projekt verknüpft). Die Analyse kann Seitenaufrufe und Interaktionen
-        (z.&nbsp;B. Klicks auf Store-Buttons) umfassen. Bei Ablehnung oder Widerruf werden diese optionalen
-        Cookies nicht geladen bzw. die Erfassung deaktiviert. Die Wahl können Sie jederzeit über
-        „Cookie-Einstellungen“ im Footer ändern.
+        Dieser Abschnitt gilt für die öffentliche Website
+        <a href="https://forfuture.app">https://forfuture.app</a>
+        (und zugehörige statische Seiten wie diese Datenschutzerklärung). Er ist getrennt von der
+        optionalen Firebase Analytics in der mobilen App (siehe Abschnitt&nbsp;3).
+      </p>
+      <h3>15.1 Technisch notwendige Speicherung</h3>
+      <p>
+        Wir können Local Storage nutzen, der für grundlegende Funktionen der Website erforderlich ist,
+        z.&nbsp;B. Speichern Ihrer Sprachwahl (DE/EN) und Ihrer Entscheidung im Cookie-Banner.
+        Dies dient nicht der Werbung. Rechtsgrundlage: Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;f DSGVO
+        (berechtigtes Interesse an einer funktionsfähigen, sprachfähigen Website) und, soweit anwendbar,
+        §&nbsp;25 Abs.&nbsp;2 TTDSG.
+      </p>
+      <h3>15.2 Optionale Cookies / ähnliche Technologien (Einwilligung)</h3>
+      <p>
+        Optionale Technologien werden erst geladen, wenn Sie im Cookie-Banner „Akzeptieren“ wählen.
+        Rechtsgrundlage: Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;a DSGVO und §&nbsp;25 Abs.&nbsp;1 TTDSG.
+        Bei „Ablehnen“ werden sie nicht geladen. Sie können Ihre Wahl jederzeit über
+        „Cookie-Einstellungen“ im Footer ändern (Wirkung für die Zukunft).
+      </p>
+      <p>Optionale Bestandteile:</p>
+      <ul>
+        <li>
+          Google Fonts (fonts.googleapis.com / fonts.gstatic.com) — lädt die Schriftart Manrope für
+          einheitliche Typografie. Ihr Browser kann Google-Server kontaktieren; dabei können technische
+          Daten wie die IP-Adresse übermittelt werden.
+        </li>
+        <li>
+          Firebase Analytics / Google Analytics&nbsp;4 (Google) — anonyme Website-Nutzungsstatistik für
+          unser Firebase-Projekt forfuture-ca143 (Web-Mess-ID G-19SJ3FVRX1). Typische Daten:
+          Seitenaufrufe, ungefähre Geräte-/Browserinformationen, Referrer-URL und Interaktionen
+          (z.&nbsp;B. Klicks auf App-Store- / Google-Play-Buttons). Google kann Analytics-Cookies oder
+          ähnliche Kennungen setzen bzw. lesen. Budgetbeträge, Kontopasswörter oder Bankdaten werden
+          von der Website nicht an Analytics gesendet. Die Verarbeitung kann Google-Infrastruktur
+          auch außerhalb der EU unter Standardvertragsklauseln (Art.&nbsp;46 DSGVO) umfassen.
+        </li>
+      </ul>
+      <h3>15.3 Speicherdauer und Widerruf</h3>
+      <p>
+        Cookie-Banner- und Sprachpräferenzen bleiben im Local Storage, bis Sie sie löschen oder
+        die Einstellung ändern. Analytics-Kennungen folgen den Aufbewahrungseinstellungen der
+        verknüpften GA4- / Firebase-Property (typischerweise bis zu 14 Monate, sofern nicht kürzer
+        konfiguriert). Widerruf: „Cookie-Einstellungen“ → Ablehnen und/oder Website-Daten im Browser
+        löschen. Bereits erhobene Daten können für die Aufbewahrungsfrist verbleiben, soweit keine
+        Löschung gesetzlich geschuldet ist.
       </p>
 
       <h2>16. Änderungen</h2>
@@ -559,7 +644,7 @@
       </p>
 
       <div class="contact-info">
-        <p><strong>Kontakt</strong></p>
+        <p>Kontakt</p>
         <p>
           Diana Barkova · Kastanienstraße 18 · 40699 Erkrath · Deutschland<br />
           Datenschutz: <a href="mailto:diana.iglizn@gmail.com">diana.iglizn@gmail.com</a><br />
