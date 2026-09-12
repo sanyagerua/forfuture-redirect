@@ -493,9 +493,19 @@
   function initStoreLinks() {
     document.querySelectorAll('[data-store="ios"]').forEach(function (el) {
       el.setAttribute('href', STORE_LINKS.ios);
+      el.addEventListener('click', function () {
+        if (window.ForFutureAnalytics) {
+          window.ForFutureAnalytics.track('store_click', { store: 'ios' });
+        }
+      });
     });
     document.querySelectorAll('[data-store="android"]').forEach(function (el) {
       el.setAttribute('href', STORE_LINKS.android);
+      el.addEventListener('click', function () {
+        if (window.ForFutureAnalytics) {
+          window.ForFutureAnalytics.track('store_click', { store: 'android' });
+        }
+      });
     });
   }
 

@@ -3,9 +3,10 @@
 
   var STORAGE_KEY = 'ff-cookie-consent';
   var LANG_KEY = 'ff-lang';
-  var CONSENT_VERSION = 2;
+  var CONSENT_VERSION = 3;
   var FONT_HREF =
     'https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap';
+  var ANALYTICS_SRC = 'firebase-analytics.js';
 
   var INLINE_CSS =
     '.cookie-banner{position:fixed;inset:auto 0 0 0;z-index:10000;background:#fff;border-top:1px solid #e5e7eb;box-shadow:0 -4px 24px rgba(17,19,24,.08);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:15px;line-height:1.45;color:#374151}' +
@@ -38,7 +39,7 @@
 
   var STRINGS = {
     de: {
-      text: 'Wir verwenden Cookies.',
+      text: 'Wir verwenden optionale Cookies für Schriftarten und anonyme Nutzungsstatistik (Firebase Analytics).',
       learn: 'Mehr erfahren',
       accept: 'Akzeptieren',
       decline: 'Ablehnen',
@@ -46,7 +47,7 @@
       aria: 'Cookie-Hinweis',
     },
     en: {
-      text: 'We use cookies.',
+      text: 'We use optional cookies for fonts and anonymous usage analytics (Firebase Analytics).',
       learn: 'Learn more',
       accept: 'Accept',
       decline: 'Decline',
@@ -119,6 +120,37 @@
     document.head.appendChild(link);
   }
 
+  function ensureAnalyticsScript(cb) {
+    if (window.ForFutureAnalytics) {
+      if (cb) cb();
+      return;
+    }
+    if (document.getElementById('ff-firebase-analytics')) {
+      if (cb) {
+        document.getElementById('ff-firebase-analytics').addEventListener('load', cb);
+      }
+      return;
+    }
+    var script = document.createElement('script');
+    script.id = 'ff-firebase-analytics';
+    script.src = ANALYTICS_SRC;
+    script.async = true;
+    if (cb) script.addEventListener('load', cb);
+    (document.head || document.documentElement).appendChild(script);
+  }
+
+  function enableAnalytics() {
+    ensureAnalyticsScript(function () {
+      if (window.ForFutureAnalytics) window.ForFutureAnalytics.applyConsent('accepted');
+    });
+  }
+
+  function disableAnalytics() {
+    if (window.ForFutureAnalytics) {
+      window.ForFutureAnalytics.applyConsent('declined');
+    }
+  }
+
   function hideBanner() {
     var banner = document.getElementById('cookie-banner');
     if (banner) banner.hidden = true;
@@ -141,7 +173,13 @@
 
   function applyChoice(choice, showUi) {
     saveConsent(choice);
-    if (choice === 'accepted') loadGoogleFonts();
+    if (choice === 'accepted') {
+      loadGoogleFonts();
+      enableAnalytics();
+    } else {
+      removeGoogleFonts();
+      disableAnalytics();
+    }
     if (showUi !== false) hideBanner();
     document.dispatchEvent(
       new CustomEvent('ff-cookie-consent', { detail: { choice: choice } })
@@ -195,8 +233,10 @@
     if (consent) {
       if (consent.choice === 'accepted') {
         loadGoogleFonts();
+        enableAnalytics();
       } else {
         removeGoogleFonts();
+        disableAnalytics();
       }
       hideBanner();
       return;
